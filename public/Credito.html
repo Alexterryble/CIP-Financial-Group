@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créditos Ágiles Modalidad 40 | CIP Financial Group</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Estilos generales */
+        :root {
+            --primary: #0056b3;
+            --secondary: #ff6b00;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+/* Hero Section con Imagen */
+.hero-section {
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: white;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        width: 100vw;
+        padding: 20px;
+    }
+    
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 87, 179, 0.336); /* Overlay azul semitransparente */
+        z-index: 1;
+    }
+    
+    .hero-content {
+        max-width: 900px;
+        padding: 0 20px;
+        z-index: 2;
+        position: relative;
+    }
+    
+    .hero-section h1 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+    
+    .hero-section p {
+        font-size: clamp(1rem, 2vw, 1.5rem);
+        margin-bottom: 2.5rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    
+    .cta-button {
+        display: inline-block;
+        background-color: #ff6b00;
+        color: white;
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .cta-button:hover {
+        background-color: #e05d00;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+    
+    /* Efecto de separación inferior */
+    .hero-section::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background: white;
+        clip-path: polygon(0 70%, 100% 0, 100% 100%, 0% 100%);
+        z-index: 1;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        .hero-section {
+            padding-top: 80px; /* Espacio para menú móvil */
+        }
+        
+        .cta-button {
+            padding: 12px 30px;
+            font-size: 1rem;
+        }
+    }
+        
+        /* Secciones */
+        .section-container {
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .section-title {
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 15px auto 0;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Beneficios */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .benefit-card {
+            background: white;
+            border-radius: 10px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 5px solid var(--primary);
+            text-align: center;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .benefit-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        /* Proceso */
+        .process-steps {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .process-step {
+            display: flex;
+            margin-bottom: 30px;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            margin-right: 25px;
+        }
+        
+        .step-content {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            flex-grow: 1;
+            text-align: left;
+        }
+        
+        .step-content h3 {
+            margin-top: 0;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* Testimonios */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .testimonial-card {
+            background: var(--light);
+            padding: 40px 30px;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            font-size: 5rem;
+            color: rgba(0,86,179,0.1);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            position: relative;
+            z-index: 2;
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        /* CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, #003366 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        
+        .final-cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            background-color: white;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .faq-answer {
+            background-color: var(--light);
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .faq-answer.active {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-section h1 {
+                font-size: 2.4rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-items {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+
+            
+            .hero-section {
+                padding: 80px 20px;
+            }
+            
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .process-step {
+                flex-direction: column;
+            }
+            
+            .step-number {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+        }
+
+            .faq-answer {
+                max-height: 0;
+                overflow: hidden;
+                padding: 0 20px;
+                border-top: 1px solid #ddd;
+                background-color: #fff;
+                color: #333;
+                font-size: 1rem;
+                line-height: 1.6;
+                transition: all 0.3s ease;
+            }
+
+            .faq-item.active .faq-answer {
+                max-height: 500px; /* puedes ajustar si tienes textos muy largos */
+                padding: 15px 20px;
+            }
+
+    </style>
+</head>
+<body>
+
+    <!-- Menú ORIGINAL (sin cambios) -->
+    <!-- Menú ORIGINAL (sin cambios) -->
+    <div class="menu-container">
+        <div class="menu">
+<div class="logo" id="logo-menu"> <!-- AÑADIR el id -->
+    <img src="images/logo1.png" alt="Logo CIP">
+    <span class="logo-text">CIP FINANCIAL GROUP</span>
+</div>
+
+            
+            <ul class="menu-items">
+                <li class="menu-item"><a href="index.html">Inicio</a></li>
+                <li class="menu-item"><a href="nosotros.html">Nosotros</a></li>
+                <li class="menu-item dropdown">
+                  <a href="#" class="dropdown-toggle">Servicios <i class="fas fa-chevron-down"></i></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="service.html">Pensiones</a></li>
+                    <li><a href="Seleccion.html">Ahorro</a></li>
+                    <li><a href="Credito.html">Crédito</a></li>
+                  </ul>
+                </li>
+                <li class="menu-item"><a href="Contacto.html">Contacto</a></li>
+            </ul>
+            
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- Contenido principal -->
+<section class="hero-section" style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Financia tu Modalidad 40 y Aumenta tu Pensión</h1>
+        <p style="text-align: justify;">Te ayudamos a financiar tus aportaciones a la Modalidad 40, para que al jubilarte obtengas la mejor pensión posible.</p>
+        <a href="Contacto.html" class="cta-button">SOLICITA TU PLAN</a>
+    </div>
+</section>
+
+
+        <!-- Beneficios -->
+        <section class="section-container">
+            <div class="section-title">
+                <h2>Beneficios Exclusivos</h2>
+                <p>Diseñados para hacer tu experiencia financiera más sencilla y provechosa</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Proceso Express</h3>
+                    <p>Aprobación en menos de 48 horas y desembolso inmediato una vez aprobado tu crédito.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h3>Tasas Preferenciales</h3>
+                    <p>Las tasas más competitivas del mercado especiales para clientes Modalidad 40.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <h3>Planes Personalizados</h3>
+                    <p>Adaptamos el crédito a tus necesidades específicas y capacidad de pago.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proceso -->
+        <section class="section-container" style="background-color: #f8f9fa;">
+            <div class="section-title">
+                <h2>¿Cómo obtener tu crédito?</h2>
+                <p>Sigue estos simples pasos para acceder a tu financiamiento</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Solicitud Simple</h3>
+                        <p>Completa nuestro formulario en línea en solo 5 minutos o acude a una de nuestras sucursales.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Revisión Rápida</h3>
+                        <p>Nuestro equipo especializado evaluará tu solicitud con los más altos estándares de calidad.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Aprobación Express</h3>
+                        <p>Recibirás respuesta en un máximo de 48 horas hábiles.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+                <h3>Trámite y alta en Modalidad 40</h3>
+                <p>Formalizamos tu inscripción en la Modalidad 40 y te acompañamos durante todo el proceso para maximizar tu futura pensión.</p>
+            </div>
+            </div>
+        </section>
+
+        <!-- Testimonios -->
+     <section class="section-container">
+    <div class="section-title">
+        <h2>Experiencias Reales</h2>
+        <p>Lo que nuestros clientes dicen sobre financiar su Modalidad 40 con nosotros</p>
+    </div>
+    
+    <div class="testimonial-grid">
+        <div class="testimonial-card">
+            <div class="testimonial-text">
+                "Gracias al financiamiento pude inscribirme en Modalidad 40 sin descapitalizarme. Ahora sé que mi pensión será mucho mayor de lo que esperaba."
+            </div>
+            <div class="testimonial-author">- Roberto Martínez</div>
+        </div>
+        
+        <div class="testimonial-card">
+            <div class="testimonial-text">
+                "El equipo de CIP me asesoró en todo el proceso, resolvieron mis dudas y me ayudaron a proyectar cuánto más podría recibir al jubilarme. ¡Estoy muy satisfecho!"
+            </div>
+            <div class="testimonial-author">- Laura Sánchez</div>
+        </div>
+        
+        <div class="testimonial-card">
+            <div class="testimonial-text">
+                "Nunca imaginé que podía financiar mis aportaciones de Modalidad 40. Hoy tengo un plan que se adapta a mis posibilidades y me garantiza una mejor pensión."
+            </div>
+            <div class="testimonial-author">- Carlos Jiménez</div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Final -->
+<section class="final-cta">
+    <h2>Empieza hoy a financiar tu Modalidad 40 y asegura tu futura pensión</h2>
+    <p style="text-align: justify;">Te ayudamos a estructurar un plan de financiamiento para que no dejes pasar esta oportunidad de aumentar significativamente tu pensión.</p>
+    <a href="Contacto.html" class="cta-button">QUIERO FINANCIAR MI MODALIDAD 40</a>
+</section>
+
+        <!-- FAQ -->
+<!-- FAQ -->
+<section class="section-container" id="creditos-section">
+    <div class="section-title">
+        <h2>Preguntas Frecuentes</h2>
+        <p>Resolvemos tus dudas más comunes sobre el financiamiento de Modalidad 40</p>
+    </div>
+    
+    <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>¿Qué es el financiamiento de Modalidad 40?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p style="text-align: justify;">La Modalidad 40 del IMSS (Instituto Mexicano del Seguro Social), conocida oficialmente como "Continuación Voluntaria en el Régimen Obligatorio", es un esquema que permite a los trabajadores que dejaron de cotizar con un patrón, seguir realizando aportaciones voluntarias al IMSS para mejorar el monto de su futura pensión.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>¿Quién puede acceder a este financiamiento?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p style="text-align: justify;">Esta modalidad está dirigida principalmente a trabajadores que cumplen con los siguientes requisitos: </br>
+
+</br>-   Haber cotizado bajo la Ley del Seguro Social de 1973 (es decir, aquellos que iniciaron sus cotizaciones antes del 1 de julio de 1997).</br>
+
+</br>-  Haber causado baja en el régimen obligatorio del Seguro Social (ya no estar trabajando con un patrón).</br>
+
+</br>-  Tener al menos 52 semanas de cotización en los últimos cinco años antes de su baja.</br>
+
+</br>-  No haber transcurrido más de cinco años desde la fecha de su baja ante el IMSS.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>¿Para qué sirve y cuáles son sus beneficios?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>El objetivo principal de la Modalidad 40 es mejorar el monto de la pensión al momento del retiro. Esto se logra de dos maneras:</br>
+</br>1.	Incrementando el Salario Base de Cotización (SBC): Esto es crucial porque el monto de tu pensión se calcula con base en el promedio de tu SBC de las últimas 250 semanas (aproximadamente 5 años). Al cotizar con un salario más alto en tus últimos años, aumentas este promedio y, por ende, tu pensión.</br>
+</br>2.	Aumentando las semanas de cotización: Si te faltan semanas para alcanzar las necesarias para pensionarte (generalmente 500 para la Ley 73), la Modalidad 40 te permite seguir sumándolas.</br>
+</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <!-- Footer Mejorado -->
+<footer class="footer">
+  <div class="footer-container">
+      <div class="footer-top">
+          <div class="container">
+              <div class="footer-brand">
+                  <h3 class="footer-title">CIP FINANCIAL GROUP</h3>
+                  <p class="footer-text">Soluciones financieras integrales para tu futuro</p>
+                  
+                  <div class="footer-social">
+                      <a href="https://www.facebook.com/profile.php?id=61573398725938" class="social-link" target="_blank" rel="noopener noreferrer">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                      </a>
+                      <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M16 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M8 16V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M16 12H22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M2 12H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M12 2V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M12 16V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                      </a>
+                  </div>
+              </div>
+
+              <div class="footer-links">
+                  <div class="links-group">
+                      <h5 class="links-title">Enlaces Útiles</h5>
+                      <ul class="links-list">
+                          <li><a href="index.html" class="footer-link">Inicio</a></li>
+                          <li><a href="nosotros.html" class="footer-link">Nosotros</a></li>
+                          <li><a href="/cip/contact.php" class="footer-link">Contacto</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="links-group">
+                      <h5 class="links-title">Nuestros Servicios</h5>
+                      <ul class="links-list">
+                          <li><a href="service.html" class="footer-link">Asesoría en Pensiones</a></li>
+                          <li><a href="Seleccion.html" class="footer-link">Inversiones Inteligentes</a></li>
+                          <li><a href="Credito.html" class="footer-link">Créditos Modalidad 40</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="links-group">
+                      <h5 class="links-title">Contacto</h5>
+                      <ul class="links-list contact-list">
+                          <li>
+                              <a href="mailto:atencion@cipmexico.com.mx" class="footer-link contact-link">
+                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  atencion@cipmexico.com.mx
+                              </a>
+                          </li>
+                          <li>
+                              <a href="https://wa.me/527226964726" class="footer-link contact-link whatsapp" target="_blank" rel="noopener noreferrer">
+                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M12 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M9 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M15 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  722 696 4726
+                              </a>
+                          </li>
+                          <li>
+                              <a href="https://www.google.com/maps/place/Consultor%C3%ADa+Integral+de+Pensiones+M%C3%A9xico/@19.2844002,-99.6233479,17z/data=!3m1!4b1!4m6!3m5!1s0x85cd8b51ad06414f:0xc51df107ad8b455c!8m2!3d19.2844!4d-99.6229054!16s%2Fg%2F11f6nffr11?entry=ttu" 
+                              class="footer-link contact-link map" 
+                              target="_blank" 
+                              rel="noopener noreferrer">
+                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  PRIV. JAIME NUNO 103, 2DO PISO, COL. SAN SEBASTIÁN, TOLUCA, MÉXICO. C.P. 50150.
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+
+
+          </div>
+      </div>
+
+      <div class="footer-bottom">
+          <div class="container">
+              <p class="copyright">&copy; <span id="current-year"></span> CIP Financial Group. Todos los derechos reservados.</p>
+          </div>
+      </div>
+  </div>
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const menuIcon = document.querySelector(".menu-icon");
+  const menuItems = document.querySelector(".menu-items");
+  const dropdown = document.querySelector(".menu-item.dropdown");
+  const toggle = dropdown.querySelector(".dropdown-toggle");
+
+  // Mostrar/Ocultar menú hamburguesa
+  menuIcon?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menuIcon.classList.toggle("active");
+    menuItems.classList.toggle("show");
+    dropdown.classList.remove("active");
+  });
+
+  // Al hacer clic en "Servicios"
+  toggle?.addEventListener("click", function (e) {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      e.stopPropagation();
+      dropdown.classList.toggle("active");
+
+      // Asegura rotar solo el ícono de este menú
+      const chevron = this.querySelector(".fa-chevron-down");
+      if (dropdown.classList.contains("active")) {
+        chevron.style.transform = "rotate(180deg)";
+      } else {
+        chevron.style.transform = "rotate(0deg)";
+      }
+    }
+  });
+
+  // Cierra menú y submenú si se hace clic fuera
+  document.addEventListener("click", function (e) {
+    if (window.innerWidth <= 768) {
+      if (!menuItems.contains(e.target)) {
+        menuItems.classList.remove("show");
+        menuIcon?.classList.remove("active");
+        dropdown.classList.remove("active");
+        toggle.querySelector(".fa-chevron-down").style.transform = "rotate(0deg)";
+      }
+    }
+  });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach(item => {
+        const question = item.querySelector(".faq-question");
+
+        question.addEventListener("click", () => {
+            // Cierra cualquier otra respuesta abierta
+            faqItems.forEach(i => {
+                if (i !== item) {
+                    i.classList.remove("active");
+                }
+            });
+
+            // Toggle del item actual
+            item.classList.toggle("active");
+        });
+    });
+});
+</script>
+
+
+
+
+</body>
+</html>

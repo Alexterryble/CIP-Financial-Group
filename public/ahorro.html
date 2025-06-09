@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIP Financial Group</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Estilos adicionales para el contenido -->
+    <style>
+:root {
+    --primary: #0056b3;
+    --primary-light: #e6f0fa;
+    --primary-dark: #003d82;
+    --secondary: #00a8e8;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --gray: #6c757d;
+    --gray-light: #e9ecef;
+    --success: #28a745;
+    --success-light: #e8f5e9;
+    --danger: #dc3545;
+    --warning: #ffc107;
+    --warning-light: #fff8e1;
+    --border-radius: 10px;
+    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --box-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.12);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --accent-color: #0044ff;
+    --hero-text: #22a9c8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 20px;
+    color: var(--dark);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+}
+
+
+/* Benefit Cards */
+.benefit-card {
+    border-left: 4px solid var(--accent-color);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    height: 100%;
+}
+
+.benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.benefit-icon {
+    font-size: 2.2rem;
+    color: var(--accent-color);
+    margin-bottom: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.benefit-card:hover .benefit-icon {
+    transform: scale(1.1);
+}
+
+/* Highlight Box */
+.highlight-box {
+    background: linear-gradient(135deg, rgba(0,86,179,0.08), transparent);
+    border-radius: var(--border-radius);
+    padding: 2.5rem;
+    border-left: 4px solid var(--primary);
+    margin: 2.5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* CTA Section */
+.cta-section {
+    background-color: var(--light);
+    padding: 5rem 0;
+    text-align: center;
+    position: relative;
+}
+
+/* Buttons */
+.btn, .btn-modern {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    font-size: 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 6px 15px rgba(0, 86, 179, 0.2);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn:hover, .btn-modern:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 86, 179, 0.3);
+}
+
+.btn:active, .btn-modern:active {
+    transform: translateY(1px);
+}
+
+.btn::after, .btn-modern::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%, -50%);
+    transform-origin: 50% 50%;
+    transition: transform 0.6s ease;
+    z-index: 0;
+}
+
+.btn:hover::after, .btn-modern:hover::after {
+    transform: scale(25, 25) translate(-50%, -50%);
+}
+
+/* Header Styles */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+
+
+.product-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 15px;
+}
+
+.product-subtitle {
+    font-size: 16px;
+    color: var(--gray);
+    max-width: 700px;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+/* Input Sections */
+.input-section {
+    background: var(--primary-light);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+    border: 1px solid rgba(0, 86, 179, 0.2);
+    position: relative;
+    transition: var(--transition);
+}
+
+.input-section:hover {
+    box-shadow: var(--box-shadow-hover);
+}
+
+/* Estilos para grupos de entrada personalizados */
+.cip-input-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.cip-input-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: var(--dark);
+    font-size: 15px;
+}
+
+.cip-input-wrapper {
+    position: relative;
+}
+
+.cip-input-wrapper::before {
+    content: '$';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 500;
+    color: var(--gray);
+    z-index: 1;
+}
+
+.cip-info-text {
+    font-size: 14px;
+    color: var(--gray);
+    margin-top: 8px;
+}
+
+.cip-error-text {
+    font-size: 14px;
+    color: var(--danger);
+    margin-top: 8px;
+    display: none;
+}
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper::before {
+    content: '$';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 500;
+    color: var(--gray);
+    z-index: 1;
+}
+
+input {
+    appearance: textfield;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    width: 100%;
+    padding: 14px 14px 14px 35px;
+    border: 1px solid #d1d5db;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    font-weight: 500;
+    transition: var(--transition);
+    background-color: white;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Tabs */
+.tab-container {
+    display: flex;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--gray-light);
+    position: relative;
+}
+
+.tab-button {
+    padding: 12px 24px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 15px;
+    color: var(--gray);
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: var(--transition);
+    position: relative;
+    margin-right: 5px;
+}
+
+.tab-button.active {
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary);
+    font-weight: 600;
+}
+
+.tab-button:hover {
+    color: var(--primary-dark);
+    background-color: rgba(0, 86, 179, 0.05);
+    border-radius: 5px 5px 0 0;
+}
+
+.tab-content {
+    display: none;
+    padding-top: 20px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Detail Sections */
+.detail-section ul {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.detail-section li {
+    margin-bottom: 0;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    background-color: white;
+    box-shadow: var(--box-shadow);
+    border: 1px solid #eee;
+    font-size: 15px;
+    transition: var(--transition);
+}
+
+.detail-section li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.detail-section li strong {
+    font-weight: 600;
+    color: var(--dark);
+    display: block;
+    margin-bottom: 15px;
+    font-size: 18px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.detail-section li strong::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 3px;
+}
+
+.detail-section li ul {
+    display: block;
+}
+
+.detail-section li li {
+    padding: 0;
+    margin-bottom: 10px;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+}
+
+.detail-section li li:last-child {
+    margin-bottom: 0;
+}
+
+/* Chart Container */
+.chart-container {
+    margin-top: 30px;
+    position: relative;
+    height: 400px;
+    width: 100%;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    background-color: white;
+    padding: 25px;
+    border: 1px solid #eee;
+    transition: var(--transition);
+}
+
+.chart-container:hover {
+    box-shadow: var(--box-shadow-hover);
+}
+
+/* Comparison Section */
+.comparison-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.comparison-section li {
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    background-color: white;
+    box-shadow: var(--box-shadow);
+    border: 1px solid #eee;
+    font-size: 15px;
+    transition: var(--transition);
+}
+
+.comparison-section li:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.comparison-section li strong {
+    font-weight: 600;
+    color: var(--dark);
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.comparison-section ul ul {
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.comparison-section ul ul li {
+    padding: 0;
+    margin-bottom: 8px;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    position: relative;
+    padding-left: 20px;
+}
+
+.comparison-section ul ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+/* Action Section */
+.action-section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Info Text */
+.info-text {
+    font-size: 14px;
+    color: var(--gray);
+    margin-top: 15px;
+    text-align: center;
+}
+
+.error-text {
+    font-size: 14px;
+    color: var(--danger);
+    margin-top: 8px;
+    display: none;
+}
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.badge-primary {
+    background-color: var(--primary-light);
+    color: var(--primary);
+}
+
+.badge-success {
+    background-color: var(--success-light);
+    color: var(--success);
+}
+
+.badge-warning {
+    background-color: var(--warning-light);
+    color: #b38700;
+}
+
+/* Feature Icon */
+.feature-icon {
+    color: var(--primary);
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+/* Conclusion Box */
+.conclusion-box {
+    background-color: var(--primary-light);
+    border-left: 4px solid var(--primary);
+    padding: 20px;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    margin-top: 30px;
+}
+
+.conclusion-box strong {
+    color: var(--primary-dark);
+}
+
+/* Resultados más grandes */
+#detalles span[id^="ganancia-detalle"],
+#detalles span[id^="total-detalle"] {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #1d3557;
+    display: inline-block;
+    margin-top: 4px;
+}
+
+/* Etiquetas de ganancia */
+#detalles strong {
+    font-size: 1.1rem;
+}
+
+/* Fecha más legible */
+#detalles span[id^="fecha-retorno"] {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 4px;
+    display: inline-block;
+}
+
+/* Espaciado entre ítems */
+#detalles ul li {
+    margin-bottom: 10px;
+}
+
+/* Badge más visible */
+.badge {
+    font-size: 0.95rem;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+#detalles ul li strong:has(> .badge) ~ ul li:first-child {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #0d47a1;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .modern-hero {
+        padding: 6rem 0 4rem;
+    }
+    
+    .modern-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .modern-hero .lead {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 25px;
+    }
+    
+    .modern-hero {
+        padding: 5rem 0 3rem;
+    }
+    
+    .modern-hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .benefit-card {
+        padding: 1.5rem;
+    }
+    
+    .btn, .btn-modern {
+        padding: 16px 30px;
+        font-size: 16px;
+    }
+    
+    .detail-section ul {
+        grid-template-columns: 1fr;
+    }
+    
+    .tab-container {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 10px;
+    }
+    
+    .tab-button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    .chart-container {
+        padding: 15px;
+        height: 300px;
+    }
+    
+    .btn, .btn-modern {
+        width: 100%;
+    }
+}
+
+.modern-hero {
+  margin-top: 70px; /* Espacio para que no choque con el menú flotante */
+  padding: 220px 0 100px;
+  background: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80')
+              no-repeat center center;
+  background-size: cover;
+}
+
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.hero-content {
+  background: rgba(255, 255, 255, 0.9);
+  display: inline-block;
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 800px;
+  margin-top: 40px;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+  color: #052F5F;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: #4a5568;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn-simular,
+.btn-contactar {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-simular {
+  background: #FFC107;
+  color: #052F5F;
+}
+
+.btn-contactar {
+  background: #052F5F;
+  color: white;
+}
+   /* Bank Comparison */
+        .bank-comparison {
+            margin: 30px 0;
+        }
+        
+        .bank-card {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .bank-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .bank-logo {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    color: white;
+                    margin-right: 15px;
+                    font-size: 1.1rem;
+                }
+                
+    
+
+        
+        .bank-info {
+            flex: 1;
+        }
+        
+        .bank-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .bank-rate {
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        .bank-amount {
+            font-weight: 700;
+            color: var(--danger);
+            font-size: 18px;
+            min-width: 100px;
+            text-align: right;
+        }
+        .footer-container .container::before {
+    display: none;
+}
+.simulador-header {
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    padding: 40px 20px 20px 20px;
+    text-align: center;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.simulador-logo {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.simulador-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #052F5F;
+    margin-bottom: 12px;
+}
+
+.simulador-subtitle {
+    font-size: 1rem;
+    color: #6C757D;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+}
+/* Contenedor centrado para secciones */
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+/* Estilo para los títulos de los planes */
+.plan-title {
+    font-size: 1.5rem; /* Tamaño más razonable que los 100px anteriores */
+    font-weight: 700;
+    color: var(--primary-dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-light);
+    width: 100%;
+}
+
+/* Ajustes para los badges dentro de los títulos */
+.plan-title .badge {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-left: auto; /* Alinea el badge a la derecha */
+}
+
+/* Estilos específicos para cada tipo de badge */
+.badge-primary {
+    background-color: var(--primary-light);
+    color: var(--primary);
+}
+
+.badge-success {
+    background-color: var(--success-light);
+    color: var(--success);
+}
+
+.badge-warning {
+    background-color: var(--warning-light);
+    color: darken(var(--warning), 20%);
+}
+
+/* Asegurar que los strong sin clase plan-title también tengan buen estilo */
+.detail-section li > strong:not(.plan-title) {
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-light);
+    width: 100%;
+}
+/* Estilo para el cuadro azul de comparativa */
+.highlight-card {
+    background: linear-gradient(90deg, #003d82, #007bb5);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.highlight-card h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.highlight-card .result-amount {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.highlight-card p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Ajuste responsive para móviles */
+@media (max-width: 768px) {
+    .plan-title, .detail-section li > strong {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .plan-title .badge {
+        margin-left: 0;
+        align-self: flex-end;
+    }
+}
+    </style>
+</head>
+    <!-- Menú ORIGINAL (sin cambios) -->
+    <div class="menu-container">
+        <div class="menu">
+<div class="logo" id="logo-menu"> <!-- AÑADIR el id -->
+    <img src="images/logo1.png" alt="Logo CIP">
+    <span class="logo-text">CIP Financial Group</span>
+</div>
+
+            
+            <ul class="menu-items">
+                <li class="menu-item"><a href="index.html">Inicio</a></li>
+                <li class="menu-item"><a href="nosotros.html">Nosotros</a></li>
+                <li class="menu-item dropdown">
+                  <a href="#" class="dropdown-toggle">Servicios <i class="fas fa-chevron-down"></i></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="service.html">Pensiones</a></li>
+                    <li><a href="Seleccion.html">Ahorro</a></li>
+                    <li><a href="Credito.html">Crédito</a></li>
+                  </ul>
+                </li>
+                <li class="menu-item"><a href="Contacto.html">Contacto</a></li>
+            </ul>
+            
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+<!-- Hero Section con Espaciado Ajustado -->
+<section class="modern-hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <h1>Plan 40</h1>
+      <p>Inversión segura con rendimientos atractivos a largo plazo</p>
+      <div class="hero-buttons">
+        <a href="#simulador" class="btn-simular">
+          Simular ahora <i class="fas fa-calculator"></i>
+        </a>
+        <a href="Contacto.html" class="btn-contactar">
+          Contactar
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección de Contenido Mejorada -->
+<section style="padding: 80px 0; background: #f8f9fa;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 50px;">
+            <div style="flex: 1; min-width: 300px;">
+                <h2 style="font-size: 2.3rem; color: #052F5F; margin-bottom: 1.5rem; line-height: 1.3;">Nuestro <span style="color: #FFC107;">Plan 40</span></h2>
+                <div style="background: white; border-radius: 12px; padding: 25px; margin-bottom: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <p style="font-size: 1.1rem; color: #4a5568; margin: 0; line-height: 1.6;text-align: justify;">
+                        <i class="fas fa-quote-left" style="color: #FFC107; margin-right: 8px;"></i>
+                        En CIP Financial Group hemos diseñado el Plan 40 para ofrecerte seguridad y rendimientos atractivos a lo largo del tiempo.
+                    </p>
+                </div>
+                
+                <p style="color: #6C757D; line-height: 1.7; margin-bottom: 1.5rem;">
+                    <i class="fas fa-check-circle" style="color: #FFC107; margin-right: 8px;"></i>
+                    Inversión protegida con garantía de capital
+                </p>
+                <p style="color: #6C757D; line-height: 1.7; margin-bottom: 1.5rem;">
+                    <i class="fas fa-check-circle" style="color: #FFC107; margin-right: 8px;"></i>
+                    Rendimientos superiores al promedio del mercado
+                </p>
+                <p style="color: #6C757D; line-height: 1.7;">
+                    <i class="fas fa-check-circle" style="color: #FFC107; margin-right: 8px;"></i>
+                    Flexibilidad en plazos y aportaciones
+                </p>
+            </div>
+            
+            <div style="flex: 1; min-width: 300px; position: relative;">
+                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+                     alt="Plan de ahorro financiero" 
+                     style="width: 100%; border-radius: 12px; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
+                
+                <div style="position: absolute; bottom: -20px; right: -20px; background: #FFC107; color: #052F5F; padding: 15px 25px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <div style="font-size: 1.8rem; font-weight: 700; line-height: 1;">+40%</div>
+                    <div style="font-size: 0.9rem;">Rendimiento promedio</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Sección de Comparación de Planes - Versión Mejorada -->
+<!-- Sección de Comparación de Planes - Versión Simplificada -->
+<section style="padding: 80px 0; background: #f5f7fa;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <h2 style="text-align: center; font-size: 2.5rem; color: #052F5F; margin-bottom: 15px;">NUESTROS PLANES</h2>
+        <h3 style="text-align: center; font-size: 1.8rem; color: #FFC107; margin-bottom: 50px;">PLAN 40</h3>
+        
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 40px;">
+            <!-- Plan Tradicional -->
+            <div style="flex: 1; min-width: 280px; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+                <div style="background: #052F5F; color: white; padding: 20px; text-align: center;">
+                    <h3 style="margin: 0; font-size: 1.5rem;">TRADICIONAL</h3>
+                </div>
+                <div style="padding: 25px;">
+                    <div style="margin-bottom: 20px; text-align: center;">
+                        <div style="font-size: 2.5rem; color: #4CAF50; font-weight: 700;">20%</div>
+                        <div style="color: #6C757D; font-size: 0.9rem;">Tasa de Rendimiento</div>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 12px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between;">
+                            <span style="color: #6C757D;">Plazo fijo:</span>
+                            <span style="font-weight: 500;">12 Meses</span>
+                        </li>
+                        <li style="padding: 12px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between;">
+                            <span style="color: #6C757D;">Monto mínimo:</span>
+                            <span style="font-weight: 500;">$10,000.00</span>
+                        </li>
+                        <li style="padding: 12px 0; display: flex; justify-content: space-between;">
+                            <span style="color: #6C757D;">Monto máximo:</span>
+                            <span style="font-weight: 500;">$200,000.00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Plan Moderado -->
+            <div style="flex: 1; min-width: 280px; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+                <div style="background: #052F5F; color: white; padding: 20px; text-align: center;">
+                    <h3 style="margin: 0; font-size: 1.5rem;">MODERADO</h3>
+                </div>
+                <div style="padding: 25px;">
+                    <div style="margin-bottom: 20px; text-align: center;">
+                        <div style="font-size: 2.5rem; color: #4CAF50; font-weight: 700;">44%</div>
+                        <div style="color: #6C757D; font-size: 0.9rem;">Tasa de Rendimiento</div>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 12px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between;">
+                            <span style="color: #6C757D;">Plazo fijo:</span>
+                            <span style="font-weight: 500;">24 Meses</span>
+                        </li>
+                        <li style="padding: 12px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between;">
+                            <span style="color: #6C757D;">Monto mínimo:</span>
+                            <span style="font-weight: 500;">$10,000.00</span>
+                        </li>
+                        <li style="padding: 12px 0; display: flex; justify-content: space-between;">
+                            <span style="color: #6C757D;">Monto máximo:</span>
+                            <span style="font-weight: 500;">$200,000.00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Plan Alto Rendimiento -->
+            <div style="flex: 1; min-width: 280px; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+                <div style="background: #052F5F; color: white; padding: 20px; text-align: center;">
+                    <h3 style="margin: 0; font-size: 1.5rem;">ALTO RENDIMIENTO</h3>
+                </div>
+                <div style="padding: 25px;">
+                    <div style="margin-bottom: 20px; text-align: center;">
+                        <div style="font-size: 2.5rem; color: #4CAF50; font-weight: 700;">148%</div>
+                        <div style="color: #6C757D; font-size: 0.9rem;">Tasa de Rendimiento</div>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 12px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between;">
+                            <span style="color: #6C757D;">Plazo fijo:</span>
+                            <span style="font-weight: 500;">60 Meses</span>
+                        </li>
+                        <li style="padding: 12px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between;">
+                            <span style="color: #6C757D;">Monto mínimo:</span>
+                            <span style="font-weight: 500;">$10,000.00</span>
+                        </li>
+                        <li style="padding: 12px 0; display: flex; justify-content: space-between;">
+                            <span style="color: #6C757D;">Monto máximo:</span>
+                            <span style="font-weight: 500;">$200,000.00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Nota legal -->
+        <div style="text-align: center; max-width: 700px; margin: 0 auto; padding: 15px; background: #e9ecef; border-radius: 8px;">
+            <p style="margin: 0; color: #6C757D; font-size: 0.9rem;">
+                * Los rendimientos mostrados son calculados sobre el monto inicial al término del plazo contratado. 
+                Los resultados pueden variar según las condiciones del mercado.
+            </p>
+        </div>
+    </div>
+</section>
+  <!-- Sección del Simulador Funcional -->
+
+<!-- CABECERA -->
+<div class="simulador-header">
+    <div class="simulador-logo">CIP <span>FINANCIAL GROUP</span></div>
+    <h1 class="simulador-title">SIMULADOR PLAN 40</h1>
+    <p class="simulador-subtitle">Simula tu inversión y descubre los rendimientos garantizados que puedes obtener con nuestro exclusivo plan de inversión</p>
+</div>
+
+<!-- MONTO DE INVERSIÓN -->
+<!-- MONTO DE INVERSIÓN (ahora dentro de content-container) -->
+<div class="content-container">
+    <div id="simulador" class="cip-input-group">
+        <label for="monto">MONTO A INVERTIR (MXN)</label>
+        <div class="cip-input-wrapper">
+            <input type="number" id="monto" placeholder="Ej. 50,000" oninput="validarMonto(this); calcularInversion()">
+        </div>
+        <p class="cip-info-text">Monto mínimo: $10,000 | Monto máximo: $200,000</p>
+        <p class="cip-error-text" id="error-monto">El monto debe estar entre $10,000 y $200,000</p>
+    </div>
+</div>
+
+
+<!-- PESTAÑAS -->
+<!-- PESTAÑAS (ahora dentro de content-container) -->
+<div class="content-container">
+    <div class="tab-container">
+        <button class="tab-button active" onclick="openTab(event, 'detalles')">
+            <i class="fas fa-info-circle feature-icon"></i> Detalles
+        </button>
+        <button class="tab-button" onclick="openTab(event, 'proyeccion')">
+            <i class="fas fa-chart-line feature-icon"></i> Proyección
+        </button>
+        <button class="tab-button" onclick="openTab(event, 'comparativa')">
+            <i class="fas fa-balance-scale feature-icon"></i> Comparativa
+        </button>
+    </div>
+</div>
+
+
+<!-- PESTAÑA: DETALLES -->
+<div id="detalles" class="tab-content active detail-section">
+    <div class="content-container">
+        <h2>Detalles de los Planes</h2>
+        
+        <ul>
+            <li> 
+               <strong class="plan-title">Tradicional <span class="badge badge-primary">Rendimiento: 20%</span></strong>
+                <ul>
+                    <li><i class="fas fa-calendar-alt feature-icon"></i> <strong>Plazo:</strong> 12 meses</li>
+                    <li><i class="fas fa-coins feature-icon"></i> <strong>Ganancia Estimada con $10,000:</strong> <span id="ganancia-detalle-12"></span></li>
+                    <li><i class="fas fa-piggy-bank feature-icon"></i> <strong>Total Estimado:</strong> <span id="total-detalle-12"></span></li>
+                    <li><i class="fas fa-clock feature-icon"></i> <strong>Fecha de Retorno:</strong> <span id="fecha-retorno-12"></span></li>
+                </ul>
+            </li>
+            <li>
+                <strong>Moderado<span class="badge badge-success">Rendimiento: 44%</span></strong>
+                <ul>
+                    <li><i class="fas fa-calendar-alt feature-icon"></i> <strong>Plazo:</strong> 24 meses</li>
+                    <li><i class="fas fa-coins feature-icon"></i> <strong>Ganancia Estimada con $10,000:</strong> <span id="ganancia-detalle-24"></span></li>
+                    <li><i class="fas fa-piggy-bank feature-icon"></i> <strong>Total Estimado:</strong> <span id="total-detalle-24"></span></li>
+                    <li><i class="fas fa-clock feature-icon"></i> <strong>Fecha de Retorno:</strong> <span id="fecha-retorno-24"></span></li>
+                </ul>
+            </li>
+            <li>
+                <strong>Alto Rendimiento<span class="badge badge-warning">Rendimiento: 148%</span></strong>
+                <ul>
+                    <li><i class="fas fa-calendar-alt feature-icon"></i> <strong>Plazo:</strong> 60 meses</li>
+                    <li><i class="fas fa-coins feature-icon"></i> <strong>Ganancia Estimada con $10,000:</strong> <span id="ganancia-detalle-60"></span></li>
+                    <li><i class="fas fa-piggy-bank feature-icon"></i> <strong>Total Estimado:</strong> <span id="total-detalle-60"></span></li>
+                    <li><i class="fas fa-clock feature-icon"></i> <strong>Fecha de Retorno:</strong> <span id="fecha-retorno-60"></span></li>
+                </ul>
+            </li>
+        </ul>
+        <p class="info-text"><i class="fas fa-info-circle"></i> Las fechas de retorno estimadas se calcularán en función de la fecha en que se realice la inversión.</p>
+    </div>
+</div>
+
+<!-- PESTAÑA: PROYECCIÓN -->
+<div id="proyeccion" class="tab-content chart-section">
+    <div class="content-container">
+        <h2>Proyección de tu Inversión</h2>
+        <p>Visualiza cómo crecería tu inversión a lo largo del tiempo:</p>
+        <div class="chart-container">
+            <canvas id="growthChart"></canvas>
+        </div>
+        <div class="info-text">
+            <i class="fas fa-chart-pie"></i> La gráfica muestra la proyección de crecimiento mes a mes de tu inversión inicial.
+        </div>
+    </div>
+</div>
+
+<!-- PESTAÑA: COMPARATIVA -->
+<div id="comparativa" class="tab-content">
+    <div class="content-container">
+        <div class="bank-comparison">
+                <div class="bank-comparison">
+                    <!-- Bancos tradicionales -->
+                    <div class="bank-card">
+                        <div class="bank-logo" style="background-color: #072146;">B</div>
+                        <div class="bank-info">
+                            <div class="bank-name">Cuenta de ahorro estándar</div>
+                            <div class="bank-rate">Tasa: 2.5% anual</div>
+                        </div>
+                        <div class="bank-amount" id="bbva-amount">$5,325</div>
+                    </div>
+                    
+                    <div class="bank-card">
+                        <div class="bank-logo" style="background-color: #ed0000;">S</div>
+                        <div class="bank-info">
+                            <div class="bank-name">Cuenta básica</div>
+                            <div class="bank-rate">Tasa: 1.8% anual</div>
+                        </div>
+                        <div class="bank-amount" id="santander-amount">$5,223</div>
+                    </div>
+                    
+                    <div class="bank-card">
+                        <div class="bank-logo" style="background-color: #0a2240;">C</div>
+                        <div class="bank-info">
+                            <div class="bank-name">Ahorro tradicional</div>
+                            <div class="bank-rate">Tasa: 1.2% anual</div>
+                        </div>
+                        <div class="bank-amount" id="banamex-amount">$5,156</div>
+                    </div>
+                    
+                    <!-- Fintech -->
+                    <div class="bank-card">
+                        <div class="bank-logo" style="background-color: #00a6e0;">MP</div>
+                        <div class="bank-info">
+                            <div class="bank-name">Fondo de inversión digital</div>
+                            <div class="bank-rate">Tasa: 4.5% anual</div>
+                        </div>
+                        <div class="bank-amount" id="mercadopago-amount">$5,612</div>
+                    </div>
+                    
+                    <div class="bank-card">
+                        <div class="bank-logo" style="background-color: #8200e6;">N</div>
+                        <div class="bank-info">
+                            <div class="bank-name">Cuenta digital premium</div>
+                            <div class="bank-rate">Tasa: 5.0% anual</div>
+                        </div>
+                        <div class="bank-amount" id="nu-amount">$5,750</div>
+                    </div>
+                    
+                    <div class="bank-card">
+                        <div class="bank-logo" style="background-color: #7a2e8a;">G</div>
+                        <div class="bank-info">
+                            <div class="bank-name">Instrumento de inversión</div>
+                            <div class="bank-rate">Tasa: 5.3% anual</div>
+                        </div>
+                        <div class="bank-amount" id="gbm-amount">$5,820</div>
+                    </div>
+                </div>
+                
+        </div>
+
+<!-- Cuadro azul -->
+<div class="result-card highlight-card" style="margin-top: 30px;">
+    <h1>Beneficio adicional con CIP</h1>
+    <div class="result-amount" id="ganancia-extra">+$1,024</div>
+    <p id="comparativa-banco">Selecciona una alternativa para comparar</p>
+</div>
+
+    </div>
+</div>
+
+
+    <div class="action-section">
+        <a href="Contacto.html" class="btn" id="">
+            <i class="fas fa-hand-holding-usd"></i> INVERTIR AHORA
+        </a>
+        <p class="info-text">
+            <i class="fas fa-shield-alt"></i> Rendimientos garantizados • 
+            <i class="fas fa-ban"></i> Sin comisiones ocultas • 
+            <i class="fas fa-headset"></i> Asesoría personalizada
+        </p>
+    </div>
+</div>
+
+
+
+<!-- Footer Mejorado -->
+<footer class="footer">
+  <div class="footer-container">
+      <div class="footer-top">
+          <div class="container">
+              <div class="footer-brand">
+                  <h3 class="footer-title">CIP Financial Group</h3>
+                  <p class="footer-text">Soluciones financieras integrales para tu futuro</p>
+                  
+                  <div class="footer-social">
+                      <a href="https://www.facebook.com/profile.php?id=61573398725938" class="social-link" target="_blank" rel="noopener noreferrer">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                      </a>
+                      <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M16 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M8 16V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M16 12H22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M2 12H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M12 2V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M12 16V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                      </a>
+                  </div>
+              </div>
+
+              <div class="footer-links">
+                  <div class="links-group">
+                      <h5 class="links-title">Enlaces Útiles</h5>
+                      <ul class="links-list">
+                          <li><a href="index.html" class="footer-link">Inicio</a></li>
+                          <li><a href="nosotros.html" class="footer-link">Nosotros</a></li>
+                          <li><a href="/cip/contact.php" class="footer-link">Contacto</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="links-group">
+                      <h5 class="links-title">Nuestros Servicios</h5>
+                      <ul class="links-list">
+                          <li><a href="service.html" class="footer-link">Asesoría en Pensiones</a></li>
+                          <li><a href="Seleccion.html" class="footer-link">Inversiones Inteligentes</a></li>
+                          <li><a href="Credito.html" class="footer-link">Créditos Modalidad 40</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="links-group">
+                      <h5 class="links-title">Contacto</h5>
+                      <ul class="links-list contact-list">
+                          <li>
+                              <a href="mailto:atencion@cipmexico.com.mx" class="footer-link contact-link">
+                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  atencion@cipmexico.com.mx
+                              </a>
+                          </li>
+                          <li>
+                              <a href="https://wa.me/527226964726" class="footer-link contact-link whatsapp" target="_blank" rel="noopener noreferrer">
+                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M12 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M9 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M15 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  722 696 4726
+                              </a>
+                          </li>
+                          <li>
+                              <a href="https://www.google.com/maps/place/Consultor%C3%ADa+Integral+de+Pensiones+M%C3%A9xico/@19.2844002,-99.6233479,17z/data=!3m1!4b1!4m6!3m5!1s0x85cd8b51ad06414f:0xc51df107ad8b455c!8m2!3d19.2844!4d-99.6229054!16s%2Fg%2F11f6nffr11?entry=ttu" 
+                              class="footer-link contact-link map" 
+                              target="_blank" 
+                              rel="noopener noreferrer">
+                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  PRIV. JAIME NUNO 103, 2DO PISO, COL. SAN SEBASTIÁN, TOLUCA, MÉXICO. C.P. 50150.
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+
+
+          </div>
+      </div>
+
+      <div class="footer-bottom">
+          <div class="container">
+              <p class="copyright">&copy; <span id="current-year"></span> CIP Financial Group. Todos los derechos reservados.</p>
+          </div>
+      </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+// Inicializar gráfica
+const ctx = document.getElementById('growthChart').getContext('2d');
+        let growthChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Proyección de tu inversión',
+                    data: [],
+                    borderColor: (context) => {
+                        const index = context.dataIndex;
+                        if (index <= 12) return '#0056b3';
+                        if (index <= 24) return '#28a745';
+                        return '#ffc107';
+                    },
+                    backgroundColor: 'rgba(0, 86, 179, 0.1)',
+                    fill: false,
+                    tension: 0.1,
+                    borderWidth: 3,
+                    pointRadius: 3,
+                    segment: {
+                        borderColor: (context) => {
+                            const index = context.p0DataIndex;
+                            if (index <= 11) return '#0056b3';
+                            if (index <= 23) return '#28a745';
+                            return '#ffc107';
+                        },
+                    }
+                }]
+            },
+            plugins: [{
+                beforeDraw: (chart) => {
+                    const { ctx, chartArea: { top, bottom, left, right }, scales: { x, y } } = chart;
+
+                    function drawBackground(color, startMonth, endMonth) {
+                        const startX = x.getPixelForValue(startMonth === 0 ? chart.data.labels[0] : `Mes ${startMonth}`);
+                        const endX = x.getPixelForValue(`Mes ${endMonth}`);
+                        const width = endX - startX;
+                        ctx.save();
+                        ctx.fillStyle = color;
+                        ctx.fillRect(startX, top, width, bottom - top);
+                        ctx.restore();
+                    }
+
+                    // Dibujar fondo azul claro para los primeros 12 meses
+                    drawBackground('rgba(0, 86, 179, 0.05)', 0, 12);
+
+                    // Dibujar fondo verde claro desde el mes 13 hasta el 24
+                    drawBackground('rgba(40, 167, 69, 0.05)', 12, 24);
+
+                    // Dibujar fondo amarillo claro desde el mes 25 hasta el 60
+                    drawBackground('rgba(255, 193, 7, 0.05)', 24, 60);
+                }
+            }],
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Proyección de crecimiento de tu inversión',
+                        font: {
+                            size: 16,
+                            weight: '600'
+                        },
+                        padding: {
+                            bottom: 20
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) label += ': ';
+                                if (context.parsed.y !== null) label += '$' + context.parsed.y.toLocaleString('es-MX');
+                                return label;
+                            },
+                            title: function(context) {
+                                return context[0].label;
+                            }
+                        },
+                        displayColors: false,
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        titleFont: {
+                            size: 14,
+                            weight: 'bold'
+                        },
+                        bodyFont: {
+                            size: 14
+                        },
+                        padding: 12,
+                        cornerRadius: 8
+                    },
+                    legend: {
+                        display: false,
+                    }
+                },
+                scales: {
+                    x: { 
+                        title: { 
+                            display: true, 
+                            text: 'Meses',
+                            font: {
+                                weight: '600'
+                            } 
+                        },
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: { 
+                            callback: (value) => '$' + value.toLocaleString('es-MX'),
+                            font: {
+                                weight: '500'
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index'
+                }
+            }
+        });
+
+        const tasa12Meses = 0.20;
+        const tasa24MesesTotal = 0.44;
+        const tasa60MesesTotal = 1.48;
+
+        function validarMonto(input) {
+            const errorElement = document.getElementById('error-monto');
+            let monto = parseFloat(input.value) || 0;
+            if (monto > 0 && (monto < 10000 || monto > 200000)) {
+                errorElement.style.display = 'block';
+                input.style.borderColor = 'var(--danger)';
+                input.style.boxShadow = '0 0 0 3px rgba(220, 53, 69, 0.1)';
+            } else {
+                errorElement.style.display = 'none';
+                input.style.borderColor = '#d1d5db';
+                input.style.boxShadow = 'none';
+            }
+        }
+
+        function formatCurrency(amount) {
+            return isNaN(amount) ? '$0' : '$' + amount.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        function calcularInversion() {
+    const montoInput = document.getElementById('monto');
+    let montoInicial = parseFloat(montoInput.value) || 0;
+
+    if (montoInicial >= 10000 && montoInicial <= 200000) {
+        const labels = ['Inicio'];
+        const data = [montoInicial];
+        const inversionDetalle = montoInicial;
+
+        // Gráfica con crecimiento lineal según tasa fija por tramo
+        for (let i = 1; i <= 60; i++) {
+            labels.push(`Mes ${i}`);
+            let incremento = 0;
+
+            if (i <= 12) {
+                incremento = inversionDetalle * tasa12Meses * (i / 12);
+            } else if (i <= 24) {
+                incremento = inversionDetalle * tasa24MesesTotal * (i / 24);
+            } else {
+                incremento = inversionDetalle * tasa60MesesTotal * (i / 60);
+            }
+
+            data.push(inversionDetalle + incremento);
+        }
+
+        growthChart.data.labels = labels;
+        growthChart.data.datasets[0].data = data;
+        growthChart.update();
+
+        // Calcular valores reales sin capitalización
+        const total12 = inversionDetalle * (1 + tasa12Meses);
+        const ganancia12 = total12 - inversionDetalle;
+
+        const total24 = inversionDetalle * (1 + tasa24MesesTotal);
+        const ganancia24 = total24 - inversionDetalle;
+
+        const total60 = inversionDetalle * (1 + tasa60MesesTotal);
+        const ganancia60 = total60 - inversionDetalle;
+
+        // Mostrar resultados
+        document.getElementById('ganancia-detalle-12').textContent = formatCurrency(ganancia12);
+        document.getElementById('total-detalle-12').textContent = formatCurrency(total12);
+
+        document.getElementById('ganancia-detalle-24').textContent = formatCurrency(ganancia24);
+        document.getElementById('total-detalle-24').textContent = formatCurrency(total24);
+
+        document.getElementById('ganancia-detalle-60').textContent = formatCurrency(ganancia60);
+        document.getElementById('total-detalle-60').textContent = formatCurrency(total60);
+
+        document.querySelector('#ganancia-detalle-12').previousElementSibling.textContent = `Ganancia Estimada con ${formatCurrency(inversionDetalle)}:`;
+        document.querySelector('#ganancia-detalle-24').previousElementSibling.textContent = `Ganancia Estimada con ${formatCurrency(inversionDetalle)}:`;
+        document.querySelector('#ganancia-detalle-60').previousElementSibling.textContent = `Ganancia Estimada con ${formatCurrency(inversionDetalle)}:`;
+
+        // Fechas de retorno
+        const hoy = new Date();
+        function formatDate(date) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return date.toLocaleDateString('es-MX', options);
+        }
+
+        document.getElementById('fecha-retorno-12').textContent = formatDate(new Date(hoy.getFullYear(), hoy.getMonth() + 12, hoy.getDate()));
+        document.getElementById('fecha-retorno-24').textContent = formatDate(new Date(hoy.getFullYear(), hoy.getMonth() + 24, hoy.getDate()));
+        document.getElementById('fecha-retorno-60').textContent = formatDate(new Date(hoy.getFullYear(), hoy.getMonth() + 60, hoy.getDate()));
+    } else {
+        growthChart.data.labels = [];
+        growthChart.data.datasets[0].data = [];
+        growthChart.update();
+    }
+}
+
+
+        document.getElementById('btn-invertir').addEventListener('click', function() {
+            const monto = parseFloat(document.getElementById('monto').value) || 0;
+            if (monto < 10000 || monto > 200000) {
+                alert('Por favor ingresa un monto válido entre $10,000 y $200,000');
+                return;
+            }
+            
+            const rendimiento12 = data[12] - monto;
+            const total12 = data[12];
+
+            const rendimiento24 = data[24] - monto;
+            const total24 = data[24];
+
+            const rendimiento60 = data[60] - monto;
+            const total60 = data[60];
+        });
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tabbuttons;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+            
+            // Redibujar el gráfico cuando se muestra la pestaña de proyección
+            if (tabName === 'proyeccion') {
+                setTimeout(() => {
+                    growthChart.resize();
+                }, 10);
+            }
+        }
+
+        // Inicializar calculadora al cargar
+        calcularInversion();
+        
+        // Redimensionar gráfico cuando cambia el tamaño de la ventana
+        window.addEventListener('resize', function() {
+            growthChart.resize();
+        });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const menuIcon = document.querySelector(".menu-icon");
+  const menuItems = document.querySelector(".menu-items");
+  const dropdown = document.querySelector(".menu-item.dropdown");
+  const toggle = dropdown.querySelector(".dropdown-toggle");
+
+  // Mostrar/Ocultar menú hamburguesa
+  menuIcon?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menuIcon.classList.toggle("active");
+    menuItems.classList.toggle("show");
+    dropdown.classList.remove("active");
+  });
+
+  // Al hacer clic en "Servicios"
+  toggle?.addEventListener("click", function (e) {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      e.stopPropagation();
+      dropdown.classList.toggle("active");
+
+      // Asegura rotar solo el ícono de este menú
+      const chevron = this.querySelector(".fa-chevron-down");
+      if (dropdown.classList.contains("active")) {
+        chevron.style.transform = "rotate(180deg)";
+      } else {
+        chevron.style.transform = "rotate(0deg)";
+      }
+    }
+  });
+
+  // Cierra menú y submenú si se hace clic fuera
+  document.addEventListener("click", function (e) {
+    if (window.innerWidth <= 768) {
+      if (!menuItems.contains(e.target)) {
+        menuItems.classList.remove("show");
+        menuIcon?.classList.remove("active");
+        dropdown.classList.remove("active");
+        toggle.querySelector(".fa-chevron-down").style.transform = "rotate(0deg)";
+      }
+    }
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.bank-card').forEach(card => {
+        card.addEventListener('click', function() {
+            // Leer el monto de inversión ingresado por el usuario
+            let montoInicial = parseFloat(document.getElementById('monto').value) || 0;
+
+            // Si no hay monto válido, mostrar alerta
+            if (montoInicial === 0) {
+                alert('Por favor ingresa un monto de inversión primero.');
+                return;
+            }
+
+            // Suponiendo que CIP da un rendimiento del 20% (ajústalo si es otro)
+            let valorFinalCIP = montoInicial * (1 + 0.20);
+
+            // Leer monto del banco seleccionado
+            let montoBanco = parseFloat(
+                this.querySelector('.bank-amount').textContent
+                    .replace('$','')
+                    .replaceAll(',','')
+            );
+
+            // Calcular beneficio
+            let beneficio = valorFinalCIP - montoBanco;
+
+            // Leer nombre del banco
+            let nombreBanco = this.querySelector('.bank-name').textContent;
+
+            // Actualizar beneficio en el cuadro azul
+            document.getElementById('ganancia-extra').textContent = 
+                (beneficio >= 0 ? '+$' : '-$') + 
+                Math.abs(beneficio).toLocaleString('es-MX');
+
+            // Actualizar el texto del <p> (con ID comparativa-banco)
+            document.getElementById('comparativa-banco').textContent = `vs. ${nombreBanco}`;
+
+            // Efecto visual
+            const cardBox = document.querySelector('.highlight-card');
+            cardBox.style.transition = 'all 0.3s';
+            cardBox.style.transform = 'scale(1.03)';
+            setTimeout(() => {
+                cardBox.style.transform = 'scale(1)';
+            }, 300);
+        });
+    });
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,231 @@
+@media (max-width: 1120px) {
+  .footer_bg {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .custom_nav-container .nav_search-btn {
+    background-position: center;
+  }
+
+  .hero_area::before {
+    display: none;
+  }
+
+
+  .service_section {
+    background-size: cover;
+  }
+
+  .slider_section ol.carousel-indicators {
+    display: none;
+
+  }
+
+  .slider_img-box img {
+    z-index: 1;
+    position: relative;
+  }
+
+  .slider_img-box {
+    position: relative;
+  }
+
+  .slider_img-box::before {
+    background-image: url(../images/hero-bg-mobile.png);
+    width: 100%;
+    height: 100%;
+    content: "";
+    position: absolute;
+    background-size: cover;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    transform: scale(1.7);
+  }
+
+
+  .hero_area {
+    height: auto;
+  }
+
+  .slider_detail-box {
+    margin-top: 35px;
+    margin-bottom: 45px;
+  }
+
+  .slider_img-box {
+    margin-bottom: 75px;
+  }
+
+  .slider_section .carousel_btn-container {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+
+
+
+
+  .slider_section .carousel_btn-container {
+    display: none;
+  }
+
+
+
+  .slider_section ol.carousel-indicators {
+    margin: 0;
+    width: 75px;
+    bottom: initial;
+    left: initial;
+    top: 37%;
+    right: 6%;
+  }
+
+  .slider_detail-box {
+    text-align: center;
+  }
+
+  .info_section .form_container input {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .form_container form {
+    flex-direction: column;
+  }
+
+  .slider_img-box img {
+    z-index: 1;
+    position: relative;
+  }
+
+  .slider_img-box {
+    position: relative;
+  }
+
+  .slider_img-box::before {
+    background-image: url(../images/hero-bg-mobile.png);
+    width: 100%;
+    height: 100%;
+    content: "";
+    position: absolute;
+    background-size: cover;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    transform: scale(1.5);
+  }
+
+  .slider_section ol.carousel-indicators {
+    display: none;
+  }
+
+  .service_section {
+    padding-top: 375px;
+    background-position: bottom;
+    margin-top: -325px;
+  }
+
+  .client_container {
+    width: 95%;
+  }
+
+  .client_section .carousel-control-prev,
+  .client_section .carousel-control-next {
+    display: none;
+  }
+
+  .why_section .row .col-md-3 {
+    margin: 15px auto;
+    justify-content: flex-start;
+    width: min-content;
+  }
+
+  .footer_bg {
+    padding-top: 300px;
+  }
+
+  .info_section .row>div {
+    margin-bottom: 35px;
+  }
+
+}
+
+@media (max-width: 576px) {
+
+
+  .slider_section ol.carousel-indicators {
+    right: 0;
+  }
+}
+
+@media (max-width: 480px) {}
+
+@media (max-width: 420px) {}
+
+@media (max-width: 360px) {}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1170px;
+  }
+}
+
+/* Estilos base para las tarjetas */
+#card-container {
+  background-color: #0a192f;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-auto-rows: minmax(150px, auto);
+}
+
+.card {
+  background-color: #1f3a5c;
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Ajustes para tablets */
+@media (max-width: 992px) {
+  #card-container {
+    grid-template-columns: 1fr 1fr; /* Dos columnas en tablets */
+  }
+
+  .card {
+    grid-column: span 1; /* Cada tarjeta ocupa una columna */
+  }
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+  #card-container {
+    grid-template-columns: 1fr; /* Una columna en móviles */
+    padding: 20px; /* Reducir el padding en móviles */
+  }
+
+  .card {
+    grid-column: span 1; /* Cada tarjeta ocupa una columna */
+  }
+
+  .card h3 {
+    font-size: 1.5rem; /* Reducir el tamaño del título en móviles */
+  }
+
+  .card p {
+    font-size: 1rem; /* Reducir el tamaño del texto en móviles */
+  }
+
+  .card i {
+    font-size: 30px; /* Reducir el tamaño de los íconos en móviles */
+  }
+}

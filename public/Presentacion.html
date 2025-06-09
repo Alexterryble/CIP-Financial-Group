@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Presentación CIP FINANCIAL GROUP</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Ocultar menú al principio */
+        .menu-container {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        /* Animación de entrada logo */
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.6);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        .logo-intro {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0;
+            animation: fadeInScale 2s ease forwards;
+            transition: all 2s ease-in-out;
+            z-index: 9999;
+        }
+
+        .logo-intro img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Brillo solo UNA VEZ */
+        .shine {
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(120deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.2) 100%);
+            transform: skewX(-20deg);
+            animation: shineMove 3s forwards;
+            z-index: 2;
+        }
+
+        @keyframes shineMove {
+            0% { left: -75%; }
+            100% { left: 125%; }
+        }
+
+        /* Texto empresa */
+        .company-name {
+            position: fixed;
+            top: 70%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            opacity: 0;
+            animation: fadeInText 2s ease 2s forwards;
+            z-index: 9999;
+        }
+
+        /* Frase */
+        .slogan {
+            position: fixed;
+            top: 78%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #ccc;
+            opacity: 0;
+            animation: fadeInText 2s ease 4s forwards;
+            z-index: 9999;
+        }
+
+        @keyframes fadeInText {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LOGO INTRO -->
+    <div class="logo-intro" id="logo-intro">
+        <img src="images/Cip flecha.png" alt="Logo CIP">
+        <div class="shine"></div>
+    </div>
+
+    <!-- Nombre empresa -->
+    <div class="company-name">CIP FINANCIAL GROUP</div>
+
+    <!-- Frase inspiradora -->
+    <div class="slogan">"Construyendo tu futuro financiero con confianza."</div>
+
+    <!-- Menú ORIGINAL -->
+    <div class="menu-container">
+        <div class="menu">
+            <div class="logo" id="logo-menu">
+                <img src="images/logo1.png" alt="Logo CIP">
+                <span class="logo-text">CIP FINANCIAL GROUP</span>
+            </div>
+            
+            <ul class="menu-items">
+                <li class="menu-item"><a href="index.html">Inicio</a></li>
+                <li class="menu-item"><a href="nosotros.html">Nosotros</a></li>
+                <li class="menu-item dropdown">
+                    <a href="#" class="dropdown-toggle">Servicios <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="service.html">Pensiones</a></li>
+                        <li><a href="Seleccion.html">Ahorro</a></li>
+                        <li><a href="Credito.html">Crédito</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item"><a href="contact.php">Contacto</a></li>
+            </ul>
+            
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT ANIMACIÓN -->
+    <script>
+        setTimeout(function() {
+            const target = document.querySelector('#logo-menu');
+            const targetRect = target.getBoundingClientRect();
+
+            const logoIntro = document.getElementById('logo-intro');
+
+            // Mover posición
+            logoIntro.style.top = `${targetRect.top + window.scrollY + target.offsetHeight / 2}px`;
+            logoIntro.style.left = `${targetRect.left + window.scrollX + target.offsetWidth / 2}px`;
+
+            // Ajustar tamaño IGUAL al logo del menú
+            logoIntro.style.width = `${target.offsetWidth}px`;
+            logoIntro.style.height = `${target.offsetHeight}px`;
+
+            // Transform sin scale (para que se vea igual)
+            logoIntro.style.transform = 'translate(-50%, -50%)';
+
+            // Mostrar el menú al final
+            setTimeout(function() {
+                logoIntro.style.display = 'none';
+                document.querySelector('.menu-container').style.opacity = '1';
+            }, 2000); // esperar que termine el movimiento
+        }, 5000); // Esperar 5 segundos antes de mover
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contrato Simple</title>
+    <style>
+        /* Estilos CSS básicos para mejorar la apariencia */
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            width: 500px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        select, input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        canvas {
+            border: 1px solid black;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nuevo Contrato</h1>
+    <form action="guardar_contrato.php" method="post">
+        <p>Empleado: <?php echo $nombre_empleado; ?></p>
+        <input type="hidden" name="id_empleado" value="<?php echo $id_empleado; ?>">
+
+        <label for="cliente">Cliente:</label>
+        <select name="cliente" id="cliente">
+            <?php
+            // Mostrar la lista de clientes en el formulario
+            if ($result_clientes->num_rows > 0) {
+                while($row = $result_clientes->fetch_assoc()) {
+                    echo "<option value='" . $row["id_cliente"] . "'>" . $row["nombre"] . " " . $row["apellido_paterno"] . " " . $row["apellido_materno"] . "</option>";
+                }
+            }
+            ?>
+        </select>
+        <br><br>
+
+        <label for="descripcion">Descripción del Contrato:</label>
+        <textarea name="descripcion" id="descripcion" rows="5"></textarea>
+        <br><br>
+
+        <label for="firma">Firma del Cliente:</label>
+        <canvas id="firma" width="400" height="200"></canvas>
+        <input type="hidden" name="firma_data" id="firma_data">
+        <br><br>
+
+        <button type="button" onclick="capturarFirma()">Capturar Firma</button>
+        <button type="submit">Guardar Contrato</button>
+    </form>
+
+    <script>
+        // JavaScript para capturar la firma del cliente
+        function capturarFirma() {
+            var canvas = document.getElementById('firma');
+            var firmaData = canvas.toDataURL();
+            document.getElementById('firma_data').value = firmaData;
+        }
+    </script>
+</body>
+</html>

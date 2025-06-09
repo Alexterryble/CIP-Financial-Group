@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIP Financial Group</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <style>
+body.intro-active {
+    background-color: #ffffff;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 0 !important; /* Para evitar scroll */
+    overflow: hidden; /* Bloquea scroll durante la intro */
+}
+
+
+        /* Ocultar menú al principio */
+        .menu-container {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        /* Animación de entrada logo */
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.6);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        .logo-intro {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 30vw;
+            height: 30vw;
+            max-width: 300px;
+            max-height: 300px;
+            min-width: 120px;
+            min-height: 120px;
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0;
+            animation: fadeInScale 2s ease forwards;
+            transition: all 2s ease-in-out;
+            z-index: 9999;
+        }
+
+
+        .logo-intro img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Brillo solo UNA VEZ */
+        .shine {
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(120deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.2) 100%);
+            transform: skewX(-20deg);
+            animation: shineMove 3s forwards;
+            z-index: 2;
+        }
+
+        @keyframes shineMove {
+            0% { left: -75%; }
+            100% { left: 125%; }
+        }
+
+        /* Texto empresa */
+/* Texto empresa */
+.company-name {
+    position: fixed;
+    top: 75%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: clamp(1rem, 4vw, 2rem); /* se adapta */
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #fff;
+    opacity: 0;
+    animation: fadeInText 2s ease 2s forwards;
+    z-index: 9999;
+}
+
+
+
+        /* Frase */
+.slogan {
+    position: fixed;
+    top: 82%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: clamp(0.8rem, 3vw, 1.2rem); /* se adapta */
+    font-style: italic;
+    color: #bafaff;
+    opacity: 0;
+    animation: fadeInText 2s ease 4s forwards;
+    z-index: 9999;
+    text-align: center; /* para móviles */
+    padding: 0 10px; /* espacio en móviles */
+}
+
+        @keyframes fadeInText {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+    .layout_padding2 {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .detail-box {
+        max-width: 100%;
+    }
+}
+
+    </style>
+
+<script>
+window.addEventListener('load', function() {
+    if (!sessionStorage.getItem('introShown')) {
+        // Mostrar la intro SOLO la primera vez en esta sesión
+        document.getElementById('intro-overlay').style.display = 'flex';
+        document.body.classList.add('intro-active');
+
+        setTimeout(function() {
+            const target = document.querySelector('#logo-menu');
+            const logoIntro = document.getElementById('logo-intro');
+            const introOverlay = document.getElementById('intro-overlay');
+            const menuContainer = document.querySelector('.menu-container');
+
+            if (!target || !logoIntro) {
+                console.error('ERROR: No se encontró el logo del menú o el logo-intro.');
+                return;
+            }
+
+            const targetRect = target.getBoundingClientRect();
+
+            logoIntro.style.top = `${targetRect.top + window.scrollY + target.offsetHeight / 2}px`;
+            logoIntro.style.left = `${targetRect.left + window.scrollX + target.offsetWidth / 2}px`;
+            logoIntro.style.width = `${target.offsetWidth}px`;
+            logoIntro.style.height = `${target.offsetHeight}px`;
+            logoIntro.style.transform = 'translate(-50%, -50%)';
+
+            setTimeout(function() {
+                introOverlay.style.display = 'none';
+                menuContainer.style.opacity = '1';
+                document.body.classList.remove('intro-active');
+                // Guardar que ya se mostró la intro EN ESTA SESIÓN
+                sessionStorage.setItem('introShown', 'true');
+            }, 2000);
+        }, 5000);
+    } else {
+        // Ya se mostró antes → saltamos la intro
+        document.getElementById('intro-overlay').style.display = 'none';
+        document.querySelector('.menu-container').style.opacity = '1';
+        document.body.classList.remove('intro-active');
+    }
+});
+</script>
+
+</head>
+<body>
+<!-- OVERLAY INTRO COMPLETO -->
+<!-- OVERLAY INTRO COMPLETO -->
+<div id="intro-overlay" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+">
+
+    <!-- LOGO INTRO -->
+    <div class="logo-intro" id="logo-intro">
+        <img src="images/Cip flecha.png" alt="Logo CIP">
+        <div class="shine"></div>
+    </div>
+
+    <!-- Nombre empresa -->
+    <div class="company-name">CIP Financial Group</div>
+
+    <!-- Frase inspiradora -->
+    <div class="slogan">"Construyendo tu futuro financiero con confianza."</div>
+
+</div>
+
+
+
+
+    <!-- Menú ORIGINAL (sin cambios) -->
+    <div class="menu-container">
+        <div class="menu">
+<div class="logo" id="logo-menu"> <!-- AÑADIR el id -->
+    <img src="images/logo1.png" alt="Logo CIP">
+    <span class="logo-text">CIP Financial Group</span>
+</div>
+
+            
+            <ul class="menu-items">
+                <li class="menu-item"><a href="index.html">Inicio</a></li>
+                <li class="menu-item"><a href="nosotros.html">Nosotros</a></li>
+                <li class="menu-item dropdown">
+                  <a href="#" class="dropdown-toggle">Servicios <i class="fas fa-chevron-down"></i></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="service.html">Pensiones</a></li>
+                    <li><a href="Seleccion.html">Ahorro</a></li>
+                    <li><a href="Credito.html">Crédito</a></li>
+                  </ul>
+                </li>
+                <li class="menu-item"><a href="Contacto.html">Contacto</a></li>
+            </ul>
+            
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Slider con imagen y texto -->
+    <section class="slider_section">
+        <div class="carousel-container">
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+<div class="carousel-item active">
+    <div class="container">
+        <div class="slide-content">
+            <div class="text-content">
+                <div class="slider_detail-box">
+                    <h1>
+                        Protege tu <br>
+                        Pensión <br>
+                        con Expertos
+                    </h1>
+                    <p>
+Soluciones integrales para tu seguridad social: desde regularización de semanas cotizadas hasta tramitación completa de trámites pensionarios. Asegura tu futuro con nuestra asesoría especializada en el IMSS.                    </p>
+                    <div class="btn-box">
+                        <a href="service.html" class="btn-1">
+                            Descubre cómo ayudarte
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="image-content">
+                <div class="slider_img-box">
+                    <img src="images/Feliz.png" alt="Planificación de Pensión">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="container">
+                        <div class="slide-content">
+                            <div class="text-content">
+                                <div class="slider_detail-box">
+                                    <h1>
+                                        Alcanza tus <br>
+                                        Metas <br>
+                                        Financieras
+                                    </h1>
+                                    <p>
+                                        Nuestro equipo de expertos te guiará en cada paso, brindándote asesoría y estrategias para maximizar tu patrimonio.
+                                    </p>
+                                    <div class="btn-box">
+                                        <a href="Seleccion.html" class="btn-1">
+                                            Conoce más 
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="image-content">
+                                <div class="slider_img-box">
+                                    <img src="" alt="Planificación Financiera">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <div class="container">
+                        <div class="slide-content">
+                            <div class="text-content">
+                                <div class="slider_detail-box">
+                                    <h1>
+                                        Tu Socio en <br>
+                                        Decisiones <br>
+                                        Financieras
+                                    </h1>
+                                    <p>
+                                        Descubre cómo podemos ayudarte a tomar decisiones financieras informadas y a construir un futuro sólido y próspero.
+                                    </p>
+                                    <div class="btn-box">
+                                        <a href="/cip/contact.php" class="btn-1">
+                                            Contacta a un Asesor
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="image-content">
+                                <div class="slider_img-box">
+                                    <img src="images/aseosr.jpg" alt="Asesoría Financiera">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <ol class="carousel-indicators">
+                <li class="active" data-slide="0"></li>
+                <li data-slide="1"></li>
+                <li data-slide="2"></li>
+            </ol>
+            
+            <div class="carousel_btn-container">
+                <a class="carousel-control-prev" href="#" role="button">
+                    <span>&#10094;</span>
+                </a>
+                <a class="carousel-control-next" href="#" role="button">
+                    <span>&#10095;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Quiénes Somos Mejorada -->
+    <!-- Sección ¿Quiénes somos? -->
+<section id="quienes-somos-mvv" class="welcome_section layout_padding">
+    <div class="container">
+
+        <!-- Título -->
+        <div class="custom_heading-container">
+            <h2>¿Quiénes somos?</h2>
+        </div>
+
+        <!-- Bloque logo + texto -->
+        <div class="layout_padding2">
+            <!-- Logo -->
+            <div class="quienes-somos-img">
+                <img src="images/Cip flecha.png" alt="CIP Financial Group">
+            </div>
+
+            <!-- Texto -->
+            <div class="detail-box" style="margin-top: 20px;">
+                <p style="text-align: justify;">
+                    En CIP Financial Group, somos una empresa sólida y confiable que
+                    se dedica a transformar el futuro financiero de nuestros clientes mediante
+                    soluciones seguras y efectivas. Con una trayectoria marcada por la excelencia, nos
+                    destacamos por ofrecer rendimientos sostenibles y respaldar cada inversión con
+                    un compromiso inquebrantable hacia la seguridad y el crecimiento.
+                    Nuestro compromiso es acompañar a nuestros clientes en cada paso de su
+                    camino financiero, brindando educación, herramientas confiables y resultados
+                    tangibles que reflejan nuestra pasión por su éxito. Nos enorgullece ser un pilar de
+                    confianza, donde el esfuerzo de nuestros clientes se convierte en logros reales y
+                    sostenibles.
+                </p>
+            </div>
+        </div>
+
+        <!-- Bloque Misión, Visión, Valores (separado) -->
+        <div class="mvv-container" style="margin-top: 30px;">
+            <div id="mvv-section" class="mision-vision-valores">
+                <!-- Misión -->
+                <div class="mvv-card">
+                    <h3>Misión</h3>
+                    <p style="text-align: justify; margin: 15px 0; line-height: 1.6;">
+                        Ser líderes en mejorar la calidad de vida de nuestros clientes a través de soluciones financieras innovadoras y personalizadas.
+                    </p>
+                </div>
+
+                <!-- Visión -->
+                <div class="mvv-card">
+                    <h3>Visión</h3>
+                    <p style="text-align: justify; margin: 15px 0; line-height: 1.6;">
+                        Consolidarnos como la mejor empresa en estrategias de retiro, siendo referente de confianza y excelencia en el sector financiero.
+                    </p>
+                </div>
+
+                <!-- Valores -->
+                <div class="mvv-card">
+                    <h3>Valores</h3>
+                    <p style="text-align: justify; margin: 15px 0; line-height: 1.6;">
+                        Honestidad, Lealtad, Confiabilidad. Estos principios guían cada decisión para cumplir con nuestros compromisos y responsabilidades.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+ <div class="container">
+<!-- Sección de Servicios Mejorada -->
+<section class="service_section layout_padding">
+    <div class="custom_heading-container">
+        <div class="heading-with-logo">
+            
+            <!-- Imagen izquierda -->
+            <img src="images/Imagen3.png" alt="Icono Izquierdo" class="heading-logo">
+            
+            <!-- Texto central -->
+            <div class="heading-text">
+                <h2>Nuestros <span>Servicios</span></h2>
+                <p class="section-subtitle">Soluciones financieras diseñadas para tu tranquilidad</p>
+            </div>
+            
+            <!-- Imagen derecha con texto debajo (AGRUPADO) -->
+            <div style="text-align: center; line-height: 1;">
+                <img src="images/logo1.png" alt="Icono Derecho" class="heading-logo" style="display: block; margin: 0 auto; margin-bottom: -25px;">
+                <div style="font-size: 22px; color: #000; font-weight: bold;">CIP Financial Group</div>
+            </div>
+
+            
+        </div>
+    </div>
+</section>
+
+      
+      <div class="service_container layout_padding2">
+          <div class="service_box">
+              <div class="service_content">
+                  <div class="detail-box">
+                      <div class="service-number">01</div>
+                      <h4>
+                          Asesoría <br> Especializada en Pensiones
+                      </h4>
+                      <p style="text-align: justify;">
+                          Simplificamos tus trámites de pensión IMSS con expertos. Te guiamos paso a paso para que obtengas el máximo beneficio. ¡Asegura tu futuro con nosotros!
+                      </p>
+                      <a href="service.html" class="service-link">
+                          Más detalles <span>&rarr;</span>
+                      </a>
+                  </div>
+              </div>
+              <div class="service-bg"></div>
+          </div>
+          
+          <div class="service_box">
+              <div class="service_content">
+                  <div class="detail-box">
+                      <div class="service-number">02</div>
+                      <h4>
+                          Ahorro <br>Inteligente
+                      </h4>
+                      <p style="text-align: justify;">
+                          Construye un futuro financiero sólido con nuestros planes de inversión personalizados. Diversificación estratégica y seguimiento constante.
+                      </p>
+                      <a href="Seleccion.html" class="service-link">
+                          Más detalles <span>&rarr;</span>
+                      </a>
+                  </div>
+              </div>
+              <div class="service-bg"></div>
+          </div>
+
+          <div class="service_box">
+              <div class="service_content">
+                  <div class="detail-box">
+                      <div class="service-number">03</div>
+                      <h4>
+                         <h4>
+                         Financia tu Modalidad 40 sin complicaciones
+                        </h4>
+                      <p style="text-align: justify;">
+                          Financia tu modalidad 40 de forma flexible, con opciones personalizadas que se adaptan a tus necesidades, permitiéndote continuar cotizando sin poner en riesgo tu economía ni comprometer tu estabilidad financiera.
+                      </p>
+                      <a href="Seleccion.html" class="service-link">
+                          Más detalles <span>&rarr;</span>
+                      </a>
+                  </div>
+              </div>
+              <div class="service-bg"></div>
+          </div>
+          
+      </div>
+  </div>
+</section>
+
+
+
+<!-- Sección "¿Por Qué Elegirnos?" Mejorada -->
+<!-- Sección "¿Por Qué Elegirnos?" con Iconos -->
+<section class="why_section layout_padding">
+    <div class="container">
+        <div class="custom_heading-container text-center">
+            <h2>
+                ¿Por Qué <span>Elegirnos</span>?
+                <p class="section-subtitle" style="text-align: justify;">
+                    La excelencia financiera que tu futuro merece
+                </p>
+            </h2>
+        </div>
+        
+        <div class="content-container">
+            <div class="why-content">
+                <p class="main-description" style="text-align: justify; text-justify: inter-word; line-height: 1.6; margin: 1em 0; padding: 0 10%;">
+                    En <strong>CIP Financial Group</strong>, nos comprometemos a ofrecer soluciones financieras personalizadas y confiables. Nuestra experiencia y dedicación nos convierten en tu mejor aliado para alcanzar tus metas financieras con transparencia y resultados comprobables.
+                </p>
+                
+                <!-- SOLO UNA TARJETA CON CLASE "single" -->
+                <div class="stats-container single"> <!-- centrado + tamaño correcto -->
+                    <div class="stat-box">
+                        <div class="stat-content">
+                            <div class="icon-box">
+                                <i class="fas fa-users icon-custom"></i>
+                                <div class="pulse-effect"></div>
+                            </div>
+                            <div class="text-box">
+                                <h3 class="stat-number" data-count="1500">+65,000</h3>
+                                <h6 class="stat-title" style="text-align: justify;">Clientes Atendidos</h6>
+                            </div>
+                        </div>
+                        <div class="stat-bg"></div>
+                    </div>
+                </div>
+                <!-- FIN SOLO UNA TARJETA -->
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Sección de Contacto Mejorada -->
+<section class="contact_section layout_padding">
+  <div class="container">
+    <div class="contact-header" style="text-align: center; margin: 0 auto; max-width: 800px;">
+        <h2 class="section-title" style="margin-bottom: 15px;">Contáctanos</h2>
+        <p class="section-subtitle" style="margin-bottom: 25px; line-height: 1.5;">
+            ¿Tienes alguna pregunta o necesitas asesoría?<br>
+            Estamos aquí para ayudarte
+        </p>
+<div class="contact-icon" style="display: flex; justify-content: center; gap: 20px;">
+    <a href="https://wa.me/527226964838" target="_blank" rel="noopener noreferrer">
+    <!-- ÍCONO DE WHATSAPP -->
+    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16.62 13.91C16.22 13.73 15.78 13.55 15.38 13.35C14.93 13.14 14.65 13.23 14.35 13.62C14.08 13.96 13.79 14.29 13.46 14.6C13.43 14.63 13.4 14.65 13.37 14.68C13.11 14.9 12.93 14.9 12.7 14.76C12.22 14.49 11.74 14.23 11.29 13.91C10.68 13.48 10.17 12.95 9.79 12.28C9.57 11.89 9.77 11.71 10.04 11.48C10.23 11.31 10.41 11.12 10.57 10.93C10.67 10.81 10.77 10.69 10.85 10.56C11.03 10.25 10.93 9.99 10.75 9.73C10.55 9.44 10.36 9.15 10.16 8.86C9.87 8.44 9.66 8.48 9.35 8.58C9.23 8.62 9.11 8.66 9 8.71C8.42 8.96 8 9.38 7.67 9.92C7.18 10.71 7.02 11.57 7.24 12.5C7.52 13.68 8.16 14.67 9.08 15.46C10.23 16.46 11.56 17.02 13.06 17.11C14.45 17.19 15.72 16.84 16.84 16.02C17.46 15.57 17.99 15.03 18.34 14.34C18.54 13.93 18.38 13.68 18.08 13.45C17.67 13.12 17.25 12.9 16.62 13.91Z" stroke="var(--verde-cip)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M21 12C21 16.97 16.97 21 12 21C10.35 21 8.79 20.54 7.43 19.74L3 21L4.26 16.57C3.46 15.21 3 13.65 3 12C3 7.03 7.03 3 12 3C16.97 3 21 7.03 21 12Z" stroke="var(--verde-cip)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</a>
+
+</div>
+      </div>
+</section>
+
+<!-- Footer Mejorado -->
+<footer class="footer">
+  <div class="footer-container">
+      <div class="footer-top">
+          <div class="container">
+              <div class="footer-brand">
+                  <h3 class="footer-title">CIP Financial Group</h3>
+                  <p class="footer-text">Soluciones financieras integrales para tu futuro</p>
+                  
+                  <div class="footer-social">
+                      <a href="https://www.facebook.com/profile.php?id=61573398725938" class="social-link" target="_blank" rel="noopener noreferrer">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                      </a>
+                      <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M16 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M8 16V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M16 12H22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M2 12H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M12 2V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M12 16V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                      </a>
+                  </div>
+              </div>
+
+              <div class="footer-links">
+                  <div class="links-group">
+                      <h5 class="links-title">Enlaces Útiles</h5>
+                      <ul class="links-list">
+                          <li><a href="index.html" class="footer-link">Inicio</a></li>
+                          <li><a href="nosotros.html" class="footer-link">Nosotros</a></li>
+                          <li><a href="Contacto.html" class="footer-link">Contacto</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="links-group">
+                      <h5 class="links-title">Nuestros Servicios</h5>
+                      <ul class="links-list">
+                          <li><a href="service.html" class="footer-link">Asesoría en Pensiones</a></li>
+                          <li><a href="Seleccion.html" class="footer-link">Inversiones Inteligentes</a></li>
+                          <li><a href="Credito.html" class="footer-link">Créditos Modalidad 40</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="links-group">
+                      <h5 class="links-title">Contacto</h5>
+                      <ul class="links-list contact-list">
+                          <li>
+                              <a href="mailto:atencion@cipmexico.com.mx" class="footer-link contact-link">
+                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  atencion@cipmexico.com.mx
+                              </a>
+                          </li>
+                          <li>
+                              <a href="https://wa.me/527226964726" class="footer-link contact-link whatsapp" target="_blank" rel="noopener noreferrer">
+                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M12 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M9 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M15 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  722 696 4726
+                              </a>
+                          </li>
+                          <li>
+                              <a href="https://www.google.com/maps/place/Consultor%C3%ADa+Integral+de+Pensiones+M%C3%A9xico/@19.2844002,-99.6233479,17z/data=!3m1!4b1!4m6!3m5!1s0x85cd8b51ad06414f:0xc51df107ad8b455c!8m2!3d19.2844!4d-99.6229054!16s%2Fg%2F11f6nffr11?entry=ttu" 
+                              class="footer-link contact-link map" 
+                              target="_blank" 
+                              rel="noopener noreferrer">
+                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  PRIV. JAIME NUNO 103, 2DO PISO, COL. SAN SEBASTIÁN, TOLUCA, MÉXICO. C.P. 50150.
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+
+
+          </div>
+      </div>
+
+      <div class="footer-bottom">
+          <div class="container">
+              <p class="copyright">&copy; <span id="current-year"></span> CIP Financial Group. Todos los derechos reservados.</p>
+          </div>
+      </div>
+  </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // =============================================
+        // SLIDER (se mantiene igual)
+        const carouselInner = document.querySelector('.carousel-inner');
+        const items = document.querySelectorAll('.carousel-item');
+        const indicators = document.querySelectorAll('.carousel-indicators li');
+        const prevBtn = document.querySelector('.carousel-control-prev');
+        const nextBtn = document.querySelector('.carousel-control-next');
+        let currentIndex = 0;
+        let interval;
+        const itemWidth = 100;
+        
+        function moveCarousel() {
+            carouselInner.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
+        }
+        
+        function updateIndicators() {
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === currentIndex);
+            });
+        }
+        
+        function showSlide(index) {
+            currentIndex = (index + items.length) % items.length;
+            moveCarousel();
+            updateIndicators();
+        }
+        
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+        
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+        
+        function startAutoPlay() {
+            interval = setInterval(nextSlide, 5000);
+        }
+        
+        function stopAutoPlay() {
+            clearInterval(interval);
+        }
+        
+        nextBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            stopAutoPlay();
+            nextSlide();
+            startAutoPlay();
+        });
+        
+        prevBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            stopAutoPlay();
+            prevSlide();
+            startAutoPlay();
+        });
+        
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', function() {
+                stopAutoPlay();
+                showSlide(index);
+                startAutoPlay();
+            });
+        });
+        
+        const carousel = document.querySelector('.carousel-container');
+        carousel.addEventListener('mouseenter', stopAutoPlay);
+        carousel.addEventListener('mouseleave', startAutoPlay);
+        
+        // Reset en resize
+        window.addEventListener('resize', function() {
+            if(window.innerWidth > 768) {
+                closeAllMenus();
+            }
+        });
+    
+        // =============================================
+        // RESTANTE DEL CÓDIGO (se mantiene igual)
+        const mvvCards = document.querySelectorAll('.mvv-card');
+        
+        function animateCards() {
+            mvvCards.forEach((card, index) => {
+                const cardPosition = card.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (cardPosition < screenPosition) {
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 200);
+                }
+            });
+        }
+        
+        mvvCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+        });
+        
+        window.addEventListener('load', animateCards);
+        window.addEventListener('scroll', animateCards);
+        
+        startAutoPlay();
+        moveCarousel();
+    
+        // ... (El resto de tu código original se mantiene igual)
+        // ANIMACIÓN DE CONTADORES
+        // VALIDACIÓN DE FORMULARIO
+        // COPYRIGHT
+        // ANIMACIÓN ENLACES FOOTER
+    });
+    </script>
+
+<script>
+  function checkScrollMenu() {
+    const menu = document.querySelector(".menu-container");
+    if (window.scrollY <= 50) {
+      menu.classList.add("en-top");
+    } else {
+      menu.classList.remove("en-top");
+    }
+  }
+
+  // Ejecutar al cargar
+  window.addEventListener("load", checkScrollMenu);
+  // Ejecutar al hacer scroll
+  window.addEventListener("scroll", checkScrollMenu);
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuIcon = document.querySelector(".menu-icon");
+    const menuItems = document.querySelector(".menu-items");
+
+    menuIcon.addEventListener("click", () => {
+      menuItems.classList.toggle("active");
+      menuIcon.classList.toggle("active");
+    });
+  });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const menuIcon = document.querySelector(".menu-icon");
+  const menuItems = document.querySelector(".menu-items");
+  const dropdown = document.querySelector(".menu-item.dropdown");
+  const toggle = dropdown.querySelector(".dropdown-toggle");
+
+  // Mostrar/Ocultar menú hamburguesa
+  menuIcon?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menuIcon.classList.toggle("active");
+    menuItems.classList.toggle("show");
+    dropdown.classList.remove("active");
+  });
+
+  // Al hacer clic en "Servicios"
+  toggle?.addEventListener("click", function (e) {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      e.stopPropagation();
+      dropdown.classList.toggle("active");
+
+      // Asegura rotar solo el ícono de este menú
+      const chevron = this.querySelector(".fa-chevron-down");
+      if (dropdown.classList.contains("active")) {
+        chevron.style.transform = "rotate(180deg)";
+      } else {
+        chevron.style.transform = "rotate(0deg)";
+      }
+    }
+  });
+
+  // Cierra menú y submenú si se hace clic fuera
+  document.addEventListener("click", function (e) {
+    if (window.innerWidth <= 768) {
+      if (!menuItems.contains(e.target)) {
+        menuItems.classList.remove("show");
+        menuIcon?.classList.remove("active");
+        dropdown.classList.remove("active");
+        toggle.querySelector(".fa-chevron-down").style.transform = "rotate(0deg)";
+      }
+    }
+  });
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.querySelector('.carousel-inner');
+    const items = document.querySelectorAll('.carousel-item');
+    const prevBtn = document.querySelector('.carousel-control-prev');
+    const nextBtn = document.querySelector('.carousel-control-next');
+    const indicators = document.querySelectorAll('.carousel-indicators li');
+
+    let currentIndex = 0;
+    const totalItems = items.length;
+    let isTransitioning = false;
+    let transitionEndEvent = 'transitionend';
+    let transformProp = 'transform';
+
+    // Detección de prefijos para navegadores antiguos
+    if ('webkitTransition' in document.body.style) {
+        transitionEndEvent = 'webkitTransitionEnd';
+        transformProp = 'webkitTransform';
+    }
+
+    // Función para actualizar indicadores
+    function updateIndicators(index) {
+        indicators.forEach((indicator, i) => {
+            indicator.classList.toggle('active', i === index);
+        });
+    }
+
+    // Función para ir a un slide específico
+    function goToSlide(index, instant = false) {
+        if (isTransitioning && !instant) return;
+
+        // Asegurar que el índice esté dentro de los límites
+        currentIndex = (index + totalItems) % totalItems;
+
+        if (instant) {
+            // Desactivar transición temporalmente
+            carousel.style.transition = 'none';
+        }
+
+        // Aplicar transformación
+        carousel.style[transformProp] = `translateX(-${currentIndex * 100}%)`;
+
+        if (instant) {
+            // Forzar reflow para asegurar que el navegador procese el cambio sin transición
+            void carousel.offsetWidth;
+            
+            // Restaurar transición en el siguiente frame
+            requestAnimationFrame(() => {
+                carousel.style.transition = '';
+            });
+        } else {
+            isTransitioning = true;
+        }
+
+        updateIndicators(currentIndex);
+    }
+
+    // Manejador de evento de fin de transición
+    function handleTransitionEnd() {
+        isTransitioning = false;
+    }
+
+    // Event listeners
+    function setupEventListeners() {
+        carousel.addEventListener(transitionEndEvent, handleTransitionEnd);
+        
+        prevBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (!isTransitioning) goToSlide(currentIndex - 1);
+        });
+
+        nextBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (!isTransitioning) goToSlide(currentIndex + 1);
+        });
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (!isTransitioning && index !== currentIndex) {
+                    goToSlide(index);
+                }
+            });
+        });
+    }
+
+    // Inicialización
+    function initCarousel() {
+        // Ocultar todos los slides excepto el primero
+        items.forEach((item, index) => {
+            item.style.opacity = index === 0 ? '1' : '0';
+        });
+
+        // Configurar posición inicial sin animación
+        goToSlide(0, true);
+
+        // Mostrar todos los slides después de la inicialización
+        setTimeout(() => {
+            items.forEach(item => {
+                item.style.opacity = '1';
+            });
+        }, 50);
+
+        setupEventListeners();
+    }
+
+    initCarousel();
+});
+</script>
+</body>
+</html>

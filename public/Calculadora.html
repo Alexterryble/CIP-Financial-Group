@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador PLAN 40 | CIP FINANCIAL GROUP</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --primary: #0056b3;
+            --primary-light: #e6f0fa;
+            --primary-dark: #003d82;
+            --secondary: #00a8e8;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --gray-light: #e9ecef;
+            --success: #28a745;
+            --success-light: #e8f5e9;
+            --danger: #dc3545;
+            --warning: #ffc107;
+            --warning-light: #fff8e1;
+            --border-radius: 10px;
+            --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --box-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 20px;
+            color: var(--dark);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .product-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .product-subtitle {
+            font-size: 16px;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        .input-section {
+            background: var(--primary-light);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            border: 1px solid rgba(0, 86, 179, 0.2);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .input-section:hover {
+            box-shadow: var(--box-shadow-hover);
+        }
+
+/* Estilos para grupos de entrada personalizados */
+.cip-input-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.cip-input-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: var(--dark);
+    font-size: 15px;
+}
+
+.cip-input-wrapper {
+    position: relative;
+}
+
+.cip-input-wrapper::before {
+    content: '$';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 500;
+    color: var(--gray);
+    z-index: 1;
+}
+
+.cip-info-text {
+    font-size: 14px;
+    color: var(--gray);
+    margin-top: 8px;
+}
+
+.cip-error-text {
+    font-size: 14px;
+    color: var(--danger);
+    margin-top: 8px;
+    display: none;
+}
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper::before {
+            content: '$';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: 500;
+            color: var(--gray);
+            z-index: 1;
+        }
+
+        input {
+            appearance: textfield;
+            -webkit-appearance: textfield;
+            -moz-appearance: textfield;
+            width: 100%;
+            padding: 14px 14px 14px 35px;
+            border: 1px solid #d1d5db;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            font-weight: 500;
+            transition: var(--transition);
+            background-color: white;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+        }
+
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .tab-container {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--gray-light);
+            position: relative;
+        }
+
+        .tab-button {
+            padding: 12px 24px;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            font-size: 15px;
+            color: var(--gray);
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: var(--transition);
+            position: relative;
+            margin-right: 5px;
+        }
+
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            font-weight: 600;
+        }
+
+        .tab-button:hover {
+            color: var(--primary-dark);
+            background-color: rgba(0, 86, 179, 0.05);
+            border-radius: 5px 5px 0 0;
+        }
+
+        .tab-content {
+            display: none;
+            padding-top: 20px;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .detail-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .detail-section li {
+            margin-bottom: 0;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            border: 1px solid #eee;
+            font-size: 15px;
+            transition: var(--transition);
+        }
+
+        .detail-section li:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .detail-section li strong {
+            font-weight: 600;
+            color: var(--dark);
+            display: block;
+            margin-bottom: 15px;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .detail-section li strong::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        .detail-section li ul {
+            display: block;
+        }
+
+        .detail-section li li {
+            padding: 0;
+            margin-bottom: 10px;
+            box-shadow: none;
+            border: none;
+            background: transparent;
+            font-size: 14px;
+        }
+
+        .detail-section li li:last-child {
+            margin-bottom: 0;
+        }
+
+        .chart-container {
+            margin-top: 30px;
+            position: relative;
+            height: 400px;
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            background-color: white;
+            padding: 25px;
+            border: 1px solid #eee;
+            transition: var(--transition);
+        }
+
+        .chart-container:hover {
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .comparison-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .comparison-section li {
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            border: 1px solid #eee;
+            font-size: 15px;
+            transition: var(--transition);
+        }
+
+        .comparison-section li:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .comparison-section li strong {
+            font-weight: 600;
+            color: var(--dark);
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .comparison-section ul ul {
+            list-style: none;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .comparison-section ul ul li {
+            padding: 0;
+            margin-bottom: 8px;
+            box-shadow: none;
+            border: none;
+            background: transparent;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .comparison-section ul ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .action-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 6px 15px rgba(0, 86, 179, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 86, 179, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.3) 100%);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .btn:hover::after {
+            opacity: 1;
+        }
+
+        .info-text {
+            font-size: 14px;
+            color: var(--gray);
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .error-text {
+            font-size: 14px;
+            color: var(--danger);
+            margin-top: 8px;
+            display: none;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .badge-primary {
+            background-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .badge-success {
+            background-color: var(--success-light);
+            color: var(--success);
+        }
+
+        .badge-warning {
+            background-color: var(--warning-light);
+            color: #b38700;
+        }
+
+        .feature-icon {
+            color: var(--primary);
+            margin-right: 8px;
+            font-size: 16px;
+        }
+
+        .conclusion-box {
+            background-color: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin-top: 30px;
+        }
+
+        .conclusion-box strong {
+            color: var(--primary-dark);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+            }
+            
+            .detail-section ul {
+                grid-template-columns: 1fr;
+            }
+            
+            .tab-container {
+                overflow-x: auto;
+                white-space: nowrap;
+                padding-bottom: 10px;
+            }
+            
+            .tab-button {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+            
+            .chart-container {
+                padding: 15px;
+                height: 300px;
+            }
+            
+            .btn {
+                padding: 16px 30px;
+                font-size: 16px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    
+    <div class="container">
+        <div class="header">
+            <div class="logo">CIP <span>FINANCIAL GROUP</span></div>
+            <div class="product-title">SIMULADOR PLAN 40</div>
+            <div class="product-subtitle">Simula tu inversión y descubre los rendimientos garantizados que puedes obtener con nuestro exclusivo plan de inversión</div>
+        </div>
+
+        <div class="cip-input-group">
+            <label for="monto">MONTO A INVERTIR (MXN)</label>
+            <div class="cip-input-wrapper">
+                <input type="number" id="monto" placeholder="Ej. 50,000" oninput="validarMonto(this); calcularInversion()">
+            </div>
+            <p class="cip-info-text">Monto mínimo: $10,000 | Monto máximo: $200,000</p>
+            <p class="cip-error-text" id="error-monto">El monto debe estar entre $10,000 y $200,000</p>
+        </div>
+
+        <div class="tab-container">
+            <button class="tab-button active" onclick="openTab(event, 'detalles')">
+                <i class="fas fa-info-circle feature-icon"></i> Detalles
+            </button>
+            <button class="tab-button" onclick="openTab(event, 'proyeccion')">
+                <i class="fas fa-chart-line feature-icon"></i> Proyección
+            </button>
+            <button class="tab-button" onclick="openTab(event, 'comparativa')">
+                <i class="fas fa-balance-scale feature-icon"></i> Comparativa
+            </button>
+        </div>
+
+        <div id="detalles" class="tab-content active detail-section">
+            <h2>Detalles de los Planes</h2>
+            <p>Selecciona el plazo que mejor se adapte a tus objetivos financieros:</p>
+            <ul>
+                <li>
+                    <strong>Plan 12 meses <span class="badge badge-primary">Rendimiento: 20%</span></strong>
+                    <ul>
+                        <li><i class="fas fa-calendar-alt feature-icon"></i> <strong>Plazo:</strong> 12 meses</li>
+                        <li><i class="fas fa-coins feature-icon"></i> <strong>Ganancia Estimada con $10,000:</strong> <span id="ganancia-detalle-12"></span></li>
+                        <li><i class="fas fa-piggy-bank feature-icon"></i> <strong>Total Estimado:</strong> <span id="total-detalle-12"></span></li>
+                        <li><i class="fas fa-clock feature-icon"></i> <strong>Fecha de Retorno:</strong> <span id="fecha-retorno-12"></span></li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Plan 24 meses <span class="badge badge-success">Rendimiento: 44%</span></strong>
+                    <ul>
+                        <li><i class="fas fa-calendar-alt feature-icon"></i> <strong>Plazo:</strong> 24 meses</li>
+                        <li><i class="fas fa-coins feature-icon"></i> <strong>Ganancia Estimada con $10,000:</strong> <span id="ganancia-detalle-24"></span></li>
+                        <li><i class="fas fa-piggy-bank feature-icon"></i> <strong>Total Estimado:</strong> <span id="total-detalle-24"></span></li>
+                        <li><i class="fas fa-clock feature-icon"></i> <strong>Fecha de Retorno:</strong> <span id="fecha-retorno-24"></span></li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Plan 60 meses <span class="badge badge-warning">Alto Rendimiento: 148%</span></strong>
+                    <ul>
+                        <li><i class="fas fa-calendar-alt feature-icon"></i> <strong>Plazo:</strong> 60 meses</li>
+                        <li><i class="fas fa-coins feature-icon"></i> <strong>Ganancia Estimada con $10,000:</strong> <span id="ganancia-detalle-60"></span></li>
+                        <li><i class="fas fa-piggy-bank feature-icon"></i> <strong>Total Estimado:</strong> <span id="total-detalle-60"></span></li>
+                        <li><i class="fas fa-clock feature-icon"></i> <strong>Fecha de Retorno:</strong> <span id="fecha-retorno-60"></span></li>
+                    </ul>
+                </li>
+            </ul>
+            <p class="info-text"><i class="fas fa-info-circle"></i> Las fechas de retorno estimadas se calcularán en función de la fecha en que se realice la inversión.</p>
+        </div>
+
+        <div id="proyeccion" class="tab-content chart-section">
+            <h2>Proyección de tu Inversión</h2>
+            <p>Visualiza cómo crecería tu inversión a lo largo del tiempo:</p>
+            <div class="chart-container">
+                <canvas id="growthChart"></canvas>
+            </div>
+            <div class="info-text">
+                <i class="fas fa-chart-pie"></i> La gráfica muestra la proyección de crecimiento mes a mes de tu inversión inicial.
+            </div>
+        </div>
+
+        <div id="comparativa" class="tab-content comparison-section">
+            <h2>Comparación con Otras Opciones de Inversión</h2>
+            <p>Compara el rendimiento del PLAN 40 con otras opciones disponibles en el mercado:</p>
+            <ul>
+                <li>
+                    <strong><i class="fas fa-university feature-icon"></i> Bancos Tradicionales</strong>
+                    <ul>
+                        <li>Rendimientos bajos en cuentas de ahorro (generalmente por debajo de la inflación)</li>
+                        <li>Pagarés pueden ofrecer 7-15% anual bruto estimado</li>
+                        <li>Raramente alcanzan el 29.6% anual promedio garantizado por 5 años</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong><i class="fas fa-mobile-alt feature-icon"></i> Mercado Pago / Mercado Crédito</strong>
+                    <ul>
+                        <li>Cuenta de rendimiento ligada a la TIIE (9-14% anual bruto estimado)</li>
+                        <li>Rendimientos inferiores al PLAN 40</li>
+                        <li>Plazos más cortos sin garantía de rendimiento a largo plazo</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong><i class="fas fa-credit-card feature-icon"></i> Nu México</strong>
+                    <ul>
+                        <li>Cuenta Nu con rendimientos ligados a la TIIE</li>
+                        <li>Similar rango a Mercado Pago</li>
+                        <li>Significativamente menor al promedio anual del PLAN 40</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong><i class="fas fa-chart-bar feature-icon"></i> GBM+ (GBM)</strong>
+                    <ul>
+                        <li><strong>Renta Fija:</strong> Difícil garantizar un promedio del 29.6% anual con bajo riesgo</li>
+                        <li><strong>Renta Variable:</strong> Mayor potencial pero con riesgo significativo</li>
+                        <li>No se pueden garantizar rendimientos a largo plazo</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <div class="conclusion-box">
+                <strong><i class="fas fa-lightbulb feature-icon"></i> Conclusión:</strong> El PLAN 40 (con su rendimiento lineal simulado del 29.6% anual promedio) ofrece un rendimiento significativamente mayor y garantizado en comparación con las opciones de bajo riesgo tradicionales durante un plazo de 5 años. Recomendamos evaluar cuidadosamente tus objetivos de inversión y nivel de riesgo.
+            </div>
+        </div>
+
+        <div class="action-section">
+            <button class="btn" id="btn-invertir">
+                <i class="fas fa-hand-holding-usd"></i> INVERTIR AHORA
+            </button>
+            <p class="info-text">
+                <i class="fas fa-shield-alt"></i> Rendimientos garantizados • 
+                <i class="fas fa-ban"></i> Sin comisiones ocultas • 
+                <i class="fas fa-headset"></i> Asesoría personalizada
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Inicializar gráfica
+        const ctx = document.getElementById('growthChart').getContext('2d');
+        let growthChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Proyección de tu inversión',
+                    data: [],
+                    borderColor: (context) => {
+                        const index = context.dataIndex;
+                        if (index <= 12) return '#0056b3';
+                        if (index <= 24) return '#28a745';
+                        return '#ffc107';
+                    },
+                    backgroundColor: 'rgba(0, 86, 179, 0.1)',
+                    fill: false,
+                    tension: 0.1,
+                    borderWidth: 3,
+                    pointRadius: 3,
+                    segment: {
+                        borderColor: (context) => {
+                            const index = context.p0DataIndex;
+                            if (index <= 11) return '#0056b3';
+                            if (index <= 23) return '#28a745';
+                            return '#ffc107';
+                        },
+                    }
+                }]
+            },
+            plugins: [{
+                beforeDraw: (chart) => {
+                    const { ctx, chartArea: { top, bottom, left, right }, scales: { x, y } } = chart;
+
+                    function drawBackground(color, startMonth, endMonth) {
+                        const startX = x.getPixelForValue(startMonth === 0 ? chart.data.labels[0] : `Mes ${startMonth}`);
+                        const endX = x.getPixelForValue(`Mes ${endMonth}`);
+                        const width = endX - startX;
+                        ctx.save();
+                        ctx.fillStyle = color;
+                        ctx.fillRect(startX, top, width, bottom - top);
+                        ctx.restore();
+                    }
+
+                    // Dibujar fondo azul claro para los primeros 12 meses
+                    drawBackground('rgba(0, 86, 179, 0.05)', 0, 12);
+
+                    // Dibujar fondo verde claro desde el mes 13 hasta el 24
+                    drawBackground('rgba(40, 167, 69, 0.05)', 12, 24);
+
+                    // Dibujar fondo amarillo claro desde el mes 25 hasta el 60
+                    drawBackground('rgba(255, 193, 7, 0.05)', 24, 60);
+                }
+            }],
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Proyección de crecimiento de tu inversión',
+                        font: {
+                            size: 16,
+                            weight: '600'
+                        },
+                        padding: {
+                            bottom: 20
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) label += ': ';
+                                if (context.parsed.y !== null) label += '$' + context.parsed.y.toLocaleString('es-MX');
+                                return label;
+                            },
+                            title: function(context) {
+                                return context[0].label;
+                            }
+                        },
+                        displayColors: false,
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        titleFont: {
+                            size: 14,
+                            weight: 'bold'
+                        },
+                        bodyFont: {
+                            size: 14
+                        },
+                        padding: 12,
+                        cornerRadius: 8
+                    },
+                    legend: {
+                        display: false,
+                    }
+                },
+                scales: {
+                    x: { 
+                        title: { 
+                            display: true, 
+                            text: 'Meses',
+                            font: {
+                                weight: '600'
+                            } 
+                        },
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: { 
+                            callback: (value) => '$' + value.toLocaleString('es-MX'),
+                            font: {
+                                weight: '500'
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index'
+                }
+            }
+        });
+
+        const tasa12Meses = 0.20;
+        const tasa24MesesTotal = 0.44;
+        const tasa60MesesTotal = 1.48;
+
+        function validarMonto(input) {
+            const errorElement = document.getElementById('error-monto');
+            let monto = parseFloat(input.value) || 0;
+            if (monto > 0 && (monto < 10000 || monto > 200000)) {
+                errorElement.style.display = 'block';
+                input.style.borderColor = 'var(--danger)';
+                input.style.boxShadow = '0 0 0 3px rgba(220, 53, 69, 0.1)';
+            } else {
+                errorElement.style.display = 'none';
+                input.style.borderColor = '#d1d5db';
+                input.style.boxShadow = 'none';
+            }
+        }
+
+        function formatCurrency(amount) {
+            return isNaN(amount) ? '$0' : '$' + amount.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        function calcularInversion() {
+            const montoInput = document.getElementById('monto');
+            let montoInicial = parseFloat(montoInput.value) || 0;
+
+            if (montoInicial >= 10000 && montoInicial <= 200000) {
+                const labels = ['Inicio'];
+                const data = [montoInicial];
+                let montoActual = montoInicial;
+
+                for (let i = 1; i <= 60; i++) {
+                    labels.push(`Mes ${i}`);
+                    let tasaMensual = 0;
+                    if (i <= 12) {
+                        tasaMensual = Math.pow(1 + tasa12Meses, 1/12) - 1;
+                    } else if (i <= 24) {
+                        tasaMensual = Math.pow(1 + tasa24MesesTotal, 1/24) - 1;
+                    } else {
+                        tasaMensual = tasa60MesesTotal / 60;
+                    }
+                    montoActual += montoActual * tasaMensual;
+                    data.push(montoActual);
+                }
+
+                growthChart.data.labels = labels;
+                growthChart.data.datasets[0].data = data;
+                growthChart.update();
+
+                // Actualizar detalles de los planes
+                const inversionDetalle = 10000;
+                document.getElementById('ganancia-detalle-12').textContent = formatCurrency(inversionDetalle * tasa12Meses);
+                document.getElementById('total-detalle-12').textContent = formatCurrency(inversionDetalle * (1 + tasa12Meses));
+                document.getElementById('ganancia-detalle-24').textContent = formatCurrency(inversionDetalle * tasa24MesesTotal);
+                document.getElementById('total-detalle-24').textContent = formatCurrency(inversionDetalle * (1 + tasa24MesesTotal));
+                document.getElementById('ganancia-detalle-60').textContent = formatCurrency(inversionDetalle * tasa60MesesTotal);
+                document.getElementById('total-detalle-60').textContent = formatCurrency(inversionDetalle * (1 + tasa60MesesTotal));
+
+                // Calcular y mostrar las fechas de retorno
+                const hoy = new Date();
+                function formatDate(date) {
+                    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                    return date.toLocaleDateString('es-MX', options);
+                }
+                document.getElementById('fecha-retorno-12').textContent = formatDate(new Date(hoy.getFullYear(), hoy.getMonth() + 12, hoy.getDate()));
+                document.getElementById('fecha-retorno-24').textContent = formatDate(new Date(hoy.getFullYear(), hoy.getMonth() + 24, hoy.getDate()));
+                document.getElementById('fecha-retorno-60').textContent = formatDate(new Date(hoy.getFullYear(), hoy.getMonth() + 60, hoy.getDate()));
+
+            } else {
+                growthChart.data.labels = [];
+                growthChart.data.datasets[0].data = [];
+                growthChart.update();
+            }
+        }
+
+        document.getElementById('btn-invertir').addEventListener('click', function() {
+            const monto = parseFloat(document.getElementById('monto').value) || 0;
+            if (monto < 10000 || monto > 200000) {
+                alert('Por favor ingresa un monto válido entre $10,000 y $200,000');
+                return;
+            }
+            
+            const data = growthChart.data.datasets[0].data;
+            const rendimiento12 = data[12] - monto;
+            const total12 = data[12];
+            const rendimiento24 = data[24] - monto;
+            const total24 = data[24];
+            const rendimiento60 = monto * tasa60MesesTotal;
+            const total60 = monto + rendimiento60;
+            
+            const mensaje = `¡Excelente decisión de inversión!\n\n` +
+                            `Monto a invertir: ${formatCurrency(monto)}\n\n` +
+                            `🔹 Proyección a 12 meses:\n   Ganancia: ${formatCurrency(rendimiento12)}\n   Total: ${formatCurrency(total12)}\n\n` +
+                            `🔹 Proyección a 24 meses:\n   Ganancia: ${formatCurrency(rendimiento24)}\n   Total: ${formatCurrency(total24)}\n\n` +
+                            `🔹 Proyección a 60 meses:\n   Ganancia: ${formatCurrency(rendimiento60)}\n   Total: ${formatCurrency(total60)}\n\n` +
+                            `Un asesor especializado se pondrá en contacto contigo para formalizar tu inversión.`;
+            
+            alert(mensaje);
+        });
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tabbuttons;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+            
+            // Redibujar el gráfico cuando se muestra la pestaña de proyección
+            if (tabName === 'proyeccion') {
+                setTimeout(() => {
+                    growthChart.resize();
+                }, 10);
+            }
+        }
+
+        // Inicializar calculadora al cargar
+        calcularInversion();
+        
+        // Redimensionar gráfico cuando cambia el tamaño de la ventana
+        window.addEventListener('resize', function() {
+            growthChart.resize();
+        });
+    </script>
+</body>
+</html>

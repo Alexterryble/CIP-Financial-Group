@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIP Financial Group</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+    /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+         /* Contenedor principal flexible */
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 0 auto;
+            max-width: 100000px;
+        }
+        
+/* Sección de contacto principal */
+.contact-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    width: 100%; /* ← más ancho, recomendado */
+    max-width: 1000px; /* ← límite para que no se pase */
+    margin: 0 auto; /* ← centrado */
+    text-align: center;  /* sigue centrando el botón */
+}
+
+.contact-title {
+    color: #1e3c72; /* un azul más elegante */
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+        
+.contact-description {
+    color: #444; /* un gris más cálido */
+    font-size: 17px;
+    margin-bottom: 20px;
+    text-align: center; /* MEJOR centrado, ya que es una frase corta */
+    line-height: 1.6; /* mejor lectura */
+    max-width: 700px; /* para que no quede tan ancho en pantallas grandes */
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.2s;
+    text-align: justify;
+
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+        
+        /* Barra de contacto lateral con checkboxes */
+.contact-sidebar {
+    background-color: white;
+    border-radius: 12px;
+    padding: 25px;
+    width: 35%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* un poco más suave */
+    align-self: flex-start;
+    border: 1px solid #e0e0e0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+.sidebar-title {
+    color: #2c3e50;
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #25D366;
+}
+
+.contact-info-item a {
+    color: #333;
+    text-decoration: none;
+}
+
+.contact-info-item a:hover {
+    text-decoration: underline;
+}
+/* Estilo del mapa para que se vea mejor */
+.contact-sidebar iframe {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.contact-info-item i {
+    font-size: 18px;
+    color: #25D366;
+    min-width: 20px; /* para que queden alineados */
+}
+        .contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* espacio entre icono y texto */
+    margin-bottom: 12px; /* espacio entre items */
+    color: #333;
+    font-size: 15px;
+}
+        .contact-list {
+            list-style: none;
+        }
+        
+        .contact-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .contact-item input[type="checkbox"] {
+            position: absolute;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            accent-color: #25D366;
+            cursor: default;
+        }
+        
+        .contact-item i {
+            margin-right: 10px;
+            color: #2c3e50;
+        }
+        
+        /* Botón de WhatsApp */
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            margin: 20px 0;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        
+        /* Beneficios */
+        .benefits-container {
+            margin: 40px 0;
+        }
+        
+        .benefit-item {
+            margin-bottom: 25px;
+        }
+        
+        .benefit-title {
+            color: #2c3e50;
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        footer {
+            margin-top: 50px;
+        }
+        
+
+        .hero-text {
+    text-align: justify;
+}
+/* Servicios */
+.services-section {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 0;
+}
+
+
+.services-title {
+    color: #2c3e50;
+    font-size: 26px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.services-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+.service-card {
+    flex: 1 1 30%; /* que se ajusten en porcentaje */
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px 20px;
+    text-decoration: none;
+    color: #2c3e50;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-top: 3px solid #2c3e50;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+    font-size: 50px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.service-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.service-description {
+    font-size: 15px;
+    color: #555;
+    text-align: justify;
+
+}
+.sidebar-icon {
+    font-size: 20px;
+    color: #25D366;
+    margin-right: 12px;
+    background: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+.container {
+    padding-top: 40px; /* Espacio entre Hero y contenido */
+}
+
+.hero-contact {
+    background: url('imagenes/Abuelo.jpg') no-repeat center 50% / cover;
+    padding: 190px 20px 80px 20px; /* Aumentamos altura */
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero-contact::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+@media (max-width: 768px) {
+    .services-container {
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .service-card {
+        width: 90%;  /* que ocupen casi todo el ancho en móvil */
+        max-width: 400px;
+    }
+
+    .service-icon {
+        font-size: 60px; /* si quieres hacer el ícono más grande */
+    }
+
+    .service-title {
+        font-size: 20px;
+    }
+
+    .service-description {
+        font-size: 16px;
+    }
+}
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px;
+            }
+            
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .main-content-wrapper {
+                flex-direction: column;
+            }
+            
+            .contact-card, .contact-sidebar {
+                width: 100%;
+            }
+            
+            .contact-card {
+                padding: 30px 20px;
+            }
+            
+            .contact-title {
+                font-size: 26px;
+            }
+            
+            .contact-description {
+                font-size: 16px;
+            }
+        }
+    </style>
+<body>
+
+    <!-- Menú ORIGINAL (sin cambios) -->
+    <div class="menu-container">
+        <div class="menu">
+<div class="logo" id="logo-menu"> <!-- AÑADIR el id -->
+    <img src="images/logo1.png" alt="Logo CIP">
+    <span class="logo-text">CIP FINANCIAL GROUP</span>
+</div>
+
+            
+            <ul class="menu-items">
+                <li class="menu-item"><a href="index.html">Inicio</a></li>
+                <li class="menu-item"><a href="nosotros.html">Nosotros</a></li>
+                <li class="menu-item dropdown">
+                  <a href="#" class="dropdown-toggle">Servicios <i class="fas fa-chevron-down"></i></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="service.html">Pensiones</a></li>
+                    <li><a href="Seleccion.html">Ahorro</a></li>
+                    <li><a href="Credito.html">Crédito</a></li>
+                  </ul>
+                </li>
+                <li class="menu-item"><a href="Contacto.html">Contacto</a></li>
+            </ul>
+            
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+<section class="hero-contact">
+    <div class="hero-content">
+        <h1 class="hero-title">Te ayudamos a construir tu futuro financiero</h1>
+        <p class="hero-subtitle">Asesoría personalizada en pensiones, ahorro y seguridad social.</p>
+        <a href="https://wa.me/527228038635?text=Hola,%20quisiera%20más%20información%20sobre%20los%20servicios%20de%20pensiones%20y%20ahorro." 
+           class="whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp whatsapp-icon"></i> Chatear por WhatsApp
+        </a>
+    </div>
+</section>
+
+    
+    <main class="container">
+        <div class="main-content-wrapper">
+            <!-- Tarjeta de contacto principal -->
+            <div class="contact-card">
+                <h1 class="contact-title">Consulta sobre tu pensión</h1>
+                <p class="contact-description">
+                    ¿Tienes dudas sobre tu <span class="highlight">plan de pensiones</span>, <span class="highlight">ahorro</span> o <span class="highlight">futuro financiero</span>? 
+                    Nuestros asesores están disponibles para brindarte orientación personalizada a través de <span class="highlight">WhatsApp</span>.
+                </p>
+
+                
+                <a href="https://wa.me/527228038635?text=Hola,%20me%20gustaría%20recibir%20información%20sobre%20pensiones" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp whatsapp-icon"></i> Chatear por WhatsApp
+                </a>
+                <section class="services-section">
+    <h2 class="services-title">Nuestros Servicios</h2>
+    <div class="services-container">
+        
+        <!-- Servicio 1 -->
+        <a href="service.html" class="service-card">
+            <i class="fas fa-piggy-bank service-icon"></i>
+            <h3 class="service-title">Planes de Pensiones</h3>
+            <p class="service-description">
+                Asesoramiento personalizado para elegir el mejor plan de pensiones según tus necesidades y objetivos financieros.
+            </p>
+        </a>
+        
+        <!-- Servicio 2 -->
+        <a href="Seleccion.html" class="service-card">
+            <i class="fas fa-coins service-icon"></i>
+            <h3 class="service-title">Ahorro Previsional</h3>
+            <p class="service-description">
+                Estrategias de ahorro a largo plazo para garantizar tu tranquilidad financiera.
+            </p>
+        </a>
+        
+        <!-- Servicio 3 -->
+        <a href="Credito.html" class="service-card">
+            <i class="fas fa-file-signature service-icon"></i>
+            <h3 class="service-title">Modalidad 40</h3>
+            <p class="service-description">
+                Asesoramiento especializado en la Modalidad 40 del IMSS para regularizar tu situación ante el Instituto.
+            </p>
+        </a>
+        
+    </div>
+</section>
+
+            </div>
+            
+<div class="contact-sidebar">
+    <h3 class="sidebar-title">Información de Contacto</h3>
+
+    <div class="contact-info-item">
+        <i class="fa-regular fa-clock"></i>
+        <span>Horario: L-V 9:00-18:00</span>
+    </div>
+
+    <div class="contact-info-item">
+        <i class="fa-solid fa-phone"></i>
+        <span>Tel: 722 696 4838</span>
+    </div>
+
+    <div class="contact-info-item">
+        <i class="fa-regular fa-envelope"></i>
+        <span>atencion@cipmexico.com.mx</span>
+    </div>
+
+    <div class="contact-info-item">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>
+            <a href="https://www.google.com.mx/maps/place/Isabel+la+Cat%C3%B3lica+201b,+Sur,+San+Sebastian,+50090+Toluca+de+Lerdo,+M%C3%A9x./@19.2883004,-99.6426959,21z/data=!4m6!3m5!1s0x85cd898d2596bf5f:0xf3c1e77d9f5efe58!8m2!3d19.2884712!4d-99.6429493!16s%2Fg%2F11t2v3mnt7?entry=ttu" 
+               target="_blank" 
+               style="color: #333; text-decoration: none;">
+                Isabel la Católica 201b, Sur, San Sebastian, 50090 Toluca de Lerdo, Méx.
+            </a>
+        </span>
+    </div>
+
+    <!-- Mini mapa -->
+    <iframe 
+        src="https://www.google.com/maps?q=Isabel+la+Cat%C3%B3lica+201b,+Sur,+San+Sebastian,+50090+Toluca+de+Lerdo,+M%C3%A9x.&output=embed" 
+        width="100%" 
+        height="200" 
+        style="border:0; margin-top: 15px; border-radius: 8px;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+
+
+
+        </div>
+    </main>
+
+    
+<!-- Footer Mejorado -->
+<footer class="footer">
+  <div class="footer-container">
+      <div class="footer-top">
+          <div class="container">
+              <div class="footer-brand">
+                  <h3 class="footer-title">CIP FINANCIAL GROUP</h3>
+                  <p class="footer-text">Soluciones financieras integrales para tu futuro</p>
+                  
+                  <div class="footer-social">
+                      <a href="https://www.facebook.com/profile.php?id=61573398725938" class="social-link" target="_blank" rel="noopener noreferrer">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                      </a>
+                      <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M16 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M8 16V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M16 12H22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M2 12H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M12 2V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M12 16V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                      </a>
+                  </div>
+              </div>
+
+              <div class="footer-links">
+                  <div class="links-group">
+                      <h5 class="links-title">Enlaces Útiles</h5>
+                      <ul class="links-list">
+                          <li><a href="index.html" class="footer-link">Inicio</a></li>
+                          <li><a href="nosotros.html" class="footer-link">Nosotros</a></li>
+                          <li><a href="/cip/contact.php" class="footer-link">Contacto</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="links-group">
+                      <h5 class="links-title">Nuestros Servicios</h5>
+                      <ul class="links-list">
+                          <li><a href="service.html" class="footer-link">Asesoría en Pensiones</a></li>
+                          <li><a href="Seleccion.html" class="footer-link">Inversiones Inteligentes</a></li>
+                          <li><a href="Credito.html" class="footer-link">Créditos Modalidad 40</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="links-group">
+                      <h5 class="links-title">Contacto</h5>
+                      <ul class="links-list contact-list">
+                          <li>
+                              <a href="mailto:atencion@cipmexico.com.mx" class="footer-link contact-link">
+                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  atencion@cipmexico.com.mx
+                              </a>
+                          </li>
+                          <li>
+                              <a href="https://wa.me/527226964726" class="footer-link contact-link whatsapp" target="_blank" rel="noopener noreferrer">
+                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M12 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M9 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M15 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  722 696 4726
+                              </a>
+                          </li>
+                          <li>
+                              <a href="https://www.google.com/maps/place/Consultor%C3%ADa+Integral+de+Pensiones+M%C3%A9xico/@19.2844002,-99.6233479,17z/data=!3m1!4b1!4m6!3m5!1s0x85cd8b51ad06414f:0xc51df107ad8b455c!8m2!3d19.2844!4d-99.6229054!16s%2Fg%2F11f6nffr11?entry=ttu" 
+                              class="footer-link contact-link map" 
+                              target="_blank" 
+                              rel="noopener noreferrer">
+                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  PRIV. JAIME NUNO 103, 2DO PISO, COL. SAN SEBASTIÁN, TOLUCA, MÉXICO. C.P. 50150.
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+
+
+          </div>
+      </div>
+
+      <div class="footer-bottom">
+          <div class="container">
+              <p class="copyright">&copy; <span id="current-year"></span> CIP Financial Group. Todos los derechos reservados.</p>
+          </div>
+      </div>
+  </div>
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const menuIcon = document.querySelector(".menu-icon");
+  const menuItems = document.querySelector(".menu-items");
+  const dropdown = document.querySelector(".menu-item.dropdown");
+  const toggle = dropdown.querySelector(".dropdown-toggle");
+
+  // Mostrar/Ocultar menú hamburguesa
+  menuIcon?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menuIcon.classList.toggle("active");
+    menuItems.classList.toggle("show");
+    dropdown.classList.remove("active");
+  });
+
+  // Al hacer clic en "Servicios"
+  toggle?.addEventListener("click", function (e) {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      e.stopPropagation();
+      dropdown.classList.toggle("active");
+
+      // Asegura rotar solo el ícono de este menú
+      const chevron = this.querySelector(".fa-chevron-down");
+      if (dropdown.classList.contains("active")) {
+        chevron.style.transform = "rotate(180deg)";
+      } else {
+        chevron.style.transform = "rotate(0deg)";
+      }
+    }
+  });
+
+  // Cierra menú y submenú si se hace clic fuera
+  document.addEventListener("click", function (e) {
+    if (window.innerWidth <= 768) {
+      if (!menuItems.contains(e.target)) {
+        menuItems.classList.remove("show");
+        menuIcon?.classList.remove("active");
+        dropdown.classList.remove("active");
+        toggle.querySelector(".fa-chevron-down").style.transform = "rotate(0deg)";
+      }
+    }
+  });
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.querySelector('.carousel-inner');
+    const items = document.querySelectorAll('.carousel-item');
+    const prevBtn = document.querySelector('.carousel-control-prev');
+    const nextBtn = document.querySelector('.carousel-control-next');
+    const indicators = document.querySelectorAll('.carousel-indicators li');
+
+    let currentIndex = 0;
+    const totalItems = items.length;
+    let isTransitioning = false;
+    let transitionEndEvent = 'transitionend';
+    let transformProp = 'transform';
+
+    // Detección de prefijos para navegadores antiguos
+    if ('webkitTransition' in document.body.style) {
+        transitionEndEvent = 'webkitTransitionEnd';
+        transformProp = 'webkitTransform';
+    }
+
+    // Función para actualizar indicadores
+    function updateIndicators(index) {
+        indicators.forEach((indicator, i) => {
+            indicator.classList.toggle('active', i === index);
+        });
+    }
+
+    // Función para ir a un slide específico
+    function goToSlide(index, instant = false) {
+        if (isTransitioning && !instant) return;
+
+        // Asegurar que el índice esté dentro de los límites
+        currentIndex = (index + totalItems) % totalItems;
+
+        if (instant) {
+            // Desactivar transición temporalmente
+            carousel.style.transition = 'none';
+        }
+
+        // Aplicar transformación
+        carousel.style[transformProp] = `translateX(-${currentIndex * 100}%)`;
+
+        if (instant) {
+            // Forzar reflow para asegurar que el navegador procese el cambio sin transición
+            void carousel.offsetWidth;
+            
+            // Restaurar transición en el siguiente frame
+            requestAnimationFrame(() => {
+                carousel.style.transition = '';
+            });
+        } else {
+            isTransitioning = true;
+        }
+
+        updateIndicators(currentIndex);
+    }
+
+    // Manejador de evento de fin de transición
+    function handleTransitionEnd() {
+        isTransitioning = false;
+    }
+
+    // Event listeners
+    function setupEventListeners() {
+        carousel.addEventListener(transitionEndEvent, handleTransitionEnd);
+        
+        prevBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (!isTransitioning) goToSlide(currentIndex - 1);
+        });
+
+        nextBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (!isTransitioning) goToSlide(currentIndex + 1);
+        });
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (!isTransitioning && index !== currentIndex) {
+                    goToSlide(index);
+                }
+            });
+        });
+    }
+
+    // Inicialización
+    function initCarousel() {
+        // Ocultar todos los slides excepto el primero
+        items.forEach((item, index) => {
+            item.style.opacity = index === 0 ? '1' : '0';
+        });
+
+        // Configurar posición inicial sin animación
+        goToSlide(0, true);
+
+        // Mostrar todos los slides después de la inicialización
+        setTimeout(() => {
+            items.forEach(item => {
+                item.style.opacity = '1';
+            });
+        }, 50);
+
+        setupEventListeners();
+    }
+
+    initCarousel();
+});
+</script>
+<script>
+window.addEventListener('scroll', function() {
+    const menuContainer = document.querySelector('.menu-container');
+    if (window.scrollY > 10) {
+        menuContainer.classList.add('en-top');
+    } else {
+        menuContainer.classList.remove('en-top');
+    }
+});
+</script>
+
+</body>
+</head>
+</html>
