@@ -400,7 +400,7 @@ body {
     justify-content: space-between;
     padding: 0 20px;
     transform: translateY(-50%);
-    z-index: 10;
+    z-index: 1000;
 }
 
 .carousel-control-prev, 
@@ -412,11 +412,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--blanco);
+    color: var(--blanco); /* asegúrate de que esté definida */
     font-size: 1.5rem;
     text-decoration: none;
     transition: all 0.3s;
     backdrop-filter: blur(5px);
+    z-index: 1000;
+    pointer-events: all;
 }
 
 .carousel-control-prev:hover, 
@@ -3044,4 +3046,30 @@ body {
     transform: rotate(180deg);
   }
 
+}
+
+
+.ubicacion-section {
+  padding: 60px 20px;
+  background-color: #f5f7fa;
+  text-align: center;
+}
+
+.ubicacion-section h2 {
+  font-size: 2.2rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.ubicacion-section p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.mapa-container {
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }

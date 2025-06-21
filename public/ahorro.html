@@ -769,6 +769,31 @@ input[type="number"]::-webkit-inner-spin-button {
         .footer-container .container::before {
     display: none;
 }
+.bank-return-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  min-width: 300px;
+}
+
+.bank-return-row > div {
+  flex: 1;
+  text-align: center;
+}
+
+.bank-return-row strong {
+  display: block;
+  font-size: 0.85rem;
+  color: #495057;
+  margin-bottom: 4px;
+}
+
+.bank-return-row div > div {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #d63333;
+}
+
 .simulador-header {
     max-width: 900px;
     margin: 0 auto 40px auto;
@@ -898,6 +923,16 @@ input[type="number"]::-webkit-inner-spin-button {
         align-self: flex-end;
     }
 }
+.cip-ganancias p {
+  font-size: 1.1rem;
+  margin: 6px 0;
+  color: #ffffff;
+}
+.cip-ganancias span {
+  color: #ffffff;
+  font-weight: bold;
+}
+
     </style>
 </head>
     <!-- Menú ORIGINAL (sin cambios) -->
@@ -1178,77 +1213,126 @@ input[type="number"]::-webkit-inner-spin-button {
         </div>
     </div>
 </div>
-
 <!-- PESTAÑA: COMPARATIVA -->
 <div id="comparativa" class="tab-content">
-    <div class="content-container">
-        <div class="bank-comparison">
-                <div class="bank-comparison">
-                    <!-- Bancos tradicionales -->
-                    <div class="bank-card">
-                        <div class="bank-logo" style="background-color: #072146;">B</div>
-                        <div class="bank-info">
-                            <div class="bank-name">Cuenta de ahorro estándar</div>
-                            <div class="bank-rate">Tasa: 2.5% anual</div>
-                        </div>
-                        <div class="bank-amount" id="bbva-amount">$5,325</div>
-                    </div>
-                    
-                    <div class="bank-card">
-                        <div class="bank-logo" style="background-color: #ed0000;">S</div>
-                        <div class="bank-info">
-                            <div class="bank-name">Cuenta básica</div>
-                            <div class="bank-rate">Tasa: 1.8% anual</div>
-                        </div>
-                        <div class="bank-amount" id="santander-amount">$5,223</div>
-                    </div>
-                    
-                    <div class="bank-card">
-                        <div class="bank-logo" style="background-color: #0a2240;">C</div>
-                        <div class="bank-info">
-                            <div class="bank-name">Ahorro tradicional</div>
-                            <div class="bank-rate">Tasa: 1.2% anual</div>
-                        </div>
-                        <div class="bank-amount" id="banamex-amount">$5,156</div>
-                    </div>
-                    
-                    <!-- Fintech -->
-                    <div class="bank-card">
-                        <div class="bank-logo" style="background-color: #00a6e0;">MP</div>
-                        <div class="bank-info">
-                            <div class="bank-name">Fondo de inversión digital</div>
-                            <div class="bank-rate">Tasa: 4.5% anual</div>
-                        </div>
-                        <div class="bank-amount" id="mercadopago-amount">$5,612</div>
-                    </div>
-                    
-                    <div class="bank-card">
-                        <div class="bank-logo" style="background-color: #8200e6;">N</div>
-                        <div class="bank-info">
-                            <div class="bank-name">Cuenta digital premium</div>
-                            <div class="bank-rate">Tasa: 5.0% anual</div>
-                        </div>
-                        <div class="bank-amount" id="nu-amount">$5,750</div>
-                    </div>
-                    
-                    <div class="bank-card">
-                        <div class="bank-logo" style="background-color: #7a2e8a;">G</div>
-                        <div class="bank-info">
-                            <div class="bank-name">Instrumento de inversión</div>
-                            <div class="bank-rate">Tasa: 5.3% anual</div>
-                        </div>
-                        <div class="bank-amount" id="gbm-amount">$5,820</div>
-                    </div>
-                </div>
-                
-        </div>
+  <div class="content-container">
+    <div class="bank-comparison">
 
-<!-- Cuadro azul -->
-<div class="result-card highlight-card" style="margin-top: 30px;">
-    <h1>Beneficio adicional con CIP</h1>
-    <div class="result-amount" id="ganancia-extra">+$1,024</div>
-    <p id="comparativa-banco">Selecciona una alternativa para comparar</p>
+      <!-- BBVA -->
+      <div class="bank-card">
+        <div class="bank-logo" style="background-color: #072146;">B</div>
+        <div class="bank-info">
+          <div class="bank-name">Cuenta de ahorro estándar</div>
+          <div class="bank-rate">Tasa: 2.5% anual</div>
+        </div>
+        <div class="bank-amount">
+          <div class="bank-return-row">
+            <div><strong>12 meses</strong><div id="bbva-12-g" class="bank-gain">$0</div></div>
+            <div><strong>24 meses</strong><div id="bbva-24-g" class="bank-gain">$0</div></div>
+            <div><strong>60 meses</strong><div id="bbva-60-g" class="bank-gain">$0</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Santander -->
+      <div class="bank-card">
+        <div class="bank-logo" style="background-color: #ed0000;">S</div>
+        <div class="bank-info">
+          <div class="bank-name">Cuenta básica</div>
+          <div class="bank-rate">Tasa: 1.8% anual</div>
+        </div>
+        <div class="bank-amount">
+          <div class="bank-return-row">
+            <div><strong>12 meses</strong><div id="santander-12-g" class="bank-gain">$0</div></div>
+            <div><strong>24 meses</strong><div id="santander-24-g" class="bank-gain">$0</div></div>
+            <div><strong>60 meses</strong><div id="santander-60-g" class="bank-gain">$0</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Banamex -->
+      <div class="bank-card">
+        <div class="bank-logo" style="background-color: #0a2240;">C</div>
+        <div class="bank-info">
+          <div class="bank-name">Ahorro tradicional</div>
+          <div class="bank-rate">Tasa: 1.2% anual</div>
+        </div>
+        <div class="bank-amount">
+          <div class="bank-return-row">
+            <div><strong>12 meses</strong><div id="banamex-12-g" class="bank-gain">$0</div></div>
+            <div><strong>24 meses</strong><div id="banamex-24-g" class="bank-gain">$0</div></div>
+            <div><strong>60 meses</strong><div id="banamex-60-g" class="bank-gain">$0</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MercadoPago -->
+      <div class="bank-card">
+        <div class="bank-logo" style="background-color: #00a6e0;">MP</div>
+        <div class="bank-info">
+          <div class="bank-name">Fondo de inversión digital</div>
+          <div class="bank-rate">Tasa: 4.5% anual</div>
+        </div>
+        <div class="bank-amount">
+          <div class="bank-return-row">
+            <div><strong>12 meses</strong><div id="mercadopago-12-g" class="bank-gain">$0</div></div>
+            <div><strong>24 meses</strong><div id="mercadopago-24-g" class="bank-gain">$0</div></div>
+            <div><strong>60 meses</strong><div id="mercadopago-60-g" class="bank-gain">$0</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nu -->
+      <div class="bank-card">
+        <div class="bank-logo" style="background-color: #8200e6;">N</div>
+        <div class="bank-info">
+          <div class="bank-name">Cuenta digital premium</div>
+          <div class="bank-rate">Tasa: 5.0% anual</div>
+        </div>
+        <div class="bank-amount">
+          <div class="bank-return-row">
+            <div><strong>12 meses</strong><div id="nu-12-g" class="bank-gain">$0</div></div>
+            <div><strong>24 meses</strong><div id="nu-24-g" class="bank-gain">$0</div></div>
+            <div><strong>60 meses</strong><div id="nu-60-g" class="bank-gain">$0</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GBM -->
+      <div class="bank-card">
+        <div class="bank-logo" style="background-color: #7a2e8a;">G</div>
+        <div class="bank-info">
+          <div class="bank-name">Instrumento de inversión</div>
+          <div class="bank-rate">Tasa: 5.3% anual</div>
+        </div>
+        <div class="bank-amount">
+          <div class="bank-return-row">
+            <div><strong>12 meses</strong><div id="gbm-12-g" class="bank-gain">$0</div></div>
+            <div><strong>24 meses</strong><div id="gbm-24-g" class="bank-gain">$0</div></div>
+            <div><strong>60 meses</strong><div id="gbm-60-g" class="bank-gain">$0</div></div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    <!-- Cuadro azul de CIP -->
+    <div class="highlight-wrapper">
+      <div class="result-card highlight-card">
+        <h1>Ganancias estimadas con CIP</h1>
+        <div class="cip-ganancias">
+          <p><strong>Tradicional (12 meses):</strong> <span id="ganancia-cip-12">+$0</span></p>
+          <p><strong>Moderado (24 meses):</strong> <span id="ganancia-cip-24">+$0</span></p>
+          <p><strong>Alto Rendimiento (60 meses):</strong> <span id="ganancia-cip-60">+$0</span></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
+
+
 
     </div>
 </div>
@@ -1372,6 +1456,9 @@ input[type="number"]::-webkit-inner-spin-button {
 <script>
 // Inicializar gráfica
 const ctx = document.getElementById('growthChart').getContext('2d');
+    let totalCIP12 = 0;
+    let totalCIP24 = 0;
+    let totalCIP60 = 0;
         let growthChart = new Chart(ctx, {
             type: 'line',
             data: {
@@ -1522,7 +1609,7 @@ const ctx = document.getElementById('growthChart').getContext('2d');
             return isNaN(amount) ? '$0' : '$' + amount.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         }
 
-        function calcularInversion() {
+function calcularInversion() {
     const montoInput = document.getElementById('monto');
     let montoInicial = parseFloat(montoInput.value) || 0;
 
@@ -1531,7 +1618,6 @@ const ctx = document.getElementById('growthChart').getContext('2d');
         const data = [montoInicial];
         const inversionDetalle = montoInicial;
 
-        // Gráfica con crecimiento lineal según tasa fija por tramo
         for (let i = 1; i <= 60; i++) {
             labels.push(`Mes ${i}`);
             let incremento = 0;
@@ -1551,31 +1637,35 @@ const ctx = document.getElementById('growthChart').getContext('2d');
         growthChart.data.datasets[0].data = data;
         growthChart.update();
 
-        // Calcular valores reales sin capitalización
-        const total12 = inversionDetalle * (1 + tasa12Meses);
-        const ganancia12 = total12 - inversionDetalle;
+        // Guardar valores globales
+        totalCIP12 = inversionDetalle * (1 + tasa12Meses);
+        totalCIP24 = inversionDetalle * (1 + tasa24MesesTotal);
+        totalCIP60 = inversionDetalle * (1 + tasa60MesesTotal);
 
-        const total24 = inversionDetalle * (1 + tasa24MesesTotal);
-        const ganancia24 = total24 - inversionDetalle;
+        const ganancia12 = totalCIP12 - inversionDetalle;
+        const ganancia24 = totalCIP24 - inversionDetalle;
+        const ganancia60 = totalCIP60 - inversionDetalle;
 
-        const total60 = inversionDetalle * (1 + tasa60MesesTotal);
-        const ganancia60 = total60 - inversionDetalle;
+
+        document.getElementById('ganancia-cip-12').textContent = '+' + formatCurrency(ganancia12);
+        document.getElementById('ganancia-cip-24').textContent = '+' + formatCurrency(ganancia24);
+        document.getElementById('ganancia-cip-60').textContent = '+' + formatCurrency(ganancia60);
+
 
         // Mostrar resultados
         document.getElementById('ganancia-detalle-12').textContent = formatCurrency(ganancia12);
-        document.getElementById('total-detalle-12').textContent = formatCurrency(total12);
+        document.getElementById('total-detalle-12').textContent = formatCurrency(totalCIP12);
 
         document.getElementById('ganancia-detalle-24').textContent = formatCurrency(ganancia24);
-        document.getElementById('total-detalle-24').textContent = formatCurrency(total24);
+        document.getElementById('total-detalle-24').textContent = formatCurrency(totalCIP24);
 
         document.getElementById('ganancia-detalle-60').textContent = formatCurrency(ganancia60);
-        document.getElementById('total-detalle-60').textContent = formatCurrency(total60);
+        document.getElementById('total-detalle-60').textContent = formatCurrency(totalCIP60);
 
         document.querySelector('#ganancia-detalle-12').previousElementSibling.textContent = `Ganancia Estimada con ${formatCurrency(inversionDetalle)}:`;
         document.querySelector('#ganancia-detalle-24').previousElementSibling.textContent = `Ganancia Estimada con ${formatCurrency(inversionDetalle)}:`;
         document.querySelector('#ganancia-detalle-60').previousElementSibling.textContent = `Ganancia Estimada con ${formatCurrency(inversionDetalle)}:`;
 
-        // Fechas de retorno
         const hoy = new Date();
         function formatDate(date) {
             const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -1591,6 +1681,7 @@ const ctx = document.getElementById('growthChart').getContext('2d');
         growthChart.update();
     }
 }
+
 
 
         document.getElementById('btn-invertir').addEventListener('click', function() {
@@ -1689,17 +1780,15 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.bank-card').forEach(card => {
         card.addEventListener('click', function() {
-            // Leer el monto de inversión ingresado por el usuario
             let montoInicial = parseFloat(document.getElementById('monto').value) || 0;
 
-            // Si no hay monto válido, mostrar alerta
-            if (montoInicial === 0) {
-                alert('Por favor ingresa un monto de inversión primero.');
+            if (montoInicial === 0 || totalCIP12 === 0) {
+                alert('Por favor ingresa un monto de inversión válido primero.');
                 return;
             }
 
-            // Suponiendo que CIP da un rendimiento del 20% (ajústalo si es otro)
-            let valorFinalCIP = montoInicial * (1 + 0.20);
+            // Puedes cambiar entre totalCIP12, totalCIP24 o totalCIP60 aquí 👇
+            let valorFinalCIP = totalCIP12;
 
             // Leer monto del banco seleccionado
             let montoBanco = parseFloat(
@@ -1708,18 +1797,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     .replaceAll(',','')
             );
 
-            // Calcular beneficio
             let beneficio = valorFinalCIP - montoBanco;
-
-            // Leer nombre del banco
             let nombreBanco = this.querySelector('.bank-name').textContent;
 
-            // Actualizar beneficio en el cuadro azul
+            // Mostrar resultado
             document.getElementById('ganancia-extra').textContent = 
                 (beneficio >= 0 ? '+$' : '-$') + 
                 Math.abs(beneficio).toLocaleString('es-MX');
 
-            // Actualizar el texto del <p> (con ID comparativa-banco)
             document.getElementById('comparativa-banco').textContent = `vs. ${nombreBanco}`;
 
             // Efecto visual
@@ -1731,6 +1816,56 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 300);
         });
     });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const input = document.getElementById("monto");
+
+    // Tasas anuales por banco (en decimal)
+    const tasas = {
+        bbva: 0.025,
+        santander: 0.018,
+        banamex: 0.012,
+        mercadopago: 0.045,
+        nu: 0.05,
+        gbm: 0.053
+    };
+
+    // Plazos en meses y sus IDs asociadas
+    const plazos = [12, 24, 60];
+
+    // Formateador en moneda
+    const formatMoney = (amount) =>
+        amount.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' });
+
+    function calcularGanancias() {
+        const monto = parseFloat(input.value);
+
+        if (isNaN(monto) || monto <= 0) {
+            alert("Por favor, ingresa un monto válido.");
+            return;
+        }
+
+        for (const banco in tasas) {
+            const tasaAnual = tasas[banco];
+            plazos.forEach((meses) => {
+                const años = meses / 12;
+                const ganancia = monto * tasaAnual * años;
+
+                const idGanancia = `${banco}-${meses}-g`;
+                const el = document.getElementById(idGanancia);
+                if (el) el.textContent = formatMoney(ganancia);
+            });
+        }
+    }
+
+    // Ejecutar cuando el usuario cambia el monto
+    input.addEventListener("input", calcularGanancias);
+
+    // También puedes llamar manualmente si necesitas:
+    // calcularGanancias();
 });
 </script>
 

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cipmexico.com.mx/sitemap.xml
