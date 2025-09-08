@@ -954,25 +954,25 @@
             <p style="margin-bottom: 30px; color: var(--gray);">Selecciona el plan que mejor se adapte a tus necesidades financieras y comienza a generar rendimientos hoy mismo.</p>
             
             <div class="plan-options">
-                <div class="plan-card selected" data-plan="200" data-rate="0.12">
+                <div class="plan-card selected" data-plan="200" data-rate="0.14">
                     <div class="plan-name">Ahorra Hoy</div>
                     <div class="plan-amount">$200<span>/semana</span></div>
-                    <div class="plan-details">26 semanas (6 meses)</div>
-                    <div class="plan-rate">12% tasa fija</div>
+                    <div class="plan-details">52 semanas (12 meses)</div>
+                    <div class="plan-rate">14% tasa fija</div>
                 </div>
                 
-                <div class="plan-card" data-plan="500" data-rate="0.13">
+                <div class="plan-card" data-plan="500" data-rate="0.15">
                     <div class="plan-name">Ahorra Pro</div>
                     <div class="plan-amount">$500<span>/semana</span></div>
-                    <div class="plan-details">26 semanas (6 meses)</div>
-                    <div class="plan-rate">13% tasa fija</div>
+                    <div class="plan-details">52 semanas (12 meses)</div>
+                    <div class="plan-rate">15% tasa fija</div>
                 </div>
                 
-                <div class="plan-card" data-plan="1000" data-rate="0.14">
+                <div class="plan-card" data-plan="1000" data-rate="0.16">
                     <div class="plan-name">Ahorra 360</div>
                     <div class="plan-amount">$1,000<span>/semana</span></div>
-                    <div class="plan-details">26 semanas (6 meses)</div>
-                    <div class="plan-rate">14% tasa fija</div>
+                    <div class="plan-details">52 semanas (12 meses)</div>
+                    <div class="plan-rate">16% tasa fija</div>
                 </div>
             </div>
             
@@ -1015,7 +1015,7 @@
                     </tr>
                     <tr>
                         <td>Plazo total</td>
-                        <td>26 semanas (6 meses)</td>
+                        <td>52 semanas (12 meses)</td>
                     </tr>
                     <tr>
                         <td>Tasa de interés anual</td>
@@ -1078,21 +1078,21 @@
                     </tr>
                     <tr>
                         <td>Ahorra Hoy ($200)</td>
-                        <td>$5,200</td>
-                        <td>+$624</td>
-                        <td>$5,824</td>
+                        <td>$10,400</td>
+                        <td>+$1,456</td>
+                        <td>$11,856.00</td>
                     </tr>
                     <tr>
                         <td>Ahorra Pro ($500)</td>
-                        <td>$13,000</td>
-                        <td>+$1,690</td>
+                        <td>$26,000</td>
+                        <td>+$3,900</td>
                         <td>$14,690</td>
                     </tr>
                     <tr>
                         <td>Ahorra 360 ($1,000)</td>
-                        <td>$26,000</td>
-                        <td>+$3,640</td>
-                        <td>$29,640</td>
+                        <td>$52,000</td>
+                        <td>+$8,320</td>
+                        <td>$60,320.00</td>
                     </tr>
                 </table>
             </div>
@@ -1428,8 +1428,8 @@ let comparisonChart = new Chart(comparisonCtx, {
         let selectedPlan = {
             name: "Ahorra Hoy",
             amount: 200,
-            rate: 0.12,
-            weeks: 26
+            rate: 0.14,
+            weeks: 52
         };
 
         // Tasas de bancos (promedio 2023)
@@ -1453,7 +1453,7 @@ const bankRates = {
                     name: this.querySelector('.plan-name').textContent,
                     amount: parseFloat(this.dataset.plan),
                     rate: parseFloat(this.dataset.rate),
-                    weeks: 26
+                    weeks: 52
                 };
                 
                 calcularAhorro();
@@ -1587,14 +1587,14 @@ const bankRates = {
         
         function updateComparisonChart() {
             const plans = [
-                { amount: 200, rate: 0.12, name: "Ahorra Hoy" },
-                { amount: 500, rate: 0.13, name: "Ahorra Pro" },
-                { amount: 1000, rate: 0.14, name: "Ahorra 360" }
+                { amount: 200, rate: 0.14, name: "Ahorra Hoy" },
+                { amount: 500, rate: 0.15, name: "Ahorra Pro" },
+                { amount: 1000, rate: 0.16, name: "Ahorra 360" }
             ];
             
-            const dataAhorro = plans.map(plan => plan.amount * 26);
-            const dataRendimiento = plans.map(plan => (plan.amount * 26) * plan.rate);
-            const dataTotal = plans.map(plan => (plan.amount * 26) * (1 + plan.rate));
+            const dataAhorro = plans.map(plan => plan.amount * 52);
+            const dataRendimiento = plans.map(plan => (plan.amount * 52) * plan.rate);
+            const dataTotal = plans.map(plan => (plan.amount * 52) * (1 + plan.rate));
             
             comparisonChart.data.datasets = [
                 {
@@ -1623,46 +1623,42 @@ const bankRates = {
             comparisonChart.update();
         }
         
-        function updateWeeklyDetails() {
-    const table = document.getElementById('weekly-details');
-    while(table.rows.length > 1) table.deleteRow(1);
+function updateWeeklyDetails() {
+  const table = document.getElementById('weekly-details');
+  while (table.rows.length > 1) table.deleteRow(1);
 
-    // Definir los rendimientos objetivos para cada plan
-    const rendimientosObjetivo = {
-        'Ahorra Hoy': 624,
-        'Ahorra Pro': 1690,
-        'Ahorra 360': 3640
-    };
+  const n = selectedPlan.weeks;        // p.ej. 52
+  const r = selectedPlan.rate;         // 0.14, 0.15, 0.16
+  const A = selectedPlan.amount;       // aportación semanal
 
-    let capitalAcumulado = 0;
-    let rendimientoAcumulado = 0;
-    let rendimientoTotalEsperado = rendimientosObjetivo[selectedPlan.name] || 0;
-    
-    // Calcular el rendimiento semanal proporcional para alcanzar el objetivo
-    let rendimientoSemanal = rendimientoTotalEsperado / selectedPlan.weeks;
+  let capitalAcumulado = 0;
+  let rendimientoAcumulado = 0;
 
-    for(let week = 1; week <= selectedPlan.weeks; week++) {
-        capitalAcumulado += selectedPlan.amount;
-        rendimientoAcumulado += rendimientoSemanal;
-        let totalAcumulado = capitalAcumulado + rendimientoAcumulado;
+  // Interés simple del periodo completo (prorrateado por semana)
+  const rendimientoTotal = (A * n) * r;
+  const rendimientoSemanal = rendimientoTotal / n;
 
-        let row = table.insertRow();
-row.insertCell(0).textContent = week;                            // Semana
-row.insertCell(1).textContent = '$' + selectedPlan.amount.toLocaleString('es-MX');        // Aportación
-row.insertCell(2).textContent = '+$' + rendimientoAcumulado.toLocaleString('es-MX', {maximumFractionDigits: 2});  // Rendimiento ACUMULADO CORRECTO
-row.insertCell(3).textContent = '$' + capitalAcumulado.toLocaleString('es-MX');           // Acumulado
-row.insertCell(4).textContent = '$' + totalAcumulado.toLocaleString('es-MX', {maximumFractionDigits: 2});         // Total
+  for (let week = 1; week <= n; week++) {
+    capitalAcumulado += A;
+    rendimientoAcumulado += rendimientoSemanal;
+    const totalAcumulado = capitalAcumulado + rendimientoAcumulado;
 
-    }
+    const row = table.insertRow();
+    row.insertCell(0).textContent = week;                                        // Semana
+    row.insertCell(1).textContent = '$' + A.toLocaleString('es-MX');             // Aportación
+    row.insertCell(2).textContent = '+$' + rendimientoAcumulado.toLocaleString('es-MX', { maximumFractionDigits: 2 }); // Rend.
+    row.insertCell(3).textContent = '$' + capitalAcumulado.toLocaleString('es-MX');                                   // Acum.
+    row.insertCell(4).textContent = '$' + totalAcumulado.toLocaleString('es-MX', { maximumFractionDigits: 2 });       // Total
+  }
 
-    // Agregar fila de totales
-    let totalRow = table.insertRow();
-    totalRow.style.fontWeight = 'bold';
-    totalRow.insertCell(0).textContent = 'Total';
-    totalRow.insertCell(1).textContent = '$' + (selectedPlan.amount * selectedPlan.weeks).toLocaleString('es-MX');
-    totalRow.insertCell(2).textContent = '$' + (selectedPlan.amount * selectedPlan.weeks).toLocaleString('es-MX');
-    totalRow.insertCell(3).textContent = '+$' + rendimientoAcumulado.toLocaleString('es-MX', {maximumFractionDigits: 2});
-    totalRow.insertCell(4).textContent = '$' + (capitalAcumulado + rendimientoAcumulado).toLocaleString('es-MX', {maximumFractionDigits: 2});
+  // Fila de totales correcta
+  const totalRow = table.insertRow();
+  totalRow.style.fontWeight = 'bold';
+  totalRow.insertCell(0).textContent = 'Total';
+  totalRow.insertCell(1).textContent = '$' + (A * n).toLocaleString('es-MX');    // Aportación total
+  totalRow.insertCell(2).textContent = '+$' + rendimientoTotal.toLocaleString('es-MX', { maximumFractionDigits: 2 }); // Rend. total
+  totalRow.insertCell(3).textContent = '$' + (A * n).toLocaleString('es-MX');    // Capital acumulado
+  totalRow.insertCell(4).textContent = '$' + (A * n + rendimientoTotal).toLocaleString('es-MX', { maximumFractionDigits: 2 }); // Total
 }
 
 
