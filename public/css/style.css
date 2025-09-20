@@ -3028,4 +3028,11 @@ body {
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             }
-.terms-note{ margin-top: .75rem; } 
+
+
+            
+.terms-note{
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 11px;      /* aproximado a 8pt en pantalla */
+  line-height: 1.35;
+}
