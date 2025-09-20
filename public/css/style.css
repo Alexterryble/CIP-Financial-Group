@@ -3035,4 +3035,5 @@ body {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 11px;      /* aproximado a 8pt en pantalla */
   line-height: 1.35;
+  margin-top: .75rem;
 }
