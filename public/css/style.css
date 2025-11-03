@@ -2851,11 +2851,11 @@ body {
 
 
         /* Estilo específico para la sección de servicios */
-        .services-section {
-            padding: 60px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+.services-section {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 60px 20px 40px;
+}
         
         .services-section h1 {
             text-align: center;

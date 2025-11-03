@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CIP Financial Group - Soluciones en Pensiones y Ahorro</title>
+  <meta name="description" content="CIP Financial Group ofrece asesoría personalizada en pensiones, retiro, ahorro e inversión. Planifica tu futuro financiero hoy.">
+  <meta name="keywords" content="pensiones, retiro, ahorro, inversión, IMSS, asesoría financiera, afore, CIP Financial Group">
+  <meta name="author" content="CIP Financial Group">
+  <link rel="canonical" href="https://cipmexico.com.mx/">
+
+  <!-- Favicon -->
+<link rel="icon" href="https://cipmexico.com.mx/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://cipmexico.com.mx/favicon.ico" type="image/x-icon">
+
+  <!-- Open Graph para redes sociales -->
+  <meta property="og:title" content="CIP Financial Group - Expertos en Pensiones y Finanzas">
+  <meta property="og:description" content="Aumenta tu pensión y planifica tu retiro con asesoría profesional.">
+  <meta property="og:image" content="https://cipmexico.com.mx/images/logo1.png">
+  <meta property="og:url" content="https://cipmexico.com.mx/">
+  <meta property="og:type" content="website">
+
+  <!-- Estilos y scripts -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<style>
+/* ===== HERO DE INVERSIÓN (tipo portada) ===== */
+.hero-inversion{
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+  background: url("images/inversion.jpg") center center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 140px 20px 90px; /* 140 por tu menú fijo */
+}
+
+.hero-inversion .hero-overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 47, 95, .45); /* azul con transparencia */
+  backdrop-filter: blur(1px);
+}
+
+.hero-inversion .hero-content{
+  position: relative;
+  max-width: 720px;
+  color: #fff;
+}
+
+.hero-inversion h1{
+  font-size: clamp(2.4rem, 4vw, 3.1rem);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.hero-inversion p{
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin-bottom: 26px;
+  color: rgba(255,255,255,.9);
+}
+
+.hero-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #25d366;
+  color: #fff;
+  padding: 12px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 12px 25px rgba(37,211,102,.35);
+  transition: transform .25s ease;
+}
+
+.hero-btn:hover{
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px){
+  .hero-inversion{
+    min-height: 420px;
+    padding: 130px 15px 70px;
+  }
+  .hero-inversion h1{
+    font-size: 2.1rem;
+  }
+  .hero-inversion p{
+    font-size: .98rem;
+  }
+}
+
+
+
+
+.beneficios-cip {
+  background: #fff;
+  text-align: center;
+  padding: 70px 20px;
+}
+.beneficios-cip h2 {
+  color: #052f5f;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+.beneficios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: auto;
+}
+.beneficio {
+  background: #f5f7fa;
+  border-radius: 14px;
+  padding: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+  transition: transform 0.3s ease;
+}
+.beneficio:hover { transform: translateY(-5px); }
+.beneficio i {
+  font-size: 2.2rem;
+  color: #218b45;
+  margin-bottom: 12px;
+}
+.beneficio h3 { margin-bottom: 10px; color: #052f5f; }
+.beneficio p { color: #555; line-height: 1.5; }
+
+
+
+
+/* ====== VARIABLES DE MARCA ====== */
+:root {
+  --morado: #522c84;
+  --azul: #3b82f6;
+  --azul-oscuro: #052f5f;
+  --verde: #48cfae;
+  --borde: #e2e8f0;
+  --gris-fondo: #f7f9fc;
+}
+
+/* ====== CONTENEDOR PRINCIPAL ====== */
+.simu-cip {
+  background: #fff;
+  padding: 3rem 1rem 3.5rem;
+}
+
+.simu-cip__wrap {
+  max-width: 1300px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid rgba(82, 44, 132, .08);
+  border-radius: 1.5rem;
+  box-shadow: 0 18px 40px rgba(82, 44, 132, .03);
+  padding: 2.3rem 2rem 2.7rem;
+}
+
+.simu-cip__head h2 {
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  margin: 0;
+  color: #0f172a;
+}
+
+.simu-cip__head p {
+  margin-top: .4rem;
+  color: #64748b;
+}
+
+
+
+
+
+
+.simu-panel{
+  background:#fff;
+  border:1px solid rgba(15,23,42,.03);
+  border-radius:20px;
+  box-shadow:0 16px 40px rgba(15,23,42,.028);
+  padding:1.35rem 1.2rem 1.45rem;
+  margin-bottom:1.2rem;
+}
+.simu-title{
+  margin:0 0 .9rem;
+  font-size:1.05rem;
+  font-weight:700;
+  color:#0f172a;
+}
+.simu-panel-fields{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(200px,1fr));
+  gap:1rem;
+}
+.simu-field{
+  background:#f8f9ff;
+  border:1px solid rgba(5,47,95,.03);
+  border-radius:16px;
+  padding:10px 12px 12px;
+}
+.simu-field label{
+  display:block;
+  font-weight:600;
+  font-size:.78rem;
+  margin-bottom:.35rem;
+  color:#0f172a;
+}
+.simu-input{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  background:#fff;
+  border-radius:12px;
+  padding:4px 10px;
+  border:1px solid rgba(15,23,42,.03);
+}
+.simu-input span{
+  font-weight:700;
+  color:#522c84;
+}
+.simu-input input{
+  border:0;
+  background:transparent;
+  outline:0;
+  width:100%;
+  text-align:right;
+  font-weight:600;
+  color:#0f172a;
+}
+.simu-field small{
+  font-size:.65rem;
+  color:rgba(15,23,42,.45);
+  margin-top:.4rem;
+}
+.simu-field--full{
+  grid-column:1 / -1;
+}
+@media (max-width:1024px){
+  .simu-panel-fields{
+    grid-template-columns:repeat(2, minmax(180px,1fr));
+  }
+}
+@media (max-width:640px){
+  .simu-panel-fields{
+    grid-template-columns:1fr;
+  }
+  .simu-field--full{
+    grid-column:auto;
+  }
+}
+
+
+/* ====== TARJETAS RESUMEN (3 en línea) ====== */
+.simu-cip__cards{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(190px, 1fr));
+  gap:1rem;
+  margin-top:1.3rem;
+}
+
+.simu-card{
+  background:#fff;
+  border:1px solid rgba(15,23,42,.03);
+  border-radius:18px;
+  padding:1rem .9rem 1rem;
+  box-shadow:0 14px 32px rgba(15,23,42,.03);
+  display:flex;
+  flex-direction:column;
+  gap:.3rem;
+}
+
+.simu-card--accent{
+  background:radial-gradient(circle at top, rgba(82,44,132,.08) 0%, #fff 58%);
+  border-color: rgba(82,44,132,.15);
+}
+
+.sc-label{
+  font-size:.7rem;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  color:#94a3b8;
+  font-weight:600;
+}
+
+.sc-value{
+  font-size:1.45rem;
+  font-weight:800;
+  color:#0f172a;
+  line-height:1.15;
+}
+
+/* responsive */
+@media (max-width: 900px){
+  .simu-cip__cards{
+    grid-template-columns:1fr 1fr;
+  }
+}
+@media (max-width: 560px){
+  .simu-cip__cards{
+    grid-template-columns:1fr;
+  }
+}
+
+
+
+/* ===== DETALLE MENSUAL (10 años) ===== */
+.simu-cip__tabla-mensual {
+  margin-top: 1.8rem;
+}
+
+.simu-cip__tabla-mensual .simu-subtitle {
+  font-weight: 650;
+  color: #052f5f;
+  margin-bottom: .9rem;
+}
+
+/* contenedor con sombra y scroll horizontal */
+.tabla-wrap {
+  background: #fff;
+  border-radius: 20px;
+  border: 1px solid rgba(5, 47, 95, 0.04);
+  box-shadow: 0 14px 28px rgba(5, 47, 95, 0.05);
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* tabla principal */
+#tablaAportaciones {
+  width: 100%;
+  min-width: 980px;           /* para que no se haga chiquita */
+  border-collapse: collapse;
+  font-size: .88rem;
+  font-family: inherit;
+}
+
+/* encabezado */
+#tablaAportaciones thead th {
+  background: #0f3f78;        /* azul CIP */
+  color: #fff;
+  text-align: center;
+  padding: 12px 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+}
+#tablaAportaciones thead th:first-child {
+  text-align: left;
+  border-top-left-radius: 20px;
+}
+#tablaAportaciones thead th:last-child {
+  border-top-right-radius: 20px;
+}
+
+/* columna de meses */
+#tablaAportaciones tbody th {
+  background: #f4f7fb;
+  text-align: left;
+  padding: 9px 14px;
+  font-weight: 600;
+  border-bottom: 1px solid #edf0f6;
+  white-space: nowrap;
+}
+
+/* celdas normales */
+#tablaAportaciones tbody td {
+  text-align: right;
+  padding: 9px 14px;
+  border-bottom: 1px solid #edf0f6;
+  white-space: nowrap;
+}
+
+/* fila de bono: ligerito */
+#tablaAportaciones tbody tr[data-mes="bono"] th {
+  background: #eef6ff;
+}
+#tablaAportaciones tbody tr[data-mes="bono"] td {
+  background: #f8fbff;
+  font-weight: 500;
+}
+
+/* pie con totales */
+#tablaAportaciones tfoot td {
+  background: #eef2f9;
+  padding: 10px 14px;
+  text-align: right;
+  font-weight: 700;
+  white-space: nowrap;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+#tablaAportaciones tfoot td.align-left {
+  text-align: left;
+}
+
+/* rayitas sutiles en filas impares */
+#tablaAportaciones tbody tr:nth-child(2n+1) td {
+  background: rgba(248, 250, 252, .35);
+}
+
+/* scroll bonito en desktop */
+.tabla-wrap::-webkit-scrollbar {
+  height: 8px;
+}
+.tabla-wrap::-webkit-scrollbar-track {
+  background: transparent;
+}
+.tabla-wrap::-webkit-scrollbar-thumb {
+  background: rgba(15, 63, 120, .3);
+  border-radius: 999px;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .tabla-wrap {
+    border-radius: 14px;
+  }
+  #tablaAportaciones {
+    font-size: .78rem;
+  }
+}
+
+
+
+
+
+/* ===== TABLA: Pensión IMSS e indicadores ===== */
+.simu-cip__table {
+  margin-top: 1.8rem;
+}
+
+.simu-cip__table .simu-subtitle,
+.simu-cip__table h3 {
+  font-weight: 650;
+  color: #052f5f;
+  margin-bottom: .6rem;
+}
+
+.simu-table-wrap {
+  background: #fff;
+  border-radius: 20px;
+  border: 1px solid rgba(5, 47, 95, 0.04);
+  box-shadow: 0 14px 28px rgba(5, 47, 95, 0.03);
+  overflow-x: auto;
+}
+
+/* tabla */
+#tablaIMSS {
+  width: 100%;
+  min-width: 880px;
+  border-collapse: collapse;
+  font-size: .85rem;
+  font-family: inherit;
+}
+
+/* encabezado verde degradado */
+#tablaIMSS thead th {
+  background: linear-gradient(135deg, #36c88f 0%, #b6f2da 95%);
+  color: #052f5f;
+  text-align: center;
+  padding: 12px 14px 8px;
+  font-weight: 700;
+  white-space: nowrap;
+  border-bottom: 1px solid rgba(5, 47, 95, 0.05);
+}
+#tablaIMSS thead th:first-child {
+  text-align: left;
+  border-top-left-radius: 20px;
+}
+#tablaIMSS thead th:last-child {
+  border-top-right-radius: 20px;
+}
+
+/* columna "Concepto" */
+#tablaIMSS tbody th {
+  background: #fff;
+  text-align: left;
+  padding: 10px 14px;
+  font-weight: 600;
+  color: #052f5f;
+  border-bottom: 1px solid #edf2f7;
+  width: 230px;
+}
+
+/* fila de rendimiento un poco distinta */
+#tablaIMSS tbody tr[data-key="rendimiento"] th {
+  color: #0f766e;
+  font-weight: 600;
+}
+
+/* celdas de valores */
+#tablaIMSS tbody td {
+  text-align: right;
+  padding: 10px 14px;
+  border-bottom: 1px solid #edf2f7;
+  white-space: nowrap;
+}
+
+/* fila TOTAL */
+#tablaIMSS tbody tr#imssTotalRow th {
+  background: rgba(54, 200, 143, .09);
+  font-weight: 700;
+}
+#tablaIMSS tbody tr#imssTotalRow td {
+  background: rgba(54, 200, 143, .035);
+  font-weight: 700;
+  color: #052f5f;
+}
+
+/* zebra clarita (solo para las 2 primeras filas) */
+#tablaIMSS tbody tr:nth-child(odd):not(#imssTotalRow) td {
+  background: rgba(248, 250, 252, .4);
+}
+
+/* scroll bonito */
+.simu-table-wrap::-webkit-scrollbar {
+  height: 8px;
+}
+.simu-table-wrap::-webkit-scrollbar-thumb {
+  background: rgba(5, 47, 95, .28);
+  border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+  .simu-table-wrap {
+    border-radius: 14px;
+  }
+  #tablaIMSS {
+    font-size: .78rem;
+  }
+}
+
+
+
+
+/* === PROYECCIÓN 10 AÑOS COMPLETA (VERSIÓN MÁS ANCHA) === */
+.cip-10y{
+  background:#fff;
+  padding:4rem 1.5rem 3.3rem;   /* más alto y más lateral */
+  text-align:center;
+}
+.cip-10y h2{
+  color:#052f5f;
+  font-size:clamp(1.8rem, 3.4vw, 2.25rem);  /* título un poco más grande */
+  margin-bottom:.6rem;
+}
+.cip-10y__text{
+  color:#64748b;
+  margin-bottom:1.8rem;
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* contenedor más ancho */
+.cip-10y__timeline{
+  max-width: 1350px;            /* antes 1100 */
+  margin: 0 auto;
+  display:flex;
+  gap:1.15rem;
+  overflow-x:auto;
+  padding-bottom:.7rem;
+}
+
+/* scroll */
+.cip-10y__timeline::-webkit-scrollbar{height:7px;}
+.cip-10y__timeline::-webkit-scrollbar-thumb{
+  background:rgba(5,47,95,.25);
+  border-radius:999px;
+}
+
+/* cada año un poco más grande */
+.year-step{
+  min-width:165px;              /* antes 150 */
+  background:#f7f9fc;
+  border:1px solid rgba(5,47,95,.03);
+  border-radius:1.1rem;
+  padding:1.1rem .9rem .9rem;
+  text-align:left;
+  box-shadow:0 10px 26px rgba(15,23,42,.02);
+}
+.year-step .year{
+  display:inline-block;
+  background:rgba(82,44,132,.12);
+  color:#522c84;
+  padding:.3rem .9rem;
+  border-radius:999px;
+  font-weight:600;
+  margin-bottom:.6rem;
+  font-size:.8rem;
+}
+.year-step p{
+  font-size:.78rem;              /* antes .74rem */
+  color:#475569;
+  line-height:1.4;
+}
+.year-step.destacado{
+  background:radial-gradient(circle at top, rgba(82,44,132,.12) 0%, #fff 70%);
+  border:1px solid rgba(82,44,132,.2);
+}
+
+.cip-10y__foot{
+  margin-top:1.5rem;
+  font-size:.74rem;
+  color:#94a3b8;
+}
+
+/* móvil */
+@media (max-width: 600px){
+  .cip-10y{
+    padding:3.2rem 1rem 2.9rem;
+  }
+  .year-step{
+    min-width:175px;
+  }
+}
+
+
+
+
+/* === CONTACTO FINAL === */
+.cip-contacto-final{
+  background: radial-gradient(circle at top, rgba(82,44,132,.12) 0%, #fff 80%);
+  padding: 3rem 1rem 3.5rem;
+  text-align: center;
+}
+.contacto-box{
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 1.6rem;
+  border: 1px solid rgba(82,44,132,.08);
+  box-shadow: 0 20px 40px rgba(82,44,132,.04);
+  padding: 2.3rem 1.8rem 2.5rem;
+}
+.contacto-box h2{
+  color: #052f5f;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  margin-bottom: .6rem;
+}
+.contacto-box p{
+  color: #64748b;
+  font-size: .95rem;
+  max-width: 640px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.5;
+}
+.btns-contacto{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.btn-contacto{
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .8rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  transition: transform .25s ease;
+}
+.btn-contacto:hover{ transform: translateY(-2px); }
+
+.btn-whatsapp{
+  background: #25d366;
+  box-shadow: 0 14px 28px rgba(37,211,102,.35);
+}
+.btn-email{
+  background: #522c84;
+  box-shadow: 0 14px 28px rgba(82,44,132,.25);
+}
+.btn-contacto i{
+  font-size: 1rem;
+}
+
+
+
+.hero-actions{
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-btn-secondary{
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.35);
+  color: #fff;
+  box-shadow: none;
+}
+.hero-btn-secondary:hover{
+  transform: translateY(-2px);
+}
+
+
+</style>
+
+<body>
+
+    <!-- Menú -->
+    <!-- Menú ORIGINAL (sin cambios) -->
+    <div class="menu-container">
+        <div class="menu">
+            <div class="logo" id="logo-menu"> <!-- AÑADIR el id -->
+                <img src="images/logo1.png" alt="Logo CIP">
+                <span class="logo-text">CIP FINANCIAL GROUP</span>
+            </div>
+            <ul class="menu-items">
+                <li class="menu-item"><a href="index.html">Inicio</a></li>
+                <li class="menu-item"><a href="nosotros.html">Nosotros</a></li>
+                <li class="menu-item dropdown">
+                  <a href="#" class="dropdown-toggle">Servicios <i class="fas fa-chevron-down"></i></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="service.html">Pensiones</a></li>
+                    <li><a href="Seleccion.html">Ahorro</a></li>
+                    <li><a href="Credito.html">Crédito</a></li>
+                  </ul>
+                </li>
+                <li class="menu-item"><a href="Contacto.html">Contacto</a></li>
+            </ul>
+            
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<!-- ===== SECCIÓN: INVERSIÓN CIP ===== -->
+<!-- HERO INVERSIÓN -->
+<section class="hero-inversion">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Invierte hoy y asegura tu futuro financiero</h1>
+    <p>Planes de inversión a plazo fijo de 10 años, con rendimiento proyectado y respaldo de CIP Financial Group.</p>
+
+    <div class="hero-actions">
+      <!-- Botón nuevo: lleva a la calculadora -->
+      <a href="#simulador-cip" class="hero-btn hero-btn-secondary">
+        Ver calculadora
+      </a>
+
+      <!-- Botón original de WhatsApp -->
+      <a href="https://wa.me/527228038635" class="hero-btn" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i> Quiero información de inversión
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FIN HERO INVERSIÓN -->
+
+
+
+<section class="beneficios-cip">
+  <h2>¿Por qué invertir con CIP Financial Group?</h2>
+  <div class="beneficios-grid">
+    <div class="beneficio">
+      <i class="fas fa-chart-line"></i>
+      <h3>Rendimiento Estable</h3>
+      <p>Proyecciones claras y crecimiento constante durante 10 años.</p>
+    </div>
+    <div class="beneficio">
+      <i class="fas fa-user-shield"></i>
+      <h3>Seguridad Financiera</h3>
+      <p>Tu capital está protegido y respaldado por expertos en inversión.</p>
+    </div>
+    <div class="beneficio">
+      <i class="fas fa-hand-holding-usd"></i>
+      <h3>Aportaciones Flexibles</h3>
+      <p>Adapta tus aportaciones mensuales a tus posibilidades.</p>
+    </div>
+    <div class="beneficio">
+      <i class="fas fa-briefcase"></i>
+      <h3>Asesoría Personalizada</h3>
+      <p>Recibe acompañamiento profesional en todo el proceso.</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- ===== SIMULADOR DE INVERSIÓN / COMPLEMENTO IMSS ===== -->
+<!-- ================== SIMULADOR / COMPLEMENTO CIP ================== -->
+<!-- ====== SIMULADOR / COMPLEMENTO CIP ====== -->
+<section class="simu-cip" id="simulador-cip">
+  <div class="simu-cip__wrap">
+
+<div class="simu-panel">
+      <h2 class="simu-title">Datos del contrato</h2>
+
+      <!-- GRID DE 3 COLUMNAS -->
+      <div class="simu-panel-fields">
+        <!-- Firma -->
+        <div class="simu-field simu-field--date">
+          <label for="firmaContrato">Firma de contrato</label>
+          <!-- el JS que ya tienes convierte este span en chip y pone la fecha -->
+          <span id="firmaContrato" class="date-chip">—</span>
+        </div>
+
+        <!-- Capital -->
+        <div class="simu-field">
+          <label for="ingresoCapital">Capital a invertir</label>
+          <div class="simu-input">
+            <span>$</span>
+            <input type="text" id="ingresoCapital" inputmode="decimal" placeholder="100000.00">
+          </div>
+          <small>Se toma 1.6% mensual como complemento.</small>
+        </div>
+
+        <!-- Pensión -->
+        <div class="simu-field">
+          <label for="pensionBase">Pensión IMSS estimada</label>
+          <div class="simu-input">
+            <span>$</span>
+            <input type="text" id="pensionBase" inputmode="decimal" value="9209.93">
+          </div>
+          <small>Si escribes 0, se respeta 0.</small>
+        </div>
+
+        <!-- Aportación (fila completa) -->
+        <div class="simu-field simu-field--readonly simu-field--full">
+          <label>Aportación mensual estimada (1.6%)</label>
+          <div class="simu-pill" id="aportacionMensual">$0.00</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 2. TABLA MENSUAL (10 AÑOS) -->
+    <div class="simu-cip__tabla-mensual">
+      <h3 class="simu-subtitle">Detalle mensual de tu complemento (10 años)</h3>
+
+      <div class="tabla-wrap" aria-label="Tabla principal de aportaciones por mes y año">
+        <table id="tablaAportaciones">
+          <thead>
+            <tr>
+              <th class="align-left">Mes</th>
+              <!-- estos años los va a reescribir el JS según el mes/año de inicio -->
+              <th>2025</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th>
+              <th>2030</th><th>2031</th><th>2032</th><th>2033</th><th>2034</th><th>2035</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-mes="enero">
+              <th>ENERO</th>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+            </tr>
+            <tr data-mes="febrero">
+              <th>FEBRERO</th>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+            </tr>
+            <tr data-mes="marzo">
+              <th>MARZO</th>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+            </tr>
+            <tr data-mes="abril">
+              <th>ABRIL</th>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+            </tr>
+            <tr data-mes="mayo">
+              <th>MAYO</th>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+            </tr>
+            <tr data-mes="junio">
+              <th>JUNIO</th>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+            </tr>
+            <tr data-mes="julio">
+              <th>JULIO</th>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+            </tr>
+            <tr data-mes="agosto">
+              <th>AGOSTO</th>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+            </tr>
+            <tr data-mes="septiembre">
+              <th>SEPTIEMBRE</th>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+            </tr>
+            <tr data-mes="octubre">
+              <th>OCTUBRE</th>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+            </tr>
+            <tr data-mes="noviembre">
+              <th>NOVIEMBRE</th>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+            </tr>
+            <tr data-mes="diciembre">
+              <th>DICIEMBRE</th>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+            </tr>
+            <!-- Bono -->
+            <tr data-mes="bono">
+              <th>BONO FIN DE AÑO</th>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td class="align-left"><strong>Total anual</strong></td>
+              <td class="moneda"></td><td class="moneda"></td><td class="moneda"></td><td class="moneda"></td><td class="moneda"></td>
+              <td class="moneda"></td><td class="moneda"></td><td class="moneda"></td><td class="moneda"></td><td class="moneda"></td><td class="moneda"></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+    <br>
+
+    <!-- 4. TABLA DE 10 AÑOS (IMSS + RENDIMIENTO) -->
+    <div class="simu-cip__table">
+
+      <div class="simu-table-wrap">
+        <table id="tablaIMSS">
+          <thead>
+            <tr>
+              <th>Concepto</th>
+              <th>2025</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th>
+              <th>2030</th><th>2031</th><th>2032</th><th>2033</th><th>2034</th><th>2035</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-key="pension">
+              <th>Pensión IMSS (inflación del 4% fijo)</th>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+            </tr>
+            <tr data-key="rendimiento">
+              <th>Rendimiento</th>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+              <td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+            </tr>
+            <tr id="imssTotalRow">
+              <th>Total (Pensión + Rendimiento)</th>
+              <td class="moneda">$0.00</td><td class="moneda">$0.00</td><td class="moneda">$0.00</td><td class="moneda">$0.00</td><td class="moneda">$0.00</td>
+              <td class="moneda">$0.00</td><td class="moneda">$0.00</td><td class="moneda">$0.00</td><td class="moneda">$0.00</td><td class="moneda">$0.00</td><td class="moneda">$0.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- 3. TARJETAS RESUMEN (usa los IDs que ya espera tu JS) -->
+<!-- 2. TARJETAS RESUMEN -->
+<div class="simu-cip__cards">
+  <div class="simu-card">
+    <p class="sc-label">Rendimiento (estimado)</p>
+    <p class="sc-value" id="resRendimiento">$0.00</p>
+  </div>
+  <div class="simu-card">
+    <p class="sc-label">Capital</p>
+    <p class="sc-value" id="resCapital">$0.00</p>
+  </div>
+  <div class="simu-card simu-card--accent">
+    <p class="sc-label">Recuperación total</p>
+    <p class="sc-value" id="resTotal">$0.00</p>
+  </div>
+</div>
+
+  </div>
+</section>
+
+
+<!-- FIN SIMULADOR DE INVERSIÓN / COMPLEMENTO IMSS -->
+
+
+<!-- === PROYECCIÓN CIP A 10 AÑOS (COMPLETA) === -->
+<section class="cip-10y">
+  <h2>Plan de inversión CIP a 10 años</h2>
+  <p class="cip-10y__text">
+    Este modelo está pensado para trabajarse a 10 años completos: así el 1.6% mensual, tus aportaciones y tu pensión IMSS se sienten de verdad.
+  </p>
+
+  <div class="cip-10y__timeline">
+    <div class="year-step">
+      <span class="year">Año 1</span>
+      <p>Arranque del contrato y fijamos fecha de inicio.</p>
+    </div>
+    <div class="year-step">
+      <span class="year">Año 2</span>
+      <p>Aportaciones constantes, ya se ve orden en tu ahorro.</p>
+    </div>
+    <div class="year-step">
+      <span class="year">Año 3</span>
+      <p>El 1.6% mensual empieza a notarse en el complemento.</p>
+    </div>
+    <div class="year-step">
+      <span class="year">Año 4</span>
+      <p>Tu tabla anual ya muestra montos más altos.</p>
+    </div>
+    <div class="year-step">
+      <span class="year">Año 5</span>
+      <p>Punto medio: pensión + CIP ya pueden cubrir más gastos.</p>
+    </div>
+    <div class="year-step">
+      <span class="year">Año 6</span>
+      <p>Se consolidan tus bonos de fin de año.</p>
+    </div>
+    <div class="year-step">
+      <span class="year">Año 7</span>
+      <p>Tu ahorro luce mucho más que al inicio.</p>
+    </div>
+    <div class="year-step">
+      <span class="year">Año 8</span>
+      <p>Fase de estabilidad: ya es un ingreso que cuentas.</p>
+    </div>
+    <div class="year-step">
+      <span class="year">Año 9</span>
+      <p>Casi cierre: ideal para planear retiro o deudas.</p>
+    </div>
+    <div class="year-step destacado">
+      <span class="year">Año 10</span>
+      <p>Cierre del modelo: capital + rendimiento + pensión.</p>
+    </div>
+  </div>
+
+  <p class="cip-10y__foot">
+    *Mientras mantengas el plan los 10 años, el total que viste en el simulador se cumple mejor.
+  </p>
+</section>
+
+
+
+<!-- === SECCIÓN FINAL DE CONTACTO === -->
+<section class="cip-contacto-final">
+  <div class="contacto-box">
+    <h2>¿Listo para empezar tu plan de 10 años?</h2>
+    <p>
+      Da el primer paso hoy. Un asesor CIP te ayudará a personalizar tu simulación y resolver tus dudas sin compromiso.
+    </p>
+
+    <div class="btns-contacto">
+      <a href="https://wa.me/527228038635" target="_blank" rel="noopener noreferrer" class="btn-contacto btn-whatsapp">
+        <i class="fab fa-whatsapp"></i> Hablar por WhatsApp
+      </a>
+
+      <a href="mailto:atencion@cipmexico.com.mx" class="btn-contacto btn-email">
+        <i class="fa-solid fa-envelope"></i> Enviar correo
+      </a>
+    </div>
+  </div>
+</section>
+<!-- FIN SECCIÓN FINAL DE CONTACTO -->
+
+
+
+    
+<!-- Footer Mejorado -->
+<footer class="footer">
+  <div class="footer-container">
+      <div class="footer-top">
+          <div class="container">
+              <div class="footer-brand">
+                  <h3 class="footer-title">CIP Financial Group</h3>
+                  <p class="footer-text">Soluciones financieras integrales para tu futuro</p>
+                  
+                  <div class="footer-social">
+                      <a href="https://www.facebook.com/profile.php?id=61573398725938" class="social-link" target="_blank" rel="noopener noreferrer">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                      </a>
+                      <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M16 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M8 16V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M16 12H22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M2 12H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M12 2V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M12 16V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                      </a>
+                  </div>
+              </div>
+
+              <div class="footer-links">
+                  <div class="links-group">
+                      <h5 class="links-title">Enlaces Útiles</h5>
+                      <ul class="links-list">
+                          <li><a href="index.html" class="footer-link">Inicio</a></li>
+                          <li><a href="nosotros.html" class="footer-link">Nosotros</a></li>
+                          <li><a href="Contacto.html" class="footer-link">Contacto</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="links-group">
+                      <h5 class="links-title">Nuestros Servicios.</h5>
+                      <ul class="links-list">
+                          <li><a href="service.html" class="footer-link">Asesoría en Pensiones</a></li>
+                          <li><a href="Seleccion.html" class="footer-link">Inversiones Inteligentes</a></li>
+                          <li><a href="Credito.html" class="footer-link">Créditos Modalidad 40</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="links-group">
+                      <h5 class="links-title">Contacto</h5>
+                      <ul class="links-list contact-list">
+                          <li>
+                              <a href="mailto:atencion@cipmexico.com.mx" class="footer-link contact-link">
+                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  atencion@cipmexico.com.mx
+                              </a>
+                          </li>
+                          <li>
+                              <a href="https://wa.me/527228038635" class="footer-link contact-link whatsapp" target="_blank" rel="noopener noreferrer">
+                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M12 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M9 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M15 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  722 8038 635
+                              </a>
+                          </li>
+                          <li>
+                              <a href="https://www.google.com.mx/maps/place/M%C3%A9xico+15+801,+V%C3%A9rtice,+50090+Toluca+de+Lerdo,+M%C3%A9x./@19.2883769,-99.6435227,19z/data=!3m1!4b1!4m6!3m5!1s0x85cd898d25cd808b:0xdf5aa1b38781160!8m2!3d19.2883769!4d-99.642879!16s%2Fg%2F11np2r68jp?entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D" 
+                              class="footer-link contact-link map" 
+                              target="_blank" 
+                              rel="noopener noreferrer">
+                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  PRIV. JAIME NUNO 103, 2DO PISO, COL. SAN SEBASTIÁN, TOLUCA, MÉXICO. C.P. 50150.
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+
+
+          </div>
+      </div>
+
+      <div class="footer-bottom">
+          <div class="container">
+              <p class="copyright">&copy; <span id="current-year"></span> CIP Financial Group. Todos los derechos reservados.</p>
+          </div>
+      </div>
+  </div>
+</footer>
+
+
+<!-- Bootstrap core JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+
+
+
+<!-- === SIMULADOR CIP (NO TOCAR TU JS ANTERIOR) === -->
+<script>
+/* =========================================================
+   1. Helper global: leer pensión base (respeta 0)
+   ========================================================= */
+function getPensionBase() {
+  const el  = document.getElementById('pensionBase');
+  const raw = (el?.value ?? '');
+  if (raw.trim() === '') return 0;
+  // quita comas, $ y cualquier cosa que no sea número o punto
+  return parseFloat(raw.replace(/[^\d.]/g, '')) || 0;
+}
+</script>
+
+<script>
+/* =========================================================
+   2. Pintar fecha de firma y guardar mes/año de INICIO
+      - muestra: "Noviembre 2025"
+      - pero guarda en data-startMonth / data-startYear
+      - aplica regla: 1–5 => +1 mes, 6+ => +2 meses
+   ========================================================= */
+(function () {
+  const el = document.getElementById('firmaContrato');
+  if (!el) return;
+
+  const tz  = 'America/Mexico_City';
+  const hoy = new Date();
+
+  // Mostrar fecha "bonita"
+  const mesActual = new Intl.DateTimeFormat('es-MX', { month: 'long', timeZone: tz }).format(hoy);
+  const anioActual = new Intl.DateTimeFormat('es-MX', { year: 'numeric', timeZone: tz }).format(hoy);
+  const capMesActual = mesActual.charAt(0).toUpperCase() + mesActual.slice(1);
+  el.textContent = `${capMesActual} ${anioActual}`;
+
+  // Regla de inicio para cálculos
+  const dia = hoy.getDate();
+  const saltoMeses = (dia >= 6) ? 2 : 1;
+
+  const fechaInicio = new Date(hoy);
+  fechaInicio.setMonth(hoy.getMonth() + saltoMeses);
+
+  el.dataset.startMonth = String(fechaInicio.getMonth());    // 0..11
+  el.dataset.startYear  = String(fechaInicio.getFullYear()); // p.ej. 2025
+
+  // avisamos a los demás scripts
+  el.dispatchEvent(new Event('change'));
+})();
+</script>
+
+<script>
+/* =========================================================
+   3. Convertir la fecha en un CHIP clickeable (opcional)
+      y recalcular mes/año de inicio cuando el usuario cambie
+      la fecha manualmente.
+   ========================================================= */
+(() => {
+  const $ = s => document.querySelector(s);
+
+  const fmtFechaLarga = d => {
+    const s = d.toLocaleDateString('es-MX', {
+      weekday:'long', day:'numeric', month:'long', year:'numeric'
+    });
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  };
+
+  function montarDateChip(){
+    const v = $('#firmaContrato');
+    if (!v) return;
+
+    // darle estilo
+    v.classList.add('date-chip');
+    const contenido = v.textContent.trim() || 'Seleccionar fecha';
+    v.innerHTML = `<span class="icon">📅</span><span class="text">${contenido}</span>`;
+
+    // input date oculto
+    let inp = document.getElementById('firmaContratoInput');
+    if (!inp){
+      inp = document.createElement('input');
+      inp.type = 'date';
+      inp.id   = 'firmaContratoInput';
+      inp.min  = '2000-01-01';
+      inp.max  = '2100-12-31';
+      v.insertAdjacentElement('afterend', inp);
+      // ocultito
+      Object.assign(inp.style, { width:'0', height:'0', opacity:'0', pointerEvents:'none' });
+    }
+
+    // abrir picker
+    const abrir = () => {
+      if (typeof inp.showPicker === 'function') {
+        inp.showPicker();
+      } else {
+        inp.click();
+      }
+    };
+
+    v.addEventListener('click', abrir);
+    v.setAttribute('tabindex','0');
+    v.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        abrir();
+      }
+    });
+
+    // cuando el usuario elige la fecha
+    inp.addEventListener('change', () => {
+      if (!inp.value) return;
+      const d = new Date(inp.value + 'T00:00:00');
+      v.querySelector('.text').textContent = fmtFechaLarga(d);
+
+      // regla de +1 o +2 meses
+      const dia = d.getDate();
+      const salto = (dia >= 6) ? 2 : 1;
+      const inicio = new Date(d);
+      inicio.setMonth(d.getMonth() + salto);
+
+      v.dataset.startMonth = String(inicio.getMonth());
+      v.dataset.startYear  = String(inicio.getFullYear());
+
+      // notificar a otros scripts
+      v.dispatchEvent(new Event('change'));
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', montarDateChip);
+})();
+</script>
+
+<script>
+/* =========================================================
+   4. TABLA PRINCIPAL DE APORTACIONES (10 AÑOS / 120 MESES)
+      - usa: #ingresoCapital
+      - pinta: #tablaAportaciones
+      - respeta: data-startMonth / data-startYear del #firmaContrato
+      - bono de fin de año = mismo monto mensual
+   ========================================================= */
+(() => {
+  const capitalInput = document.getElementById('ingresoCapital');
+  const aportacionEl = document.getElementById('aportacionMensual');
+  const tabla        = document.getElementById('tablaAportaciones');
+  const firmaSpan    = document.getElementById('firmaContrato');
+
+  const fmt = n => n.toLocaleString('es-MX',{style:'currency',currency:'MXN',minimumFractionDigits:2});
+
+  // leer mes/año de inicio (los que YA calculamos arriba)
+  function leerInicioContrato(){
+    const dm = parseInt(firmaSpan?.dataset.startMonth ?? '', 10);
+    const dy = parseInt(firmaSpan?.dataset.startYear  ?? '', 10);
+    if (!Number.isNaN(dm) && !Number.isNaN(dy)) {
+      return { m: dm, y: dy };
+    }
+
+    // respaldo: leer texto "octubre 2025"
+    const mesesES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+    const mapMes  = Object.fromEntries(mesesES.map((m,i)=>[m,i]));
+    const raw = (firmaSpan?.textContent || '').trim().toLowerCase();
+    const [mesTxt, anioTxt] = raw.split(/\s+/);
+    return {
+      m: mapMes[mesTxt] ?? 0,
+      y: parseInt(anioTxt,10) || new Date().getFullYear()
+    };
+  }
+
+  // cambia el encabezado de los años según el año de inicio
+  function pintarEncabezados(startYear){
+    if (!tabla) return;
+    const ths = tabla.querySelectorAll('thead th:not(.align-left)');
+    ths.forEach((th,i)=> th.textContent = startYear + i);
+  }
+
+  // rellena toda la tabla con el monto mensual
+  function actualizarTablaAportaciones(monto){
+    if (!tabla) return;
+
+    const { m: startMonth, y: startYear } = leerInicioContrato();
+    const ths = tabla.querySelectorAll('thead th:not(.align-left)');
+    const cols = ths.length || 11;        // cuántos años tiene la tabla
+    const totalMeses = 120;               // 10 años
+
+    // 1) pone los años correctos
+    pintarEncabezados(startYear);
+
+    // 2) obtener filas (enero..diciembre) y la de bono
+    const filasMes = Array.from(tabla.querySelectorAll('tbody tr'))
+      .filter(tr => tr.dataset.mes && tr.dataset.mes !== 'bono');
+    const filaBono = tabla.querySelector('tbody tr[data-mes="bono"]');
+
+    // 3) limpiar todo
+    filasMes.forEach(tr => tr.querySelectorAll('td').forEach(td => td.textContent = fmt(0)));
+    if (filaBono) filaBono.querySelectorAll('td').forEach(td => td.textContent = fmt(0));
+
+    // 4) rellenar los 120 meses a partir del mes de inicio
+    for (let y = 0; y < cols; y++){
+      for (let m = 0; m < 12; m++){
+        const idxAbs  = y*12 + m; // índice absoluto dentro de los 10 años
+        const enRango = idxAbs >= startMonth && idxAbs < startMonth + totalMeses;
+        if (!enRango) continue;
+        const celda = filasMes[m]?.querySelectorAll('td')[y];
+        if (celda) celda.textContent = fmt(monto);
+      }
+    }
+
+    // 5) bono al cierre de cada año completo
+    if (filaBono){
+      for (let fin = startMonth + 11; fin < startMonth + totalMeses; fin += 12){
+        const col = Math.floor(fin / 12);
+        const td  = filaBono.querySelectorAll('td')[col];
+        if (td) td.textContent = fmt(monto);
+      }
+    }
+
+    // 6) calcular total anual por columna
+    const tfootTds = tabla.querySelectorAll('tfoot td.moneda');
+    for (let y = 0; y < cols; y++){
+      let suma = 0;
+      for (let m = 0; m < 12; m++){
+        const txt = filasMes[m]?.querySelectorAll('td')[y]?.textContent || '0';
+        suma += parseFloat(txt.replace(/[^\d.]/g,'')) || 0;
+      }
+      if (filaBono){
+        const txtB = filaBono.querySelectorAll('td')[y]?.textContent || '0';
+        suma += parseFloat(txtB.replace(/[^\d.]/g,'')) || 0;
+      }
+      if (tfootTds[y]) tfootTds[y].textContent = fmt(suma);
+    }
+
+    // 7) avisamos al resumen de abajo
+    if (typeof window.actualizarResumen === 'function') {
+      window.actualizarResumen();
+    }
+  }
+
+  // calcula la aportación mensual (1.6%) y llama a la tabla
+  function actualizarAportacionYTabla(){
+    const val = parseFloat((capitalInput?.value || '').replace(/[^\d.]/g,'')) || 0;
+    const mensual = val * 0.016; // 1.6 %
+    if (aportacionEl) {
+      aportacionEl.textContent = mensual.toLocaleString('es-MX',{
+        style:'currency',currency:'MXN',minimumFractionDigits:2
+      });
+    }
+    actualizarTablaAportaciones(mensual);
+  }
+
+  // montar
+  document.addEventListener('DOMContentLoaded', actualizarAportacionYTabla);
+  capitalInput?.addEventListener('input', actualizarAportacionYTabla);
+  // si cambia la fecha → recalculamos con el monto actual
+  firmaSpan?.addEventListener('change', () => {
+    const txt = aportacionEl?.textContent || '0';
+    const monto = parseFloat(txt.replace(/[^\d.]/g,'')) || 0;
+    actualizarTablaAportaciones(monto);
+  });
+
+  // lo exponemos por si lo quieres usar en otro lado
+  window.__recalcularTablaAportaciones = actualizarAportacionYTabla;
+})();
+</script>
+
+<script>
+/* =========================================================
+   5. TABLA "Pensión IMSS e indicadores" (abajo)
+      - id="tablaIMSS"
+      - filas esperadas:
+          <tr data-key="pension">
+          <tr data-key="rendimiento">
+          <tr id="imssTotalRow">
+      - pensión sube 4% anual
+      - rendimiento = 1.6% del capital (mismo todos los años)
+   ========================================================= */
+(() => {
+  const tablaIMSS    = document.getElementById('tablaIMSS');
+  const pensionInput = document.getElementById('pensionBase');
+  const capitalInput = document.getElementById('ingresoCapital');
+
+  if (!tablaIMSS) return;
+
+  const RATE_IMSS = 0.04;  // 4% anual
+  const RATE_REND = 0.016; // 1.6% mensual del capital
+
+  const fmt = n => n.toLocaleString('es-MX',{style:'currency',currency:'MXN',minimumFractionDigits:2});
+  const toNum = s => parseFloat((s||'0').toString().replace(/[^\d.]/g,'')) || 0;
+
+  function recalcularIMSSIndicadores(){
+    const rowPension = tablaIMSS.querySelector('tbody tr[data-key="pension"]');
+    const rowRend    = tablaIMSS.querySelector('tbody tr[data-key="rendimiento"]');
+    const totalRow   = tablaIMSS.querySelector('#imssTotalRow');
+    if (!rowPension || !rowRend || !totalRow) return;
+
+    const tdsP = rowPension.querySelectorAll('td');
+    const tdsR = rowRend.querySelectorAll('td');
+    const tdsT = totalRow.querySelectorAll('td.moneda');
+
+    const basePension = getPensionBase();             // respeta 0
+    const capital     = toNum(capitalInput?.value);   // para el 1.6%
+    const rendMensual = capital * RATE_REND;          // 11,200.00 si capital=700,000
+
+    const cols = Math.min(tdsP.length, tdsR.length, tdsT.length);
+
+    for (let i = 0; i < cols; i++){
+      const pensionMes = basePension * Math.pow(1 + RATE_IMSS, i); // sube 4% cada año
+      if (tdsP[i]) tdsP[i].textContent = fmt(pensionMes);
+      if (tdsR[i]) tdsR[i].textContent = fmt(rendMensual);
+      if (tdsT[i]) tdsT[i].textContent = fmt(pensionMes + rendMensual);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', recalcularIMSSIndicadores);
+  pensionInput?.addEventListener('input',  recalcularIMSSIndicadores);
+  pensionInput?.addEventListener('change', recalcularIMSSIndicadores);
+  capitalInput?.addEventListener('input',  recalcularIMSSIndicadores);
+
+  // lo dejamos global por si otro script lo quiere
+  window.recalcularIMSS = recalcularIMSSIndicadores;
+})();
+</script>
+
+<script>
+/* =========================================================
+   6. RESUMEN DE ABAJO (Rendimiento – Capital – Recuperación)
+      - usa el tfoot de #tablaAportaciones
+      - ids: #resRendimiento, #resCapital, #resTotal
+   ========================================================= */
+(() => {
+  const tablaAport = document.getElementById('tablaAportaciones');
+  const inpCapital = document.getElementById('ingresoCapital');
+
+  const boxRend = document.getElementById('resRendimiento');
+  const boxCap  = document.getElementById('resCapital');
+  const boxTot  = document.getElementById('resTotal');
+
+  const fmt = n => n.toLocaleString('es-MX',{style:'currency',currency:'MXN',minimumFractionDigits:2});
+  const num = s => parseFloat((s||'0').toString().replace(/[^\d.]/g,'')) || 0;
+
+  function sumarTotalesAnuales(){
+    if (!tablaAport) return 0;
+    const tds = tablaAport.querySelectorAll('tfoot td.moneda');
+    let suma = 0;
+    tds.forEach(td => suma += num(td.textContent));
+    return suma;
+  }
+
+  function actualizarResumen(){
+    const rend = sumarTotalesAnuales();       // 1,456,000.00 si 145,600 * 10 años
+    const cap  = num(inpCapital?.value);
+    const tot  = rend + cap;
+
+    if (boxRend) boxRend.textContent = fmt(rend);
+    if (boxCap)  boxCap.textContent  = fmt(cap);
+    if (boxTot)  boxTot.textContent  = fmt(tot);
+  }
+
+  document.addEventListener('DOMContentLoaded', actualizarResumen);
+  inpCapital?.addEventListener('input', actualizarResumen);
+
+  // lo exponemos para que la tabla lo llame cuando se vuelva a pintar
+  window.actualizarResumen = actualizarResumen;
+})();
+</script>
+
+<script>
+/* =========================================================
+   7. Disparar el cálculo de pensión al cargar (para que agarre 0)
+   ========================================================= */
+document.addEventListener('DOMContentLoaded', () => {
+  const pb = document.getElementById('pensionBase');
+  if (pb) {
+    pb.dispatchEvent(new Event('input', { bubbles:true }));
+  }
+});
+</script>
+
+<script>
+/* =========================================================
+   8. Botones imprimir / regresar (opcional)
+   ========================================================= */
+document.addEventListener('DOMContentLoaded', () => {
+  const btnImprimir = document.getElementById('btnImprimir');
+  const btnRegresar = document.getElementById('btnRegresar');
+
+  if (btnImprimir) {
+    btnImprimir.addEventListener('click', () => {
+      if (window.AndroidPrint && typeof window.AndroidPrint.printPage === 'function') {
+        window.AndroidPrint.printPage();
+      } else {
+        window.print();
+      }
+    });
+  }
+
+  if (btnRegresar) {
+    btnRegresar.addEventListener('click', () => {
+      if (window.AndroidNav && typeof window.AndroidNav.goBack === 'function') {
+        window.AndroidNav.goBack();
+        return;
+      }
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = 'index.html';
+      }
+    });
+  }
+});
+</script>
+
+
+
+<script>
+document.addEventListener('click', function(e){
+  const link = e.target.closest('a[href^="#"]');
+  if (!link) return;
+  const target = document.querySelector(link.getAttribute('href'));
+  if (target) {
+    e.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth' });
+  }
+});
+</script>
+
+</body>
+</html>
