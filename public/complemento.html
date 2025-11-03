@@ -1313,7 +1313,8 @@ function getPensionBase() {
       - usa: #ingresoCapital
       - pinta: #tablaAportaciones
       - respeta: data-startMonth / data-startYear del #firmaContrato
-      - bono de fin de año = mismo monto mensual
+      - bono de fin de año = mismo monto mensual de ese AÑO
+      - año 2 en adelante: +4% anual sobre el total (equivale a subir el mensual)
    ========================================================= */
 (() => {
   const capitalInput = document.getElementById('ingresoCapital');
@@ -1321,10 +1322,14 @@ function getPensionBase() {
   const tabla        = document.getElementById('tablaAportaciones');
   const firmaSpan    = document.getElementById('firmaContrato');
 
-  const fmt = n => n.toLocaleString('es-MX',{style:'currency',currency:'MXN',minimumFractionDigits:2});
+  const fmt = n => n.toLocaleString('es-MX', {
+    style: 'currency',
+    currency: 'MXN',
+    minimumFractionDigits: 2
+  });
 
   // leer mes/año de inicio (los que YA calculamos arriba)
-  function leerInicioContrato(){
+  function leerInicioContrato() {
     const dm = parseInt(firmaSpan?.dataset.startMonth ?? '', 10);
     const dy = parseInt(firmaSpan?.dataset.startYear  ?? '', 10);
     if (!Number.isNaN(dm) && !Number.isNaN(dy)) {
@@ -1343,20 +1348,22 @@ function getPensionBase() {
   }
 
   // cambia el encabezado de los años según el año de inicio
-  function pintarEncabezados(startYear){
+  function pintarEncabezados(startYear) {
     if (!tabla) return;
     const ths = tabla.querySelectorAll('thead th:not(.align-left)');
     ths.forEach((th,i)=> th.textContent = startYear + i);
   }
 
-  // rellena toda la tabla con el monto mensual
-  function actualizarTablaAportaciones(monto){
+  // rellena toda la tabla con el monto mensual BASE,
+  // pero cada AÑO aplica +4% acumulado
+  function actualizarTablaAportaciones(montoBase) {
     if (!tabla) return;
 
     const { m: startMonth, y: startYear } = leerInicioContrato();
-    const ths = tabla.querySelectorAll('thead th:not(.align-left)');
+    const ths  = tabla.querySelectorAll('thead th:not(.align-left)');
     const cols = ths.length || 11;        // cuántos años tiene la tabla
     const totalMeses = 120;               // 10 años
+    const incremento = 0.04;              // 4% anual
 
     // 1) pone los años correctos
     pintarEncabezados(startYear);
@@ -1371,34 +1378,46 @@ function getPensionBase() {
     if (filaBono) filaBono.querySelectorAll('td').forEach(td => td.textContent = fmt(0));
 
     // 4) rellenar los 120 meses a partir del mes de inicio
-    for (let y = 0; y < cols; y++){
-      for (let m = 0; m < 12; m++){
-        const idxAbs  = y*12 + m; // índice absoluto dentro de los 10 años
+    //    PERO usando el mensual que toca a cada año (montoBase * (1.04)^año)
+    for (let y = 0; y < cols; y++) {
+      const factorAnual = Math.pow(1 + incremento, y); // y=0 -> 1, y=1 -> 1.04, etc.
+      const mensualAnio = montoBase * factorAnual;
+
+      for (let m = 0; m < 12; m++) {
+        const idxAbs  = y * 12 + m; // índice absoluto dentro de los 10 años
         const enRango = idxAbs >= startMonth && idxAbs < startMonth + totalMeses;
         if (!enRango) continue;
         const celda = filasMes[m]?.querySelectorAll('td')[y];
-        if (celda) celda.textContent = fmt(monto);
+        if (celda) celda.textContent = fmt(mensualAnio);
       }
     }
 
-    // 5) bono al cierre de cada año completo
-    if (filaBono){
-      for (let fin = startMonth + 11; fin < startMonth + totalMeses; fin += 12){
-        const col = Math.floor(fin / 12);
-        const td  = filaBono.querySelectorAll('td')[col];
-        if (td) td.textContent = fmt(monto);
+    // 5) bono al cierre de cada año COMPLETO
+    //    aquí es donde corregimos: el primer bono se pone cuando ya pasaron 12 meses
+    if (filaBono) {
+      // vamos saltando de 12 en 12 meses, empezando en "startMonth + 11"
+      // porque ese es el mes en el que se cumple el PRIMER año completo
+      for (let fin = startMonth + 11; fin < startMonth + totalMeses; fin += 12) {
+        const col = Math.floor(fin / 12); // en qué columna cae ese cierre de año
+        if (col < cols) {
+          // mensual del año de ESA columna
+          const factorAnual = Math.pow(1 + incremento, col);
+          const mensualAnio = montoBase * factorAnual;
+          const td = filaBono.querySelectorAll('td')[col];
+          if (td) td.textContent = fmt(mensualAnio);
+        }
       }
     }
 
-    // 6) calcular total anual por columna
+    // 6) calcular total anual por columna (sumamos lo que ya está pintado)
     const tfootTds = tabla.querySelectorAll('tfoot td.moneda');
-    for (let y = 0; y < cols; y++){
+    for (let y = 0; y < cols; y++) {
       let suma = 0;
-      for (let m = 0; m < 12; m++){
+      for (let m = 0; m < 12; m++) {
         const txt = filasMes[m]?.querySelectorAll('td')[y]?.textContent || '0';
         suma += parseFloat(txt.replace(/[^\d.]/g,'')) || 0;
       }
-      if (filaBono){
+      if (filaBono) {
         const txtB = filaBono.querySelectorAll('td')[y]?.textContent || '0';
         suma += parseFloat(txtB.replace(/[^\d.]/g,'')) || 0;
       }
@@ -1412,20 +1431,24 @@ function getPensionBase() {
   }
 
   // calcula la aportación mensual (1.6%) y llama a la tabla
-  function actualizarAportacionYTabla(){
+  function actualizarAportacionYTabla() {
     const val = parseFloat((capitalInput?.value || '').replace(/[^\d.]/g,'')) || 0;
     const mensual = val * 0.016; // 1.6 %
+
     if (aportacionEl) {
-      aportacionEl.textContent = mensual.toLocaleString('es-MX',{
+      aportacionEl.textContent = mensual.toLocaleString('es-MX', {
         style:'currency',currency:'MXN',minimumFractionDigits:2
       });
     }
+
     actualizarTablaAportaciones(mensual);
   }
 
   // montar
   document.addEventListener('DOMContentLoaded', actualizarAportacionYTabla);
+
   capitalInput?.addEventListener('input', actualizarAportacionYTabla);
+
   // si cambia la fecha → recalculamos con el monto actual
   firmaSpan?.addEventListener('change', () => {
     const txt = aportacionEl?.textContent || '0';
@@ -1438,6 +1461,7 @@ function getPensionBase() {
 })();
 </script>
 
+
 <script>
 /* =========================================================
    5. TABLA "Pensión IMSS e indicadores" (abajo)
@@ -1447,7 +1471,8 @@ function getPensionBase() {
           <tr data-key="rendimiento">
           <tr id="imssTotalRow">
       - pensión sube 4% anual
-      - rendimiento = 1.6% del capital (mismo todos los años)
+      - rendimiento = 1.6% del capital PERO también sube 4% cada año
+        (ej: 1,600 → 1,664 → 1,730.56 ...)
    ========================================================= */
 (() => {
   const tablaIMSS    = document.getElementById('tablaIMSS');
@@ -1456,11 +1481,15 @@ function getPensionBase() {
 
   if (!tablaIMSS) return;
 
-  const RATE_IMSS = 0.04;  // 4% anual
-  const RATE_REND = 0.016; // 1.6% mensual del capital
+  const RATE_IMSS = 0.04;  // pensión +4% anual
+  const RATE_REND = 0.016; // 1.6% mensual del capital (año 1)
 
   const fmt = n => n.toLocaleString('es-MX',{style:'currency',currency:'MXN',minimumFractionDigits:2});
   const toNum = s => parseFloat((s||'0').toString().replace(/[^\d.]/g,'')) || 0;
+
+  function getPensionBase() {
+    return toNum(pensionInput?.value);
+  }
 
   function recalcularIMSSIndicadores(){
     const rowPension = tablaIMSS.querySelector('tbody tr[data-key="pension"]');
@@ -1472,17 +1501,23 @@ function getPensionBase() {
     const tdsR = rowRend.querySelectorAll('td');
     const tdsT = totalRow.querySelectorAll('td.moneda');
 
-    const basePension = getPensionBase();             // respeta 0
-    const capital     = toNum(capitalInput?.value);   // para el 1.6%
-    const rendMensual = capital * RATE_REND;          // 11,200.00 si capital=700,000
+    const basePension = getPensionBase();       // lo que pones en el input
+    const capital     = toNum(capitalInput?.value);
+    const rendBase    = capital * RATE_REND;    // este es el 1,600 del primer año (si capital da eso)
 
     const cols = Math.min(tdsP.length, tdsR.length, tdsT.length);
 
     for (let i = 0; i < cols; i++){
-      const pensionMes = basePension * Math.pow(1 + RATE_IMSS, i); // sube 4% cada año
+      // pensión: sube 4% anual
+      const pensionMes = basePension * Math.pow(1 + RATE_IMSS, i);
       if (tdsP[i]) tdsP[i].textContent = fmt(pensionMes);
-      if (tdsR[i]) tdsR[i].textContent = fmt(rendMensual);
-      if (tdsT[i]) tdsT[i].textContent = fmt(pensionMes + rendMensual);
+
+      // rendimiento: también sube 4% anual a partir del base (1,600 → 1,664 → ...)
+      const rendMes = rendBase * Math.pow(1 + RATE_IMSS, i);
+      if (tdsR[i]) tdsR[i].textContent = fmt(rendMes);
+
+      // total = pensión mensual + rendimiento mensual
+      if (tdsT[i]) tdsT[i].textContent = fmt(pensionMes + rendMes);
     }
   }
 
@@ -1495,6 +1530,7 @@ function getPensionBase() {
   window.recalcularIMSS = recalcularIMSSIndicadores;
 })();
 </script>
+
 
 <script>
 /* =========================================================
