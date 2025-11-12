@@ -700,6 +700,280 @@
 }
 
 
+
+
+/* ===================== PRINT – SOLO LO MARCADO (UNIFICADO) ===================== */
+/* ===================== PRINT — BLOQUE ÚNICO ===================== */
+@media print {
+  /* Hoja (margen superior más chico para pegar contenido arriba) */
+  @page { size: letter landscape; margin: 0.5cm 1cm 1cm 1cm; }
+
+  /* Imprimir solo lo marcado */
+  body > * { display: none !important; }
+  .print-keep { display: block !important; }
+  .print-keep * { display: revert !important; }
+
+  /* Colores reales */
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+  /* Reset y densidad base */
+  body { background:#fff !important; color:#0f172a !important; font-size:6.2pt !important; line-height:1.05 !important; margin:0 !important; padding:0 !important; }
+  .print-keep, .print-keep * { box-shadow:none !important; }
+
+  /* Contenedor simulador pegado arriba */
+  .simu-cip { margin:0 !important; padding:0 !important; background:#fff !important; }
+  .simu-cip > *:first-child { margin-top:0 !important; }
+  .simu-cip__wrap{
+    width:100% !important; margin:0 !important; padding:0.12cm !important;
+    background:#fff !important; border:1px solid #e5e7eb !important; border-radius:6px !important;
+  }
+
+  /* Paneles / campos (compactos y sin grises) */
+  .simu-panel, .simu-field, .simu-card { background:#fff !important; }
+  .simu-panel { border:1px solid #ddd !important; padding:0.10cm !important; margin:0 0 0.10cm !important; }
+  .simu-field { border:1px solid #e5e7eb !important; padding:0.06cm !important; margin:0 0 0.06cm !important; }
+  .simu-title, .simu-subtitle { font-size:6.6pt !important; margin:0 0 0.05cm !important; color:#0f172a !important; }
+  .simu-input { background:#fff !important; border:1px solid #999 !important; padding:0.02cm 0.06cm !important; }
+  .simu-input input { background:transparent !important; color:#0f172a !important; font-size:6.0pt !important; font-weight:700 !important; height:auto !important; }
+
+  /* === Tres campos en UNA FILA como en la web === */
+  .simu-panel-fields{
+    display:grid !important;
+    grid-template-columns: 1.1fr 1fr 1fr !important;  /* Firma | Capital | Pensión */
+    gap:0.2cm !important; align-items:center !important;
+  }
+  .simu-field--full{ grid-column:1 / 4 !important; } /* Aportación ocupa todo el ancho */
+
+  /* Tablas densas y con color */
+  .tabla-wrap, .simu-table-wrap, table { width:100% !important; margin:0 !important; overflow:visible !important; }
+  table { table-layout:fixed !important; border-collapse:collapse !important; font-variant-numeric:tabular-nums; page-break-inside:avoid; }
+  thead { display:table-header-group !important; }
+  tfoot { display:table-footer-group !important; }
+
+  th, td{
+    padding:0.03cm 0.055cm !important; border:1px solid #ddd !important;
+    font-size:6.0pt !important; line-height:1 !important; text-align:left !important;
+    background:inherit !important; color:inherit !important;
+  }
+
+  /* Cabeceras – Aportaciones */
+  #tablaAportaciones thead th{
+    background:#0f3f78 !important; color:#fff !important;
+    border-bottom-color:rgba(255,255,255,.15) !important;
+    text-align:center !important; padding:0.04cm 0.05cm !important;
+  }
+  #tablaAportaciones tbody th{ background:#f4f7fb !important; color:#0f172a !important; border-bottom-color:#edf0f6 !important; }
+  #tablaAportaciones tbody tr[data-mes="bono"] th{ background:#eef6ff !important; }
+  #tablaAportaciones tbody tr[data-mes="bono"] td{ background:#f8fbff !important; font-weight:500 !important; }
+  #tablaAportaciones tfoot td{ background:#eef2f9 !important; color:#0f172a !important; }
+  #tablaAportaciones tbody tr:nth-child(2n+1) td{ background:rgba(248,250,252,.35) !important; }
+
+  /* Cabeceras – IMSS */
+  #tablaIMSS thead th{
+    background:linear-gradient(135deg,#36c88f 0%, #b6f2da 95%) !important;
+    color:#052f5f !important; text-align:center !important; padding:0.04cm 0.05cm !important;
+  }
+  #tablaIMSS tbody th{ background:#fff !important; color:#052f5f !important; border-bottom-color:#edf2f7 !important; }
+  #tablaIMSS tbody td{ border-bottom-color:#edf2f7 !important; }
+  #tablaIMSS tbody tr#imssTotalRow th{ background:rgba(54,200,143,.09) !important; font-weight:700 !important; }
+  #tablaIMSS tbody tr#imssTotalRow td{ background:rgba(54,200,143,.035) !important; font-weight:700 !important; color:#052f5f !important; }
+  #tablaIMSS tbody tr:nth-child(odd):not(#imssTotalRow) td{ background:rgba(248,250,252,.4) !important; }
+
+  /* Anchos de columnas (1ª más ancha) */
+  #tablaAportaciones th:first-child, #tablaAportaciones td:first-child,
+  #tablaIMSS th:first-child,       #tablaIMSS td:first-child { width:16% !important; }
+  #tablaAportaciones th:not(:first-child), #tablaAportaciones td:not(:first-child),
+  #tablaIMSS th:not(:first-child),       #tablaIMSS td:not(:first-child) { width:calc((100% - 16%) / 11) !important; }
+
+  /* Evitar huecos/saltos entre bloques */
+  .simu-cip__tabla-mensual { margin-top:0.12cm !important; page-break-before:avoid !important; }
+  .simu-cip__table        { margin-top:0.12cm !important; page-break-before:avoid !important; }
+  .simu-cip__cards        { margin-top:0.10cm !important; page-break-before:avoid !important; }
+  .tabla-wrap, #tablaAportaciones, .simu-table-wrap, #tablaIMSS { break-inside:avoid !important; page-break-inside:avoid !important; }
+
+  /* Ocultar botón de imprimir */
+  .print-button, #btnImprimir, button[onclick*="print"], [onclick*="window.print"], [type="button"].btn-imprimir {
+    display:none !important; visibility:hidden !important;
+  }
+
+  @media print {
+  /* Aumentar tamaño y espaciado de las dos tablas */
+  #tablaAportaciones th, #tablaAportaciones td,
+  #tablaIMSS th, #tablaIMSS td {
+    padding: 0.07cm 0.08cm !important; /* más aire vertical y lateral */
+    font-size: 6.8pt !important;       /* texto más grande */
+    line-height: 1.2 !important;
+  }
+
+  /* Titulares más notorios */
+  #tablaAportaciones thead th,
+  #tablaIMSS thead th {
+    font-size: 7pt !important;
+    font-weight: 700 !important;
+    padding-top: 0.1cm !important;
+    padding-bottom: 0.1cm !important;
+  }
+
+  /* Total anual e IMSS total resaltados */
+  #tablaAportaciones tfoot td,
+  #tablaIMSS tbody tr#imssTotalRow td {
+    font-weight: 700 !important;
+    font-size: 7pt !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Reduce bordes finos para compensar el tamaño mayor */
+  #tablaAportaciones th, #tablaAportaciones td,
+  #tablaIMSS th, #tablaIMSS td {
+    border-width: 0.3pt !important;
+  }
+
+  /* Opcional: más contraste entre filas para legibilidad */
+  #tablaAportaciones tbody tr:nth-child(odd) td,
+  #tablaIMSS tbody tr:nth-child(odd):not(#imssTotalRow) td {
+    background: rgba(248,250,252,0.6) !important;
+  }
+
+
+
+
+
+}
+
+
+@media print {
+  /* === Tarjetas finales (3 columnas alineadas como en la web) === */
+  .simu-cip__cards {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important; /* 3 tarjetas iguales */
+    gap: 0.25cm !important;
+    margin-top: 0.25cm !important;
+    align-items: stretch !important;
+  }
+
+  .simu-card {
+    border: 1px solid #e5e7eb !important;
+    border-radius: 6px !important;
+    padding: 0.25cm !important;
+    background: #ffffff !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-shadow: none !important;
+  }
+
+  .simu-card--accent {
+    background: linear-gradient(90deg, rgba(238,240,255,0.6) 0%, rgba(220,226,255,0.9) 100%) !important;
+    border-color: #c5cae9 !important;
+  }
+
+  .sc-label {
+    font-size: 6.5pt !important;
+    font-weight: 600 !important;
+    color: #64748b !important;
+    margin-bottom: 0.05cm !important;
+  }
+
+  .sc-value {
+    font-size: 8pt !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    margin: 0 !important;
+  }
+}
+
+@media print {
+  /* === Centrar todo verticalmente en la hoja === */
+  html, body {
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;     /* centra verticalmente */
+    justify-content: center !important; /* centra horizontalmente (por si acaso) */
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .print-keep {
+    margin: auto !important;
+    transform: translateY(0) !important;
+  }
+
+  /* Ajuste fino por si la hoja queda muy arriba o muy abajo */
+  @page { size: letter landscape; margin: 0.7cm 1cm; }
+}
+
+
+
+}
+/* =================== FIN PRINT — BLOQUE ÚNICO =================== */
+
+
+@media print {
+  /* Oculta el botón de imprimir en la hoja */
+  .print-button,
+  button,
+  #btnImprimir,
+  [onclick*="print"],
+  [type="button"] {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}
+
+/* 🚫 Ocultar el logo en la página normal (pantalla) */
+.print-logo {
+  display: none !important;
+}
+
+/* 🖨️ Mostrar el logo solo cuando se imprime */
+@media print {
+  .print-logo {
+    display: block !important;
+    position: fixed !important;
+    top: 0.5cm !important;              /* distancia desde el borde superior */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 4cm !important;              /* ajusta el tamaño del logo */
+    height: auto !important;
+    z-index: 1000 !important;
+  }
+}
+
+
+
+
+
+
+
+
+/* ===== BOTÓN BONITO ORIGINAL ===== */
+@media screen {
+  .print-button {
+    display: block;
+    margin: 20px auto;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    font-family: inherit;
+  }
+  
+  .print-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  }
+  
+  .print-button:active {
+    transform: translateY(0);
+  }
+}
 </style>
 
 <body>
@@ -790,16 +1064,17 @@
 </section>
 
 
-
+<img src="imagenes/logo.png" alt="Logo de la empresa" class="print-logo">
 
 <!-- ===== SIMULADOR DE INVERSIÓN / COMPLEMENTO IMSS ===== -->
 <!-- ================== SIMULADOR / COMPLEMENTO CIP ================== -->
 <!-- ====== SIMULADOR / COMPLEMENTO CIP ====== -->
-<section class="simu-cip" id="simulador-cip">
+<section class="simu-cip print-keep" id="simulador-cip">
+  <div class="simu-cip__head">
   <div class="simu-cip__wrap">
 
 <div class="simu-panel">
-      <h2 class="simu-title">Datos del contrato</h2>
+      <h2 class="simu-title">Datos</h2>
 
       <!-- GRID DE 3 COLUMNAS -->
       <div class="simu-panel-fields">
@@ -983,6 +1258,9 @@
 </div>
 
   </div>
+  <button class="print-button" onclick="imprimirSeccion()">
+  <i class="fas fa-print"></i> Imprimir Simulador
+</button>
 </section>
 
 
@@ -1633,6 +1911,98 @@ document.addEventListener('click', function(e){
     target.scrollIntoView({ behavior: 'smooth' });
   }
 });
+</script>
+
+
+<script>
+  // Actualiza el año en el footer automáticamente
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+
+function imprimirSeccion() {
+  console.log('Iniciando impresión...');
+  
+  // Método 1: El más confiable
+  const contenidoOriginal = document.body.innerHTML;
+  const contenidoSimulador = document.getElementById('simulador-cip').outerHTML;
+  
+  // Crear una página minimalista para imprimir
+  const paginaImpresion = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Simulador CIP</title>
+        <style>
+            body { 
+                font-family: Arial, sans-serif; 
+                margin: 20px; 
+                background: white;
+            }
+            .simu-cip { 
+                width: 100%; 
+                background: white;
+            }
+            table { 
+                width: 100%; 
+                border-collapse: collapse; 
+                margin: 10px 0;
+                font-size: 10pt;
+            }
+            th, td { 
+                border: 1px solid #333; 
+                padding: 6px; 
+                text-align: left;
+            }
+            th { 
+                background-color: #f5f5f5; 
+            }
+            .simu-panel { 
+                border: 1px solid #ccc; 
+                padding: 15px; 
+                margin: 10px 0;
+                border-radius: 8px;
+            }
+            @page {
+                size: landscape;
+                margin: 0.5cm;
+            }
+        </style>
+    </head>
+    <body>
+        ${contenidoSimulador}
+        <script>
+            window.onload = function() {
+                window.print();
+                setTimeout(() => {
+                    window.close();
+                }, 100);
+            };
+        <\/script>
+    </body>
+    </html>
+  `;
+  
+  // Abrir ventana de impresión
+  const ventana = window.open('', '_blank');
+  ventana.document.write(paginaImpresion);
+  ventana.document.close();
+}
+
+function imprimirSeccion() {
+  // Aplicar clase ultra-compacta antes de imprimir
+  const simulador = document.getElementById('simulador-cip');
+  simulador.classList.add('impresion-ultra-compacta');
+  
+  // Forzar un reflow
+  setTimeout(() => {
+    window.print();
+    
+    // Remover clase después de imprimir
+    setTimeout(() => {
+      simulador.classList.remove('impresion-ultra-compacta');
+    }, 100);
+  }, 50);
+}
+
 </script>
 
 </body>
