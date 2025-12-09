@@ -200,6 +200,11 @@ body.intro-active {
     }
 }
 
+.ocultar-ahorro{
+  display: none !important;
+}
+
+
     </style>
 
 <script>
@@ -296,7 +301,7 @@ window.addEventListener('load', function() {
                   <a href="#" class="dropdown-toggle">Servicios <i class="fas fa-chevron-down"></i></a>
                   <ul class="dropdown-menu">
                     <li><a href="service.html">Pensiones</a></li>
-                    <li><a href="Seleccion.html">Ahorro</a></li>
+                    <li class="ocultar-ahorro"><a href="Seleccion.html">Ahorro</a></li>
                     <li><a href="Credito.html">Crédito</a></li>
                   </ul>
                 </li>
@@ -536,28 +541,29 @@ Conoce todo lo que puedes lograr con asesoría especializada en trámites pensio
               <div class="service-bg"></div>
           </div>
           
-          <div class="service_box">
-              <div class="service_content">
-                  <div class="detail-box">
-                      <div class="service-number">02</div>
-                      <h4>
-                          Ahorro <br>Inteligente.
-                      </h4>
-                      <p style="text-align: justify;">
-                          Construye un futuro financiero sólido con nuestros planes de inversión personalizados. Diversificación estratégica y seguimiento constante.
-                      </p>
-                      <a href="Seleccion.html" class="service-link">
-                          Más detalles <span>&rarr;</span>
-                      </a>
-                  </div>
-              </div>
-              <div class="service-bg"></div>
-          </div>
+<div class="service_box ocultar-ahorro">
+  <div class="service_content">
+    <div class="detail-box">
+      <div class="service-number">02</div>
+      <h4>
+        Ahorro <br>Inteligente.
+      </h4>
+      <p style="text-align: justify;">
+        Construye un futuro financiero sólido con nuestros planes de inversión personalizados. Diversificación estratégica y seguimiento constante.
+      </p>
+      <a href="Seleccion.html" class="service-link">
+        Más detalles <span>&rarr;</span>
+      </a>
+    </div>
+  </div>
+  <div class="service-bg"></div>
+</div>
+
 
           <div class="service_box">
               <div class="service_content">
                   <div class="detail-box">
-                      <div class="service-number">03</div>
+                      <div class="service-number">02</div>
                       <h4>
                          <h4>
                          Financiamos tu Modalidad 40 sin complicaciones.
@@ -688,7 +694,7 @@ Conoce todo lo que puedes lograr con asesoría especializada en trámites pensio
                       <h5 class="links-title">Nuestros Servicios.</h5>
                       <ul class="links-list">
                           <li><a href="service.html" class="footer-link">Asesoría en Pensiones</a></li>
-                          <li><a href="Seleccion.html" class="footer-link">Inversiones Inteligentes</a></li>
+                          <li class="ocultar-ahorro"><a href="Seleccion.html" class="footer-link">Inversiones Inteligentes</a></li>
                           <li><a href="Credito.html" class="footer-link">Créditos Modalidad 40</a></li>
                       </ul>
                   </div>
