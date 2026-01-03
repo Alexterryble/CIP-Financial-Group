@@ -138,10 +138,10 @@ try {
 
 } catch (Exception $e) {
   http_response_code(500);
-echo json_encode([
-  'ok' => false,
-  'debug_smtp_host' => $smtpHost,
-  'debug_smtp_port' => $smtpPort
-], JSON_UNESCAPED_UNICODE);
-exit;
+  echo json_encode([
+    'ok' => false,
+    'error' => 'No se pudo enviar el correo por SMTP.',
+    'details' => $mail->ErrorInfo ?: $e->getMessage()
+  ], JSON_UNESCAPED_UNICODE);
+  exit;
 }
