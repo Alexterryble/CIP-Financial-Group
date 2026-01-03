@@ -118,6 +118,7 @@ try {
   // 587 -> TLS
   $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 
+
   // Remitente (el correo real de tu empresa / app)
   $mail->setFrom($smtpFrom, $smtpName);
 
