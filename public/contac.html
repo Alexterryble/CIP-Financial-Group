@@ -1155,12 +1155,15 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
   btn.disabled = true;
 
   try{
-    const res = await fetch('enviar_contacto.php', { method:'POST', body:data });
-    const json = await res.json();
+const res = await fetch('enviar_contacto.php', { method:'POST', body: formData });
+const data = await res.json();
 
-    if(!res.ok || !json.ok) throw new Error(json.error || 'No se pudo enviar');
+if (!res.ok || !data.ok) {
+  throw new Error(data.details || data.error || 'Error desconocido');
+}
 
-    alert('✅ Mensaje enviado. Te contactaremos pronto.');
+// aquí solo si realmente fue ok:
+alert(data.message || 'Enviado');
     form.reset();
   }catch(err){
     alert('❌ ' + err.message);

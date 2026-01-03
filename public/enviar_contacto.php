@@ -107,7 +107,7 @@ try {
   $mail->Port       = $smtpPort;
 
   // 587 -> TLS
-  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+  $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 
   // Remitente (el correo real de tu empresa / app)
   $mail->setFrom($smtpFrom, $smtpName);
@@ -131,7 +131,7 @@ try {
   echo json_encode([
     'ok' => false,
     'error' => 'No se pudo enviar el correo por SMTP.',
-    'details' => $mail->ErrorInfo
-  ]);
+    'details' => $mail->ErrorInfo ?: $e->getMessage()
+  ], JSON_UNESCAPED_UNICODE);
   exit;
 }
