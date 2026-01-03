@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es">
+<body>
+  <button id="btn">Probar POST</button>
+
+  <script>
+    document.getElementById('btn').onclick = async () => {
+      const fd = new FormData();
+      fd.append('nombre', 'Prueba');
+      fd.append('apellido', 'Local');
+      fd.append('telefono', '0000000000');
+      fd.append('email', 'prueba@correo.com');
+      fd.append('servicio', 'pensiones');
+      fd.append('mensaje', 'Hola desde test');
+
+      const res = await fetch('enviar_contacto.php', { method: 'POST', body: fd });
+      console.log(await res.text());
+      alert('Revisa consola (F12)');
+    };
+  </script>
+</body>
+</html>
