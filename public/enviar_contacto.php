@@ -68,6 +68,15 @@ use PHPMailer\PHPMailer\Exception;
 
 $smtpHost = getenv('SMTP_HOST') ?: '';
 $smtpPort = (int)(getenv('SMTP_PORT') ?: 587);
+echo json_encode([
+  'ok' => false,
+  'debug' => true,
+  'smtpHost' => $smtpHost,
+  'smtpPort' => $smtpPort,
+  'server' => ($_SERVER['SERVER_NAME'] ?? ''),
+], JSON_UNESCAPED_UNICODE);
+exit;
+
 $smtpUser = getenv('SMTP_USER') ?: '';
 $smtpPass = getenv('SMTP_PASS') ?: '';
 $smtpFrom = getenv('SMTP_FROM') ?: $smtpUser; // ej: atencion@cipmexico.com.mx
