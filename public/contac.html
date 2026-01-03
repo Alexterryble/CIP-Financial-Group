@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <!-- SEO Mejorado -->
+  <meta name="description" content="En CIP Financial Group te ayudamos a planear tu retiro y futuro financiero. Expertos en pensiones, ahorro e inversión personalizada.">
+  <meta name="keywords" content="CIP Financial Group, pensiones, retiro, afore, IMSS, asesoría financiera, ahorro, inversión, consultoría">
+  <link rel="canonical" href="https://cipmexico.com.mx/">
+
+  <!-- Favicon -->
+<link rel="icon" href="https://cipmexico.com.mx/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://cipmexico.com.mx/favicon.ico" type="image/x-icon">
+
+  <!-- Open Graph (Facebook y redes) -->
+  <meta property="og:title" content="CIP Financial Group - Pensiones, Retiro e Inversión">
+  <meta property="og:description" content="Asesoría profesional en pensiones, retiro e inversión personalizada. Planea tu futuro financiero con nosotros.">
+  <meta property="og:image" content="https://cipmexico.com.mx/favicon.png">
+  <meta property="og:url" content="https://cipmexico.com.mx/">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CIP Financial Group">
+  <meta name="twitter:description" content="Asesoría profesional en pensiones, retiro e inversión personalizada.">
+  <meta name="twitter:image" content="https://cipmexico.com.mx/favicon.png">
+
+  <!-- JSON-LD mejorado -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "CIP Financial Group",
+    "url": "https://cipmexico.com.mx",
+    "logo": "https://cipmexico.com.mx/favicon.png",
+    "sameAs": [
+      "https://www.facebook.com/CIPMexico",
+      "https://www.instagram.com/CIPMexico",
+      "https://www.linkedin.com/company/cipmexico"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+52-722-803-8635",
+      "contactType": "Customer Service",
+      "areaServed": "MX",
+      "availableLanguage": "Spanish"
+    }
+  }
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CIP Financial Group - Asesoría en Pensiones, Retiro e Inversión</title>
+  <meta name="description" content="En CIP Financial Group te ayudamos a planear tu retiro y futuro financiero. Expertos en pensiones, ahorro e inversión personalizada.">
+  <meta name="keywords" content="CIP Financial Group, pensiones, retiro, afore, IMSS, asesoría financiera, ahorro, inversión, consultoría">
+  <meta name="author" content="CIP Financial Group">
+  <link rel="canonical" href="https://cipmexico.com.mx/">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.png" type="image/png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "url": "https://cipmexico.com.mx",
+  "logo": "https://cipmexico.com.mx/favicon.png"
+}
+</script>
+
+  <!-- Redes sociales: Open Graph -->
+  <meta property="og:title" content="CIP Financial Group - Expertos en Pensiones y Finanzas">
+  <meta property="og:description" content="Planifica tu retiro con asesoría profesional. Pensiones, ahorro e inversión personalizada.">
+  <meta property="og:image" content="https://cipmexico.com.mx/images/logo1.png">
+  <meta property="og:url" content="https://cipmexico.com.mx/">
+  <meta property="og:type" content="website">
+
+  <!-- Estilos y scripts -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+window.addEventListener('load', function() {
+    if (!sessionStorage.getItem('introShown')) {
+        // Mostrar la intro SOLO la primera vez en esta sesión
+        document.getElementById('intro-overlay').style.display = 'flex';
+        document.body.classList.add('intro-active');
+
+        setTimeout(function() {
+            const target = document.querySelector('#logo-menu');
+            const logoIntro = document.getElementById('logo-intro');
+            const introOverlay = document.getElementById('intro-overlay');
+            const menuContainer = document.querySelector('.menu-container');
+
+            if (!target || !logoIntro) {
+                console.error('ERROR: No se encontró el logo del menú o el logo-intro.');
+                return;
+            }
+
+            const targetRect = target.getBoundingClientRect();
+
+            logoIntro.style.top = `${targetRect.top + window.scrollY + target.offsetHeight / 2}px`;
+            logoIntro.style.left = `${targetRect.left + window.scrollX + target.offsetWidth / 2}px`;
+            logoIntro.style.width = `${target.offsetWidth}px`;
+            logoIntro.style.height = `${target.offsetHeight}px`;
+            logoIntro.style.transform = 'translate(-50%, -50%)';
+
+            setTimeout(function() {
+                introOverlay.style.display = 'none';
+                menuContainer.style.opacity = '1';
+                document.body.classList.remove('intro-active');
+                // Guardar que ya se mostró la intro EN ESTA SESIÓN
+                sessionStorage.setItem('introShown', 'true');
+            }, 2000);
+        }, 5000);
+    } else {
+        // Ya se mostró antes → saltamos la intro
+        document.getElementById('intro-overlay').style.display = 'none';
+        document.querySelector('.menu-container').style.opacity = '1';
+        document.body.classList.remove('intro-active');
+    }
+});
+</script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .contacto-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* HEADER */
+        .contacto-header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contacto-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+
+        .contacto-header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .contacto-header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            position: relative;
+            line-height: 1.8;
+        }
+
+        .divider {
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+            margin: 30px auto;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        /* CONTENIDO PRINCIPAL */
+        .contacto-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        /* INFORMACIÓN DE CONTACTO */
+        .contact-info {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #3498db;
+        }
+
+        .info-item {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .info-item h3 {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .info-item h3 i {
+            color: #3498db;
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #3498db15, #2980b915);
+            border-radius: 10px;
+        }
+
+        .info-item p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-left: 55px;
+        }
+
+        .info-item a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .info-item a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        /* HORARIO ESPECIAL */
+        .horario-especial {
+            background: linear-gradient(135deg, #fff8e1, #fff3cd);
+            border-left: 5px solid #f39c12;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .horario-especial h3 {
+            color: #e67e22 !important;
+        }
+
+        .horario-especial h3 i {
+            color: #e67e22 !important;
+            background: linear-gradient(135deg, #e67e2215, #d3540015) !important;
+        }
+
+        /* FORMULARIO */
+        .contact-form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #2ecc71;
+        }
+
+        .form-title {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 8px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-group label i {
+            color: #3498db;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            background: white;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.1);
+        }
+
+        .form-group input:hover,
+        .form-group select:hover,
+        .form-group textarea:hover {
+            border-color: #b0b0b0;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 8px 20px rgba(46, 204, 113, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(46, 204, 113, 0.4);
+            background: linear-gradient(135deg, #27ae60, #219653);
+        }
+
+        .submit-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* REDES SOCIALES */
+        .social-section {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .social-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-8px) scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .social-icon.facebook:hover { background: #1877f2; }
+        .social-icon.twitter:hover { background: #1da1f2; }
+        .social-icon.instagram:hover { 
+            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+        }
+        .social-icon.linkedin:hover { background: #0077b5; }
+        .social-icon.youtube:hover { background: #ff0000; }
+
+        /* MAPA */
+        .map-section {
+            margin-top: 60px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            height: 400px;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+        }
+
+        .map-overlay h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .map-overlay p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .contacto-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .contacto-header h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contacto-header {
+                padding: 30px 20px;
+                margin-bottom: 40px;
+            }
+
+            .contacto-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .contacto-header p {
+                font-size: 1.1rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .contact-info,
+            .contact-form-container {
+                padding: 30px 25px;
+            }
+
+            .social-title {
+                font-size: 2rem;
+            }
+
+            .social-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contacto-container {
+                padding: 20px 15px;
+            }
+
+            .contacto-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .contacto-header p {
+                font-size: 1rem;
+            }
+
+            .form-title {
+                font-size: 1.6rem;
+            }
+
+            .social-section {
+                padding: 40px 20px;
+            }
+
+            .social-title {
+                font-size: 1.8rem;
+            }
+
+            .social-icons {
+                gap: 15px;
+            }
+
+            .social-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+
+            .info-item p {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+
+
+        .map-link{
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.map-link:hover{
+  text-decoration: underline;
+}
+
+
+
+.contacto-hero{
+  position: relative;
+  min-height: 58vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 18px 70px;
+  text-align: center;
+  overflow: hidden;
+
+  /* 👇 Cambia esta ruta por tu imagen */
+  background-image: url("imagenes/Abuelo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.contacto-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at top, rgba(245,184,0,.18), transparent 55%),
+    linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.72) 100%);
+  z-index: 0;
+}
+
+.contacto-hero__content{
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.contacto-hero__content h1{
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 900;
+  margin: 0 0 14px;
+  text-shadow: 0 12px 30px rgba(0,0,0,.45);
+}
+
+.contacto-hero__content p{
+  margin: 0 auto 18px;
+  max-width: 760px;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,.88);
+}
+
+/* Divider como el que ya tenías, pero hero style */
+.contacto-hero .divider{
+  width: 80px;
+  height: 4px;
+  background: #f5b800;
+  border-radius: 999px;
+  margin: 18px auto 22px;
+}
+
+/* Botón WhatsApp */
+.contacto-hero__btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #22c55e;
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-weight: 900;
+  box-shadow: 0 18px 45px rgba(0,0,0,.25);
+  transition: transform .2s ease, filter .2s ease;
+}
+
+.contacto-hero__btn:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+.contacto-hero__btn i{
+  font-size: 1.15rem;
+}
+
+/* Responsive */
+@media (max-width: 520px){
+  .contacto-hero{
+    min-height: 52vh;
+    padding: 70px 16px 60px;
+  }
+}
+
+
+/* =========================================================
+   CONTACTO - FIX MENÚ SOBRE HERO (PÉGALO AL FINAL)
+   ========================================================= */
+
+/* 0) Variables por si quieres ajustar rápido */
+:root{
+  --menu-h: 85px;     /* altura real aproximada del menú */
+  --menu-z: 99999;    /* z-index gigante para que NO lo tape nada */
+}
+
+/* 1) Body: espacio para menú fijo */
+html, body{ overflow-x: hidden; }
+body{
+  padding-top: var(--menu-h);
+  scroll-padding-top: var(--menu-h);
+}
+
+/* 2) MENÚ: siempre arriba */
+.menu-container{
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: var(--menu-z) !important;
+
+  /* si lo quieres transparente encima del hero */
+  background: transparent;
+  pointer-events: auto;
+}
+
+/* el pill del menú (tu .menu) */
+.menu{
+  position: relative;
+  z-index: calc(var(--menu-z) + 1);
+}
+
+/* 3) IMPORTANTE: anular cualquier "header { position: fixed }" global
+   porque tú usas <header class="contacto-hero"> */
+header{
+  position: relative !important;
+  z-index: auto !important;
+}
+
+/* 4) HERO: capas correctas (no compite con el menú) */
+.contacto-hero{
+  position: relative;
+  z-index: 0;          /* debajo del menú */
+  margin-top: 0;       /* el body ya trae padding-top */
+}
+
+/* overlay del hero siempre atrás */
+.contacto-hero::before{
+  z-index: 0;
+}
+
+/* contenido del hero arriba del overlay interno */
+.contacto-hero__content{
+  position: relative;
+  z-index: 1;
+}
+
+/* 5) Dropdown del menú: encima del hero SIEMPRE */
+.dropdown{ position: relative; }
+
+/* escritorio */
+@media (min-width: 769px){
+  .dropdown-menu{
+    position: absolute;
+    z-index: calc(var(--menu-z) + 2) !important;
+  }
+}
+
+/* móvil: tu menú desplegable es position:fixed, entonces z-index alto */
+@media (max-width: 768px){
+  .menu-items{
+    z-index: calc(var(--menu-z) + 2) !important;
+  }
+  .menu-icon{
+    z-index: calc(var(--menu-z) + 3) !important;
+  }
+}
+
+/* 6) Protección extra: si algún elemento del hero/iframe se sube, lo bajamos */
+.contacto-hero,
+.contacto-container,
+.map-section,
+.map-container,
+.map-overlay,
+iframe{
+  position: relative;
+  z-index: 0;
+}
+
+/* 7) Opcional: cuando hagas scroll, poner fondo al menú (si ya lo usas) */
+.menu-container.en-top{
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+
+
+.contacto-hero{
+  margin-top: 30px; /* ajusta: 20px / 30px / 40px */
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="menu-container">
+        <div class="menu">
+<div class="logo" id="logo-menu"> <!-- AÑADIR el id -->
+    <img src="images/logo1.png" alt="Logo CIP">
+    <span class="logo-text">CIP Financial Group</span>
+</div>
+
+            
+            <ul class="menu-items">
+                <li class="menu-item"><a href="index.html">Inicio</a></li>
+                <li class="menu-item"><a href="nosotros.html">Nosotros</a></li>
+                <li class="menu-item dropdown">
+                  <a href="#" class="dropdown-toggle">Servicios <i class="fas fa-chevron-down"></i></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="service.html">Pensiones</a></li>
+                    <li class="ocultar-ahorro"><a href="Seleccion.html">Ahorro</a></li>
+                    <li><a href="Credito.html">Crédito Mod 10 y Mod 40</a></li>
+                    <li><a href="CURP.html">Créditos Jubilados y Pensionados</a></li>
+                  </ul>
+                </li>
+                <li class="menu-item"><a href="Contacto.html">Contacto</a></li>
+            </ul>
+            
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+<header class="contacto-hero">
+  <div class="contacto-hero__content">
+    <h1>Ponte en contacto</h1>
+    <p>
+      En CIP Financial Group estamos para orientarte y resolver tus dudas sobre pensiones y créditos
+      respaldados. Escríbenos y recibe la asesoría personalizada que necesitas para tomar la mejor decisión.
+    </p>
+
+    <div class="divider"></div>
+
+    <a class="contacto-hero__btn"
+       href="https://wa.me/527229093808?text=Hola,%20quisiera%20más%20información%20por%20favor."
+       target="_blank" rel="noopener">
+      <i class="fab fa-whatsapp"></i> Chatear por WhatsApp
+    </a>
+  </div>
+</header>
+
+
+    <div class="contacto-container">
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <div class="contacto-content">
+            <!-- INFORMACIÓN DE CONTACTO -->
+            <div class="contact-info">
+                <div class="info-item">
+                    <h3><i class="fas fa-map-marker-alt"></i> Oficina Central</h3>
+                        <p>
+                        <a href="https://www.google.com/maps/place/CIP+Financial+Group/@19.2883429,-99.6427883,21z/data=!4m6!3m5!1s0x85cd89ded3e72a77:0x6a605b0e9f5dd064!8m2!3d19.2883894!4d-99.6427484!16s%2Fg%2F11xnq725rn?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+                            target="_blank" rel="noopener"
+                            class="map-link">
+                            Isabel la Católica No. 201-B, Col. San Sebastián<br>
+                            C.P. 50090, Toluca de Lerdo, Estado de México
+                        </a>
+                        </p>
+
+                </div>
+
+                <div class="info-item">
+                    <h3><i class="fas fa-envelope"></i> Correo de atención</h3>
+                    <p><a href="mailto:atencion@cipmexico.com.mx">atencion@cipmexico.com.mx</a></p>
+                </div>
+
+                <div class="info-item">
+                    <h3><i class="fas fa-phone-alt"></i> Número de atención</h3>
+                    <p>
+  Teléfono:
+  <a href="https://wa.me/527229093808?text=Hola,%20quisiera%20más%20información%20por%20favor."
+     target="_blank" rel="noopener">
+    +52 722 909 3808
+  </a>
+</p>
+
+                </div>
+
+                <div class="info-item horario-especial">
+                    <h3><i class="fas fa-clock"></i> Horario de atención</h3>
+                    <p>Lunes a Domingo - Atención las 24 horas</p>
+                </div>
+            </div>
+
+            <!-- FORMULARIO DE CONTACTO -->
+            <div class="contact-form-container">
+                <h2 class="form-title">No dudes en dejarnos un mensaje</h2>
+<form class="contact-form" id="contactForm" method="post" action="enviar_contacto.php" novalidate>
+
+  <!-- ✅ Honeypot anti-bots (oculto). Si se llena, es bot -->
+  <input type="text" name="website" id="website"
+         autocomplete="off" tabindex="-1"
+         style="position:absolute; left:-9999px; opacity:0; height:0; width:0;">
+
+  <!-- ✅ Mensaje visual (opcional) -->
+  <div id="formMsg" style="display:none; margin-bottom:12px; font-weight:600;"></div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="nombre"><i class="fas fa-user"></i> Nombre</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+    </div>
+
+    <div class="form-group">
+      <label for="apellido"><i class="fas fa-user"></i> Apellido</label>
+      <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" required>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="telefono"><i class="fas fa-phone"></i> Teléfono</label>
+      <input type="tel" id="telefono" name="telefono" placeholder="Tu número de teléfono" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email"><i class="fas fa-envelope"></i> Correo</label>
+      <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="servicio"><i class="fas fa-concierge-bell"></i> Servicio de interés</label>
+    <select id="servicio" name="servicio" required>
+      <option value="" disabled selected>Selecciona un servicio</option>
+      <option value="pensiones">Asesoría en Pensiones</option>
+      <option value="creditos">Créditos Modalidad 10 y 40</option>
+      <option value="jubilados">Créditos Jubilados y Pensionados</option>
+      <option value="ahorro">Ahorro Inteligente</option>
+      <option value="convenios">Convenios Institucionales</option>
+      <option value="otro">Otro</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="mensaje"><i class="fas fa-comment"></i> Mensaje</label>
+    <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+  </div>
+
+  <button type="submit" class="submit-btn">
+    <i class="fas fa-paper-plane"></i> Enviar mensaje
+  </button>
+</form>
+
+            </div>
+        </div>
+
+        <!-- MAPA -->
+<section class="map-section">
+  <div class="map-container">
+
+    <iframe
+      src="https://www.google.com/maps?q=CIP%20Financial%20Group%20Toluca&z=19&output=embed"
+      width="100%"
+      height="100%"
+      style="border:0;"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+    <div class="map-overlay">
+      <h3><i class="fas fa-map-marker-alt"></i> Oficina Central</h3>
+      <p>
+        Isabel la Católica No. 201-B, Col. San Sebastián<br>
+        Toluca de Lerdo, Estado de México
+      </p>
+      <a class="map-btn" target="_blank" rel="noopener"
+         href="https://www.google.com/maps/search/?api=1&query=CIP%20Financial%20Group%20Toluca">
+        Ver en Google Maps
+      </a>
+    </div>
+
+  </div>
+</section>
+    </div>
+
+    <!-- Footer Mejorado -->
+<footer class="footer">
+  <div class="footer-container">
+      <div class="footer-top">
+          <div class="container">
+              <div class="footer-brand">
+                  <h3 class="footer-title">CIP Financial Group</h3>
+                  <p class="footer-text">Soluciones financieras integrales para tu futuro</p>
+                  
+                  <div class="footer-social">
+                      <a href="https://www.facebook.com/profile.php?id=61573398725938" class="social-link" target="_blank" rel="noopener noreferrer">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                      </a>
+                      <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M16 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M8 16V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M16 12H22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M2 12H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M12 2V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M12 16V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                      </a>
+                  </div>
+              </div>
+
+              <div class="footer-links">
+                  <div class="links-group">
+                      <h5 class="links-title">Enlaces Útiles</h5>
+                      <ul class="links-list">
+                          <li><a href="index.html" class="footer-link">Inicio</a></li>
+                          <li><a href="nosotros.html" class="footer-link">Nosotros</a></li>
+                          <li><a href="Contacto.html" class="footer-link">Contacto</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="links-group">
+                      <h5 class="links-title">Nuestros Servicios.</h5>
+                      <ul class="links-list">
+                          <li><a href="service.html" class="footer-link">Asesoría en Pensiones</a></li>
+                          <li class="ocultar-ahorro"><a href="Seleccion.html" class="footer-link">Ahorros Inteligentes</a></li>
+                          <li><a href="Credito.html" class="footer-link">Créditos Modalidad 40</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="links-group">
+                      <h5 class="links-title">Contacto</h5>
+                      <ul class="links-list contact-list">
+                          <li>
+                              <a href="mailto:atencion@cipmexico.com.mx" class="footer-link contact-link">
+                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  atencion@cipmexico.com.mx
+                              </a>
+                          </li>
+                          <li>
+                              <a href="https://wa.me/527228038635" class="footer-link contact-link whatsapp" target="_blank" rel="noopener noreferrer">
+                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M12 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M9 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M15 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  722 8038 635
+                              </a>
+                          </li>
+                          <li>
+                              <a href="https://www.google.com.mx/maps/place/M%C3%A9xico+15+801,+V%C3%A9rtice,+50090+Toluca+de+Lerdo,+M%C3%A9x./@19.2883769,-99.6435227,19z/data=!3m1!4b1!4m6!3m5!1s0x85cd898d25cd808b:0xdf5aa1b38781160!8m2!3d19.2883769!4d-99.642879!16s%2Fg%2F11np2r68jp?entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D" 
+                              class="footer-link contact-link map" 
+                              target="_blank" 
+                              rel="noopener noreferrer">
+                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                      <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  PRIV. JAIME NUNO 103, 2DO PISO, COL. SAN SEBASTIÁN, TOLUCA, MÉXICO. C.P. 50150.
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+
+
+          </div>
+      </div>
+
+      <div class="footer-bottom">
+          <div class="container">
+              <p class="copyright">&copy; <span id="current-year"></span> CIP Financial Group. Todos los derechos reservados.</p>
+          </div>
+      </div>
+  </div>
+</footer>
+    <script>
+        // Manejo del formulario
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Obtener valores del formulario
+            const nombre = document.getElementById('nombre').value;
+            const apellido = document.getElementById('apellido').value;
+            const telefono = document.getElementById('telefono').value;
+            const email = document.getElementById('email').value;
+            const servicio = document.getElementById('servicio').value;
+            const mensaje = document.getElementById('mensaje').value;
+            
+            // Validación básica
+            if (!nombre || !apellido || !telefono || !email || !servicio || !mensaje) {
+                alert('Por favor, completa todos los campos del formulario.');
+                return;
+            }
+            
+            // Simular envío del formulario
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            submitBtn.disabled = true;
+            
+            // Simular tiempo de envío
+            setTimeout(() => {
+                // Aquí normalmente enviarías los datos a un servidor
+                console.log({
+                    nombre,
+                    apellido,
+                    telefono,
+                    email,
+                    servicio,
+                    mensaje
+                });
+                
+                // Mostrar confirmación
+                alert(`¡Gracias ${nombre}! Tu mensaje ha sido enviado correctamente. Te contactaremos pronto.`);
+                
+                // Restaurar botón
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Limpiar formulario
+                document.getElementById('contactForm').reset();
+                
+            }, 1500);
+        });
+        
+        // Efecto hover en botones sociales
+        document.querySelectorAll('.social-icon').forEach(icon => {
+            icon.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.1)';
+            });
+            
+            icon.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+        
+        // Validación en tiempo real del teléfono
+        document.getElementById('telefono').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9+\-\s]/g, '');
+        });
+    </script>
+
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const form = e.target;
+  const data = new FormData(form);
+
+  const btn = form.querySelector('.submit-btn');
+  const original = btn.innerHTML;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+  btn.disabled = true;
+
+  try{
+    const res = await fetch('enviar_contacto.php', { method:'POST', body:data });
+    const json = await res.json();
+
+    if(!res.ok || !json.ok) throw new Error(json.error || 'No se pudo enviar');
+
+    alert('✅ Mensaje enviado. Te contactaremos pronto.');
+    form.reset();
+  }catch(err){
+    alert('❌ ' + err.message);
+    console.error(err);
+  }finally{
+    btn.innerHTML = original;
+    btn.disabled = false;
+  }
+});
+
+</script>
+
+</body>
+</html>
