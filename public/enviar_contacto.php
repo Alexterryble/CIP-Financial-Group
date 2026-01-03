@@ -6,7 +6,7 @@ header('Content-Type: application/json; charset=utf-8');
 // Solo POST
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
   http_response_code(405);
-  echo json_encode(['ok' => false, 'error' => 'Método no permitido']);
+  echo json_encode(['ok' => false, 'error' => 'Método no permitido'], JSON_UNESCAPED_UNICODE);
   exit;
 }
 
@@ -14,7 +14,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
 $honeypot = trim($_POST['website'] ?? '');
 if ($honeypot !== '') {
   http_response_code(400);
-  echo json_encode(['ok' => false, 'error' => 'Solicitud inválida']);
+  echo json_encode(['ok' => false, 'error' => 'Solicitud inválida'], JSON_UNESCAPED_UNICODE);
   exit;
 }
 
@@ -28,13 +28,13 @@ $mensaje  = trim($_POST['mensaje'] ?? '');
 
 if ($nombre === '' || $apellido === '' || $telefono === '' || $email === '' || $servicio === '' || $mensaje === '') {
   http_response_code(400);
-  echo json_encode(['ok' => false, 'error' => 'Faltan campos obligatorios.']);
+  echo json_encode(['ok' => false, 'error' => 'Faltan campos obligatorios.'], JSON_UNESCAPED_UNICODE);
   exit;
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
   http_response_code(400);
-  echo json_encode(['ok' => false, 'error' => 'Correo inválido.']);
+  echo json_encode(['ok' => false, 'error' => 'Correo inválido.'], JSON_UNESCAPED_UNICODE);
   exit;
 }
 
@@ -48,13 +48,10 @@ $serverName = $_SERVER['SERVER_NAME'] ?? '';
 $isLocal = in_array($serverName, ['localhost', '127.0.0.1'], true);
 
 if ($isLocal) {
-  // Si quieres, aquí puedes guardar en un log local
-  // file_put_contents(__DIR__ . '/contacto_local.log', print_r($_POST, true), FILE_APPEND);
-
   echo json_encode([
     'ok' => true,
     'message' => 'Mensaje recibido (modo local). En producción sí se enviará por correo.'
-  ]);
+  ], JSON_UNESCAPED_UNICODE);
   exit;
 }
 
@@ -67,19 +64,10 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 $smtpHost = getenv('SMTP_HOST') ?: '';
-$smtpPort = (int)(getenv('SMTP_PORT') ?: 587);
-echo json_encode([
-  'ok' => false,
-  'debug' => true,
-  'smtpHost' => $smtpHost,
-  'smtpPort' => $smtpPort,
-  'server' => ($_SERVER['SERVER_NAME'] ?? ''),
-], JSON_UNESCAPED_UNICODE);
-exit;
-
+$smtpPort = (int)(getenv('SMTP_PORT') ?: 465);
 $smtpUser = getenv('SMTP_USER') ?: '';
 $smtpPass = getenv('SMTP_PASS') ?: '';
-$smtpFrom = getenv('SMTP_FROM') ?: $smtpUser; // ej: atencion@cipmexico.com.mx
+$smtpFrom = getenv('SMTP_FROM') ?: $smtpUser;
 $smtpName = getenv('SMTP_NAME') ?: 'CIP Financial Group';
 
 $toEmail  = getenv('MAIL_TO') ?: 'atencion@cipmexico.com.mx';
@@ -90,7 +78,7 @@ if ($smtpHost === '' || $smtpUser === '' || $smtpPass === '') {
   echo json_encode([
     'ok' => false,
     'error' => 'Faltan variables SMTP (SMTP_HOST/SMTP_USER/SMTP_PASS).'
-  ]);
+  ], JSON_UNESCAPED_UNICODE);
   exit;
 }
 
@@ -98,16 +86,17 @@ $subject = "Contacto CIP - " . mb_strtoupper($servicio, 'UTF-8');
 
 $body =
 "Nuevo mensaje desde CIP Financial Group\n\n" .
-"Nombre: $nombre $apellido\n" .
-"Teléfono: $telefono\n" .
-"Correo: $email\n" .
-"Servicio: $servicio\n\n" .
-"Mensaje:\n$mensaje\n";
+"Nombre: {$nombre} {$apellido}\n" .
+"Teléfono: {$telefono}\n" .
+"Correo: {$email}\n" .
+"Servicio: {$servicio}\n\n" .
+"Mensaje:\n{$mensaje}\n";
 
 try {
   $mail = new PHPMailer(true);
   $mail->CharSet = 'UTF-8';
 
+  // SMTP
   $mail->isSMTP();
   $mail->Host       = $smtpHost;
   $mail->SMTPAuth   = true;
@@ -115,25 +104,31 @@ try {
   $mail->Password   = $smtpPass;
   $mail->Port       = $smtpPort;
 
-  // 587 -> TLS
-  $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+  // Seguridad según puerto:
+  // 465 => SMTPS (SSL/TLS)
+  // 587 => STARTTLS
+  if ($smtpPort === 465) {
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+  } else {
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+  }
 
-
-  // Remitente (el correo real de tu empresa / app)
+  // Remitente
   $mail->setFrom($smtpFrom, $smtpName);
 
-  // Destino (atención)
+  // Destino (Atención)
   $mail->addAddress($toEmail, $toName);
 
-  // Para que al "Responder" se vaya al correo del usuario
-  $mail->addReplyTo($email_safe, $nombre . ' ' . $apellido);
+  // Reply-To (correo del usuario)
+  $mail->addReplyTo($email_safe, "{$nombre} {$apellido}");
 
+  // Contenido
   $mail->Subject = $subject;
   $mail->Body    = $body;
 
   $mail->send();
 
-  echo json_encode(['ok' => true, 'message' => 'Mensaje enviado correctamente']);
+  echo json_encode(['ok' => true, 'message' => 'Mensaje enviado correctamente'], JSON_UNESCAPED_UNICODE);
   exit;
 
 } catch (Exception $e) {
