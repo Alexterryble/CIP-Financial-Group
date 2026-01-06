@@ -1140,8 +1140,8 @@ input[type="number"]::-webkit-inner-spin-button {
         <div class="cip-input-wrapper">
             <input type="number" id="monto" placeholder="Ej. 50,000" oninput="validarMonto(this); calcularInversion()">
         </div>
-        <p class="cip-info-text">Monto mínimo: $10,000 | Monto máximo: $200,000</p>
-        <p class="cip-error-text" id="error-monto">El monto debe estar entre $10,000 y $200,000</p>
+        <p class="cip-info-text">Monto mínimo: $10,000 | Monto máximo: $1,000,000</p>
+        <p class="cip-error-text" id="error-monto">El monto debe estar entre $10,000 y $1,000,000</p>
     </div>
 </div>
 
@@ -1596,7 +1596,7 @@ const ctx = document.getElementById('growthChart').getContext('2d');
         function validarMonto(input) {
             const errorElement = document.getElementById('error-monto');
             let monto = parseFloat(input.value) || 0;
-            if (monto > 0 && (monto < 10000 || monto > 200000)) {
+            if (monto > 0 && (monto < 10000 || monto > 1000000)) {
                 errorElement.style.display = 'block';
                 input.style.borderColor = 'var(--danger)';
                 input.style.boxShadow = '0 0 0 3px rgba(220, 53, 69, 0.1)';
@@ -1615,7 +1615,7 @@ function calcularInversion() {
     const montoInput = document.getElementById('monto');
     let montoInicial = parseFloat(montoInput.value) || 0;
 
-    if (montoInicial >= 10000 && montoInicial <= 200000) {
+    if (montoInicial >= 10000 && montoInicial <= 1000000) {
         const labels = ['Inicio'];
         const data = [montoInicial];
         const inversionDetalle = montoInicial;
