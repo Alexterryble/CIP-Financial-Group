@@ -1752,61 +1752,92 @@ function getPensionBase() {
           <tr id="imssTotalRow">
       - pensión sube 4% anual
       - rendimiento = 1.6% del capital PERO también sube 4% cada año
-        (ej: 1,600 → 1,664 → 1,730.56 ...)
+      - encabezados de años se actualizan solos según firmaContrato
    ========================================================= */
 (() => {
   const tablaIMSS    = document.getElementById('tablaIMSS');
   const pensionInput = document.getElementById('pensionBase');
   const capitalInput = document.getElementById('ingresoCapital');
+  const firmaSpan    = document.getElementById('firmaContrato');
 
   if (!tablaIMSS) return;
 
   const RATE_IMSS = 0.04;  // pensión +4% anual
   const RATE_REND = 0.016; // 1.6% mensual del capital (año 1)
 
-  const fmt = n => n.toLocaleString('es-MX',{style:'currency',currency:'MXN',minimumFractionDigits:2});
-  const toNum = s => parseFloat((s||'0').toString().replace(/[^\d.]/g,'')) || 0;
+  const fmt = n => n.toLocaleString('es-MX', {
+    style: 'currency',
+    currency: 'MXN',
+    minimumFractionDigits: 2
+  });
+
+  const toNum = s => parseFloat((s || '0').toString().replace(/[^\d.]/g, '')) || 0;
 
   function getPensionBase() {
     return toNum(pensionInput?.value);
   }
 
-  function recalcularIMSSIndicadores(){
+  function getStartYearIMSS() {
+    let startYear = parseInt(firmaSpan?.dataset.startYear ?? '', 10);
+
+    if (!Number.isNaN(startYear)) return startYear;
+
+    // Respaldo si aún no existe dataset
+    const hoy = new Date();
+    const dia = hoy.getDate();
+    const salto = (dia >= 6) ? 2 : 1;
+    const inicio = new Date(hoy);
+    inicio.setMonth(hoy.getMonth() + salto);
+
+    return inicio.getFullYear();
+  }
+
+  function actualizarEncabezadosIMSS() {
+    const startYear = getStartYearIMSS();
+    const ths = tablaIMSS.querySelectorAll('thead th');
+
+    ths.forEach((th, i) => {
+      if (i === 0) return; // "Concepto"
+      th.textContent = String(startYear + (i - 1));
+    });
+  }
+
+  function recalcularIMSSIndicadores() {
     const rowPension = tablaIMSS.querySelector('tbody tr[data-key="pension"]');
     const rowRend    = tablaIMSS.querySelector('tbody tr[data-key="rendimiento"]');
     const totalRow   = tablaIMSS.querySelector('#imssTotalRow');
     if (!rowPension || !rowRend || !totalRow) return;
 
+    actualizarEncabezadosIMSS();
+
     const tdsP = rowPension.querySelectorAll('td');
     const tdsR = rowRend.querySelectorAll('td');
     const tdsT = totalRow.querySelectorAll('td.moneda');
 
-    const basePension = getPensionBase();       // lo que pones en el input
+    const basePension = getPensionBase();
     const capital     = toNum(capitalInput?.value);
-    const rendBase    = capital * RATE_REND;    // este es el 1,600 del primer año (si capital da eso)
+    const rendBase    = capital * RATE_REND;
 
     const cols = Math.min(tdsP.length, tdsR.length, tdsT.length);
 
-    for (let i = 0; i < cols; i++){
-      // pensión: sube 4% anual
+    for (let i = 0; i < cols; i++) {
       const pensionMes = basePension * Math.pow(1 + RATE_IMSS, i);
+      const rendMes    = rendBase    * Math.pow(1 + RATE_IMSS, i);
+
       if (tdsP[i]) tdsP[i].textContent = fmt(pensionMes);
-
-      // rendimiento: también sube 4% anual a partir del base (1,600 → 1,664 → ...)
-      const rendMes = rendBase * Math.pow(1 + RATE_IMSS, i);
       if (tdsR[i]) tdsR[i].textContent = fmt(rendMes);
-
-      // total = pensión mensual + rendimiento mensual
       if (tdsT[i]) tdsT[i].textContent = fmt(pensionMes + rendMes);
     }
   }
 
   document.addEventListener('DOMContentLoaded', recalcularIMSSIndicadores);
-  pensionInput?.addEventListener('input',  recalcularIMSSIndicadores);
+  pensionInput?.addEventListener('input', recalcularIMSSIndicadores);
   pensionInput?.addEventListener('change', recalcularIMSSIndicadores);
-  capitalInput?.addEventListener('input',  recalcularIMSSIndicadores);
+  capitalInput?.addEventListener('input', recalcularIMSSIndicadores);
 
-  // lo dejamos global por si otro script lo quiere
+  // si cambia la fecha de firma, también cambia la tabla IMSS
+  firmaSpan?.addEventListener('change', recalcularIMSSIndicadores);
+
   window.recalcularIMSS = recalcularIMSSIndicadores;
 })();
 </script>
