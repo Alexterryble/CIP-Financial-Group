@@ -385,6 +385,51 @@
                 font-size: 16px;
             }
         }
+
+        .privacy-note{
+  margin-top: 14px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+.privacy-link{
+  color: #0d6efd;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.privacy-link:hover{
+  text-decoration: underline;
+}
+
+.footer-bottom-content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-privacy-link{
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+.footer-privacy-link:hover{
+  text-decoration: underline;
+  opacity: 1;
+}
+
+@media (max-width: 768px){
+  .footer-bottom-content{
+    flex-direction: column;
+    text-align: center;
+  }
+}
     </style>
 <body>
 
@@ -445,7 +490,15 @@
                 <a href="https://wa.me/527228038635?text=Hola,%20me%20gustaría%20recibir%20información%20sobre%20pensiones" class="whatsapp-btn">
                     <i class="fab fa-whatsapp whatsapp-icon"></i> Chatear por WhatsApp
                 </a>
-                <section class="services-section">
+
+<p class="privacy-note">
+    Al contactarnos y compartir tus datos, puedes consultar nuestro
+    <a href="Aviso_de_Privacidad_CIP_Financial.pdf"
+       class="privacy-link"
+       download="Aviso_de_Privacidad_CIP_Financial.pdf">
+       Aviso de Privacidad
+    </a>.
+</p>            <section class="services-section">
     <h2 class="services-title">Nuestros Servicios</h2>
     <div class="services-container">
         
@@ -621,11 +674,19 @@
           </div>
       </div>
 
-      <div class="footer-bottom">
-          <div class="container">
-              <p class="copyright">&copy; <span id="current-year"></span> CIP Financial Group. Todos los derechos reservados.</p>
-          </div>
-      </div>
+<div class="footer-bottom">
+    <div class="container footer-bottom-content">
+        <p class="copyright">
+            &copy; <span id="current-year"></span> CIP Financial Group. Todos los derechos reservados.
+        </p>
+
+<a href="Aviso_de_Privacidad_CIP_Financial.pdf"
+   class="privacy-link"
+   download="Aviso_de_Privacidad_CIP_Financial.pdf">
+   Aviso de Privacidad
+</a>
+    </div>
+</div>
   </div>
 </footer>
 <script>
