@@ -67,32 +67,34 @@ body {
 }
 
 /* NUEVO: Alineación del contenedor del logo */
-.logo {
-  display: flex;
-  flex-direction: column;   /* Texto debajo del logo */
-  align-items: center;
-  justify-content: center;
-  gap: 0px;                 /* Espacio entre logo y texto */
-  padding-left: 10px;       /* Ajusta si quieres separación del borde */
+.logo{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:330px;
+  height:185px;
+  padding:0;
+  overflow:hidden;
+  line-height:0;
 }
 
-.logo img {
-  height: 80px;
-  width: auto;
-  margin-top: -20px; /* 🔼 SUBE el logo */
+.logo img{
+  display:block;
+  height:92px;
+  width:auto;
+  max-width:100%;
+  margin:0;
+  object-fit:contain;
 }
-
-
 .logo-text {
   font-size: 12px;
   font-weight: 600;
   color: rgb(0, 0, 0);
   font-family: 'Poppins', sans-serif;
   line-height: 1;
-  margin-top: -10px;   /* Esto sube el texto */
+  margin-top: -6px;
   text-align: center;
 }
-
 
 /* Estilo del menú */
 .menu-items {
@@ -147,7 +149,6 @@ body {
 
   .logo {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 4px;
