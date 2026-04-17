@@ -1,1007 +1,2860 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
-  <!-- SEO Mejorado -->
-  <meta name="description" content="En CIP Financial Group te ayudamos a planear tu retiro y futuro financiero. Expertos en pensiones, ahorro e inversión personalizada.">
-  <meta name="keywords" content="CIP Financial Group, pensiones, retiro, afore, IMSS, asesoría financiera, ahorro, inversión, consultoría">
-  <link rel="canonical" href="https://cipmexico.com.mx/">
-
-  <!-- Favicon -->
-<link rel="icon" href="https://cipmexico.com.mx/favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="https://cipmexico.com.mx/favicon.ico" type="image/x-icon">
-
-  <!-- Open Graph (Facebook y redes) -->
-  <meta property="og:title" content="CIP Financial Group - Pensiones, Retiro e Inversión">
-  <meta property="og:description" content="Asesoría profesional en pensiones, retiro e inversión personalizada. Planea tu futuro financiero con nosotros.">
-  <meta property="og:image" content="https://cipmexico.com.mx/favicon.png">
-  <meta property="og:url" content="https://cipmexico.com.mx/">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="CIP Financial Group">
-  <meta name="twitter:description" content="Asesoría profesional en pensiones, retiro e inversión personalizada.">
-  <meta name="twitter:image" content="https://cipmexico.com.mx/favicon.png">
-
-  <!-- JSON-LD mejorado -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "CIP Financial Group",
-    "url": "https://cipmexico.com.mx",
-    "logo": "https://cipmexico.com.mx/favicon.png",
-    "sameAs": [
-      "https://www.facebook.com/CIPMexico",
-      "https://www.instagram.com/CIPMexico",
-      "https://www.linkedin.com/company/cipmexico"
-    ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+52-722-803-8635",
-      "contactType": "Customer Service",
-      "areaServed": "MX",
-      "availableLanguage": "Spanish"
-    }
-  }
-  </script>
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>CIP Financial Group - Asesoría en Pensiones, Retiro e Inversión</title>
-  <meta name="description" content="En CIP Financial Group te ayudamos a planear tu retiro y futuro financiero. Expertos en pensiones, ahorro e inversión personalizada.">
-  <meta name="keywords" content="CIP Financial Group, pensiones, retiro, afore, IMSS, asesoría financiera, ahorro, inversión, consultoría">
-  <meta name="author" content="CIP Financial Group">
-  <link rel="canonical" href="https://cipmexico.com.mx/">
-
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.png" type="image/png">
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "url": "https://cipmexico.com.mx",
-  "logo": "https://cipmexico.com.mx/favicon.png"
-}
-</script>
-
-  <!-- Redes sociales: Open Graph -->
-  <meta property="og:title" content="CIP Financial Group - Expertos en Pensiones y Finanzas">
-  <meta property="og:description" content="Planifica tu retiro con asesoría profesional. Pensiones, ahorro e inversión personalizada.">
-  <meta property="og:image" content="https://cipmexico.com.mx/images/logo1.png">
-  <meta property="og:url" content="https://cipmexico.com.mx/">
-  <meta property="og:type" content="website">
-
-  <!-- Estilos y scripts -->
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-     <style>
-body.intro-active {
-    background-color: #ffffff;
-    color: #ffffff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding-top: 0 !important; /* Para evitar scroll */
-    overflow: hidden; /* Bloquea scroll durante la intro */
-}
-
-
-        /* Ocultar menú al principio */
-        .menu-container {
-            opacity: 0;
-            transition: opacity 1s ease;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO -->
+    <meta name="description" content="CIP Financial Group - Expertos en pensiones, retiro e inversión personalizada. Planea tu futuro financiero con nosotros.">
+    <meta name="keywords" content="pensiones, retiro, afore, IMSS, asesoría financiera, ahorro, inversión">
+    <link rel="canonical" href="https://cipmexico.com.mx/">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://cipmexico.com.mx/favicon.ico" type="image/x-icon">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="CIP Financial Group - Pensiones, Retiro e Inversión">
+    <meta property="og:description" content="Asesoría profesional en pensiones, retiro e inversión personalizada. Planea tu futuro financiero con nosotros.">
+    <meta property="og:image" content="https://cipmexico.com.mx/favicon.png">
+    <meta property="og:url" content="https://cipmexico.com.mx/">
+    
+    <title>CIP Financial Group - Expertos en Pensiones y Finanzas</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+<style>
+        /* ===== VARIABLES ===== */
+        :root {
+            --primary: #052f5f;
+            --primary-dark: #031f3f;
+            --primary-light: #1e4a7a;
+            --secondary: #008080;
+            --secondary-light: #20a0a0;
+            --accent: #9ac9ff;
+            --accent-soft: #a6cefc;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-600: #475569;
+            --gray-800: #1e293b;
+            --gradient-primary: linear-gradient(145deg, #052f5f 0%, #008080 70%, #9ac9ff 100%);
+            --gradient-accent: linear-gradient(45deg, #9ac9ff, #a6cefc);
+            --gradient-dark: linear-gradient(145deg, #052f5f, #031f3f);
+            --shadow-xs: 0 2px 4px rgba(5,47,95,0.05);
+            --shadow-sm: 0 4px 6px rgba(5,47,95,0.07);
+            --shadow-md: 0 10px 15px rgba(5,47,95,0.1);
+            --shadow-lg: 0 20px 25px rgba(5,47,95,0.15);
+            --shadow-xl: 0 30px 35px rgba(5,47,95,0.2);
+            --shadow-2xl: 0 40px 50px rgba(5,47,95,0.25);
+            --shadow-inner: inset 0 2px 4px rgba(0,0,0,0.05);
+            --border-radius-sm: 12px;
+            --border-radius-md: 20px;
+            --border-radius-lg: 32px;
+            --border-radius-xl: 40px;
+            --border-radius-2xl: 60px;
+            --border-radius-full: 9999px;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --transition-slow: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
-        /* Animación de entrada logo */
-        @keyframes fadeInScale {
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--gray-800);
+            line-height: 1.6;
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+        }
+
+        /* ===== ANIMACIONES GLOBALES ===== */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(2deg); }
+            75% { transform: translateY(20px) rotate(-2deg); }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { 
+                opacity: 0.5;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.8;
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes rotate-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 200%; }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* ===== UTILIDADES ===== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .section {
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-sm {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            animation: slideInUp 1s ease;
+        }
+
+        .section-title span {
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(145deg, var(--secondary), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: var(--transition-bounce);
+        }
+
+        .section-title:hover span {
+            transform: scale(1.05) rotate(2deg);
+            text-shadow: 0 0 30px rgba(0,128,128,0.3);
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            animation: slideInLeft 1s ease 0.3s backwards;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+            animation: slideInRight 1s ease 0.2s backwards;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* ===== EFECTOS HOVER GLOBALES ===== */
+        .hover-lift {
+            transition: var(--transition-bounce);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .hover-glow {
+            transition: var(--transition);
+        }
+
+        .hover-glow:hover {
+            box-shadow: 0 0 30px rgba(154, 201, 255, 0.5);
+        }
+
+        .hover-rotate {
+            transition: var(--transition-bounce);
+        }
+
+        .hover-rotate:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        /* ===== INTRO CINEMÁTICA ===== */
+        #intro-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: var(--primary-dark);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .intro-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .intro-logo-wrapper {
+            position: relative;
+            width: min(40vw, 400px);
+            height: min(40vw, 400px);
+            animation: logoReveal 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+
+        @keyframes logoReveal {
             0% {
                 opacity: 0;
-                transform: translate(-50%, -50%) scale(0.6);
+                transform: scale(0.3) rotate(-180deg) translateY(100px);
+            }
+            50% {
+                opacity: 0.9;
+                transform: scale(1.2) rotate(10deg) translateY(-20px);
             }
             100% {
                 opacity: 1;
-                transform: translate(-50%, -50%) scale(1);
+                transform: scale(1) rotate(0) translateY(0);
             }
         }
 
-        .logo-intro {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            width: 30vw;
-            height: 30vw;
-            max-width: 300px;
-            max-height: 300px;
-            min-width: 120px;
-            min-height: 120px;
-            transform: translate(-50%, -50%) scale(1);
-            opacity: 0;
-            animation: fadeInScale 2s ease forwards;
-            transition: all 2s ease-in-out;
-            z-index: 9999;
-        }
-
-
-        .logo-intro img {
+        .intro-logo {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
+            position: relative;
+            z-index: 2;
+            animation: float 6s ease-in-out infinite;
         }
 
-        /* Brillo solo UNA VEZ */
-        .shine {
+        .intro-shine {
             position: absolute;
             top: 0;
-            left: -75%;
+            left: -100%;
             width: 50%;
             height: 100%;
-            background: linear-gradient(120deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.2) 100%);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
             transform: skewX(-20deg);
-            animation: shineMove 3s forwards;
+            animation: shineReveal 3s ease forwards;
+            z-index: 3;
+        }
+
+        @keyframes shineReveal {
+            0% { left: -100%; }
+            30% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        .intro-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0;
+            animation: particleFloat 3s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { top: 20%; left: 30%; animation-delay: 0s; }
+        .particle:nth-child(2) { top: 60%; left: 70%; animation-delay: 0.5s; }
+        .particle:nth-child(3) { top: 40%; left: 50%; animation-delay: 1s; }
+        .particle:nth-child(4) { top: 80%; left: 20%; animation-delay: 1.5s; }
+        .particle:nth-child(5) { top: 30%; left: 80%; animation-delay: 2s; }
+
+        @keyframes particleFloat {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+                opacity: 0;
+            }
+            50% {
+                transform: translateY(-50px) scale(2);
+                opacity: 0.8;
+            }
+        }
+
+        .intro-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--white);
+            margin-top: 2rem;
+            opacity: 0;
+            animation: textReveal 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1.5s forwards;
+            text-align: center;
+            padding: 0 20px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            letter-spacing: -0.02em;
+        }
+
+        .intro-slogan {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            color: var(--accent-soft);
+            margin-top: 1rem;
+            opacity: 0;
+            animation: textReveal 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) 2.5s forwards;
+            text-align: center;
+            padding: 0 20px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        @keyframes textReveal {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* ===== NAVIGATION MODERNA ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 10px 0;
+            box-shadow: var(--shadow-lg);
+            border-bottom: 1px solid rgba(5,47,95,0.1);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            position: relative;
+            transition: var(--transition-bounce);
+        }
+
+        .brand:hover {
+            transform: scale(1.05);
+        }
+
+        .brand-logo {
+            height: 70px;
+            transition: var(--transition-bounce);
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }
+
+        .brand:hover .brand-logo {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .header.scrolled .brand-logo {
+            height: 60px;
+        }
+
+        .brand-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--white);
+            transition: var(--transition);
+            font-family: 'Syne', sans-serif;
+            letter-spacing: -0.02em;
+            position: relative;
+        }
+
+        .brand-name::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .brand:hover .brand-name::after {
+            width: 100%;
+        }
+
+        .header.scrolled .brand-name {
+            color: var(--primary);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .nav-list {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+            letter-spacing: 0.5px;
+        }
+
+        .header.scrolled .nav-link {
+            color: var(--gray-800);
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 2px 10px rgba(255,255,255,0.5);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle i {
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-toggle i {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 20px);
+            left: 0;
+            background: var(--white);
+            min-width: 280px;
+            border-radius: var(--border-radius-md);
+            padding: 16px 0;
+            box-shadow: var(--shadow-xl);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.95);
+            transition: var(--transition-bounce);
+            z-index: 1000;
+            list-style: none;
+            border: 1px solid rgba(5,47,95,0.1);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(10px) scale(1);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 24px;
+            color: var(--gray-800);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dropdown-menu a::before {
+            content: '→';
+            position: absolute;
+            left: 10px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .dropdown-menu a::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(154,201,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--gray-100);
+            color: var(--secondary);
+            padding-left: 35px;
+        }
+
+        .dropdown-menu a:hover::before {
+            opacity: 1;
+            left: 15px;
+        }
+
+        .dropdown-menu a:hover::after {
+            left: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 8px;
+            cursor: pointer;
+            z-index: 1001;
+            background: rgba(255,255,255,0.2);
+            padding: 10px;
+            border-radius: var(--border-radius-full);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .nav-toggle:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.1);
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: var(--white);
+            border-radius: 3px;
+            transition: var(--transition-bounce);
+        }
+
+        .header.scrolled .nav-toggle span {
+            background: var(--primary);
+        }
+
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        /* ===== HERO SLIDER CINEMÁTICO ===== */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider {
+            height: 100%;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.5s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .slide-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transform: scale(1);
+            transition: transform 10s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide.active .slide-bg {
+            transform: scale(1.15);
+        }
+
+        .slide-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(5,47,95,0.9) 0%, rgba(0,128,128,0.7) 100%);
+            mix-blend-mode: multiply;
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .slide-text {
+            max-width: 700px;
+            color: var(--white);
+            transform: translateY(30px) scale(0.9);
+            opacity: 0;
+            transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s;
+        }
+
+        .slide.active .slide-text {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        .slide-text h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            animation: slideInLeft 1s ease 0.5s both;
+        }
+
+        .slide-text p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.7;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            animation: slideInRight 1s ease 0.7s both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 40px;
+            background: var(--white);
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: var(--border-radius-full);
+            transition: var(--transition-bounce);
+            border: 2px solid transparent;
+            box-shadow: var(--shadow-lg);
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            animation: slideInUp 1s ease 0.9s both;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(5,47,95,0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: 0;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::after {
+            left: 100%;
+        }
+
+        .btn span, .btn i {
+            position: relative;
             z-index: 2;
         }
 
-        @keyframes shineMove {
-            0% { left: -75%; }
-            100% { left: 125%; }
+        .btn:hover {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: var(--shadow-xl);
         }
 
-        /* Texto empresa */
-/* Texto empresa */
-.company-name {
-    position: fixed;
-    top: 75%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: clamp(1rem, 4vw, 2rem); /* se adapta */
-    font-weight: bold;
-    letter-spacing: 2px;
-    color: #fff;
-    opacity: 0;
-    animation: fadeInText 2s ease 2s forwards;
-    z-index: 9999;
-}
+        .btn i {
+            transition: transform 0.3s ease;
+        }
 
+        .btn:hover i {
+            transform: translateX(8px) scale(1.2);
+        }
 
+        .slider-controls {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 10;
+        }
 
-        /* Frase */
-.slogan {
-    position: fixed;
-    top: 82%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: clamp(0.8rem, 3vw, 1.2rem); /* se adapta */
-    font-style: italic;
-    color: #bafaff;
-    opacity: 0;
-    animation: fadeInText 2s ease 4s forwards;
-    z-index: 9999;
-    text-align: center; /* para móviles */
-    padding: 0 10px; /* espacio en móviles */
-}
+        .slider-dot {
+            width: 60px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: var(--border-radius-full);
+            cursor: pointer;
+            transition: var(--transition-bounce);
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
 
-        @keyframes fadeInText {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
+        .slider-dot::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            transition: left 0.4s ease;
+        }
+
+        .slider-dot:hover::before {
+            left: 0;
+        }
+
+        .slider-dot.active::before {
+            left: 0;
+        }
+
+        .slider-dot:hover {
+            transform: scaleY(1.5);
+        }
+
+        .slider-arrows {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 32px;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .slider-arrow {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: var(--transition-bounce);
+            pointer-events: auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider-arrow::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s;
+        }
+
+        .slider-arrow:hover::before {
+            width: 80px;
+            height: 80px;
+        }
+
+        .slider-arrow:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: scale(1.2) rotate(360deg);
+            border-color: var(--primary);
+            box-shadow: 0 0 30px rgba(255,255,255,0.5);
+        }
+
+        /* ===== ABOUT SECTION CREATIVA ===== */
+        .about {
+            background: linear-gradient(135deg, var(--white) 0%, var(--gray-100) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-shape {
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: var(--gradient-primary);
+            opacity: 0.05;
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+
+        .about-shape-2 {
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: var(--gradient-accent);
+            opacity: 0.05;
+            border-radius: 50%;
+            animation: float 15s infinite reverse;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-image {
+            position: relative;
+            perspective: 1500px;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            transform: rotateY(-5deg) rotateX(5deg);
+            transition: var(--transition-bounce);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .about-image-wrapper:hover {
+            transform: rotateY(0) rotateX(0) translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition-bounce);
+        }
+
+        .about-image-wrapper:hover img {
+            transform: scale(1.1);
+        }
+
+        .about-image-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .about-particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--secondary);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: particleMove 10s infinite;
+        }
+
+        .about-particle:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .about-particle:nth-child(2) { top: 70%; left: 80%; animation-delay: 2s; }
+        .about-particle:nth-child(3) { top: 40%; left: 60%; animation-delay: 4s; }
+
+        @keyframes particleMove {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+            25% { transform: translate(50px, -50px) scale(1.5); opacity: 0.6; }
+            50% { transform: translate(100px, 0) scale(1); opacity: 0.3; }
+            75% { transform: translate(50px, 50px) scale(1.5); opacity: 0.6; }
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            line-height: 1.9;
+            position: relative;
+            padding-left: 20px;
+            border-left: 3px solid var(--secondary);
+            transition: var(--transition);
+        }
+
+        .about-text p:hover {
+            border-left-width: 6px;
+            padding-left: 24px;
+            background: linear-gradient(90deg, rgba(0,128,128,0.05), transparent);
+        }
+
+        /* ===== MVV CARDS MODERNAS ===== */
+        .mvv-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 80px;
+        }
+
+        .mvv-card {
+            background: var(--white);
+            padding: 50px 30px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-bounce);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(5,47,95,0.1);
+            backdrop-filter: blur(10px);
+            animation: scaleIn 1s ease backwards;
+        }
+
+        .mvv-card:nth-child(1) { animation-delay: 0.2s; }
+        .mvv-card:nth-child(2) { animation-delay: 0.4s; }
+        .mvv-card:nth-child(3) { animation-delay: 0.6s; }
+
+        .mvv-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .mvv-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .mvv-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .mvv-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(5,47,95,0.1), rgba(0,128,128,0.1));
+            border-radius: var(--border-radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            transition: var(--transition-bounce);
+            position: relative;
+        }
+
+        .mvv-icon::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid transparent;
+            border-radius: inherit;
+            background: linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .mvv-card:hover .mvv-icon::after {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        .mvv-icon i {
+            font-size: 3rem;
+            color: var(--secondary);
+            transition: var(--transition-bounce);
+        }
+
+        .mvv-card:hover .mvv-icon i {
+            transform: scale(1.2) rotate(360deg);
+            color: var(--primary);
+        }
+
+        .mvv-card h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .mvv-card:hover h3 {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .mvv-card p {
+            color: var(--gray-600);
+            line-height: 1.8;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .mvv-card:hover p {
+            color: var(--gray-800);
+        }
+
+        /* ===== SERVICES SECTION MODERNA ===== */
+        .services {
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(154,201,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+            animation: rotate-slow 30s linear infinite;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            padding: 50px 30px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-bounce);
+            position: relative;
+            z-index: 2;
+            border: 1px solid rgba(5,47,95,0.05);
+            backdrop-filter: blur(10px);
+            animation: slideInUp 1s ease backwards;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.2s; }
+        .service-card:nth-child(2) { animation-delay: 0.4s; }
+        .service-card:nth-child(3) { animation-delay: 0.6s; }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px dashed rgba(0,128,128,0.2);
+            border-radius: inherit;
+            opacity: 0;
+            transition: var(--transition);
+            pointer-events: none;
+        }
+
+        .service-card:hover::after {
+            opacity: 1;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            animation: rotate-slow 10s linear infinite;
+        }
+
+        .service-card:hover {
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .service-number {
+            font-size: 5rem;
+            font-weight: 800;
+            color: rgba(5,47,95,0.1);
+            line-height: 1;
+            margin-bottom: 20px;
+            transition: var(--transition-bounce);
+            font-family: 'Syne', sans-serif;
+        }
+
+        .service-card:hover .service-number {
+            transform: scale(1.2) translateX(10px);
+            color: rgba(0,128,128,0.2);
+        }
+
+        .service-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        .service-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: var(--transition-bounce);
+            filter: drop-shadow(0 10px 20px rgba(5,47,95,0.2));
+        }
+
+        .service-card:hover .service-icon img {
+            transform: scale(1.2) rotate(10deg);
+            filter: drop-shadow(0 20px 30px rgba(0,128,128,0.3));
+        }
+
+        .service-card h4 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            line-height: 1.3;
+            transition: var(--transition);
+        }
+
+        .service-card:hover h4 {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .service-card p {
+            color: var(--gray-600);
+            margin-bottom: 30px;
+            line-height: 1.8;
+            transition: var(--transition);
+        }
+
+        .service-card:hover p {
+            color: var(--gray-800);
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition-bounce);
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        .service-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .service-link:hover::after {
+            width: 100%;
+        }
+
+        .service-link:hover {
+            gap: 15px;
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .service-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .service-link:hover i {
+            transform: translateX(5px) scale(1.2);
+        }
+
+        /* ===== WHY US SECTION REDISEÑADA ===== */
+        .why-us {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-us::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(154, 201, 255, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: rotate 30s linear infinite;
+        }
+
+        .why-us::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 128, 128, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: rotate 30s linear infinite reverse;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .why-us .section-title {
+            color: var(--white);
+            position: relative;
+            z-index: 2;
+            animation: slideInUp 1s ease;
+        }
+
+        .why-us .section-title span {
+            background: linear-gradient(135deg, var(--accent), var(--white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(154, 201, 255, 0.5);
+        }
+
+        .why-us .section-subtitle {
+            color: var(--white);
+            opacity: 0.95;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px 30px;
+            border-radius: var(--border-radius-full);
+            display: inline-block;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+            animation: slideInRight 1s ease 0.2s backwards;
+        }
+
+        .why-description {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            padding: 30px 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 2;
+            box-shadow: var(--shadow-lg);
+            animation: scaleIn 1s ease 0.4s backwards;
+            transition: var(--transition);
+        }
+
+        .why-description:hover {
+            transform: scale(1.02);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent);
+            box-shadow: 0 30px 40px rgba(0,0,0,0.3);
+        }
+
+        .why-description p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+            text-align: center;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+
+        .why-description strong {
+            color: var(--accent);
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            transition: var(--transition);
+        }
+
+        .why-description strong::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .why-description:hover strong::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .why-description:hover strong {
+            transform: scale(1.1);
+            text-shadow: 0 0 20px rgba(154,201,255,0.5);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius-lg);
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition-bounce);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            animation: slideInUp 1s ease backwards;
+        }
+
+        .benefit-card:nth-child(1) { animation-delay: 0.6s; }
+        .benefit-card:nth-child(2) { animation-delay: 0.8s; }
+        .benefit-card:nth-child(3) { animation-delay: 1s; }
+        .benefit-card:nth-child(4) { animation-delay: 1.2s; }
+        .benefit-card:nth-child(5) { animation-delay: 1.4s; }
+        .benefit-card:nth-child(6) { animation-delay: 1.6s; }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .benefit-card:hover::before {
+            left: 100%;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--accent);
+            box-shadow: 0 30px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .benefit-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 25px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .benefit-icon i {
+            font-size: 3rem;
+            color: var(--accent);
+            position: relative;
+            z-index: 2;
+            transition: var(--transition-bounce);
+            filter: drop-shadow(0 5px 15px rgba(154, 201, 255, 0.3));
+        }
+
+        .benefit-card:hover .benefit-icon i {
+            transform: scale(1.2) rotate(360deg);
+            color: var(--white);
+            filter: drop-shadow(0 10px 30px rgba(255,255,255,0.5));
+        }
+
+        .benefit-pulse {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(154, 201, 255, 0.2);
+            border-radius: 50%;
+            animation: benefitPulse 2s infinite;
+        }
+
+        @keyframes benefitPulse {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.5;
+            }
+            70% {
+                transform: scale(1.3);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+        }
+
+        .benefit-card h3 {
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            transition: var(--transition);
+        }
+
+        .benefit-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .benefit-card:hover h3::after {
+            width: 50px;
+        }
+
+        .benefit-card:hover h3 {
+            transform: scale(1.1);
+            color: var(--accent);
+        }
+
+        .benefit-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover p {
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .stats-container {
+            max-width: 400px;
+            margin: 60px auto 0;
+            perspective: 1000px;
+            position: relative;
+            z-index: 2;
+            animation: scaleIn 1s ease 1.8s backwards;
+        }
+
+        .stat-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            backdrop-filter: blur(20px);
+            border-radius: var(--border-radius-xl);
+            padding: 50px 40px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition-bounce);
+            transform-style: preserve-3d;
+            position: relative;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .stat-card:hover {
+            transform: rotateX(10deg) rotateY(10deg) translateY(-15px) scale(1.05);
+            background: linear-gradient(145deg, rgba(255,255,255,0.15), rgba(255,255,255,0.1));
+            box-shadow: 0 40px 60px rgba(0,0,0,0.5);
+        }
+
+        .stat-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-icon i {
+            font-size: 4rem;
+            color: var(--white);
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+            transition: var(--transition-bounce);
+        }
+
+        .stat-card:hover .stat-icon i {
+            transform: scale(1.2) rotate(360deg);
+            color: var(--accent);
+            filter: drop-shadow(0 20px 30px rgba(154,201,255,0.5));
+        }
+
+        .stat-pulse {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: pulseRing 2s infinite;
+        }
+
+        @keyframes pulseRing {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.5;
+            }
+            70% {
+                transform: scale(1.3);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+        }
+
+        .stat-number {
+            font-size: 5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            display: inline-block;
+            position: relative;
+            font-family: 'Syne', sans-serif;
+            background: linear-gradient(135deg, var(--white), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: countGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes countGlow {
+            0%, 100% {
+                text-shadow: 0 0 20px rgba(154, 201, 255, 0.3);
+            }
+            50% {
+                text-shadow: 0 0 50px rgba(154, 201, 255, 0.8);
+            }
+        }
+
+        .stat-label {
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            opacity: 0.9;
+            text-transform: uppercase;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover .stat-label {
+            letter-spacing: 4px;
+            opacity: 1;
+            text-shadow: 0 0 20px rgba(255,255,255,0.5);
+        }
+
+        /* ===== CONTACT SECTION MODERNA ===== */
+        .contact {
+            background: linear-gradient(135deg, var(--white) 0%, var(--gray-100) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: var(--border-radius-xl);
+            padding: 80px 60px;
+            box-shadow: var(--shadow-2xl);
+            border: 1px solid rgba(5,47,95,0.1);
+            position: relative;
+            z-index: 2;
+            backdrop-filter: blur(10px);
+            animation: scaleIn 1s ease;
+            transition: var(--transition);
+        }
+
+        .contact-container:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-2xl), 0 0 50px rgba(0,128,128,0.1);
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .contact-icon {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0 20px;
+        }
+
+        .contact-icon a {
+            display: inline-flex;
+            transition: var(--transition-bounce);
+            position: relative;
+        }
+
+        .contact-icon a::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid var(--secondary);
+            border-radius: 50%;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .contact-icon a:hover::before {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        .contact-icon a:hover {
+            transform: translateY(-15px) scale(1.2);
+        }
+
+        .contact-icon svg {
+            width: 70px;
+            height: 70px;
+            stroke: var(--secondary);
+            transition: var(--transition-bounce);
+            filter: drop-shadow(0 10px 20px rgba(0,128,128,0.2));
+        }
+
+        .contact-icon a:hover svg {
+            stroke: var(--primary);
+            transform: rotate(360deg);
+            filter: drop-shadow(0 20px 40px rgba(5,47,95,0.4));
+        }
+
+        /* ===== FOOTER MODERNO ===== */
+        .footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-waves {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+        }
+
+        .footer-waves svg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            animation: waveFloat 10s ease-in-out infinite;
+        }
+
+        @keyframes waveFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 2fr;
+            gap: 60px;
+            padding: 100px 0 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-brand h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            transition: var(--transition);
+        }
+
+        .footer-brand h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        .footer-brand:hover h3::after {
+            width: 100%;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 25px;
+            line-height: 1.7;
+            transition: var(--transition);
+        }
+
+        .footer-brand:hover p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: var(--transition-bounce);
+            border: 2px solid transparent;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s;
+        }
+
+        .social-link:hover::before {
+            width: 60px;
+            height: 60px;
+        }
+
+        .social-link:hover {
+            background: var(--secondary);
+            transform: translateY(-8px) rotate(360deg) scale(1.2);
+            border-color: var(--white);
+            box-shadow: 0 10px 30px rgba(0,128,128,0.4);
+        }
+
+        .footer-links h5 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+            transition: var(--transition);
+        }
+
+        .footer-links h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .footer-links:hover h5::after {
+            width: 50px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+        }
+
+        .footer-links a::before {
+            content: '→';
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            transform: translateX(15px);
+        }
+
+        .footer-links a:hover::before {
+            opacity: 1;
+        }
+
+        .footer-newsletter {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: var(--border-radius-md);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .footer-newsletter:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+        }
+
+        .footer-newsletter h5 {
+            margin-bottom: 15px;
+        }
+
+        .footer-newsletter p {
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: var(--border-radius-full);
+            font-size: 1rem;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: var(--secondary);
+            background: rgba(255,255,255,0.15);
+            transform: scale(1.02);
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .newsletter-form button {
+            width: 55px;
+            height: 55px;
+            background: var(--secondary);
+            border: none;
+            border-radius: 50%;
+            color: var(--white);
+            cursor: pointer;
+            transition: var(--transition-bounce);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-form button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s;
+        }
+
+        .newsletter-form button:hover::before {
+            width: 70px;
+            height: 70px;
+        }
+
+        .newsletter-form button:hover {
+            transform: scale(1.2) rotate(360deg);
+            border-color: var(--white);
+            box-shadow: 0 0 30px rgba(0,128,128,0.5);
+        }
+
+        .footer-bottom {
+            padding: 25px 0;
+            background: rgba(0,0,0,0.3);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .privacy-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 20px;
+            border-radius: var(--border-radius-full);
+            background: rgba(255,255,255,0.1);
+            transition: var(--transition-bounce);
+            border: 1px solid transparent;
+        }
+
+        .privacy-link:hover {
+            background: var(--secondary);
+            transform: translateY(-5px) scale(1.1);
+            border-color: var(--white);
+            box-shadow: 0 10px 30px rgba(0,128,128,0.4);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1200px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .about-grid,
+            .services-grid,
+            .mvv-grid,
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .nav {
+                gap: 30px;
+            }
+
+            .nav-list {
+                gap: 30px;
+            }
         }
 
         @media (max-width: 768px) {
-    .layout_padding2 {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .detail-box {
-        max-width: 100%;
-    }
-}
-
-
-
-    </style>
-
-<script>
-window.addEventListener('load', function() {
-    if (!sessionStorage.getItem('introShown')) {
-        // Mostrar la intro SOLO la primera vez en esta sesión
-        document.getElementById('intro-overlay').style.display = 'flex';
-        document.body.classList.add('intro-active');
-
-        setTimeout(function() {
-            const target = document.querySelector('#logo-menu');
-            const logoIntro = document.getElementById('logo-intro');
-            const introOverlay = document.getElementById('intro-overlay');
-            const menuContainer = document.querySelector('.menu-container');
-
-            if (!target || !logoIntro) {
-                console.error('ERROR: No se encontró el logo del menú o el logo-intro.');
-                return;
+            .nav-toggle {
+                display: flex;
             }
 
-            const targetRect = target.getBoundingClientRect();
+            .nav-list {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                justify-content: center;
+                gap: 40px;
+                transition: right 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                box-shadow: var(--shadow-2xl);
+                padding: 40px;
+            }
 
-            logoIntro.style.top = `${targetRect.top + window.scrollY + target.offsetHeight / 2}px`;
-            logoIntro.style.left = `${targetRect.left + window.scrollX + target.offsetWidth / 2}px`;
-            logoIntro.style.width = `${target.offsetWidth}px`;
-            logoIntro.style.height = `${target.offsetHeight}px`;
-            logoIntro.style.transform = 'translate(-50%, -50%)';
+            .nav-list.active {
+                right: 0;
+            }
 
-            setTimeout(function() {
-                introOverlay.style.display = 'none';
-                menuContainer.style.opacity = '1';
-                document.body.classList.remove('intro-active');
-                // Guardar que ya se mostró la intro EN ESTA SESIÓN
-                sessionStorage.setItem('introShown', 'true');
-            }, 2000);
-        }, 5000);
-    } else {
-        // Ya se mostró antes → saltamos la intro
-        document.getElementById('intro-overlay').style.display = 'none';
-        document.querySelector('.menu-container').style.opacity = '1';
-        document.body.classList.remove('intro-active');
-    }
-});
-</script>
+            .nav-link {
+                color: var(--gray-800);
+                font-size: 1.3rem;
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                padding: 10px 0 0 20px;
+                display: none;
+                background: transparent;
+            }
+
+            .dropdown.active .dropdown-menu {
+                display: block;
+                animation: slideInUp 0.5s ease;
+            }
+
+            .about-grid,
+            .services-grid,
+            .mvv-grid,
+            .benefits-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .contact-container {
+                padding: 40px 24px;
+            }
+
+            .section {
+                padding: 80px 0;
+            }
+
+            .why-description {
+                padding: 20px;
+                margin-bottom: 40px;
+            }
+
+            .why-description p {
+                font-size: 1rem;
+            }
+
+            .benefit-card {
+                padding: 30px 20px;
+            }
+
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form button {
+                width: 100%;
+                border-radius: var(--border-radius-full);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .btn {
+                padding: 14px 30px;
+                font-size: 1rem;
+            }
+
+            .stat-number {
+                font-size: 4rem;
+            }
+
+            .stat-label {
+                font-size: 1.2rem;
+            }
+
+            .service-card {
+                padding: 40px 20px;
+            }
+
+            .contact-icon svg {
+                width: 50px;
+                height: 50px;
+            }
+
+            .stat-card {
+                padding: 40px 20px;
+            }
+
+            .stat-icon {
+                width: 100px;
+                height: 100px;
+            }
+
+            .stat-icon i {
+                font-size: 3rem;
+            }
+
+            .stat-number {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
 
 </head>
 <body>
-<!-- OVERLAY INTRO COMPLETO -->
-<!-- OVERLAY INTRO COMPLETO -->
-<div id="intro-overlay" style="
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #000;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-">
-
-    <!-- LOGO INTRO -->
-    <div class="logo-intro" id="logo-intro">
-        <img src="images/Cip flecha.png" alt="Logo CIP">
-        <div class="shine"></div>
-    </div>
-
-    <!-- Nombre empresa -->
-    <div class="company-name">CIP Financial Group</div>
-
-    <!-- Frase inspiradora -->
-    <div class="slogan">"Construyendo tu futuro financiero con confianza."</div>
-
-</div>
-
-
-
-
-    <!-- Menú ORIGINAL (sin cambios) -->
-    <div class="menu-container">
-        <div class="menu">
-            <div class="logo" id="logo-menu"> <!-- AÑADIR el id -->
-                <img src="images/logo1.png" alt="Logo CIP">
-                <span class="logo-text">CIP Financial Group</span>
+    <!-- INTRO CINEMÁTICA -->
+    <div id="intro-overlay">
+        <div class="intro-content">
+            <div class="intro-logo-wrapper">
+                <img src="images/Cip flecha.png" alt="CIP Financial Group" class="intro-logo">
+                <div class="intro-shine"></div>
+                <div class="intro-particles">
+                    <div class="particle" style="top: 20%; left: 30%;"></div>
+                    <div class="particle" style="top: 60%; left: 70%;"></div>
+                    <div class="particle" style="top: 40%; left: 50%;"></div>
+                    <div class="particle" style="top: 80%; left: 20%;"></div>
+                    <div class="particle" style="top: 30%; left: 80%;"></div>
+                </div>
             </div>
-            <ul class="menu-items">
-                <li class="menu-item"><a href="index.html">Inicio</a></li>
-                <li class="menu-item"><a href="nosotros.html">Nosotros</a></li>
-                <li class="menu-item dropdown">
-                  <a href="#" class="dropdown-toggle">Servicios <i class="fas fa-chevron-down"></i></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="service.html">Pensiones</a></li>
-                    <li class="ocultar-ahorro"><a href="Seleccion.html">Ahorro</a></li>
-                    <li><a href="Credito.html">Crédito Mod 10 y Mod 40</a></li>
-                    <li><a href="cre_jubi.html">Créditos Jubilados y Pensionados</a></li>
-                  </ul>
-                </li>
-                <li class="menu-item"><a href="Contacto.html">Contacto</a></li>
-            </ul>
-            
-            <div class="menu-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <div class="intro-title">CIP Financial Group</div>
+            <div class="intro-slogan">"Construyendo tu futuro financiero con confianza."</div>
         </div>
     </div>
 
+    <!-- HEADER MODERNO -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="index.html" class="brand" id="logo-menu">
+                <img src="images/logo1.png" alt="CIP Financial Group" class="brand-logo">
+                <span class="brand-name">CIP Financial Group</span>
+            </a>
 
-    <!-- Slider con imagen y texto -->
-    <section class="slider_section">
-        <div class="carousel-container">
-            <div class="carousel-inner">
-                <!-- Slide 1 -->
-<div class="carousel-item active">
-    <div class="container">
-        <div class="slide-content">
-            <div class="text-content">
-                <div class="slider_detail-box">
-                    <h1>
-                        Protege tu <br>
-                        Pensión <br>
-                        con Expertos
-                    </h1>
-                    <p>
-Regulariza semanas cotizadas, corrige tus datos ante el IMSS, unifica tus cuentas, recupera saldos y tramita tu pensión sin complicaciones. También te ayudamos con la CURP, Modalidad 40 y mucho más.
-Conoce todo lo que puedes lograr con asesoría especializada en trámites pensionarios.</p>
-                    <div class="btn-box">
-                        <a href="service.html" class="btn-1">
-                            Descubre cómo ayudarte
+            <nav class="nav">
+                <ul class="nav-list" id="navList">
+                    <li><a href="index.html" class="nav-link active">Inicio</a></li>
+                    <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Servicios <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="service.html">Pensiones</a></li>
+                            <li><a href="Seleccion.html">Ahorro</a></li>
+                            <li><a href="Credito.html">Modalidad 40</a></li>
+                            <li><a href="cre_jubi.html">Créditos Jubilados</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Contacto.html" class="nav-link">Contacto</a></li>
+                </ul>
+
+                <div class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SLIDER CINEMÁTICO -->
+    <section class="hero">
+        <div class="slider" id="slider">
+            <!-- Slide 1 -->
+            <div class="slide active" data-index="0">
+                <div class="slide-bg" style="background-image: url('images/Feliz.png');"></div>
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h1>Protege tu<br>Pensión con Expertos</h1>
+                        <p>Regulariza semanas cotizadas, corrige tus datos ante el IMSS, unifica cuentas y tramita tu pensión sin complicaciones.</p>
+                        <a href="service.html" class="btn">
+                            <span>Descubre cómo ayudarte</span>
+                            <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="image-content">
-                <div class="slider_img-box">
-                    <img src="images/Feliz.png" alt="Planificación de Pensión">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-                
-                <!-- Slide 2 -->
-                <div class="carousel-item">
-                    <div class="container">
-                        <div class="slide-content">
-                            <div class="text-content">
-                                <div class="slider_detail-box">
-                                    <h1>
-                                        Alcanza tus <br>
-                                        Metas <br>
-                                        Financieras
-                                    </h1>
-                                    <p>
-                                        Con asesoría especializada, estrategias a tu medida y el respaldo de un equipo con experiencia. Conoce más y da el primer paso hacia tu libertad financiera.
-                                    </p>
-                                    <div class="btn-box">
-                                        <a href="Contacto.html" class="btn-1">
-                                            Conoce más 
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="image-content">
-                                <div class="slider_img-box">
-                                    <img src="" alt="Planificación Financiera">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Slide 3 -->
-                <div class="carousel-item">
-                    <div class="container">
-                        <div class="slide-content">
-                            <div class="text-content">
-                                <div class="slider_detail-box">
-                                    <h1>
-                                        Tu Socio en <br>
-                                        Decisiones <br>
-                                        Financieras
-                                    </h1>
-                                    <p>
-                                        Descubre cómo podemos ayudarte a tomar decisiones financieras informadas y a construir un futuro sólido y próspero.
-                                    </p>
-                                    <div class="btn-box">
-                                        <a href="Contacto.html" class="btn-1">
-                                            Contacta a un Asesor
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="image-content">
-                                <div class="slider_img-box">
-                                    <img src="images/aseosr.jpg" alt="Asesoría Financiera">
-                                </div>
-                            </div>
-                        </div>
+
+            <!-- Slide 2 -->
+            <div class="slide" data-index="1">
+                <div class="slide-bg" style="background-image: url('imagenes/Meta.jpg');"></div>
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h1>Alcanza tus<br>Metas Financieras</h1>
+                        <p>Con asesoría especializada y estrategias a tu medida para lograr tu libertad financiera.</p>
+                        <a href="Contacto.html" class="btn">
+                            <span>Conoce más</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-            
-            <ol class="carousel-indicators">
-                <li class="active" data-slide="0"></li>
-                <li data-slide="1"></li>
-                <li data-slide="2"></li>
-            </ol>
-            
-            <div class="carousel_btn-container">
-                <a class="carousel-control-prev" href="#" role="button">
-                    <span>&#10094;</span>
-                </a>
-                <a class="carousel-control-next" href="#" role="button">
-                    <span>&#10095;</span>
-                </a>
+
+            <!-- Slide 3 -->
+            <div class="slide" data-index="2">
+                <div class="slide-bg" style="background-image: url('images/aseosr.jpg');"></div>
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h1>Tu Socio en<br>Decisiones Financieras</h1>
+                        <p>Descubre cómo podemos ayudarte a tomar decisiones informadas para un futuro sólido.</p>
+                        <a href="Contacto.html" class="btn">
+                            <span>Contacta a un Asesor</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="slider-controls">
+                <button class="slider-dot active" data-index="0"></button>
+                <button class="slider-dot" data-index="1"></button>
+                <button class="slider-dot" data-index="2"></button>
+            </div>
+
+            <div class="slider-arrows">
+                <button class="slider-arrow prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-arrow next"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
     </section>
 
-    <!-- Sección Quiénes Somos Mejorada -->
-    <!-- Sección ¿Quiénes somos? -->
-<section id="quienes-somos-mvv" class="welcome_section layout_padding">
-    <div class="container">
-
-        <!-- Título -->
-        <div class="custom_heading-container">
-            <h2>¿Quiénes somos?</h2>
-        </div>
-
-        <!-- Bloque logo + texto -->
-        <div class="layout_padding2">
-            <!-- Logo -->
-            <div class="quienes-somos-img">
-                <img src="images/Cip flecha.png" alt="CIP Financial Group">
-            </div>
-
-            <!-- Texto -->
-            <div class="detail-box" style="margin-top: 20px;">
-                <p style="text-align: justify;">
-                    En CIP Financial Group, somos una empresa sólida y confiable que
-                    se dedica a transformar el futuro financiero de nuestros clientes mediante
-                    soluciones seguras y efectivas. Con una trayectoria marcada por la excelencia, nos
-                    destacamos por ofrecer rendimientos sostenibles y respaldar cada inversión con
-                    un compromiso inquebrantable hacia la seguridad y el crecimiento.
-                    Nuestro compromiso es acompañar a nuestros clientes en cada paso de su
-                    camino financiero, brindando educación, herramientas confiables y resultados
-                    tangibles que reflejan nuestra pasión por su éxito. Nos enorgullece ser un pilar de
-                    confianza, donde el esfuerzo de nuestros clientes se convierte en logros reales y
-                    sostenibles.
-                </p>
-            </div>
-        </div>
-
-        <!-- Bloque Misión, Visión, Valores (separado) -->
-        <div class="mvv-container" style="margin-top: 30px;">
-            <div id="mvv-section" class="mision-vision-valores">
-                <!-- Misión -->
-                <div class="mvv-card">
-                    <h3>Misión</h3>
-                    <p style="text-align: justify; margin: 15px 0; line-height: 1.6;">
-                        Ser líderes en mejorar la calidad de vida de nuestros clientes a través de soluciones financieras innovadoras y personalizadas.
-                    </p>
-                </div>
-
-                <!-- Visión -->
-                <div class="mvv-card">
-                    <h3>Visión</h3>
-                    <p style="text-align: justify; margin: 15px 0; line-height: 1.6;">
-                        Consolidarnos como la mejor empresa en estrategias de retiro, siendo referente de confianza y excelencia en el sector financiero.
-                    </p>
-                </div>
-
-                <!-- Valores -->
-                <div class="mvv-card">
-                    <h3>Valores</h3>
-                    <p style="text-align: justify; margin: 15px 0; line-height: 1.6;">
-                        Honestidad, Lealtad, Confiabilidad. Estos principios guían cada decisión para cumplir con nuestros compromisos y responsabilidades.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
-
- <div class="container">
-<!-- Sección de Servicios Mejorada -->
-<section class="service_section layout_padding">
-    <div class="custom_heading-container">
-        <div class="heading-with-logo">
-            
-            <!-- Imagen izquierda -->
-            <img src="images/Imagen3.png" alt="Icono Izquierdo" class="heading-logo">
-            
-            <!-- Texto central -->
-            <div class="heading-text">
-                <h2>Nuestros <span>Servicios.</span></h2>
-                <p class="section-subtitle">Soluciones financieras diseñadas para tu tranquilidad.</p>
-            </div>
-            
-            <!-- Imagen derecha con texto debajo (AGRUPADO) -->
-            <div style="text-align: center; line-height: 1;">
-                <img src="images/logo1.png" alt="Icono Derecho" class="heading-logo" style="display: block; margin: 0 auto; margin-bottom: -25px;">
-                <div style="font-size: 22px; color: #000; font-weight: bold;">CIP Financial Group.</div>
-            </div>
-
-            
-        </div>
-    </div>
-</section>
-
-      
-      <div class="service_container layout_padding2">
-          <div class="service_box">
-              <div class="service_content">
-                  <div class="detail-box">
-                      <div class="service-number">01</div>
-                      <h4>
-                          Asesoría <br> Especializada en Pensiones.
-                      </h4>
-                      <p style="text-align: justify;">
-                          Simplificamos tus trámites de pensión IMSS con expertos. Te guiamos paso a paso para que obtengas el máximo beneficio. ¡Asegura tu futuro con nosotros!
-                      </p>
-                      <a href="service.html" class="service-link">
-                          Más detalles <span>&rarr;</span>
-                      </a>
-                  </div>
-              </div>
-              <div class="service-bg"></div>
-          </div>
-          
-<div class="service_box ocultar-ahorro">
-  <div class="service_content">
-    <div class="detail-box">
-      <div class="service-number">02</div>
-      <h4>
-        Ahorro <br>Inteligente.
-      </h4>
-      <p style="text-align: justify;">
-        Construye un futuro financiero sólido con nuestros planes de inversión personalizados. Diversificación estratégica y seguimiento constante.
-      </p>
-      <a href="Seleccion.html" class="service-link">
-        Más detalles <span>&rarr;</span>
-      </a>
-    </div>
-  </div>
-  <div class="service-bg"></div>
-</div>
-
-
-          <div class="service_box">
-              <div class="service_content">
-                  <div class="detail-box">
-                      <div class="service-number">02</div>
-                      <h4>
-                         <h4>
-                         Financiamos tu Modalidad 40 sin complicaciones.
-                        </h4>
-                      <p style="text-align: justify;">
-    Te ofrecemos financiamiento flexible para tu Modalidad 40, con opciones personalizadas que se adaptan a tus necesidades. Continúa cotizando sin poner en riesgo tu economía ni comprometer tu estabilidad financiera.
-                      </p>
-                      <a href="Credito.html" class="service-link">
-                          Más detalles <span>&rarr;</span>
-                      </a>
-                  </div>
-              </div>
-              <div class="service-bg"></div>
-          </div>
-          
-      </div>
-  </div>
-</section>
-
-
-
-<!-- Sección "¿Por Qué Elegirnos?" Mejorada -->
-<!-- Sección "¿Por Qué Elegirnos?" con Iconos -->
-<section class="why_section layout_padding">
-    <div class="container">
-        <div class="custom_heading-container text-center">
-            <h2>
-                ¿Por Qué <span>Elegirnos</span>?
-                <p class="section-subtitle" style="text-align: justify;">
-                    La excelencia financiera que tu futuro merece.
-                </p>
-            </h2>
-        </div>
+    <!-- ABOUT SECTION CREATIVA -->
+    <section class="about section">
+        <div class="about-shape"></div>
+        <div class="about-shape-2"></div>
         
-        <div class="content-container">
-            <div class="why-content">
-                <p class="main-description" style="text-align: justify; text-justify: inter-word; line-height: 1.6; margin: 1em 0; padding: 0 10%;">
-                    En <strong>CIP Financial Group</strong>, nos comprometemos a ofrecer soluciones financieras personalizadas y confiables. Nuestra experiencia y dedicación nos convierten en tu mejor aliado para alcanzar tus metas financieras con transparencia y resultados comprobables.
-                </p>
-                
-                <!-- SOLO UNA TARJETA CON CLASE "single" -->
-                <div class="stats-container single"> <!-- centrado + tamaño correcto -->
-                    <div class="stat-box">
-                        <div class="stat-content">
-                            <div class="icon-box">
-                                <i class="fas fa-users icon-custom"></i>
-                                <div class="pulse-effect"></div>
-                            </div>
-                            <div class="text-box">
-                                <h3 class="stat-number" data-count="1500">+65,000</h3>
-                                <h6 class="stat-title" style="text-align: justify;">Clientes Atendidos</h6>
-                            </div>
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>¿Quiénes <span>somos?</span></h2>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="about-image-wrapper">
+                        <img src="images/Cip flecha.png" alt="CIP Financial Group">
+                        <div class="about-image-particles">
+                            <div class="about-particle" style="top: 10%; left: 10%;"></div>
+                            <div class="about-particle" style="top: 70%; left: 80%;"></div>
+                            <div class="about-particle" style="top: 40%; left: 60%;"></div>
                         </div>
-                        <div class="stat-bg"></div>
                     </div>
                 </div>
-                <!-- FIN SOLO UNA TARJETA -->
                 
+                <div class="about-text">
+                    <p>En CIP Financial Group, somos una empresa sólida y confiable que se dedica a transformar el futuro financiero de nuestros clientes mediante soluciones seguras y efectivas. Con una trayectoria marcada por la excelencia, nos destacamos por ofrecer rendimientos sostenibles y respaldar cada inversión con un compromiso inquebrantable hacia la seguridad y el crecimiento.</p>
+                    <p>Nuestro compromiso es acompañar a nuestros clientes en cada paso de su camino financiero, brindando educación, herramientas confiables y resultados tangibles que reflejan nuestra pasión por su éxito. Nos enorgullece ser un pilar de confianza, donde el esfuerzo de nuestros clientes se convierte en logros reales y sostenibles.</p>
+                </div>
+            </div>
+
+            <!-- MVV Cards Modernas -->
+            <div class="mvv-grid">
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Misión</h3>
+                    <p>Ser líderes en mejorar la calidad de vida de nuestros clientes a través de soluciones financieras innovadoras y personalizadas.</p>
+                </div>
+
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Visión</h3>
+                    <p>Consolidarnos como la mejor empresa en estrategias de retiro, siendo referente de confianza y excelencia en el sector financiero.</p>
+                </div>
+
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Valores</h3>
+                    <p>Honestidad, Lealtad, Confiabilidad. Estos principios guían cada decisión para cumplir con nuestros compromisos y responsabilidades.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION MODERNA -->
+    <section class="services section">
+        <div class="services-bg"></div>
+        
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Nuestros <span>Servicios</span></h2>
+            </div>
+            <p class="section-subtitle text-center">Soluciones financieras diseñadas para tu tranquilidad</p>
+
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-number">01</div>
+                    <div class="service-icon">
+                        <img src="images/Imagen3.png" alt="Pensiones">
+                    </div>
+                    <h4>Asesoría Especializada en Pensiones</h4>
+                    <p>Simplificamos tus trámites de pensión IMSS con expertos. Te guiamos paso a paso para que obtengas el máximo beneficio. ¡Asegura tu futuro con nosotros!</p>
+                    <a href="service.html" class="service-link">
+                        <span>Más detalles</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-number">02</div>
+                    <div class="service-icon">
+                        <img src="images/logo1.png" alt="Ahorro">
+                    </div>
+                    <h4>Ahorro Inteligente</h4>
+                    <p>Construye un futuro financiero sólido con nuestros planes de inversión personalizados. Diversificación estratégica y seguimiento constante.</p>
+                    <a href="Seleccion.html" class="service-link">
+                        <span>Más detalles</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-number">03</div>
+                    <div class="service-icon">
+                        <i class="fas fa-hand-holding-usd" style="font-size: 4rem; color: var(--secondary);"></i>
+                    </div>
+                    <h4>Financiamos tu Modalidad 40</h4>
+                    <p>Te ofrecemos financiamiento flexible para tu Modalidad 40, con opciones personalizadas que se adaptan a tus necesidades.</p>
+                    <a href="Credito.html" class="service-link">
+                        <span>Más detalles</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY US SECTION MODERNA -->
+<!-- WHY US SECTION REDISEÑADA -->
+<section class="why-us section">
+    <div class="container">
+        <div class="section-title text-center">
+            <h2>¿Por Qué <span>Elegirnos</span>?</h2>
+        </div>
+        
+        <!-- Texto principal añadido -->
+        <div class="why-description">
+            <p>En <strong>CIP Financial Group</strong>, nos comprometemos a ofrecer soluciones financieras personalizadas y confiables. Nuestra experiencia y dedicación nos convierten en tu mejor aliado para alcanzar tus metas financieras con transparencia y resultados comprobables.</p>
+        </div>
+
+        <!-- Grid de beneficios -->
+        <div class="benefits-grid">
+            <!-- Beneficio 1: Experiencia -->
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-chart-line"></i>
+                    <div class="benefit-pulse"></div>
+                </div>
+                <h3>+10 Años de Experiencia</h3>
+                <p>Trayectoria comprobada en el sector financiero mexicano, con miles de casos exitosos.</p>
+            </div>
+
+            <!-- Beneficio 2: Personalización -->
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-user-check"></i>
+                    <div class="benefit-pulse"></div>
+                </div>
+                <h3>Asesoría Personalizada</h3>
+                <p>Soluciones hechas a la medida de tus necesidades y objetivos financieros específicos.</p>
+            </div>
+
+            <!-- Beneficio 3: Transparencia -->
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-shield-alt"></i>
+                    <div class="benefit-pulse"></div>
+                </div>
+                <h3>Total Transparencia</h3>
+                <p>Te explicamos cada paso del proceso sin letras chiquitas ni sorpresas.</p>
+            </div>
+
+            <!-- Beneficio 4: Resultados -->
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-trophy"></i>
+                    <div class="benefit-pulse"></div>
+                </div>
+                <h3>Resultados Comprobables</h3>
+                <p>Miles de clientes satisfechos que han alcanzado sus metas financieras con nosotros.</p>
+            </div>
+
+            <!-- Beneficio 5: Respaldo -->
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-handshake"></i>
+                    <div class="benefit-pulse"></div>
+                </div>
+                <h3>Respaldo Profesional</h3>
+                <p>Equipo de expertos certificados en planeación financiera y pensiones.</p>
+            </div>
+
+            <!-- Beneficio 6: Acompañamiento -->
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-clock"></i>
+                    <div class="benefit-pulse"></div>
+                </div>
+                <h3>Acompañamiento Continuo</h3>
+                <p>Estamos contigo en cada etapa del proceso, incluso después de culminado tu trámite.</p>
+            </div>
+        </div>
+
+        <!-- Estadística destacada (la que ya tenías) -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                    <div class="stat-pulse"></div>
+                </div>
+                <div class="stat-number">65,000+</div>
+                <div class="stat-label">Clientes Atendidos</div>
             </div>
         </div>
     </div>
 </section>
 
+    <!-- CONTACT SECTION MODERNA -->
+    <section class="contact section">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-header">
+                    <h2 class="section-title">Contáctanos</h2>
+                    <p class="section-subtitle">¿Tienes alguna pregunta o necesitas asesoría?<br>Estamos aquí para ayudarte.</p>
+                    
+                    <div class="contact-icon">
+                        <a href="https://wa.me/527226964838" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.62 13.91C16.22 13.73 15.78 13.55 15.38 13.35C14.93 13.14 14.65 13.23 14.35 13.62C14.08 13.96 13.79 14.29 13.46 14.6C13.43 14.63 13.4 14.65 13.37 14.68C13.11 14.9 12.93 14.9 12.7 14.76C12.22 14.49 11.74 14.23 11.29 13.91C10.68 13.48 10.17 12.95 9.79 12.28C9.57 11.89 9.77 11.71 10.04 11.48C10.23 11.31 10.41 11.12 10.57 10.93C10.67 10.81 10.77 10.69 10.85 10.56C11.03 10.25 10.93 9.99 10.75 9.73C10.55 9.44 10.36 9.15 10.16 8.86C9.87 8.44 9.66 8.48 9.35 8.58C9.23 8.62 9.11 8.66 9 8.71C8.42 8.96 8 9.38 7.67 9.92C7.18 10.71 7.02 11.57 7.24 12.5C7.52 13.68 8.16 14.67 9.08 15.46C10.23 16.46 11.56 17.02 13.06 17.11C14.45 17.19 15.72 16.84 16.84 16.02C17.46 15.57 17.99 15.03 18.34 14.34C18.54 13.93 18.38 13.68 18.08 13.45C17.67 13.12 17.25 12.9 16.62 13.91Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M21 12C21 16.97 16.97 21 12 21C10.35 21 8.79 20.54 7.43 19.74L3 21L4.26 16.57C3.46 15.21 3 13.65 3 12C3 7.03 7.03 3 12 3C16.97 3 21 7.03 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- FOOTER MODERNO -->
+    <footer class="footer">
+        <div class="footer-waves">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="var(--secondary)" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,170.7C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
 
-<!-- Sección de Contacto Mejorada -->
-<section class="contact_section layout_padding">
-  <div class="container">
-    <div class="contact-header" style="text-align: center; margin: 0 auto; max-width: 800px;">
-        <h2 class="section-title" style="margin-bottom: 15px;">Contáctanos</h2>
-        <p class="section-subtitle" style="margin-bottom: 25px; line-height: 1.5;">
-            ¿Tienes alguna pregunta o necesitas asesoría?<br>
-            Estamos aquí para ayudarte.
-        </p>
-<div class="contact-icon" style="display: flex; justify-content: center; gap: 20px;">
-    <a href="https://wa.me/527226964838" target="_blank" rel="noopener noreferrer">
-    <!-- ÍCONO DE WHATSAPP -->
-    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M16.62 13.91C16.22 13.73 15.78 13.55 15.38 13.35C14.93 13.14 14.65 13.23 14.35 13.62C14.08 13.96 13.79 14.29 13.46 14.6C13.43 14.63 13.4 14.65 13.37 14.68C13.11 14.9 12.93 14.9 12.7 14.76C12.22 14.49 11.74 14.23 11.29 13.91C10.68 13.48 10.17 12.95 9.79 12.28C9.57 11.89 9.77 11.71 10.04 11.48C10.23 11.31 10.41 11.12 10.57 10.93C10.67 10.81 10.77 10.69 10.85 10.56C11.03 10.25 10.93 9.99 10.75 9.73C10.55 9.44 10.36 9.15 10.16 8.86C9.87 8.44 9.66 8.48 9.35 8.58C9.23 8.62 9.11 8.66 9 8.71C8.42 8.96 8 9.38 7.67 9.92C7.18 10.71 7.02 11.57 7.24 12.5C7.52 13.68 8.16 14.67 9.08 15.46C10.23 16.46 11.56 17.02 13.06 17.11C14.45 17.19 15.72 16.84 16.84 16.02C17.46 15.57 17.99 15.03 18.34 14.34C18.54 13.93 18.38 13.68 18.08 13.45C17.67 13.12 17.25 12.9 16.62 13.91Z" stroke="var(--verde-cip)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M21 12C21 16.97 16.97 21 12 21C10.35 21 8.79 20.54 7.43 19.74L3 21L4.26 16.57C3.46 15.21 3 13.65 3 12C3 7.03 7.03 3 12 3C16.97 3 21 7.03 21 12Z" stroke="var(--verde-cip)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-</a>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>CIP Financial Group</h3>
+                    <p>Soluciones financieras integrales para tu futuro</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/profile.php?id=61573398725938" class="social-link" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
 
-</div>
-      </div>
-</section>
+                <div class="footer-links">
+                    <h5>Enlaces Útiles</h5>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="nosotros.html"><i class="fas fa-chevron-right"></i> Nosotros</a></li>
+                        <li><a href="Contacto.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                    </ul>
+                </div>
 
-<!-- Footer Mejorado -->
-<footer class="footer">
-  <div class="footer-container">
-      <div class="footer-top">
-          <div class="container">
-              <div class="footer-brand">
-                  <h3 class="footer-title">CIP Financial Group</h3>
-                  <p class="footer-text">Soluciones financieras integrales para tu futuro</p>
-                  
-                  <div class="footer-social">
-                      <a href="https://www.facebook.com/profile.php?id=61573398725938" class="social-link" target="_blank" rel="noopener noreferrer">
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                          </svg>
-                      </a>
-                      <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                              <path d="M16 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                              <path d="M8 16V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                              <path d="M16 12H22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                              <path d="M2 12H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                              <path d="M12 2V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                              <path d="M12 16V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                          </svg>
-                      </a>
-                  </div>
-              </div>
+                <div class="footer-links">
+                    <h5>Servicios</h5>
+                    <ul>
+                        <li><a href="service.html"><i class="fas fa-chevron-right"></i> Pensiones</a></li>
+                        <li><a href="Seleccion.html"><i class="fas fa-chevron-right"></i> Ahorro</a></li>
+                        <li><a href="Credito.html"><i class="fas fa-chevron-right"></i> Modalidad 40</a></li>
+                    </ul>
+                </div>
 
-              <div class="footer-links">
-                  <div class="links-group">
-                      <h5 class="links-title">Enlaces Útiles</h5>
-                      <ul class="links-list">
-                          <li><a href="index.html" class="footer-link">Inicio</a></li>
-                          <li><a href="nosotros.html" class="footer-link">Nosotros</a></li>
-                          <li><a href="Contacto.html" class="footer-link">Contacto</a></li>
-                      </ul>
-                  </div>
+                <div class="footer-newsletter">
+                    <h5>Newsletter</h5>
+                    <p>Suscríbete para recibir noticias y consejos financieros</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Tu email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-                  <div class="links-group">
-                      <h5 class="links-title">Nuestros Servicios.</h5>
-                      <ul class="links-list">
-                          <li><a href="service.html" class="footer-link">Asesoría en Pensiones</a></li>
-                          <li class="ocultar-ahorro"><a href="Seleccion.html" class="footer-link">Ahorros Inteligentes</a></li>
-                          <li><a href="Credito.html" class="footer-link">Créditos Modalidad 40</a></li>
-                      </ul>
-                  </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; <span id="current-year"></span> CIP Financial Group. Todos los derechos reservados.</p>
+                    <a href="Aviso_de_Privacidad_CIP_Financial.pdf" class="privacy-link" download>
+                        Aviso de Privacidad
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-                  <div class="links-group">
-                      <h5 class="links-title">Contacto</h5>
-                      <ul class="links-list contact-list">
-                          <li>
-                              <a href="mailto:atencion@cipmexico.com.mx" class="footer-link contact-link">
-                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                      <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                      <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                  </svg>
-                                  atencion@cipmexico.com.mx
-                              </a>
-                          </li>
-                          <li>
-                              <a href="https://wa.me/527228038635" class="footer-link contact-link whatsapp" target="_blank" rel="noopener noreferrer">
-                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                      <path d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                      <path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                      <path d="M12 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                      <path d="M9 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                      <path d="M15 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                  </svg>
-                                  722 8038 635
-                              </a>
-                          </li>
-                          <li>
-                              <a href="https://www.google.com.mx/maps/place/M%C3%A9xico+15+801,+V%C3%A9rtice,+50090+Toluca+de+Lerdo,+M%C3%A9x./@19.2883769,-99.6435227,19z/data=!3m1!4b1!4m6!3m5!1s0x85cd898d25cd808b:0xdf5aa1b38781160!8m2!3d19.2883769!4d-99.642879!16s%2Fg%2F11np2r68jp?entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D" 
-                              class="footer-link contact-link map" 
-                              target="_blank" 
-                              rel="noopener noreferrer">
-                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                      <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                      <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                  </svg>
-                                  PRIV. JAIME NUNO 103, 2DO PISO, COL. SAN SEBASTIÁN, TOLUCA, MÉXICO. C.P. 50150.
-                              </a>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
+    <script>
+        // Current Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
 
-
-          </div>
-      </div>
-
-      <div class="footer-bottom">
-          <div class="container">
-              <p class="copyright">&copy; <span id="current-year"></span> CIP Financial Group. Todos los derechos reservados.</p>
-                            <a href="Aviso_de_Privacidad_CIP_Financial.pdf"
-   class="privacy-link"
-   download="Aviso_de_Privacidad_CIP_Financial.pdf">
-   Aviso de Privacidad
-</a>
-       
-          </div>
-      </div>
-  </div>
-</footer>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const carouselInner = document.querySelector('.carousel-inner');
-  const slides = document.querySelectorAll('.carousel-item');
-  const indicators = document.querySelectorAll('.carousel-indicators li');
-  const prevBtn = document.querySelector('.carousel-control-prev');
-  const nextBtn = document.querySelector('.carousel-control-next');
-  let currentIndex = 0;
-  let interval = null;
-
-  function updateCarousel() {
-    const offset = -currentIndex * 100;
-    carouselInner.style.transform = `translateX(${offset}%)`;
-    indicators.forEach((ind, i) => {
-      ind.classList.toggle('active', i === currentIndex);
-    });
-  }
-
-  function goToSlide(index) {
-    currentIndex = (index + slides.length) % slides.length;
-    updateCarousel();
-  }
-
-  function nextSlide() {
-    goToSlide(currentIndex + 1);
-  }
-
-  function prevSlide() {
-    goToSlide(currentIndex - 1);
-  }
-
-  function startAutoPlay() {
-    stopAutoPlay();
-    interval = setInterval(nextSlide, 5000);
-  }
-
-  function stopAutoPlay() {
-    if (interval) clearInterval(interval);
-    interval = null;
-  }
-
-  nextBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    nextSlide();
-    startAutoPlay();
-  });
-
-  prevBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    prevSlide();
-    startAutoPlay();
-  });
-
-  indicators.forEach((indicator, index) => {
-    indicator.addEventListener('click', () => {
-      goToSlide(index);
-      startAutoPlay();
-    });
-  });
-
-  const carousel = document.querySelector('.carousel-container');
-  carousel.addEventListener('mouseenter', stopAutoPlay);
-  carousel.addEventListener('mouseleave', startAutoPlay);
-
-  updateCarousel();
-  startAutoPlay();
-});
-    </script>
-
-<script>
-  function checkScrollMenu() {
-    const menu = document.querySelector(".menu-container");
-    if (window.scrollY <= 50) {
-      menu.classList.add("en-top");
-    } else {
-      menu.classList.remove("en-top");
-    }
-  }
-
-  // Ejecutar al cargar
-  window.addEventListener("load", checkScrollMenu);
-  // Ejecutar al hacer scroll
-  window.addEventListener("scroll", checkScrollMenu);
-</script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const menuIcon = document.querySelector(".menu-icon");
-    const menuItems = document.querySelector(".menu-items");
-
-    menuIcon.addEventListener("click", () => {
-      menuItems.classList.toggle("active");
-      menuIcon.classList.toggle("active");
-    });
-  });
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const menuIcon = document.querySelector(".menu-icon");
-  const menuItems = document.querySelector(".menu-items");
-  const dropdown = document.querySelector(".menu-item.dropdown");
-  const toggle = dropdown.querySelector(".dropdown-toggle");
-
-  // Mostrar/Ocultar menú hamburguesa
-  menuIcon?.addEventListener("click", (e) => {
-    e.stopPropagation();
-    menuIcon.classList.toggle("active");
-    menuItems.classList.toggle("show");
-    dropdown.classList.remove("active");
-  });
-
-  // Al hacer clic en "Servicios"
-  toggle?.addEventListener("click", function (e) {
-    if (window.innerWidth <= 768) {
-      e.preventDefault();
-      e.stopPropagation();
-      dropdown.classList.toggle("active");
-
-      // Asegura rotar solo el ícono de este menú
-      const chevron = this.querySelector(".fa-chevron-down");
-      if (dropdown.classList.contains("active")) {
-        chevron.style.transform = "rotate(180deg)";
-      } else {
-        chevron.style.transform = "rotate(0deg)";
-      }
-    }
-  });
-
-  // Cierra menú y submenú si se hace clic fuera
-  document.addEventListener("click", function (e) {
-    if (window.innerWidth <= 768) {
-      if (!menuItems.contains(e.target)) {
-        menuItems.classList.remove("show");
-        menuIcon?.classList.remove("active");
-        dropdown.classList.remove("active");
-        toggle.querySelector(".fa-chevron-down").style.transform = "rotate(0deg)";
-      }
-    }
-  });
-});
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    const carousel = document.querySelector('.carousel-inner');
-    const items = document.querySelectorAll('.carousel-item');
-    const prevBtn = document.querySelector('.carousel-control-prev');
-    const nextBtn = document.querySelector('.carousel-control-next');
-    const indicators = document.querySelectorAll('.carousel-indicators li');
-
-    let currentIndex = 0;
-    const totalItems = items.length;
-    let isTransitioning = false;
-    let transitionEndEvent = 'transitionend';
-    let transformProp = 'transform';
-
-    // Detección de prefijos para navegadores antiguos
-    if ('webkitTransition' in document.body.style) {
-        transitionEndEvent = 'webkitTransitionEnd';
-        transformProp = 'webkitTransform';
-    }
-
-    // Función para actualizar indicadores
-    function updateIndicators(index) {
-        indicators.forEach((indicator, i) => {
-            indicator.classList.toggle('active', i === index);
+        // Header Scroll Effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
-    }
 
-    // Función para ir a un slide específico
-    function goToSlide(index, instant = false) {
-        if (isTransitioning && !instant) return;
+        // Mobile Menu Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navList = document.getElementById('navList');
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
 
-        // Asegurar que el índice esté dentro de los límites
-        currentIndex = (index + totalItems) % totalItems;
-
-        if (instant) {
-            // Desactivar transición temporalmente
-            carousel.style.transition = 'none';
-        }
-
-        // Aplicar transformación
-        carousel.style[transformProp] = `translateX(-${currentIndex * 100}%)`;
-
-        if (instant) {
-            // Forzar reflow para asegurar que el navegador procese el cambio sin transición
-            void carousel.offsetWidth;
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navList.classList.toggle('active');
             
-            // Restaurar transición en el siguiente frame
-            requestAnimationFrame(() => {
-                carousel.style.transition = '';
-            });
-        } else {
-            isTransitioning = true;
+            // Animate toggle spans
+            const spans = navToggle.querySelectorAll('span');
+            if (navList.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(8px, 8px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(8px, -8px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+
+        // Dropdown for mobile
+        dropdownToggle.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                const dropdown = document.querySelector('.dropdown');
+                dropdown.classList.toggle('active');
+                
+                const chevron = dropdownToggle.querySelector('i');
+                if (dropdown.classList.contains('active')) {
+                    chevron.style.transform = 'rotate(180deg)';
+                } else {
+                    chevron.style.transform = 'rotate(0deg)';
+                }
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navList.contains(e.target) && !navToggle.contains(e.target) && navList.classList.contains('active')) {
+                navList.classList.remove('active');
+                navToggle.classList.remove('active');
+                
+                const spans = navToggle.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+
+        // Intro Animation
+        window.addEventListener('load', function() {
+            if (!sessionStorage.getItem('introShown')) {
+                // Create particles
+                const particles = document.querySelectorAll('.particle');
+                particles.forEach((particle, index) => {
+                    particle.style.animationDelay = `${index * 0.2}s`;
+                });
+
+                setTimeout(function() {
+                    const target = document.querySelector('#logo-menu');
+                    const logoIntro = document.querySelector('.intro-logo-wrapper');
+                    const introOverlay = document.getElementById('intro-overlay');
+
+                    if (target && logoIntro) {
+                        const targetRect = target.getBoundingClientRect();
+
+                        logoIntro.style.transition = 'all 2s cubic-bezier(0.165, 0.84, 0.44, 1)';
+                        logoIntro.style.position = 'absolute';
+                        logoIntro.style.top = `${targetRect.top + window.scrollY + target.offsetHeight / 2}px`;
+                        logoIntro.style.left = `${targetRect.left + window.scrollX + target.offsetWidth / 2}px`;
+                        logoIntro.style.width = `${target.offsetWidth}px`;
+                        logoIntro.style.height = `${target.offsetHeight}px`;
+                        logoIntro.style.transform = 'translate(-50%, -50%)';
+
+                        setTimeout(function() {
+                            introOverlay.style.opacity = '0';
+                            setTimeout(() => {
+                                introOverlay.style.display = 'none';
+                                document.querySelector('.header').style.opacity = '1';
+                                sessionStorage.setItem('introShown', 'true');
+                            }, 2000);
+                        }, 2000);
+                    }
+                }, 5000);
+            } else {
+                document.getElementById('intro-overlay').style.display = 'none';
+                document.querySelector('.header').style.opacity = '1';
+            }
+        });
+
+        // Slider Functionality
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        const prevBtn = document.querySelector('.slider-arrow.prev');
+        const nextBtn = document.querySelector('.slider-arrow.next');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = (index + slides.length) % slides.length;
+            
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
         }
 
-        updateIndicators(currentIndex);
-    }
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
 
-    // Manejador de evento de fin de transición
-    function handleTransitionEnd() {
-        isTransitioning = false;
-    }
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
 
-    // Event listeners
-    function setupEventListeners() {
-        carousel.addEventListener(transitionEndEvent, handleTransitionEnd);
-        
-        prevBtn.addEventListener('click', function(e) {
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showSlide(index));
+        });
+
+        prevBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            if (!isTransitioning) goToSlide(currentIndex - 1);
+            prevSlide();
+            resetInterval();
         });
 
-        nextBtn.addEventListener('click', function(e) {
+        nextBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            if (!isTransitioning) goToSlide(currentIndex + 1);
+            nextSlide();
+            resetInterval();
         });
 
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (!isTransitioning && index !== currentIndex) {
-                    goToSlide(index);
-                }
-            });
-        });
-    }
+        function startAutoPlay() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
 
-    // Inicialización
-    function initCarousel() {
-        // Ocultar todos los slides excepto el primero
-        items.forEach((item, index) => {
-            item.style.opacity = index === 0 ? '1' : '0';
-        });
+        function stopAutoPlay() {
+            clearInterval(slideInterval);
+        }
 
-        // Configurar posición inicial sin animación
-        goToSlide(0, true);
+        function resetInterval() {
+            stopAutoPlay();
+            startAutoPlay();
+        }
 
-        // Mostrar todos los slides después de la inicialización
-        setTimeout(() => {
-            items.forEach(item => {
-                item.style.opacity = '1';
-            });
-        }, 50);
+        const slider = document.getElementById('slider');
+        slider.addEventListener('mouseenter', stopAutoPlay);
+        slider.addEventListener('mouseleave', startAutoPlay);
 
-        setupEventListeners();
-    }
-
-    initCarousel();
-});
-</script>
+        startAutoPlay();
+    </script>
 </body>
 </html>

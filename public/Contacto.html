@@ -4,856 +4,1436 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>CIP Financial Group - Expertos en Pensiones y Ahorro</title>
-  <meta name="description" content="En CIP Financial Group brindamos asesoría profesional en pensiones, ahorro e inversión. Mejora tu retiro con una estrategia financiera personalizada.">
-  <meta name="keywords" content="CIP Financial Group, pensiones, retiro, ahorro, inversión, IMSS, afore, asesoría financiera">
+  <title>CIP Financial Group - Contacto y Asesoría Personalizada</title>
+  <meta name="description" content="Contacta a CIP Financial Group para recibir asesoría profesional en pensiones, ahorro e inversión. Estamos en Toluca y vía WhatsApp.">
+  <meta name="keywords" content="contacto CIP, asesoría financiera, pensiones Toluca, WhatsApp, atención a clientes">
   <meta name="author" content="CIP Financial Group">
-  <link rel="canonical" href="https://cipmexico.com.mx/">
-
+  <link rel="canonical" href="https://cipmexico.com.mx/contacto.html">
 
   <!-- Favicon -->
-<link rel="icon" href="https://cipmexico.com.mx/favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="https://cipmexico.com.mx/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="https://cipmexico.com.mx/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="https://cipmexico.com.mx/favicon.ico" type="image/x-icon">
 
   <!-- Open Graph: para redes sociales -->
-  <meta property="og:title" content="CIP Financial Group - Asesoría Financiera Profesional">
-  <meta property="og:description" content="Especialistas en pensiones, retiro e inversión. Agenda tu asesoría personalizada.">
+  <meta property="og:title" content="CIP Financial Group - Contacto">
+  <meta property="og:description" content="Comunícate con nuestros asesores expertos en pensiones y ahorro. Te esperamos en Toluca.">
   <meta property="og:image" content="https://cipmexico.com.mx/images/logo1.png">
-  <meta property="og:url" content="https://cipmexico.com.mx/">
+  <meta property="og:url" content="https://cipmexico.com.mx/contacto.html">
   <meta property="og:type" content="website">
 
-  <!-- Estilos y scripts -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-    /* Estilos generales */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-         /* Contenedor principal flexible */
-        .main-content-wrapper {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 0 auto;
-            max-width: 100000px;
-        }
-        
-/* Sección de contacto principal */
-.contact-card {
-    background-color: white;
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    width: 100%; /* ← más ancho, recomendado */
-    max-width: 1000px; /* ← límite para que no se pase */
-    margin: 0 auto; /* ← centrado */
-    text-align: center;  /* sigue centrando el botón */
-}
 
-.contact-title {
-    color: #1e3c72; /* un azul más elegante */
-    font-size: 32px;
-    margin-bottom: 10px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
-
-        
-.contact-description {
-    color: #444; /* un gris más cálido */
-    font-size: 17px;
-    margin-bottom: 20px;
-    text-align: center; /* MEJOR centrado, ya que es una frase corta */
-    line-height: 1.6; /* mejor lectura */
-    max-width: 700px; /* para que no quede tan ancho en pantallas grandes */
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 0;
-    transform: translateY(10px);
-    animation: fadeInUp 0.8s ease forwards;
-    animation-delay: 0.2s;
-    text-align: justify;
-
-}
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
+  <style>
+    /* ===== VARIABLES ===== */
+    :root {
+        --primary: #052f5f;
+        --primary-dark: #031f3f;
+        --primary-light: #1e4a7a;
+        --secondary: #008080;
+        --secondary-light: #20a0a0;
+        --accent: #9ac9ff;
+        --accent-soft: #a6cefc;
+        --light: #f8fafc;
+        --white: #ffffff;
+        --gray-100: #f1f5f9;
+        --gray-200: #e2e8f0;
+        --gray-300: #cbd5e1;
+        --gray-600: #475569;
+        --gray-800: #1e293b;
+        --whatsapp: #25D366;
+        --whatsapp-dark: #128C7E;
+        --gradient-primary: linear-gradient(145deg, #052f5f 0%, #008080 70%, #9ac9ff 100%);
+        --gradient-accent: linear-gradient(45deg, #9ac9ff, #a6cefc);
+        --gradient-dark: linear-gradient(145deg, #052f5f, #031f3f);
+        --shadow-xs: 0 2px 4px rgba(5,47,95,0.05);
+        --shadow-sm: 0 4px 6px rgba(5,47,95,0.07);
+        --shadow-md: 0 10px 15px rgba(5,47,95,0.1);
+        --shadow-lg: 0 20px 25px rgba(5,47,95,0.15);
+        --shadow-xl: 0 30px 35px rgba(5,47,95,0.2);
+        --shadow-2xl: 0 40px 50px rgba(5,47,95,0.25);
+        --border-radius-sm: 12px;
+        --border-radius-md: 20px;
+        --border-radius-lg: 32px;
+        --border-radius-xl: 40px;
+        --border-radius-2xl: 60px;
+        --border-radius-full: 9999px;
+        --transition: all 0.3s ease;
+        --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
-}
 
-        
-        /* Barra de contacto lateral con checkboxes */
-.contact-sidebar {
-    background-color: white;
-    border-radius: 12px;
-    padding: 25px;
-    width: 35%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* un poco más suave */
-    align-self: flex-start;
-    border: 1px solid #e0e0e0;
-    font-size: 16px;
-    line-height: 1.6;
-}
-.sidebar-title {
-    color: #2c3e50;
-    font-size: 20px;
-    margin-bottom: 15px;
-    font-weight: 600;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #25D366;
-}
+    /* ===== RESET ===== */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-.contact-info-item a {
-    color: #333;
-    text-decoration: none;
-}
+    html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+    }
 
-.contact-info-item a:hover {
-    text-decoration: underline;
-}
-/* Estilo del mapa para que se vea mejor */
-.contact-sidebar iframe {
-    width: 100%;
-    height: 200px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    margin-top: 15px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.contact-info-item i {
-    font-size: 18px;
-    color: #25D366;
-    min-width: 20px; /* para que queden alineados */
-}
-        .contact-info-item {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* espacio entre icono y texto */
-    margin-bottom: 12px; /* espacio entre items */
-    color: #333;
-    font-size: 15px;
-}
-        .contact-list {
-            list-style: none;
+    body {
+        font-family: 'Inter', sans-serif;
+        color: var(--gray-800);
+        line-height: 1.6;
+        background: var(--white);
+        overflow-x: hidden;
+        padding-top: 0;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Syne', sans-serif;
+        font-weight: 700;
+    }
+
+    .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+
+    /* ===== ANIMACIONES ===== */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
         }
-        
-        .contact-item {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            position: relative;
-            padding-left: 30px;
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
-        
-        .contact-item input[type="checkbox"] {
-            position: absolute;
-            left: 0;
-            width: 20px;
-            height: 20px;
-            accent-color: #25D366;
-            cursor: default;
+    }
+
+    @keyframes fadeInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-30px);
         }
-        
-        .contact-item i {
-            margin-right: 10px;
-            color: #2c3e50;
+        to {
+            opacity: 1;
+            transform: translateX(0);
         }
-        
-        /* Botón de WhatsApp */
-        .whatsapp-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #25D366;
-            color: white;
-            text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-            margin: 20px 0;
+    }
+
+    @keyframes fadeInRight {
+        from {
+            opacity: 0;
+            transform: translateX(30px);
         }
-        
-        .whatsapp-btn:hover {
-            background-color: #128C7E;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        to {
+            opacity: 1;
+            transform: translateX(0);
         }
-        
-        .whatsapp-icon {
-            font-size: 24px;
-            margin-right: 10px;
-        }
-        
-        /* Beneficios */
-        .benefits-container {
-            margin: 40px 0;
-        }
-        
-        .benefit-item {
-            margin-bottom: 25px;
-        }
-        
-        .benefit-title {
-            color: #2c3e50;
-            font-size: 20px;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        
-        /* Footer */
-        footer {
-            margin-top: 50px;
-        }
-        
+    }
 
-        .hero-text {
-    text-align: justify;
-}
-/* Servicios */
-.services-section {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-bottom: 0;
-}
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
 
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
 
-.services-title {
-    color: #2c3e50;
-    font-size: 26px;
-    margin-bottom: 20px;
-    font-weight: 700;
-    text-align: center;
-}
+    /* ===== HEADER (MENÚ) ===== */
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 20px 0;
+        transition: var(--transition);
+    }
 
-.services-container {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    gap: 20px;
-    width: 100%;
-    margin: 0 auto;
-}
+    .header:not(.scrolled) {
+        background: transparent;
+        box-shadow: none;
+    }
 
+    .header:not(.scrolled) .brand-name,
+    .header:not(.scrolled) .nav-link {
+        color: white;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
 
-.service-card {
-    flex: 1 1 30%; /* que se ajusten en porcentaje */
-    background-color: white;
-    border-radius: 10px;
-    padding: 25px 20px;
-    text-decoration: none;
-    color: #2c3e50;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    border-top: 3px solid #2c3e50;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-}
+    .header:not(.scrolled) .brand-logo {
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+    }
 
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
+    .header:not(.scrolled) .nav-toggle span {
+        background: white;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
 
-.service-icon {
-    font-size: 50px;
-    color: #2c3e50;
-    margin-bottom: 15px;
-}
+    .header.scrolled {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        padding: 10px 0;
+        box-shadow: var(--shadow-lg);
+        border-bottom: 1px solid rgba(5,47,95,0.1);
+    }
 
-.service-title {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
+    .header.scrolled .brand-name {
+        color: var(--primary);
+        text-shadow: none;
+    }
 
-.service-description {
-    font-size: 15px;
-    color: #555;
-    text-align: justify;
+    .header.scrolled .nav-link {
+        color: var(--gray-800);
+        text-shadow: none;
+    }
 
-}
-.sidebar-icon {
-    font-size: 20px;
-    color: #25D366;
-    margin-right: 12px;
-    background: none !important;
-    border-radius: 0 !important;
-    padding: 0 !important;
-}
-.container {
-    padding-top: 40px; /* Espacio entre Hero y contenido */
-}
+    .header.scrolled .brand-logo {
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+    }
 
-.hero-contact {
-    background: url('imagenes/Abuelo.jpg') no-repeat center 50% / cover;
-    padding: 190px 20px 80px 20px; /* Aumentamos altura */
-    text-align: center;
-    color: white;
-    position: relative;
-}
+    .header.scrolled .nav-toggle span {
+        background: var(--primary);
+    }
 
-.hero-contact::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.hero-title {
-    font-size: 40px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-}
-
-.hero-subtitle {
-    font-size: 20px;
-    margin-bottom: 30px;
-    line-height: 1.5;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-}
-@media (max-width: 768px) {
-    .services-container {
-        flex-direction: column;
-        flex-wrap: wrap;
+    .header-container {
+        display: flex;
         align-items: center;
+        justify-content: space-between;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 32px;
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        text-decoration: none;
+        transition: var(--transition-bounce);
+    }
+
+    .brand:hover {
+        transform: scale(1.05);
+    }
+
+    .brand-logo {
+        height: 70px;
+        transition: var(--transition-bounce);
+    }
+
+    .brand:hover .brand-logo {
+        transform: rotate(5deg) scale(1.1);
+    }
+
+    .header.scrolled .brand-logo {
+        height: 60px;
+    }
+
+    .brand-name {
+        font-size: 1.4rem;
+        font-weight: 700;
+        transition: var(--transition);
+        font-family: 'Syne', sans-serif;
+        letter-spacing: -0.02em;
+        position: relative;
+    }
+
+    .brand-name::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gradient-primary);
+        transition: width 0.3s ease;
+    }
+
+    .brand:hover .brand-name::after {
+        width: 100%;
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .nav-list {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        list-style: none;
+    }
+
+    .nav-link {
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: var(--transition);
+        position: relative;
+        padding: 5px 0;
+        letter-spacing: 0.5px;
+    }
+
+    .nav-link::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gradient-primary);
+        transition: width 0.3s ease;
+        border-radius: 2px;
+    }
+
+    .nav-link:hover::before,
+    .nav-link.active::before {
+        width: 100%;
+    }
+
+    .nav-link:hover {
+        transform: translateY(-2px);
+    }
+
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown-toggle {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .dropdown-toggle i {
+        font-size: 0.8rem;
+        transition: transform 0.4s ease;
+    }
+
+    .dropdown:hover .dropdown-toggle i {
+        transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: calc(100% + 20px);
+        left: 0;
+        min-width: 280px;
+        border-radius: var(--border-radius-md);
+        padding: 16px 0;
+        box-shadow: var(--shadow-xl);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px) scale(0.95);
+        transition: var(--transition-bounce);
+        z-index: 1000;
+        list-style: none;
+        border: 1px solid rgba(5,47,95,0.1);
+    }
+
+    .header:not(.scrolled) .dropdown-menu {
+        background: rgba(255,255,255,0.95);
+        backdrop-filter: blur(10px);
+    }
+
+    .header.scrolled .dropdown-menu {
+        background: var(--white);
+    }
+
+    .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(10px) scale(1);
+    }
+
+    .dropdown-menu a {
+        display: block;
+        padding: 12px 24px;
+        color: var(--gray-800);
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .header:not(.scrolled) .dropdown-menu a {
+        color: var(--primary);
+    }
+
+    .dropdown-menu a::before {
+        content: '→';
+        position: absolute;
+        left: 10px;
+        opacity: 0;
+        transition: var(--transition);
+    }
+
+    .dropdown-menu a:hover {
+        background: var(--gray-100);
+        color: var(--secondary);
+        padding-left: 35px;
+    }
+
+    .dropdown-menu a:hover::before {
+        opacity: 1;
+        left: 15px;
+    }
+
+    .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 8px;
+        cursor: pointer;
+        z-index: 1001;
+        background: rgba(255,255,255,0.2);
+        padding: 10px;
+        border-radius: var(--border-radius-full);
+        backdrop-filter: blur(10px);
+        transition: var(--transition);
+    }
+
+    .nav-toggle:hover {
+        background: rgba(255,255,255,0.3);
+        transform: scale(1.1);
+    }
+
+    .nav-toggle span {
+        display: block;
+        width: 30px;
+        height: 3px;
+        border-radius: 3px;
+        transition: var(--transition-bounce);
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -8px);
+    }
+
+    /* ===== HERO DE CONTACTO (CON TU IMAGEN ORIGINAL) ===== */
+    .hero-contact {
+        position: relative;
+        height: 70vh;
+        min-height: 500px;
+        background: url('imagenes/Abuelo.jpg') no-repeat center 50% / cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        position: relative;
+    }
+
+    .hero-contact::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 900px;
+        padding: 0 20px;
+        animation: fadeInUp 1.2s ease;
+    }
+
+    .hero-title {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 800;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 20px rgba(0,0,0,0.5);
+        letter-spacing: 1px;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1.1rem, 2vw, 1.3rem);
+        margin-bottom: 40px;
+        text-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+    }
+
+    .whatsapp-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        background: var(--whatsapp);
+        color: white;
+        text-decoration: none;
+        padding: 18px 40px;
+        border-radius: var(--border-radius-full);
+        font-size: 1.2rem;
+        font-weight: 700;
+        transition: var(--transition-bounce);
+        box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+        border: 2px solid transparent;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .whatsapp-btn::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255,255,255,0.2);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+        z-index: 0;
+    }
+
+    .whatsapp-btn:hover::before {
+        width: 400px;
+        height: 400px;
+    }
+
+    .whatsapp-btn:hover {
+        background: var(--whatsapp-dark);
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 20px 35px rgba(37, 211, 102, 0.5);
+        border-color: white;
+    }
+
+    .whatsapp-icon {
+        font-size: 1.8rem;
+        transition: var(--transition);
+        position: relative;
+        z-index: 2;
+    }
+
+    .whatsapp-btn:hover .whatsapp-icon {
+        transform: scale(1.2) rotate(10deg);
+    }
+
+    .whatsapp-btn span {
+        position: relative;
+        z-index: 2;
+    }
+
+    /* ===== CONTENIDO PRINCIPAL ===== */
+    .main-content-wrapper {
+        display: flex;
+        gap: 40px;
+        margin: 80px auto;
+        max-width: 1200px;
+        padding: 0 24px;
+    }
+
+    /* Tarjeta de contacto principal */
+    .contact-card {
+        flex: 2;
+        background: white;
+        border-radius: var(--border-radius-xl);
+        padding: 50px;
+        box-shadow: var(--shadow-xl);
+        border: 1px solid var(--gray-200);
+        position: relative;
+        overflow: hidden;
+        animation: fadeInLeft 1s ease;
+    }
+
+    .contact-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: var(--gradient-primary);
+    }
+
+    .contact-title {
+        color: var(--primary);
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        font-weight: 800;
+        font-family: 'Syne', sans-serif;
+        position: relative;
+        padding-bottom: 15px;
+    }
+
+    .contact-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 3px;
+        background: var(--secondary);
+        border-radius: 2px;
+    }
+
+    .contact-description {
+        color: var(--gray-600);
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        line-height: 1.8;
+        text-align: justify;
+    }
+
+    .highlight {
+        color: var(--secondary);
+        font-weight: 600;
+        background: rgba(0,128,128,0.1);
+        padding: 2px 6px;
+        border-radius: 4px;
+    }
+
+    .privacy-note {
+        margin: 25px 0 35px;
+        padding: 15px 20px;
+        background: var(--gray-100);
+        border-radius: var(--border-radius-md);
+        font-size: 0.95rem;
+        color: var(--gray-600);
+        border-left: 4px solid var(--secondary);
+    }
+
+    .privacy-link {
+        color: var(--secondary);
+        text-decoration: none;
+        font-weight: 600;
+        transition: var(--transition);
+    }
+
+    .privacy-link:hover {
+        color: var(--primary);
+        text-decoration: underline;
+    }
+
+    /* Servicios en contacto */
+    .services-section {
+        margin-top: 50px;
+    }
+
+    .services-title {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+        font-weight: 700;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    .services-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: var(--secondary);
+    }
+
+    .services-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
     }
 
     .service-card {
-        width: 90%;  /* que ocupen casi todo el ancho en móvil */
-        max-width: 400px;
+        background: var(--white);
+        border-radius: var(--border-radius-lg);
+        padding: 30px 25px;
+        text-decoration: none;
+        color: inherit;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--gray-200);
+        transition: var(--transition-bounce);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-xl);
+        border-color: var(--secondary);
+        background: linear-gradient(135deg, white, var(--gray-100));
     }
 
     .service-icon {
-        font-size: 60px; /* si quieres hacer el ícono más grande */
+        font-size: 3rem;
+        color: var(--secondary);
+        margin-bottom: 15px;
+        transition: var(--transition-bounce);
+    }
+
+    .service-card:hover .service-icon {
+        transform: scale(1.1) rotate(5deg);
+        color: var(--primary);
     }
 
     .service-title {
-        font-size: 20px;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 10px;
     }
 
     .service-description {
-        font-size: 16px;
+        font-size: 0.9rem;
+        color: var(--gray-600);
+        line-height: 1.5;
     }
-}
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 60px 20px;
-            }
-            
-            .hero-title {
-                font-size: 28px;
-            }
-            
-            .main-content-wrapper {
-                flex-direction: column;
-            }
-            
-            .contact-card, .contact-sidebar {
-                width: 100%;
-            }
-            
-            .contact-card {
-                padding: 30px 20px;
-            }
-            
-            .contact-title {
-                font-size: 26px;
-            }
-            
-            .contact-description {
-                font-size: 16px;
-            }
+    /* Sidebar */
+    .contact-sidebar {
+        flex: 1;
+        background: white;
+        border-radius: var(--border-radius-xl);
+        padding: 35px 30px;
+        box-shadow: var(--shadow-xl);
+        border: 1px solid var(--gray-200);
+        align-self: flex-start;
+        position: sticky;
+        top: 120px;
+        animation: fadeInRight 1s ease;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        color: white;
+    }
+
+    .sidebar-title {
+        color: white;
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+        font-weight: 700;
+        position: relative;
+        padding-bottom: 15px;
+        font-family: 'Syne', sans-serif;
+    }
+
+    .sidebar-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: var(--accent);
+    }
+
+    .contact-info-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 25px;
+        color: rgba(255,255,255,0.9);
+        font-size: 1rem;
+        line-height: 1.5;
+        transition: var(--transition);
+    }
+
+    .contact-info-item:hover {
+        transform: translateX(5px);
+        color: white;
+    }
+
+    .contact-info-item i {
+        font-size: 1.3rem;
+        color: var(--accent);
+        min-width: 25px;
+        margin-top: 2px;
+    }
+
+    .contact-info-item a {
+        color: rgba(255,255,255,0.9);
+        text-decoration: none;
+        transition: var(--transition);
+    }
+
+    .contact-info-item a:hover {
+        color: var(--accent);
+    }
+
+    .contact-sidebar iframe {
+        width: 100%;
+        height: 200px;
+        border: none;
+        border-radius: var(--border-radius-md);
+        margin-top: 20px;
+        box-shadow: var(--shadow-lg);
+        border: 2px solid rgba(255,255,255,0.2);
+        transition: var(--transition);
+    }
+
+    .contact-sidebar iframe:hover {
+        transform: scale(1.02);
+        border-color: var(--accent);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+        background: var(--primary-dark);
+        color: var(--white);
+        position: relative;
+        overflow: hidden;
+        margin-top: 60px;
+    }
+
+    .footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0 L100 100 L0 100 Z" fill="white" opacity="0.03"/></svg>');
+        background-size: cover;
+    }
+
+    .footer-container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .footer-top {
+        padding: 80px 0 50px;
+    }
+
+    .footer-brand {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .footer-title {
+        font-size: 2.2rem;
+        margin-bottom: 15px;
+        position: relative;
+        display: inline-block;
+    }
+
+    .footer-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: var(--secondary);
+        transition: width 0.3s ease;
+    }
+
+    .footer-brand:hover .footer-title::after {
+        width: 120px;
+    }
+
+    .footer-text {
+        color: rgba(255,255,255,0.8);
+        max-width: 500px;
+        margin: 0 auto 30px;
+        transition: var(--transition);
+    }
+
+    .footer-brand:hover .footer-text {
+        color: rgba(255,255,255,1);
+    }
+
+    .footer-social {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 50px;
+    }
+
+    .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.1);
+        color: white;
+        transition: var(--transition-bounce);
+        border: 2px solid transparent;
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+
+    .social-link:hover {
+        background: var(--secondary);
+        transform: translateY(-8px) rotate(360deg);
+        border-color: var(--white);
+        box-shadow: 0 10px 30px rgba(0,128,128,0.4);
+    }
+
+    .footer-links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-top: 50px;
+    }
+
+    .links-group {
+        text-align: center;
+    }
+
+    .links-title {
+        font-size: 1.3rem;
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 10px;
+        display: inline-block;
+    }
+
+    .links-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: var(--secondary);
+        transition: width 0.3s ease;
+    }
+
+    .links-group:hover .links-title::after {
+        width: 60px;
+    }
+
+    .links-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .links-list li {
+        margin-bottom: 12px;
+    }
+
+    .footer-link {
+        color: rgba(255,255,255,0.7);
+        text-decoration: none;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .footer-link:hover {
+        color: white;
+        transform: translateX(8px);
+    }
+
+    .contact-link {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .whatsapp:hover {
+        color: #25D366;
+    }
+
+    .map:hover {
+        color: var(--accent);
+    }
+
+    .footer-bottom {
+        padding: 25px 0;
+        background: rgba(0,0,0,0.3);
+        text-align: center;
+    }
+
+    .footer-bottom-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .copyright {
+        color: rgba(255,255,255,0.7);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 992px) {
+        .main-content-wrapper {
+            flex-direction: column;
         }
+        
+        .contact-sidebar {
+            position: static;
+            width: 100%;
+        }
+        
+        .services-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
 
-        .privacy-note{
-  margin-top: 14px;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: #555;
-}
+    @media (max-width: 768px) {
+        .nav-toggle {
+            display: flex;
+        }
+        
+        .nav-list {
+            position: fixed;
+            top: 100px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 0;
+            gap: 25px;
+            opacity: 0;
+            transform: translateY(-20px);
+            pointer-events: none;
+            transition: var(--transition-bounce);
+            border-radius: 0 0 30px 30px;
+            box-shadow: var(--shadow-xl);
+            z-index: 1000;
+        }
+        
+        .nav-list.active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-size: 18px;
+            text-shadow: none !important;
+        }
+        
+        .dropdown-menu {
+            position: static;
+            background: rgba(255,255,255,0.1) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: none;
+            padding: 10px 0;
+            display: none;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .dropdown.active .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu a {
+            color: white !important;
+            text-align: center;
+        }
+        
+        .hero-contact {
+            height: 60vh;
+            min-height: 450px;
+        }
+        
+        .hero-title {
+            font-size: 2rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+        
+        .whatsapp-btn {
+            padding: 15px 30px;
+            font-size: 1rem;
+        }
+        
+        .contact-card {
+            padding: 30px 25px;
+        }
+        
+        .contact-title {
+            font-size: 2rem;
+        }
+        
+        .services-container {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        
+        .footer-bottom-content {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
 
-.privacy-link{
-  color: #0d6efd;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.privacy-link:hover{
-  text-decoration: underline;
-}
-
-.footer-bottom-content{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.footer-privacy-link{
-  color: #fff;
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 500;
-  opacity: 0.95;
-}
-
-.footer-privacy-link:hover{
-  text-decoration: underline;
-  opacity: 1;
-}
-
-@media (max-width: 768px){
-  .footer-bottom-content{
-    flex-direction: column;
-    text-align: center;
-  }
-}
-    </style>
+    @media (max-width: 576px) {
+        .brand-name {
+            font-size: 1.1rem;
+        }
+        
+        .brand-logo {
+            height: 50px;
+        }
+        
+        .header.scrolled .brand-logo {
+            height: 45px;
+        }
+        
+        .hero-contact {
+            height: 50vh;
+            min-height: 400px;
+        }
+        
+        .hero-title {
+            font-size: 1.8rem;
+        }
+        
+        .contact-title {
+            font-size: 1.8rem;
+        }
+        
+        .contact-description {
+            font-size: 1rem;
+        }
+        
+        .sidebar-title {
+            font-size: 1.5rem;
+        }
+        
+        .footer-title {
+            font-size: 1.8rem;
+        }
+        
+        .links-title {
+            font-size: 1.2rem;
+        }
+    }
+  </style>
+</head>
 <body>
 
-    <!-- Menú ORIGINAL (sin cambios) -->
-    <div class="menu-container">
-        <div class="menu">
-            <div class="logo" id="logo-menu"> <!-- AÑADIR el id -->
-                <img src="images/logo1.png" alt="Logo CIP">
-                <span class="logo-text">CIP Financial Group</span>
-            </div>
-            <ul class="menu-items">
-                <li class="menu-item"><a href="index.html">Inicio</a></li>
-                <li class="menu-item"><a href="nosotros.html">Nosotros</a></li>
-                <li class="menu-item dropdown">
-                  <a href="#" class="dropdown-toggle">Servicios <i class="fas fa-chevron-down"></i></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="service.html">Pensiones</a></li>
-                    <li class="ocultar-ahorro"><a href="Seleccion.html">Ahorro</a></li>
-                    <li><a href="Credito.html">Crédito Mod 10 y Mod 40</a></li>
-                    <li><a href="cre_jubi.html">Créditos Jubilados y Pensionados</a></li>
-                  </ul>
-                </li>
-                <li class="menu-item"><a href="Contacto.html">Contacto</a></li>
-            </ul>
-            
-            <div class="menu-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </div>
-
-
-<section class="hero-contact">
-    <div class="hero-content">
-        <h1 class="hero-title">Te ayudamos a construir tu futuro financiero</h1>
-        <p class="hero-subtitle">Asesoría personalizada en pensiones, ahorro y seguridad social.</p>
-        <a href="https://wa.me/527228038635?text=Hola,%20quisiera%20más%20información%20sobre%20los%20servicios%20de%20pensiones%20y%20ahorro." 
-           class="whatsapp-btn" target="_blank">
-            <i class="fab fa-whatsapp whatsapp-icon"></i> Chatear por WhatsApp
-        </a>
-    </div>
-</section>
-
-    
-    <main class="container">
-        <div class="main-content-wrapper">
-            <!-- Tarjeta de contacto principal -->
-            <div class="contact-card">
-                <h1 class="contact-title">Consulta sobre tu pensión</h1>
-                <p class="contact-description">
-                    ¿Tienes dudas sobre tu <span class="highlight">plan de pensiones</span>, <span class="highlight">ahorro</span> o <span class="highlight">futuro financiero</span>? 
-                    Nuestros asesores están disponibles para brindarte orientación personalizada a través de <span class="highlight">WhatsApp</span>.
-                </p>
-
-                
-                <a href="https://wa.me/527228038635?text=Hola,%20me%20gustaría%20recibir%20información%20sobre%20pensiones" class="whatsapp-btn">
-                    <i class="fab fa-whatsapp whatsapp-icon"></i> Chatear por WhatsApp
-                </a>
-
-<p class="privacy-note">
-    Al contactarnos y compartir tus datos, puedes consultar nuestro
-    <a href="Aviso_de_Privacidad_CIP_Financial.pdf"
-       class="privacy-link"
-       download="Aviso_de_Privacidad_CIP_Financial.pdf">
-       Aviso de Privacidad
-    </a>.
-</p>            <section class="services-section">
-    <h2 class="services-title">Nuestros Servicios</h2>
-    <div class="services-container">
-        
-        <!-- Servicio 1 -->
-        <a href="service.html" class="service-card">
-            <i class="fas fa-piggy-bank service-icon"></i>
-            <h3 class="service-title">Planes de Pensiones</h3>
-            <p class="service-description">
-                Asesoramiento personalizado para elegir el mejor plan de pensiones según tus necesidades y objetivos financieros.
-            </p>
-        </a>
-        
-        <!-- Servicio 2 -->
-<a href="Seleccion.html" class="service-card ocultar-ahorro">
-  <i class="fas fa-coins service-icon"></i>
-  <h3 class="service-title">Ahorro Previsional</h3>
-  <p class="service-description">
-    Estrategias de ahorro a largo plazo para garantizar tu tranquilidad financiera.
-  </p>
-</a>
-
-        
-        <!-- Servicio 3 -->
-        <a href="Credito.html" class="service-card">
-            <i class="fas fa-file-signature service-icon"></i>
-            <h3 class="service-title">Modalidad 40</h3>
-            <p class="service-description">
-                Asesoramiento especializado en la Modalidad 40 del IMSS para regularizar tu situación ante el Instituto.
-            </p>
-        </a>
-        
-    </div>
-</section>
-
-            </div>
-            
-<div class="contact-sidebar">
-    <h3 class="sidebar-title">Información de Contacto</h3>
-
-    <div class="contact-info-item">
-        <i class="fa-regular fa-clock"></i>
-        <span>Horario: L-V 9:00-18:00</span>
-    </div>
-
-    <div class="contact-info-item">
-        <i class="fa-solid fa-phone"></i>
-        <span>Tel: 722 8038 635</span>
-    </div>
-
-    <div class="contact-info-item">
-        <i class="fa-regular fa-envelope"></i>
-        <span>atencion@cipmexico.com.mx</span>
-    </div>
-
-    <div class="contact-info-item">
-        <i class="fa-solid fa-location-dot"></i>
-        <span>
-            <a href="https://www.google.com.mx/maps/place/Isabel+la+Cat%C3%B3lica+201b,+Sur,+San+Sebastian,+50090+Toluca+de+Lerdo,+M%C3%A9x./@19.2883004,-99.6426959,21z/data=!4m6!3m5!1s0x85cd898d2596bf5f:0xf3c1e77d9f5efe58!8m2!3d19.2884712!4d-99.6429493!16s%2Fg%2F11t2v3mnt7?entry=ttu" 
-               target="_blank" 
-               style="color: #333; text-decoration: none;">
-                PRIV. JAIME NUNO 103, 2DO PISO, COL. SAN SEBASTIÁN, TOLUCA, MÉXICO. C.P. 50150.
+    <!-- Header con menú -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="index.html" class="brand" id="logo-menu">
+                <img src="images/logo1.png" alt="CIP Financial Group" class="brand-logo">
+                <span class="brand-name">CIP Financial Group</span>
             </a>
-        </span>
-    </div>
 
-    <!-- Mini mapa -->
-    <iframe 
-        src="https://www.google.com/maps?q=Isabel+la+Cat%C3%B3lica+201b,+Sur,+San+Sebastian,+50090+Toluca+de+Lerdo,+M%C3%A9x.&output=embed" 
-        width="100%" 
-        height="200" 
-        style="border:0; margin-top: 15px; border-radius: 8px;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-</div>
+            <nav class="nav">
+                <ul class="nav-list" id="navList">
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Servicios <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="service.html">Pensiones</a></li>
+                            <li><a href="Seleccion.html">Ahorro</a></li>
+                            <li><a href="Credito.html">Modalidad 40</a></li>
+                            <li><a href="cre_jubi.html">Créditos Jubilados</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Contacto.html" class="nav-link active">Contacto</a></li>
+                </ul>
 
+                <div class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
 
+    <!-- Hero de Contacto (CON TU IMAGEN ORIGINAL) -->
+    <section class="hero-contact">
+        <div class="hero-content">
+            <h1 class="hero-title">Te ayudamos a construir tu futuro financiero</h1>
+            <p class="hero-subtitle">Asesoría personalizada en pensiones, ahorro y seguridad social.</p>
+            <a href="https://wa.me/527228038635?text=Hola,%20quisiera%20más%20información%20sobre%20los%20servicios%20de%20pensiones%20y%20ahorro." 
+               class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp whatsapp-icon"></i>
+                <span>Chatear por WhatsApp</span>
+            </a>
+        </div>
+    </section>
+    
+    <main class="main-content-wrapper">
+        <!-- Tarjeta de contacto principal -->
+        <div class="contact-card">
+            <h1 class="contact-title">Consulta sobre tu pensión</h1>
+            <p class="contact-description">
+                ¿Tienes dudas sobre tu <span class="highlight">plan de pensiones</span>, <span class="highlight">ahorro</span> o <span class="highlight">futuro financiero</span>? 
+                Nuestros asesores están disponibles para brindarte orientación personalizada a través de <span class="highlight">WhatsApp</span> o en nuestras oficinas en Toluca.
+            </p>
 
+            <a href="https://wa.me/527228038635?text=Hola,%20me%20gustaría%20recibir%20información%20sobre%20pensiones" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp whatsapp-icon"></i>
+                <span>Chatear por WhatsApp</span>
+            </a>
+
+            <div class="privacy-note">
+                Al contactarnos y compartir tus datos, puedes consultar nuestro
+                <a href="Aviso_de_Privacidad_CIP_Financial.pdf"
+                   class="privacy-link"
+                   download="Aviso_de_Privacidad_CIP_Financial.pdf">
+                   Aviso de Privacidad
+                </a>
+            </div>
+
+            <!-- Servicios -->
+            <section class="services-section">
+                <h2 class="services-title">Nuestros Servicios</h2>
+                <div class="services-container">
+                    
+                    <!-- Servicio 1 -->
+                    <a href="service.html" class="service-card">
+                        <i class="fas fa-piggy-bank service-icon"></i>
+                        <h3 class="service-title">Planes de Pensiones</h3>
+                        <p class="service-description">
+                            Asesoramiento personalizado para elegir el mejor plan.
+                        </p>
+                    </a>
+                    
+                    <!-- Servicio 2 -->
+                    <a href="Seleccion.html" class="service-card">
+                        <i class="fas fa-coins service-icon"></i>
+                        <h3 class="service-title">Ahorro Previsional</h3>
+                        <p class="service-description">
+                            Estrategias de ahorro a largo plazo para tu tranquilidad.
+                        </p>
+                    </a>
+                    
+                    <!-- Servicio 3 -->
+                    <a href="Credito.html" class="service-card">
+                        <i class="fas fa-file-signature service-icon"></i>
+                        <h3 class="service-title">Modalidad 40</h3>
+                        <p class="service-description">
+                            Regulariza tu situación ante el IMSS.
+                        </p>
+                    </a>
+                    
+                </div>
+            </section>
+        </div>
+        
+        <!-- Sidebar -->
+        <div class="contact-sidebar">
+            <h3 class="sidebar-title">Información de Contacto</h3>
+
+            <div class="contact-info-item">
+                <i class="far fa-clock"></i>
+                <span>Horario: Lunes a Viernes<br>9:00 - 18:00 hrs</span>
+            </div>
+
+            <div class="contact-info-item">
+                <i class="fas fa-phone-alt"></i>
+                <span>Teléfono: <a href="tel:7228038635">722 8038 635</a></span>
+            </div>
+
+            <div class="contact-info-item">
+                <i class="far fa-envelope"></i>
+                <span>Email: <a href="mailto:atencion@cipmexico.com.mx">atencion@cipmexico.com.mx</a></span>
+            </div>
+
+            <div class="contact-info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>
+                    <a href="https://www.google.com.mx/maps/place/Isabel+la+Cat%C3%B3lica+201b,+Sur,+San+Sebastian,+50090+Toluca+de+Lerdo,+M%C3%A9x./@19.2883004,-99.6426959,21z/data=!4m6!3m5!1s0x85cd898d2596bf5f:0xf3c1e77d9f5efe58!8m2!3d19.2884712!4d-99.6429493!16s%2Fg%2F11t2v3mnt7?entry=ttu" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        PRIV. JAIME NUNO 103, 2DO PISO<br>
+                        COL. SAN SEBASTIÁN, TOLUCA<br>
+                        MÉXICO. C.P. 50150
+                    </a>
+                </span>
+            </div>
+
+            <!-- Mini mapa -->
+            <iframe 
+                src="https://www.google.com/maps?q=Isabel+la+Cat%C3%B3lica+201b,+Sur,+San+Sebastian,+50090+Toluca+de+Lerdo,+M%C3%A9x.&output=embed" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Ubicación de CIP Financial Group">
+            </iframe>
         </div>
     </main>
-
     
-<!-- Footer Mejorado -->
-<footer class="footer">
-  <div class="footer-container">
-      <div class="footer-top">
-          <div class="container">
-              <div class="footer-brand">
-                  <h3 class="footer-title">CIP Financial Group</h3>
-                  <p class="footer-text">Soluciones financieras integrales para tu futuro</p>
-                  
-                  <div class="footer-social">
-                      <a href="https://www.facebook.com/profile.php?id=61573398725938" class="social-link" target="_blank" rel="noopener noreferrer">
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                          </svg>
-                      </a>
-                      <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                              <path d="M16 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                              <path d="M8 16V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                              <path d="M16 12H22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                              <path d="M2 12H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                              <path d="M12 2V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                              <path d="M12 16V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                          </svg>
-                      </a>
-                  </div>
-              </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="footer-brand">
+                        <h3 class="footer-title">CIP Financial Group</h3>
+                        <p class="footer-text">Soluciones financieras integrales para tu futuro</p>
+                        
+                        <div class="footer-social">
+                            <a href="https://www.facebook.com/profile.php?id=61573398725938" class="social-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
 
-              <div class="footer-links">
-                  <div class="links-group">
-                      <h5 class="links-title">Enlaces Útiles</h5>
-                      <ul class="links-list">
-                          <li><a href="index.html" class="footer-link">Inicio</a></li>
-                          <li><a href="nosotros.html" class="footer-link">Nosotros</a></li>
-                          <li><a href="Contacto.html" class="footer-link">Contacto</a></li>
-                      </ul>
-                  </div>
+                    <div class="footer-links">
+                        <div class="links-group">
+                            <h5 class="links-title">Enlaces Útiles</h5>
+                            <ul class="links-list">
+                                <li><a href="index.html" class="footer-link"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                                <li><a href="nosotros.html" class="footer-link"><i class="fas fa-chevron-right"></i> Nosotros</a></li>
+                                <li><a href="Contacto.html" class="footer-link"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                            </ul>
+                        </div>
 
-                  <div class="links-group">
-                      <h5 class="links-title">Nuestros Servicios.</h5>
-                      <ul class="links-list">
-                          <li><a href="service.html" class="footer-link">Asesoría en Pensiones</a></li>
-                          <li class="ocultar-ahorro"><a href="Seleccion.html" class="footer-link">Ahorros Inteligentes</a></li>
-                          <li><a href="Credito.html" class="footer-link">Créditos Modalidad 40</a></li>
-                      </ul>
-                  </div>
+                        <div class="links-group">
+                            <h5 class="links-title">Nuestros Servicios</h5>
+                            <ul class="links-list">
+                                <li><a href="service.html" class="footer-link"><i class="fas fa-chevron-right"></i> Asesoría en Pensiones</a></li>
+                                <li><a href="Seleccion.html" class="footer-link"><i class="fas fa-chevron-right"></i> Ahorros Inteligentes</a></li>
+                                <li><a href="Credito.html" class="footer-link"><i class="fas fa-chevron-right"></i> Créditos Modalidad 40</a></li>
+                            </ul>
+                        </div>
 
-                  <div class="links-group">
-                      <h5 class="links-title">Contacto</h5>
-                      <ul class="links-list contact-list">
-                          <li>
-                              <a href="mailto:atencion@cipmexico.com.mx" class="footer-link contact-link">
-                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                      <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                      <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                  </svg>
-                                  atencion@cipmexico.com.mx
-                              </a>
-                          </li>
-                          <li>
-                              <a href="https://wa.me/527228038635" class="footer-link contact-link whatsapp" target="_blank" rel="noopener noreferrer">
-                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                      <path d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                      <path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                      <path d="M12 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                      <path d="M9 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                      <path d="M15 12V12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                  </svg>
-                                  722 8038 635
-                              </a>
-                          </li>
-                          <li>
-                              <a href="https://www.google.com.mx/maps/place/M%C3%A9xico+15+801,+V%C3%A9rtice,+50090+Toluca+de+Lerdo,+M%C3%A9x./@19.2883769,-99.6435227,19z/data=!3m1!4b1!4m6!3m5!1s0x85cd898d25cd808b:0xdf5aa1b38781160!8m2!3d19.2883769!4d-99.642879!16s%2Fg%2F11np2r68jp?entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D" 
-                              class="footer-link contact-link map" 
-                              target="_blank" 
-                              rel="noopener noreferrer">
-                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                      <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                      <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                  </svg>
-                                  PRIV. JAIME NUNO 103, 2DO PISO, COL. SAN SEBASTIÁN, TOLUCA, MÉXICO. C.P. 50150.
-                              </a>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
+                        <div class="links-group">
+                            <h5 class="links-title">Contacto</h5>
+                            <ul class="links-list contact-list">
+                                <li>
+                                    <a href="mailto:atencion@cipmexico.com.mx" class="footer-link contact-link">
+                                        <i class="fas fa-envelope"></i>
+                                        atencion@cipmexico.com.mx
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://wa.me/527228038635" class="footer-link contact-link whatsapp" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-whatsapp"></i>
+                                        722 8038 635
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.google.com.mx/maps/place/M%C3%A9xico+15+801,+V%C3%A9rtice,+50090+Toluca+de+Lerdo,+M%C3%A9x./@19.2883769,-99.6435227,19z/data=!3m1!4b1!4m6!3m5!1s0x85cd898d25cd808b:0xdf5aa1b38781160!8m2!3d19.2883769!4d-99.642879!16s%2Fg%2F11np2r68jp?entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D" 
+                                    class="footer-link contact-link map" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        PRIV. JAIME NUNO 103, 2DO PISO, COL. SAN SEBASTIÁN, TOLUCA, MÉXICO. C.P. 50150.
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="footer-bottom">
+                <div class="container footer-bottom-content">
+                    <p class="copyright">
+                        &copy; <span id="current-year"></span> CIP Financial Group. Todos los derechos reservados.
+                    </p>
+                    <a href="Aviso_de_Privacidad_CIP_Financial.pdf"
+                       class="privacy-link"
+                       download="Aviso_de_Privacidad_CIP_Financial.pdf">
+                       Aviso de Privacidad
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-          </div>
-      </div>
+    <script>
+        // Current Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
 
-<div class="footer-bottom">
-    <div class="container footer-bottom-content">
-        <p class="copyright">
-            &copy; <span id="current-year"></span> CIP Financial Group. Todos los derechos reservados.
-        </p>
-
-<a href="Aviso_de_Privacidad_CIP_Financial.pdf"
-   class="privacy-link"
-   download="Aviso_de_Privacidad_CIP_Financial.pdf">
-   Aviso de Privacidad
-</a>
-    </div>
-</div>
-  </div>
-</footer>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const menuIcon = document.querySelector(".menu-icon");
-  const menuItems = document.querySelector(".menu-items");
-  const dropdown = document.querySelector(".menu-item.dropdown");
-  const toggle = dropdown.querySelector(".dropdown-toggle");
-
-  // Mostrar/Ocultar menú hamburguesa
-  menuIcon?.addEventListener("click", (e) => {
-    e.stopPropagation();
-    menuIcon.classList.toggle("active");
-    menuItems.classList.toggle("show");
-    dropdown.classList.remove("active");
-  });
-
-  // Al hacer clic en "Servicios"
-  toggle?.addEventListener("click", function (e) {
-    if (window.innerWidth <= 768) {
-      e.preventDefault();
-      e.stopPropagation();
-      dropdown.classList.toggle("active");
-
-      // Asegura rotar solo el ícono de este menú
-      const chevron = this.querySelector(".fa-chevron-down");
-      if (dropdown.classList.contains("active")) {
-        chevron.style.transform = "rotate(180deg)";
-      } else {
-        chevron.style.transform = "rotate(0deg)";
-      }
-    }
-  });
-
-  // Cierra menú y submenú si se hace clic fuera
-  document.addEventListener("click", function (e) {
-    if (window.innerWidth <= 768) {
-      if (!menuItems.contains(e.target)) {
-        menuItems.classList.remove("show");
-        menuIcon?.classList.remove("active");
-        dropdown.classList.remove("active");
-        toggle.querySelector(".fa-chevron-down").style.transform = "rotate(0deg)";
-      }
-    }
-  });
-});
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    const carousel = document.querySelector('.carousel-inner');
-    const items = document.querySelectorAll('.carousel-item');
-    const prevBtn = document.querySelector('.carousel-control-prev');
-    const nextBtn = document.querySelector('.carousel-control-next');
-    const indicators = document.querySelectorAll('.carousel-indicators li');
-
-    let currentIndex = 0;
-    const totalItems = items.length;
-    let isTransitioning = false;
-    let transitionEndEvent = 'transitionend';
-    let transformProp = 'transform';
-
-    // Detección de prefijos para navegadores antiguos
-    if ('webkitTransition' in document.body.style) {
-        transitionEndEvent = 'webkitTransitionEnd';
-        transformProp = 'webkitTransform';
-    }
-
-    // Función para actualizar indicadores
-    function updateIndicators(index) {
-        indicators.forEach((indicator, i) => {
-            indicator.classList.toggle('active', i === index);
+        // Scroll effect for header
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
-    }
 
-    // Función para ir a un slide específico
-    function goToSlide(index, instant = false) {
-        if (isTransitioning && !instant) return;
+        // Mobile menu functionality
+        document.addEventListener("DOMContentLoaded", function () {
+            const navToggle = document.getElementById('navToggle');
+            const navList = document.getElementById('navList');
+            const dropdown = document.querySelector('.dropdown');
+            const toggle = dropdown.querySelector('.dropdown-toggle');
 
-        // Asegurar que el índice esté dentro de los límites
-        currentIndex = (index + totalItems) % totalItems;
-
-        if (instant) {
-            // Desactivar transición temporalmente
-            carousel.style.transition = 'none';
-        }
-
-        // Aplicar transformación
-        carousel.style[transformProp] = `translateX(-${currentIndex * 100}%)`;
-
-        if (instant) {
-            // Forzar reflow para asegurar que el navegador procese el cambio sin transición
-            void carousel.offsetWidth;
-            
-            // Restaurar transición en el siguiente frame
-            requestAnimationFrame(() => {
-                carousel.style.transition = '';
+            navToggle.addEventListener('click', () => {
+                navToggle.classList.toggle('active');
+                navList.classList.toggle('active');
+                
+                // Animate icon
+                const spans = navToggle.querySelectorAll('span');
+                if (navList.classList.contains('active')) {
+                    spans[0].style.transform = 'rotate(45deg) translate(8px, 8px)';
+                    spans[1].style.opacity = '0';
+                    spans[2].style.transform = 'rotate(-45deg) translate(8px, -8px)';
+                } else {
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
             });
-        } else {
-            isTransitioning = true;
-        }
 
-        updateIndicators(currentIndex);
-    }
+            toggle?.addEventListener("click", function (e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dropdown.classList.toggle("active");
 
-    // Manejador de evento de fin de transición
-    function handleTransitionEnd() {
-        isTransitioning = false;
-    }
+                    const chevron = this.querySelector(".fa-chevron-down");
+                    if (dropdown.classList.contains("active")) {
+                        chevron.style.transform = "rotate(180deg)";
+                    } else {
+                        chevron.style.transform = "rotate(0deg)";
+                    }
+                }
+            });
 
-    // Event listeners
-    function setupEventListeners() {
-        carousel.addEventListener(transitionEndEvent, handleTransitionEnd);
-        
-        prevBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            if (!isTransitioning) goToSlide(currentIndex - 1);
-        });
-
-        nextBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            if (!isTransitioning) goToSlide(currentIndex + 1);
-        });
-
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (!isTransitioning && index !== currentIndex) {
-                    goToSlide(index);
+            document.addEventListener("click", function (e) {
+                if (window.innerWidth <= 768) {
+                    if (!navList.contains(e.target) && !navToggle.contains(e.target)) {
+                        navList.classList.remove("active");
+                        navToggle.classList.remove("active");
+                        dropdown.classList.remove("active");
+                        if (toggle) {
+                            toggle.querySelector(".fa-chevron-down").style.transform = "rotate(0deg)";
+                        }
+                        
+                        const spans = navToggle.querySelectorAll('span');
+                        spans[0].style.transform = 'none';
+                        spans[1].style.opacity = '1';
+                        spans[2].style.transform = 'none';
+                    }
                 }
             });
         });
-    }
-
-    // Inicialización
-    function initCarousel() {
-        // Ocultar todos los slides excepto el primero
-        items.forEach((item, index) => {
-            item.style.opacity = index === 0 ? '1' : '0';
-        });
-
-        // Configurar posición inicial sin animación
-        goToSlide(0, true);
-
-        // Mostrar todos los slides después de la inicialización
-        setTimeout(() => {
-            items.forEach(item => {
-                item.style.opacity = '1';
-            });
-        }, 50);
-
-        setupEventListeners();
-    }
-
-    initCarousel();
-});
-</script>
-<script>
-window.addEventListener('scroll', function() {
-    const menuContainer = document.querySelector('.menu-container');
-    if (window.scrollY > 10) {
-        menuContainer.classList.add('en-top');
-    } else {
-        menuContainer.classList.remove('en-top');
-    }
-});
-</script>
-
+    </script>
 </body>
-</head>
 </html>
