@@ -2725,18 +2725,106 @@
                 pdf.setTextColor(5, 47, 95);
                 pdf.text('Proyección de tu Inversión', M, 45);
 
-                // Chart.js exporta el canvas actual como imagen PNG.
-                const chartImg = growthChart.toBase64Image('image/png', 1);
-                pdf.addImage(chartImg, 'PNG', M, 55, CW, 108);
+                // Captura segura de la gráfica. Si la pestaña está oculta,
+                // la mostramos fuera de pantalla temporalmente para que Chart.js
+                // tenga dimensiones válidas. Si aun así falla, el PDF continúa.
+                let chartAgregado = false;
+                const seccionProyeccion = document.getElementById('proyeccion');
+                const canvasGrafica = document.getElementById('growthChart');
+                const estabaActiva = seccionProyeccion?.classList.contains('active') || false;
 
+                const estilosTemporales = seccionProyeccion ? {
+                    display: seccionProyeccion.style.display,
+                    position: seccionProyeccion.style.position,
+                    left: seccionProyeccion.style.left,
+                    top: seccionProyeccion.style.top,
+                    width: seccionProyeccion.style.width,
+                    visibility: seccionProyeccion.style.visibility,
+                    pointerEvents: seccionProyeccion.style.pointerEvents
+                } : null;
+
+                try {
+                    if (!seccionProyeccion || !canvasGrafica) {
+                        throw new Error('No se encontró la sección o el canvas de proyección.');
+                    }
+
+                    if (!estabaActiva) {
+                        seccionProyeccion.style.display = 'block';
+                        seccionProyeccion.style.position = 'absolute';
+                        seccionProyeccion.style.left = '-10000px';
+                        seccionProyeccion.style.top = '0';
+                        seccionProyeccion.style.width = '1200px';
+                        seccionProyeccion.style.visibility = 'hidden';
+                        seccionProyeccion.style.pointerEvents = 'none';
+                    }
+
+                    if (growthChart) {
+                        growthChart.resize();
+                        growthChart.update('none');
+                    }
+
+                    // Damos tiempo al navegador para redibujar el canvas.
+                    await new Promise(resolve => requestAnimationFrame(() =>
+                        requestAnimationFrame(resolve)
+                    ));
+
+                    if (canvasGrafica.width <= 0 || canvasGrafica.height <= 0) {
+                        throw new Error('El canvas de la gráfica no tiene dimensiones válidas.');
+                    }
+
+                    // JPEG resulta más estable con jsPDF que el PNG generado
+                    // por toBase64Image() cuando la pestaña estaba oculta.
+                    const chartImg = canvasGrafica.toDataURL('image/jpeg', 0.92);
+
+                    if (!chartImg ||
+                        !chartImg.startsWith('data:image/jpeg;base64,') ||
+                        chartImg.length < 1000) {
+                        throw new Error('La imagen generada desde la gráfica no es válida.');
+                    }
+
+                    pdf.addImage(chartImg, 'JPEG', M, 55, CW, 108);
+                    chartAgregado = true;
+
+                } catch (errorGrafica) {
+                    console.warn('No se pudo agregar la gráfica al PDF:', errorGrafica);
+
+                    pdf.setFont('helvetica', 'normal');
+                    pdf.setFontSize(10.5);
+                    pdf.setTextColor(71, 85, 105);
+                    pdf.text(
+                        pdf.splitTextToSize(
+                            'La gráfica de proyección no pudo incrustarse en el reporte, pero los cálculos y resultados sí se incluyen.',
+                            CW
+                        ),
+                        M,
+                        62
+                    );
+                } finally {
+                    if (seccionProyeccion && estilosTemporales && !estabaActiva) {
+                        seccionProyeccion.style.display = estilosTemporales.display;
+                        seccionProyeccion.style.position = estilosTemporales.position;
+                        seccionProyeccion.style.left = estilosTemporales.left;
+                        seccionProyeccion.style.top = estilosTemporales.top;
+                        seccionProyeccion.style.width = estilosTemporales.width;
+                        seccionProyeccion.style.visibility = estilosTemporales.visibility;
+                        seccionProyeccion.style.pointerEvents = estilosTemporales.pointerEvents;
+
+                        if (growthChart) {
+                            growthChart.resize();
+                        }
+                    }
+                }
+
+                pdf.setFont('helvetica', 'bold');
                 pdf.setFontSize(13);
-                pdf.text('Resumen', M, 179);
+                pdf.setTextColor(5, 47, 95);
+                pdf.text('Resumen', M, chartAgregado ? 179 : 95);
                 const resumen = [
                     ['Tradicional · 12 meses', texto('total-detalle-12')],
                     ['Moderado · 24 meses', texto('total-detalle-24')],
                     ['Alto Rendimiento · 60 meses', texto('total-detalle-60')]
                 ];
-                y = 190;
+                y = chartAgregado ? 190 : 106;
                 resumen.forEach(([label, value]) => {
                     pdf.setFont('helvetica', 'normal');
                     pdf.setFontSize(10.5);
