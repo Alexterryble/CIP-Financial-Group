@@ -955,9 +955,10 @@
         font-size: 0.9rem;
         padding: 5px 12px;
         border-radius: var(--border-radius-full);
-        background: var(--primary-light);
-        color: var(--primary);
-        font-weight: 600;
+        background: var(--primary);
+        color: var(--white);
+        font-weight: 700;
+        box-shadow: 0 4px 10px rgba(5,47,95,0.18);
     }
 
     .plan-title-modern .badge.badge-success {
@@ -2788,7 +2789,9 @@
 
                     if (logoDataUrl) {
                         try {
-                            pdf.addImage(logoDataUrl, 'PNG', M, 5, 24, 14);
+                            pdf.setFillColor(255, 255, 255);
+                            pdf.roundedRect(M - 1, 4, 28, 16, 2.5, 2.5, 'F');
+                            pdf.addImage(logoDataUrl, 'PNG', M + 1, 5, 24, 14);
                         } catch (e) {
                             console.warn('No se pudo agregar el logo al PDF:', e);
                         }
