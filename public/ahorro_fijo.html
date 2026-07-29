@@ -2741,17 +2741,27 @@
                     y += 9;
                 });
 
-                y += 8;
+                y += 7;
+                // Mantener el bloque de beneficio separado del pie de página.
+                const maxBenefitY = H - 46;
+                if (y > maxBenefitY) y = maxBenefitY;
+
                 pdf.setFillColor(5,47,95);
-                pdf.roundedRect(M,y,CW,25,4,4,'F');
+                pdf.roundedRect(M,y,CW,22,4,4,'F');
                 pdf.setTextColor(255,255,255);
                 pdf.setFont('helvetica','bold');
-                pdf.setFontSize(11);
-                pdf.text('Beneficio adicional con CIP',M+7,y+9);
+                pdf.setFontSize(10.5);
+                pdf.text('Beneficio adicional con CIP',M+7,y+8);
+
                 pdf.setFontSize(14);
-                pdf.text(txt('ganancia-extra'),M+7,y+19);
-                pdf.setFontSize(9.5);
-                pdf.text(txt('comparativa-banco') || 'Comparativa calculada con las tasas mostradas',W-M-7,y+17,{align:'right'});
+                pdf.text(txt('ganancia-extra'),M+7,y+17);
+
+                let comparativaTexto = txt('comparativa-banco');
+                if (!comparativaTexto || comparativaTexto.toLowerCase().includes('selecciona una alternativa')) {
+                    comparativaTexto = 'Frente a las alternativas del mercado mostradas';
+                }
+                pdf.setFontSize(8.8);
+                pdf.text(comparativaTexto,W-M-7,y+14.5,{align:'right'});
 
                 pie();
                 pdf.save(`Reporte_Ahorro_${selectedPlan.name.replace(/\s+/g,'_')}.pdf`);
