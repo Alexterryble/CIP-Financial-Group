@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,6 +32,9 @@
 
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- jsPDF: generación del reporte descargable -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
   <style>
     /* ===== VARIABLES ===== */
@@ -1675,6 +1679,47 @@
 .brand-name{
   display:none;
 }
+
+
+    /* ===== BOTONES DE ACCIÓN / REPORTE PDF ===== */
+    .action-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .btn-pdf {
+        background: var(--white);
+        color: var(--primary);
+        border: 2px solid var(--primary);
+        box-shadow: 0 10px 25px rgba(5,47,95,0.15);
+    }
+
+    .btn-pdf:hover {
+        background: var(--primary);
+        color: var(--white);
+        border-color: var(--primary);
+    }
+
+    .btn-pdf:disabled {
+        opacity: .65;
+        cursor: wait;
+        transform: none;
+    }
+
+    @media (max-width: 576px) {
+        .action-buttons {
+            flex-direction: column;
+        }
+
+        .action-buttons .btn {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+
   </style>
 </head>
 <body>
@@ -2110,9 +2155,16 @@
     <!-- ACCIÓN -->
     <div class="content-container">
         <div class="action-section">
-            <a href="Contacto.html" class="btn">
-                <i class="fas fa-hand-holding-usd"></i> INVERTIR AHORA
-            </a>
+            <div class="action-buttons">
+                <a href="Contacto.html" class="btn">
+                    <i class="fas fa-hand-holding-usd"></i> INVERTIR AHORA
+                </a>
+
+                <button type="button" class="btn btn-pdf" id="btn-reporte-pdf" onclick="descargarReportePDF()">
+                    <i class="fas fa-file-pdf"></i> DESCARGAR REPORTE
+                </button>
+            </div>
+
             <p class="info-text">
                 <i class="fas fa-shield-alt"></i> Rendimientos garantizados • 
                 <i class="fas fa-ban"></i> Sin comisiones ocultas • 
@@ -2542,6 +2594,232 @@
                 calcularGanancias();
             });
         });
+
+
+        // ===== REPORTE PDF: DETALLES + PROYECCIÓN + COMPARATIVA =====
+        async function descargarReportePDF() {
+            const montoInput = document.getElementById('monto');
+            const monto = parseFloat(montoInput?.value) || 0;
+            const boton = document.getElementById('btn-reporte-pdf');
+
+            if (monto < 10000 || monto > 1000000) {
+                alert('Ingresa un monto entre $10,000 y $1,000,000 antes de generar el reporte.');
+                montoInput?.focus();
+                return;
+            }
+
+            if (!window.jspdf?.jsPDF) {
+                alert('No se pudo cargar el generador de PDF. Revisa tu conexión e inténtalo de nuevo.');
+                return;
+            }
+
+            // Nos aseguramos de que todos los cálculos estén actualizados.
+            calcularInversion();
+            calcularGanancias();
+
+            const textoOriginal = boton.innerHTML;
+            boton.disabled = true;
+            boton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> GENERANDO PDF...';
+
+            try {
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+                const W = 210;
+                const H = 297;
+                const M = 15;
+                const CW = W - (M * 2);
+
+                const texto = (id) => (document.getElementById(id)?.textContent || '').trim();
+                const fechaHoy = new Date().toLocaleDateString('es-MX', {
+                    year: 'numeric', month: 'long', day: 'numeric'
+                });
+
+                function encabezado(subtitulo) {
+                    pdf.setFillColor(5, 47, 95);
+                    pdf.rect(0, 0, W, 31, 'F');
+                    pdf.setTextColor(255, 255, 255);
+                    pdf.setFont('helvetica', 'bold');
+                    pdf.setFontSize(18);
+                    pdf.text('CIP FINANCIAL GROUP', W / 2, 13, { align: 'center' });
+                    pdf.setFontSize(11);
+                    pdf.text(subtitulo, W / 2, 22, { align: 'center' });
+                }
+
+                function pie() {
+                    const paginas = pdf.internal.getNumberOfPages();
+                    for (let i = 1; i <= paginas; i++) {
+                        pdf.setPage(i);
+                        pdf.setDrawColor(226, 232, 240);
+                        pdf.line(M, H - 16, W - M, H - 16);
+                        pdf.setFont('helvetica', 'normal');
+                        pdf.setFontSize(8);
+                        pdf.setTextColor(100, 116, 139);
+                        pdf.text('CIP Financial Group · Simulación informativa Plan 40', M, H - 9);
+                        pdf.text(`Página ${i} de ${paginas}`, W - M, H - 9, { align: 'right' });
+                    }
+                }
+
+                // ===== PÁGINA 1: DETALLES =====
+                encabezado('Reporte de simulación · Plan 40');
+                pdf.setTextColor(30, 41, 59);
+                pdf.setFont('helvetica', 'normal');
+                pdf.setFontSize(10.5);
+                pdf.text(`Fecha de simulación: ${fechaHoy}`, M, 43);
+                pdf.text('Monto de inversión:', M, 51);
+                pdf.setFont('helvetica', 'bold');
+                pdf.setTextColor(5, 47, 95);
+                pdf.text(formatCurrency(monto), 52, 51);
+
+                pdf.setFontSize(16);
+                pdf.text('Detalles de los Planes', M, 66);
+
+                const planes = [
+                    { nombre: 'Tradicional', tasa: '20%', plazo: '12 meses', ganancia: texto('ganancia-detalle-12'), total: texto('total-detalle-12'), retorno: texto('fecha-retorno-12') },
+                    { nombre: 'Moderado', tasa: '44%', plazo: '24 meses', ganancia: texto('ganancia-detalle-24'), total: texto('total-detalle-24'), retorno: texto('fecha-retorno-24') },
+                    { nombre: 'Alto Rendimiento', tasa: '148%', plazo: '60 meses', ganancia: texto('ganancia-detalle-60'), total: texto('total-detalle-60'), retorno: texto('fecha-retorno-60') }
+                ];
+
+                let y = 76;
+                planes.forEach((plan) => {
+                    pdf.setFillColor(248, 250, 252);
+                    pdf.setDrawColor(226, 232, 240);
+                    pdf.roundedRect(M, y, CW, 48, 4, 4, 'FD');
+
+                    pdf.setFont('helvetica', 'bold');
+                    pdf.setFontSize(13);
+                    pdf.setTextColor(5, 47, 95);
+                    pdf.text(plan.nombre, M + 6, y + 9);
+
+                    pdf.setFillColor(232, 245, 238);
+                    pdf.roundedRect(W - M - 26, y + 3.5, 20, 8, 4, 4, 'F');
+                    pdf.setTextColor(40, 167, 69);
+                    pdf.setFontSize(9.5);
+                    pdf.text(plan.tasa, W - M - 16, y + 9, { align: 'center' });
+
+                    pdf.setTextColor(71, 85, 105);
+                    pdf.setFont('helvetica', 'normal');
+                    pdf.setFontSize(10);
+                    pdf.text(`Plazo: ${plan.plazo}`, M + 6, y + 20);
+                    pdf.text('Ganancia:', M + 6, y + 30);
+                    pdf.text('Total:', M + 91, y + 30);
+                    pdf.text(`Retorno estimado: ${plan.retorno}`, M + 6, y + 40);
+
+                    pdf.setTextColor(40, 167, 69);
+                    pdf.setFont('helvetica', 'bold');
+                    pdf.text(plan.ganancia, M + 29, y + 30);
+                    pdf.text(plan.total, M + 106, y + 30);
+                    y += 55;
+                });
+
+                pdf.setFont('helvetica', 'normal');
+                pdf.setFontSize(8.5);
+                pdf.setTextColor(100, 116, 139);
+                const nota = 'Las fechas de retorno son estimadas y se calculan tomando como referencia la fecha de la simulación.';
+                pdf.text(pdf.splitTextToSize(nota, CW), M, y + 2);
+
+                // ===== PÁGINA 2: PROYECCIÓN =====
+                pdf.addPage();
+                encabezado('Proyección de la inversión');
+                pdf.setFont('helvetica', 'bold');
+                pdf.setFontSize(16);
+                pdf.setTextColor(5, 47, 95);
+                pdf.text('Proyección de tu Inversión', M, 45);
+
+                // Chart.js exporta el canvas actual como imagen PNG.
+                const chartImg = growthChart.toBase64Image('image/png', 1);
+                pdf.addImage(chartImg, 'PNG', M, 55, CW, 108);
+
+                pdf.setFontSize(13);
+                pdf.text('Resumen', M, 179);
+                const resumen = [
+                    ['Tradicional · 12 meses', texto('total-detalle-12')],
+                    ['Moderado · 24 meses', texto('total-detalle-24')],
+                    ['Alto Rendimiento · 60 meses', texto('total-detalle-60')]
+                ];
+                y = 190;
+                resumen.forEach(([label, value]) => {
+                    pdf.setFont('helvetica', 'normal');
+                    pdf.setFontSize(10.5);
+                    pdf.setTextColor(71, 85, 105);
+                    pdf.text(label, M, y);
+                    pdf.setFont('helvetica', 'bold');
+                    pdf.setTextColor(40, 167, 69);
+                    pdf.text(value, W - M, y, { align: 'right' });
+                    y += 12;
+                });
+
+                // ===== PÁGINA 3: COMPARATIVA =====
+                pdf.addPage();
+                encabezado('Comparativa de rendimientos');
+                pdf.setFont('helvetica', 'bold');
+                pdf.setFontSize(16);
+                pdf.setTextColor(5, 47, 95);
+                pdf.text('Comparativa', M, 45);
+
+                const bancos = [
+                    { nombre: 'BBVA', tasa: '2.5%', id: 'bbva' },
+                    { nombre: 'Santander', tasa: '1.8%', id: 'santander' },
+                    { nombre: 'Citibanamex', tasa: '1.2%', id: 'banamex' },
+                    { nombre: 'Mercado Pago', tasa: '4.5%', id: 'mercadopago' },
+                    { nombre: 'Nu', tasa: '5.0%', id: 'nu' },
+                    { nombre: 'GBM+', tasa: '5.3%', id: 'gbm' }
+                ];
+
+                y = 56;
+                pdf.setFillColor(5, 47, 95);
+                pdf.rect(M, y, CW, 11, 'F');
+                pdf.setTextColor(255, 255, 255);
+                pdf.setFont('helvetica', 'bold');
+                pdf.setFontSize(8.5);
+                pdf.text('Institución', M + 3, y + 7.5);
+                pdf.text('Tasa', M + 57, y + 7.5);
+                pdf.text('12 meses', M + 82, y + 7.5);
+                pdf.text('24 meses', M + 117, y + 7.5);
+                pdf.text('60 meses', M + 151, y + 7.5);
+                y += 11;
+
+                bancos.forEach((banco, index) => {
+                    if (index % 2 === 0) {
+                        pdf.setFillColor(248, 250, 252);
+                        pdf.rect(M, y, CW, 12, 'F');
+                    }
+                    pdf.setTextColor(30, 41, 59);
+                    pdf.setFont('helvetica', 'normal');
+                    pdf.setFontSize(8.2);
+                    pdf.text(banco.nombre, M + 3, y + 8);
+                    pdf.text(banco.tasa, M + 57, y + 8);
+                    pdf.text(texto(`${banco.id}-12-g`), M + 82, y + 8);
+                    pdf.text(texto(`${banco.id}-24-g`), M + 117, y + 8);
+                    pdf.text(texto(`${banco.id}-60-g`), M + 151, y + 8);
+                    y += 12;
+                });
+
+                y += 15;
+                pdf.setFillColor(5, 47, 95);
+                pdf.roundedRect(M, y, CW, 53, 4, 4, 'F');
+                pdf.setTextColor(255, 255, 255);
+                pdf.setFont('helvetica', 'bold');
+                pdf.setFontSize(13.5);
+                pdf.text('Ganancias estimadas con CIP', M + 8, y + 12);
+                pdf.setFontSize(10);
+                pdf.text('Tradicional · 12 meses', M + 8, y + 25);
+                pdf.text(texto('ganancia-cip-12'), W - M - 8, y + 25, { align: 'right' });
+                pdf.text('Moderado · 24 meses', M + 8, y + 36);
+                pdf.text(texto('ganancia-cip-24'), W - M - 8, y + 36, { align: 'right' });
+                pdf.text('Alto Rendimiento · 60 meses', M + 8, y + 47);
+                pdf.text(texto('ganancia-cip-60'), W - M - 8, y + 47, { align: 'right' });
+
+                pie();
+                pdf.save(`Simulacion_Plan40_${monto}.pdf`);
+            } catch (error) {
+                console.error('Error al generar el PDF:', error);
+                alert('Ocurrió un error al generar el PDF. Revisa la consola del navegador para más detalles.');
+            } finally {
+                boton.disabled = false;
+                boton.innerHTML = textoOriginal;
+            }
+        }
+
     </script>
 </body>
 </html>
