@@ -2597,6 +2597,7 @@
 
 
         // ===== REPORTE PDF: DETALLES + PROYECCIÓN + COMPARATIVA =====
+        
         async function descargarReportePDF() {
             const montoInput = document.getElementById('monto');
             const monto = parseFloat(montoInput?.value) || 0;
@@ -2613,7 +2614,6 @@
                 return;
             }
 
-            // Nos aseguramos de que todos los cálculos estén actualizados.
             calcularInversion();
             calcularGanancias();
 
@@ -2626,7 +2626,7 @@
                 const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
                 const W = 210;
                 const H = 297;
-                const M = 15;
+                const M = 12;
                 const CW = W - (M * 2);
 
                 const texto = (id) => (document.getElementById(id)?.textContent || '').trim();
@@ -2634,15 +2634,116 @@
                     year: 'numeric', month: 'long', day: 'numeric'
                 });
 
+                async function obtenerLogoDataUrl() {
+                    const imgDom = document.querySelector('.brand-logo');
+                    const src = imgDom?.currentSrc || imgDom?.src || (location.origin + '/images/logo.png');
+
+                    return await new Promise((resolve) => {
+                        if (!src) return resolve(null);
+                        const img = new Image();
+                        img.crossOrigin = 'anonymous';
+                        img.onload = function () {
+                            try {
+                                const canvas = document.createElement('canvas');
+                                canvas.width = img.naturalWidth || img.width;
+                                canvas.height = img.naturalHeight || img.height;
+                                const ctx = canvas.getContext('2d');
+                                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                                ctx.drawImage(img, 0, 0);
+                                resolve(canvas.toDataURL('image/png'));
+                            } catch (e) {
+                                resolve(null);
+                            }
+                        };
+                        img.onerror = () => resolve(null);
+                        img.src = src;
+                    });
+                }
+
+                async function capturarGraficaConFondoBlanco() {
+                    const seccionProyeccion = document.getElementById('proyeccion');
+                    const canvasGrafica = document.getElementById('growthChart');
+                    if (!seccionProyeccion || !canvasGrafica) return null;
+
+                    const estabaActiva = seccionProyeccion.classList.contains('active');
+                    const estilosTemporales = {
+                        display: seccionProyeccion.style.display,
+                        position: seccionProyeccion.style.position,
+                        left: seccionProyeccion.style.left,
+                        top: seccionProyeccion.style.top,
+                        width: seccionProyeccion.style.width,
+                        visibility: seccionProyeccion.style.visibility,
+                        pointerEvents: seccionProyeccion.style.pointerEvents
+                    };
+
+                    try {
+                        if (!estabaActiva) {
+                            seccionProyeccion.style.display = 'block';
+                            seccionProyeccion.style.position = 'absolute';
+                            seccionProyeccion.style.left = '-10000px';
+                            seccionProyeccion.style.top = '0';
+                            seccionProyeccion.style.width = '1200px';
+                            seccionProyeccion.style.visibility = 'hidden';
+                            seccionProyeccion.style.pointerEvents = 'none';
+                        }
+
+                        if (growthChart) {
+                            growthChart.resize();
+                            growthChart.update('none');
+                        }
+
+                        await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+
+                        if (canvasGrafica.width <= 0 || canvasGrafica.height <= 0) return null;
+
+                        const exportCanvas = document.createElement('canvas');
+                        exportCanvas.width = canvasGrafica.width;
+                        exportCanvas.height = canvasGrafica.height;
+                        const ctx = exportCanvas.getContext('2d');
+                        ctx.fillStyle = '#ffffff';
+                        ctx.fillRect(0, 0, exportCanvas.width, exportCanvas.height);
+                        ctx.drawImage(canvasGrafica, 0, 0);
+
+                        const dataUrl = exportCanvas.toDataURL('image/png');
+                        if (!dataUrl || !dataUrl.startsWith('data:image/png;base64,')) return null;
+                        return dataUrl;
+                    } catch (e) {
+                        console.warn('No se pudo capturar la gráfica:', e);
+                        return null;
+                    } finally {
+                        if (!estabaActiva) {
+                            seccionProyeccion.style.display = estilosTemporales.display;
+                            seccionProyeccion.style.position = estilosTemporales.position;
+                            seccionProyeccion.style.left = estilosTemporales.left;
+                            seccionProyeccion.style.top = estilosTemporales.top;
+                            seccionProyeccion.style.width = estilosTemporales.width;
+                            seccionProyeccion.style.visibility = estilosTemporales.visibility;
+                            seccionProyeccion.style.pointerEvents = estilosTemporales.pointerEvents;
+                        }
+                        if (growthChart) growthChart.resize();
+                    }
+                }
+
+                const logoDataUrl = await obtenerLogoDataUrl();
+
                 function encabezado(subtitulo) {
                     pdf.setFillColor(5, 47, 95);
-                    pdf.rect(0, 0, W, 31, 'F');
+                    pdf.rect(0, 0, W, 28, 'F');
+
+                    if (logoDataUrl) {
+                        try {
+                            pdf.addImage(logoDataUrl, 'PNG', M, 5, 24, 14);
+                        } catch (e) {
+                            console.warn('No se pudo agregar el logo al PDF:', e);
+                        }
+                    }
+
                     pdf.setTextColor(255, 255, 255);
                     pdf.setFont('helvetica', 'bold');
-                    pdf.setFontSize(18);
-                    pdf.text('CIP FINANCIAL GROUP', W / 2, 13, { align: 'center' });
-                    pdf.setFontSize(11);
-                    pdf.text(subtitulo, W / 2, 22, { align: 'center' });
+                    pdf.setFontSize(17);
+                    pdf.text('CIP FINANCIAL GROUP', W / 2, 12, { align: 'center' });
+                    pdf.setFontSize(10.5);
+                    pdf.text(subtitulo, W / 2, 21, { align: 'center' });
                 }
 
                 function pie() {
@@ -2650,28 +2751,14 @@
                     for (let i = 1; i <= paginas; i++) {
                         pdf.setPage(i);
                         pdf.setDrawColor(226, 232, 240);
-                        pdf.line(M, H - 16, W - M, H - 16);
+                        pdf.line(M, H - 13, W - M, H - 13);
                         pdf.setFont('helvetica', 'normal');
                         pdf.setFontSize(8);
                         pdf.setTextColor(100, 116, 139);
-                        pdf.text('CIP Financial Group · Simulación informativa Plan 40', M, H - 9);
-                        pdf.text(`Página ${i} de ${paginas}`, W - M, H - 9, { align: 'right' });
+                        pdf.text('CIP Financial Group · Simulación informativa Plan 40', M, H - 7);
+                        pdf.text(`Página ${i} de ${paginas}`, W - M, H - 7, { align: 'right' });
                     }
                 }
-
-                // ===== PÁGINA 1: DETALLES =====
-                encabezado('Reporte de simulación · Plan 40');
-                pdf.setTextColor(30, 41, 59);
-                pdf.setFont('helvetica', 'normal');
-                pdf.setFontSize(10.5);
-                pdf.text(`Fecha de simulación: ${fechaHoy}`, M, 43);
-                pdf.text('Monto de inversión:', M, 51);
-                pdf.setFont('helvetica', 'bold');
-                pdf.setTextColor(5, 47, 95);
-                pdf.text(formatCurrency(monto), 52, 51);
-
-                pdf.setFontSize(16);
-                pdf.text('Detalles de los Planes', M, 66);
 
                 const planes = [
                     { nombre: 'Tradicional', tasa: '20%', plazo: '12 meses', ganancia: texto('ganancia-detalle-12'), total: texto('total-detalle-12'), retorno: texto('fecha-retorno-12') },
@@ -2679,170 +2766,107 @@
                     { nombre: 'Alto Rendimiento', tasa: '148%', plazo: '60 meses', ganancia: texto('ganancia-detalle-60'), total: texto('total-detalle-60'), retorno: texto('fecha-retorno-60') }
                 ];
 
-                let y = 76;
-                planes.forEach((plan) => {
+                // ===== PÁGINA 1: DETALLES + PROYECCIÓN =====
+                encabezado('Reporte de simulación · Plan 40');
+                pdf.setFont('helvetica', 'normal');
+                pdf.setFontSize(10);
+                pdf.setTextColor(71, 85, 105);
+                pdf.text(`Fecha de simulación: ${fechaHoy}`, M, 36);
+                pdf.text('Monto de inversión:', M, 43);
+                pdf.setFont('helvetica', 'bold');
+                pdf.setTextColor(5, 47, 95);
+                pdf.text(formatCurrency(monto), 50, 43);
+
+                pdf.setFont('helvetica', 'bold');
+                pdf.setFontSize(15);
+                pdf.text('Detalles de los Planes', M, 54);
+
+                let y = 60;
+                planes.forEach((plan, index) => {
                     pdf.setFillColor(248, 250, 252);
                     pdf.setDrawColor(226, 232, 240);
-                    pdf.roundedRect(M, y, CW, 48, 4, 4, 'FD');
+                    pdf.roundedRect(M, y, CW, 28, 3, 3, 'FD');
 
                     pdf.setFont('helvetica', 'bold');
-                    pdf.setFontSize(13);
+                    pdf.setFontSize(12);
                     pdf.setTextColor(5, 47, 95);
-                    pdf.text(plan.nombre, M + 6, y + 9);
+                    pdf.text(plan.nombre, M + 5, y + 8);
 
-                    pdf.setFillColor(232, 245, 238);
-                    pdf.roundedRect(W - M - 26, y + 3.5, 20, 8, 4, 4, 'F');
-                    pdf.setTextColor(40, 167, 69);
-                    pdf.setFontSize(9.5);
-                    pdf.text(plan.tasa, W - M - 16, y + 9, { align: 'center' });
+                    const pillColor = index === 0 ? [234, 241, 250] : (index === 1 ? [232, 245, 238] : [255, 248, 225]);
+                    const pillText = index === 2 ? [179, 131, 0] : [40, 167, 69];
+                    pdf.setFillColor(...pillColor);
+                    pdf.roundedRect(W - M - 25, y + 3.5, 18, 7, 4, 4, 'F');
+                    pdf.setTextColor(...pillText);
+                    pdf.setFontSize(8.8);
+                    pdf.text(plan.tasa, W - M - 16, y + 8.2, { align: 'center' });
 
-                    pdf.setTextColor(71, 85, 105);
                     pdf.setFont('helvetica', 'normal');
-                    pdf.setFontSize(10);
-                    pdf.text(`Plazo: ${plan.plazo}`, M + 6, y + 20);
-                    pdf.text('Ganancia:', M + 6, y + 30);
-                    pdf.text('Total:', M + 91, y + 30);
-                    pdf.text(`Retorno estimado: ${plan.retorno}`, M + 6, y + 40);
-
-                    pdf.setTextColor(40, 167, 69);
+                    pdf.setTextColor(71, 85, 105);
+                    pdf.setFontSize(9.2);
+                    pdf.text(`Plazo: ${plan.plazo}`, M + 5, y + 15);
+                    pdf.text('Ganancia:', M + 55, y + 15);
                     pdf.setFont('helvetica', 'bold');
-                    pdf.text(plan.ganancia, M + 29, y + 30);
-                    pdf.text(plan.total, M + 106, y + 30);
-                    y += 55;
+                    pdf.setTextColor(40, 167, 69);
+                    pdf.text(plan.ganancia, M + 73, y + 15);
+
+                    pdf.setFont('helvetica', 'normal');
+                    pdf.setTextColor(71, 85, 105);
+                    pdf.text('Total:', M + 5, y + 23);
+                    pdf.setFont('helvetica', 'bold');
+                    pdf.setTextColor(40, 167, 69);
+                    pdf.text(plan.total, M + 18, y + 23);
+                    pdf.setFont('helvetica', 'normal');
+                    pdf.setTextColor(71, 85, 105);
+                    pdf.text(`Retorno: ${plan.retorno}`, M + 95, y + 23);
+                    y += 34;
                 });
 
-                pdf.setFont('helvetica', 'normal');
-                pdf.setFontSize(8.5);
-                pdf.setTextColor(100, 116, 139);
-                const nota = 'Las fechas de retorno son estimadas y se calculan tomando como referencia la fecha de la simulación.';
-                pdf.text(pdf.splitTextToSize(nota, CW), M, y + 2);
-
-                // ===== PÁGINA 2: PROYECCIÓN =====
-                pdf.addPage();
-                encabezado('Proyección de la inversión');
                 pdf.setFont('helvetica', 'bold');
-                pdf.setFontSize(16);
+                pdf.setFontSize(15);
                 pdf.setTextColor(5, 47, 95);
-                pdf.text('Proyección de tu Inversión', M, 45);
+                pdf.text('Proyección de tu Inversión', M, 169);
 
-                // Captura segura de la gráfica. Si la pestaña está oculta,
-                // la mostramos fuera de pantalla temporalmente para que Chart.js
-                // tenga dimensiones válidas. Si aun así falla, el PDF continúa.
-                let chartAgregado = false;
-                const seccionProyeccion = document.getElementById('proyeccion');
-                const canvasGrafica = document.getElementById('growthChart');
-                const estabaActiva = seccionProyeccion?.classList.contains('active') || false;
-
-                const estilosTemporales = seccionProyeccion ? {
-                    display: seccionProyeccion.style.display,
-                    position: seccionProyeccion.style.position,
-                    left: seccionProyeccion.style.left,
-                    top: seccionProyeccion.style.top,
-                    width: seccionProyeccion.style.width,
-                    visibility: seccionProyeccion.style.visibility,
-                    pointerEvents: seccionProyeccion.style.pointerEvents
-                } : null;
-
-                try {
-                    if (!seccionProyeccion || !canvasGrafica) {
-                        throw new Error('No se encontró la sección o el canvas de proyección.');
-                    }
-
-                    if (!estabaActiva) {
-                        seccionProyeccion.style.display = 'block';
-                        seccionProyeccion.style.position = 'absolute';
-                        seccionProyeccion.style.left = '-10000px';
-                        seccionProyeccion.style.top = '0';
-                        seccionProyeccion.style.width = '1200px';
-                        seccionProyeccion.style.visibility = 'hidden';
-                        seccionProyeccion.style.pointerEvents = 'none';
-                    }
-
-                    if (growthChart) {
-                        growthChart.resize();
-                        growthChart.update('none');
-                    }
-
-                    // Damos tiempo al navegador para redibujar el canvas.
-                    await new Promise(resolve => requestAnimationFrame(() =>
-                        requestAnimationFrame(resolve)
-                    ));
-
-                    if (canvasGrafica.width <= 0 || canvasGrafica.height <= 0) {
-                        throw new Error('El canvas de la gráfica no tiene dimensiones válidas.');
-                    }
-
-                    // JPEG resulta más estable con jsPDF que el PNG generado
-                    // por toBase64Image() cuando la pestaña estaba oculta.
-                    const chartImg = canvasGrafica.toDataURL('image/jpeg', 0.92);
-
-                    if (!chartImg ||
-                        !chartImg.startsWith('data:image/jpeg;base64,') ||
-                        chartImg.length < 1000) {
-                        throw new Error('La imagen generada desde la gráfica no es válida.');
-                    }
-
-                    pdf.addImage(chartImg, 'JPEG', M, 55, CW, 108);
-                    chartAgregado = true;
-
-                } catch (errorGrafica) {
-                    console.warn('No se pudo agregar la gráfica al PDF:', errorGrafica);
-
+                const chartImg = await capturarGraficaConFondoBlanco();
+                if (chartImg) {
+                    pdf.setDrawColor(226, 232, 240);
+                    pdf.roundedRect(M, 174, CW, 66, 3, 3, 'S');
+                    pdf.addImage(chartImg, 'PNG', M + 2, 176, CW - 4, 62);
+                } else {
                     pdf.setFont('helvetica', 'normal');
-                    pdf.setFontSize(10.5);
+                    pdf.setFontSize(10);
                     pdf.setTextColor(71, 85, 105);
-                    pdf.text(
-                        pdf.splitTextToSize(
-                            'La gráfica de proyección no pudo incrustarse en el reporte, pero los cálculos y resultados sí se incluyen.',
-                            CW
-                        ),
-                        M,
-                        62
-                    );
-                } finally {
-                    if (seccionProyeccion && estilosTemporales && !estabaActiva) {
-                        seccionProyeccion.style.display = estilosTemporales.display;
-                        seccionProyeccion.style.position = estilosTemporales.position;
-                        seccionProyeccion.style.left = estilosTemporales.left;
-                        seccionProyeccion.style.top = estilosTemporales.top;
-                        seccionProyeccion.style.width = estilosTemporales.width;
-                        seccionProyeccion.style.visibility = estilosTemporales.visibility;
-                        seccionProyeccion.style.pointerEvents = estilosTemporales.pointerEvents;
-
-                        if (growthChart) {
-                            growthChart.resize();
-                        }
-                    }
+                    pdf.text('No fue posible incrustar la gráfica, pero los resultados de la simulación sí se incluyen.', M, 182);
                 }
 
                 pdf.setFont('helvetica', 'bold');
-                pdf.setFontSize(13);
+                pdf.setFontSize(12);
                 pdf.setTextColor(5, 47, 95);
-                pdf.text('Resumen', M, chartAgregado ? 179 : 95);
+                pdf.text('Resumen', M, 249);
+
                 const resumen = [
                     ['Tradicional · 12 meses', texto('total-detalle-12')],
                     ['Moderado · 24 meses', texto('total-detalle-24')],
                     ['Alto Rendimiento · 60 meses', texto('total-detalle-60')]
                 ];
-                y = chartAgregado ? 190 : 106;
+                y = 257;
                 resumen.forEach(([label, value]) => {
                     pdf.setFont('helvetica', 'normal');
-                    pdf.setFontSize(10.5);
+                    pdf.setFontSize(9.8);
                     pdf.setTextColor(71, 85, 105);
                     pdf.text(label, M, y);
                     pdf.setFont('helvetica', 'bold');
                     pdf.setTextColor(40, 167, 69);
                     pdf.text(value, W - M, y, { align: 'right' });
-                    y += 12;
+                    y += 8.5;
                 });
 
-                // ===== PÁGINA 3: COMPARATIVA =====
+                // ===== PÁGINA 2: COMPARATIVA =====
                 pdf.addPage();
-                encabezado('Comparativa de rendimientos');
+                encabezado('Comparativa y ganancias estimadas');
                 pdf.setFont('helvetica', 'bold');
-                pdf.setFontSize(16);
+                pdf.setFontSize(15);
                 pdf.setTextColor(5, 47, 95);
-                pdf.text('Comparativa', M, 45);
+                pdf.text('Comparativa de Rendimientos', M, 40);
 
                 const bancos = [
                     { nombre: 'BBVA', tasa: '2.5%', id: 'bbva' },
@@ -2853,49 +2877,56 @@
                     { nombre: 'GBM+', tasa: '5.3%', id: 'gbm' }
                 ];
 
-                y = 56;
+                y = 48;
                 pdf.setFillColor(5, 47, 95);
-                pdf.rect(M, y, CW, 11, 'F');
+                pdf.rect(M, y, CW, 10, 'F');
                 pdf.setTextColor(255, 255, 255);
                 pdf.setFont('helvetica', 'bold');
-                pdf.setFontSize(8.5);
-                pdf.text('Institución', M + 3, y + 7.5);
-                pdf.text('Tasa', M + 57, y + 7.5);
-                pdf.text('12 meses', M + 82, y + 7.5);
-                pdf.text('24 meses', M + 117, y + 7.5);
-                pdf.text('60 meses', M + 151, y + 7.5);
-                y += 11;
+                pdf.setFontSize(8);
+                pdf.text('Institución', M + 3, y + 6.8);
+                pdf.text('Tasa', M + 57, y + 6.8);
+                pdf.text('12 meses', M + 80, y + 6.8);
+                pdf.text('24 meses', M + 117, y + 6.8);
+                pdf.text('60 meses', M + 154, y + 6.8);
+                y += 10;
 
                 bancos.forEach((banco, index) => {
                     if (index % 2 === 0) {
                         pdf.setFillColor(248, 250, 252);
-                        pdf.rect(M, y, CW, 12, 'F');
+                        pdf.rect(M, y, CW, 11, 'F');
                     }
                     pdf.setTextColor(30, 41, 59);
                     pdf.setFont('helvetica', 'normal');
-                    pdf.setFontSize(8.2);
-                    pdf.text(banco.nombre, M + 3, y + 8);
-                    pdf.text(banco.tasa, M + 57, y + 8);
-                    pdf.text(texto(`${banco.id}-12-g`), M + 82, y + 8);
-                    pdf.text(texto(`${banco.id}-24-g`), M + 117, y + 8);
-                    pdf.text(texto(`${banco.id}-60-g`), M + 151, y + 8);
-                    y += 12;
+                    pdf.setFontSize(8);
+                    pdf.text(banco.nombre, M + 3, y + 7);
+                    pdf.text(banco.tasa, M + 57, y + 7);
+                    pdf.text(texto(`${banco.id}-12-g`), M + 80, y + 7);
+                    pdf.text(texto(`${banco.id}-24-g`), M + 117, y + 7);
+                    pdf.text(texto(`${banco.id}-60-g`), M + 154, y + 7);
+                    y += 11;
                 });
 
-                y += 15;
+                y += 12;
                 pdf.setFillColor(5, 47, 95);
-                pdf.roundedRect(M, y, CW, 53, 4, 4, 'F');
+                pdf.roundedRect(M, y, CW, 46, 4, 4, 'F');
                 pdf.setTextColor(255, 255, 255);
                 pdf.setFont('helvetica', 'bold');
-                pdf.setFontSize(13.5);
+                pdf.setFontSize(13);
                 pdf.text('Ganancias estimadas con CIP', M + 8, y + 12);
                 pdf.setFontSize(10);
-                pdf.text('Tradicional · 12 meses', M + 8, y + 25);
-                pdf.text(texto('ganancia-cip-12'), W - M - 8, y + 25, { align: 'right' });
-                pdf.text('Moderado · 24 meses', M + 8, y + 36);
-                pdf.text(texto('ganancia-cip-24'), W - M - 8, y + 36, { align: 'right' });
-                pdf.text('Alto Rendimiento · 60 meses', M + 8, y + 47);
-                pdf.text(texto('ganancia-cip-60'), W - M - 8, y + 47, { align: 'right' });
+                pdf.text('Tradicional · 12 meses', M + 8, y + 24);
+                pdf.text(texto('ganancia-cip-12'), W - M - 8, y + 24, { align: 'right' });
+                pdf.text('Moderado · 24 meses', M + 8, y + 34);
+                pdf.text(texto('ganancia-cip-24'), W - M - 8, y + 34, { align: 'right' });
+                pdf.text('Alto Rendimiento · 60 meses', M + 8, y + 44);
+                pdf.text(texto('ganancia-cip-60'), W - M - 8, y + 44, { align: 'right' });
+
+                y += 60;
+                pdf.setFont('helvetica', 'normal');
+                pdf.setTextColor(100, 116, 139);
+                pdf.setFontSize(8.5);
+                const aviso = 'Este reporte es informativo. Los montos, rendimientos y fechas de retorno son estimados con base en la simulación realizada en el sitio.';
+                pdf.text(pdf.splitTextToSize(aviso, CW), M, y);
 
                 pie();
                 pdf.save(`Simulacion_Plan40_${monto}.pdf`);
@@ -2907,6 +2938,7 @@
                 boton.innerHTML = textoOriginal;
             }
         }
+
 
     </script>
 </body>
