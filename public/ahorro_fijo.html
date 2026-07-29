@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,6 +32,7 @@
   
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
   <style>
     /* ===== VARIABLES ===== */
@@ -1038,6 +1040,36 @@
         font-size: 1.2rem;
     }
 
+
+
+    /* ===== BOTONES DE ACCIÓN / PDF ===== */
+    .action-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
+    }
+
+    .btn-pdf {
+        background: white;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+        box-shadow: 0 10px 25px rgba(5,47,95,0.16);
+    }
+
+    .btn-pdf:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+    }
+
+    .btn-pdf:disabled {
+        opacity: .65;
+        cursor: wait;
+        transform: none;
+    }
+
     /* ===== FOOTER ===== */
     .footer {
         background: var(--primary-dark);
@@ -1806,9 +1838,15 @@
             <div class="action-section">
                 <h3>¡Comienza a construir tu futuro hoy!</h3>
                 <p>Selecciona tu plan de ahorro y comienza a generar rendimientos garantizados</p>
-                <a href="Contacto.html" class="btn" id="btn-contratar">
-                    <i class="fas fa-file-signature"></i> CONTRATAR PLAN
-                </a>
+                <div class="action-buttons">
+                    <a href="Contacto.html" class="btn" id="btn-contratar">
+                        <i class="fas fa-file-signature"></i> CONTRATAR PLAN
+                    </a>
+
+                    <button type="button" class="btn btn-pdf" id="btn-reporte-pdf" onclick="descargarReporteAhorroPDF()">
+                        <i class="fas fa-file-pdf"></i> DESCARGAR REPORTE
+                    </button>
+                </div>
                 
                 <div class="benefits">
                     <div class="benefit"><i class="fas fa-check-circle"></i> Sin comisiones</div>
@@ -2389,6 +2427,343 @@
                 });
             });
         });
+
+        // ===== REPORTE PDF: PLAN + PROYECCIÓN + COMPARATIVA + BANCOS =====
+        async function descargarReporteAhorroPDF() {
+            const boton = document.getElementById('btn-reporte-pdf');
+            if (!window.jspdf?.jsPDF) {
+                alert('No se pudo cargar el generador de PDF. Revisa tu conexión e inténtalo de nuevo.');
+                return;
+            }
+
+            calcularAhorro();
+
+            const textoOriginal = boton.innerHTML;
+            boton.disabled = true;
+            boton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> GENERANDO PDF...';
+
+            try {
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+                const W = 210, H = 297, M = 12, CW = W - (M * 2);
+                const txt = id => (document.getElementById(id)?.textContent || '').trim();
+                const fecha = new Date().toLocaleDateString('es-MX', { year:'numeric', month:'long', day:'numeric' });
+
+                async function obtenerLogoDataUrl() {
+                    const logo = document.querySelector('.brand-logo');
+                    const src = logo?.currentSrc || logo?.src || (location.origin + '/images/logo.png');
+                    return new Promise(resolve => {
+                        if (!src) return resolve(null);
+                        const img = new Image();
+                        img.crossOrigin = 'anonymous';
+                        img.onload = () => {
+                            try {
+                                const c = document.createElement('canvas');
+                                c.width = img.naturalWidth || img.width;
+                                c.height = img.naturalHeight || img.height;
+                                const x = c.getContext('2d');
+                                x.clearRect(0, 0, c.width, c.height);
+                                x.drawImage(img, 0, 0);
+                                resolve(c.toDataURL('image/png'));
+                            } catch (_) { resolve(null); }
+                        };
+                        img.onerror = () => resolve(null);
+                        img.src = src;
+                    });
+                }
+
+                function crearGraficaPDF(tipo) {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = 1200;
+                    canvas.height = 520;
+                    const ctx = canvas.getContext('2d');
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                    let chart;
+                    if (tipo === 'crecimiento') {
+                        const labels = [];
+                        const ahorro = [];
+                        const proyectado = [];
+                        let acumulado = 0;
+                        for (let i = 0; i <= selectedPlan.weeks; i++) {
+                            labels.push(i === 0 ? 'Inicio' : `Sem ${i}`);
+                            if (i > 0) acumulado += selectedPlan.amount;
+                            ahorro.push(acumulado);
+                            proyectado.push(acumulado * (1 + selectedPlan.rate));
+                        }
+                        chart = new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                                labels,
+                                datasets: [
+                                    {
+                                        label: 'Ahorro acumulado',
+                                        data: ahorro,
+                                        borderColor: '#052F5F',
+                                        backgroundColor: 'rgba(5,47,95,.08)',
+                                        fill: true,
+                                        tension: .25,
+                                        borderWidth: 3,
+                                        pointRadius: 1.8
+                                    },
+                                    {
+                                        label: 'Valor proyectado',
+                                        data: proyectado,
+                                        borderColor: '#008080',
+                                        backgroundColor: 'rgba(0,128,128,.06)',
+                                        fill: true,
+                                        tension: .25,
+                                        borderWidth: 3,
+                                        borderDash: [6,4],
+                                        pointRadius: 1.8
+                                    }
+                                ]
+                            },
+                            options: {
+                                responsive: false,
+                                animation: false,
+                                plugins: {
+                                    title: { display: true, text: 'Proyección de acumulación semanal', color:'#334155', font:{size:22, weight:'600'} },
+                                    legend: { position:'bottom', labels:{color:'#334155', boxWidth:18, padding:18} }
+                                },
+                                scales: {
+                                    x: { ticks:{color:'#475569', maxTicksLimit:14}, grid:{display:false}, title:{display:true,text:'Semanas',color:'#475569'} },
+                                    y: { beginAtZero:true, ticks:{color:'#475569', callback:v => '$' + Number(v).toLocaleString('es-MX')}, grid:{color:'rgba(15,23,42,.08)'}, title:{display:true,text:'Valor acumulado (MXN)',color:'#475569'} }
+                                }
+                            }
+                        });
+                    } else {
+                        const planes = [
+                            { amount:200, rate:.14 },
+                            { amount:500, rate:.15 },
+                            { amount:1000, rate:.16 }
+                        ];
+                        chart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ['Ahorra Hoy','Ahorra Pro','Ahorra 360'],
+                                datasets: [
+                                    { label:'Ahorro total', data:planes.map(p=>p.amount*52), backgroundColor:'#052F5F' },
+                                    { label:'Rendimiento', data:planes.map(p=>p.amount*52*p.rate), backgroundColor:'#1E88E5' },
+                                    { label:'Total a recibir', data:planes.map(p=>p.amount*52*(1+p.rate)), backgroundColor:'#008080' }
+                                ]
+                            },
+                            options: {
+                                responsive:false,
+                                animation:false,
+                                plugins:{
+                                    title:{display:true,text:'Comparación de planes de ahorro',color:'#334155',font:{size:22,weight:'600'}},
+                                    legend:{position:'bottom',labels:{color:'#334155',boxWidth:18,padding:18}}
+                                },
+                                scales:{
+                                    x:{ticks:{color:'#475569'},grid:{display:false}},
+                                    y:{beginAtZero:true,ticks:{color:'#475569',callback:v=>'$'+Number(v).toLocaleString('es-MX')},grid:{color:'rgba(15,23,42,.08)'}}
+                                }
+                            }
+                        });
+                    }
+
+                    chart.update('none');
+                    const img = canvas.toDataURL('image/png');
+                    chart.destroy();
+                    return img;
+                }
+
+                const logo = await obtenerLogoDataUrl();
+
+                function encabezado(subtitulo) {
+                    pdf.setFillColor(5,47,95);
+                    pdf.rect(0,0,W,28,'F');
+                    if (logo) {
+                        try {
+                            pdf.setFillColor(255,255,255);
+                            pdf.roundedRect(M-1,4,28,16,2.5,2.5,'F');
+                            pdf.addImage(logo,'PNG',M+1,5,24,14);
+                        } catch (e) { console.warn('Logo PDF:', e); }
+                    }
+                    pdf.setTextColor(255,255,255);
+                    pdf.setFont('helvetica','bold');
+                    pdf.setFontSize(17);
+                    pdf.text('CIP FINANCIAL GROUP',W/2,12,{align:'center'});
+                    pdf.setFontSize(10.5);
+                    pdf.text(subtitulo,W/2,21,{align:'center'});
+                }
+
+                function pie() {
+                    const n = pdf.internal.getNumberOfPages();
+                    for (let i=1;i<=n;i++) {
+                        pdf.setPage(i);
+                        pdf.setDrawColor(226,232,240);
+                        pdf.line(M,H-13,W-M,H-13);
+                        pdf.setFont('helvetica','normal');
+                        pdf.setFontSize(8);
+                        pdf.setTextColor(100,116,139);
+                        pdf.text('CIP Financial Group · Simulación informativa de ahorro',M,H-7);
+                        pdf.text(`Página ${i} de ${n}`,W-M,H-7,{align:'right'});
+                    }
+                }
+
+                const totalAhorro = selectedPlan.amount * selectedPlan.weeks;
+                const rendimiento = totalAhorro * selectedPlan.rate;
+                const valorFinal = totalAhorro + rendimiento;
+
+                // ===== PÁGINA 1: PLAN SELECCIONADO + PROYECCIÓN =====
+                encabezado('Reporte de ahorro programado');
+                pdf.setFont('helvetica','normal');
+                pdf.setFontSize(9.5);
+                pdf.setTextColor(71,85,105);
+                pdf.text(`Fecha de simulación: ${fecha}`,M,36);
+
+                pdf.setFont('helvetica','bold');
+                pdf.setFontSize(15);
+                pdf.setTextColor(5,47,95);
+                pdf.text('Plan seleccionado',M,48);
+
+                pdf.setFillColor(248,250,252);
+                pdf.setDrawColor(226,232,240);
+                pdf.roundedRect(M,55,CW,42,4,4,'FD');
+                pdf.setFontSize(15);
+                pdf.setTextColor(5,47,95);
+                pdf.text(selectedPlan.name,M+7,67);
+                pdf.setFontSize(10);
+                pdf.setTextColor(71,85,105);
+                pdf.setFont('helvetica','normal');
+                pdf.text(`Aportación semanal: $${selectedPlan.amount.toLocaleString('es-MX')}`,M+7,78);
+                pdf.text('Plazo: 52 semanas (12 meses)',M+7,88);
+                pdf.text(`Tasa fija: ${Math.round(selectedPlan.rate*100)}%`,M+92,78);
+                pdf.setFont('helvetica','bold');
+                pdf.setTextColor(40,167,69);
+                pdf.text(`Valor final: $${valorFinal.toLocaleString('es-MX')}`,M+92,88);
+
+                const cards = [
+                    ['Ahorro total', '$'+totalAhorro.toLocaleString('es-MX')],
+                    ['Rendimiento', '+$'+rendimiento.toLocaleString('es-MX')],
+                    ['Valor final', '$'+valorFinal.toLocaleString('es-MX')]
+                ];
+                let x = M;
+                cards.forEach((c,i)=>{
+                    const bw = 57.5;
+                    pdf.setFillColor(i===2?5:255,i===2?47:255,i===2?95:255);
+                    pdf.setDrawColor(226,232,240);
+                    pdf.roundedRect(x,104,bw,27,3,3,'FD');
+                    pdf.setFont('helvetica','normal');
+                    pdf.setFontSize(8.5);
+                    pdf.setTextColor(i===2?255:71,i===2?255:85,i===2?255:105);
+                    pdf.text(c[0],x+bw/2,113,{align:'center'});
+                    pdf.setFont('helvetica','bold');
+                    pdf.setFontSize(13);
+                    pdf.setTextColor(i===2?255:5,i===2?255:47,i===2?255:95);
+                    pdf.text(c[1],x+bw/2,124,{align:'center'});
+                    x += 64;
+                });
+
+                pdf.setFont('helvetica','bold');
+                pdf.setFontSize(15);
+                pdf.setTextColor(5,47,95);
+                pdf.text('Proyección de acumulación',M,144);
+                const imgGrowth = crearGraficaPDF('crecimiento');
+                pdf.setDrawColor(226,232,240);
+                pdf.roundedRect(M,150,CW,91,3,3,'S');
+                pdf.addImage(imgGrowth,'PNG',M+2,152,CW-4,87);
+
+                pdf.setFont('helvetica','bold');
+                pdf.setFontSize(12);
+                pdf.setTextColor(5,47,95);
+                pdf.text('Detalles',M,252);
+                pdf.setFont('helvetica','normal');
+                pdf.setFontSize(9.5);
+                pdf.setTextColor(71,85,105);
+                pdf.text(`Plan: ${txt('detalle-plan')}`,M,261);
+                pdf.text(`Aportación total: ${txt('detalle-aportacion')}`,M,270);
+                pdf.text(`Rendimiento generado: ${txt('detalle-rendimiento')}`,M+92,261);
+                pdf.text(`Valor final estimado: ${txt('detalle-valor-final')}`,M+92,270);
+
+                // ===== PÁGINA 2: COMPARATIVA + BANCOS =====
+                pdf.addPage();
+                encabezado('Comparativa de planes y alternativas');
+                pdf.setFont('helvetica','bold');
+                pdf.setFontSize(15);
+                pdf.setTextColor(5,47,95);
+                pdf.text('Comparativa de Planes',M,40);
+
+                const imgComp = crearGraficaPDF('comparativa');
+                pdf.setDrawColor(226,232,240);
+                pdf.roundedRect(M,47,CW,83,3,3,'S');
+                pdf.addImage(imgComp,'PNG',M+2,49,CW-4,79);
+
+                const planesComp = [
+                    ['Ahorra Hoy','$10,400','+$1,456','$11,856'],
+                    ['Ahorra Pro','$26,000','+$3,900','$29,900'],
+                    ['Ahorra 360','$52,000','+$8,320','$60,320']
+                ];
+                let y = 139;
+                pdf.setFillColor(5,47,95);
+                pdf.rect(M,y,CW,9,'F');
+                pdf.setTextColor(255,255,255);
+                pdf.setFont('helvetica','bold');
+                pdf.setFontSize(8.5);
+                pdf.text('Plan',M+3,y+6);
+                pdf.text('Ahorro',M+70,y+6);
+                pdf.text('Rendimiento',M+108,y+6);
+                pdf.text('Total',M+158,y+6);
+                y += 9;
+                planesComp.forEach((r,i)=>{
+                    if(i%2===0){pdf.setFillColor(248,250,252);pdf.rect(M,y,CW,10,'F');}
+                    pdf.setTextColor(30,41,59);pdf.setFont('helvetica','normal');pdf.setFontSize(8.5);
+                    pdf.text(r[0],M+3,y+6.5); pdf.text(r[1],M+70,y+6.5); pdf.text(r[2],M+108,y+6.5); pdf.text(r[3],M+158,y+6.5);
+                    y += 10;
+                });
+
+                y += 10;
+                pdf.setFont('helvetica','bold');
+                pdf.setFontSize(14);
+                pdf.setTextColor(5,47,95);
+                pdf.text('Vs. Bancos',M,y);
+                y += 8;
+
+                const bancos = [
+                    ['BBVA','2.5%',txt('bbva-amount')],
+                    ['Santander','1.8%',txt('santander-amount')],
+                    ['Citibanamex','1.2%',txt('banamex-amount')],
+                    ['Mercado Pago','4.5%',txt('fondo-amount')],
+                    ['Nu','5.0%',txt('premium-amount')],
+                    ['GBM+','5.3%',txt('instrumento-amount')]
+                ];
+                pdf.setFillColor(5,47,95); pdf.rect(M,y,CW,9,'F');
+                pdf.setTextColor(255,255,255);pdf.setFont('helvetica','bold');pdf.setFontSize(8.5);
+                pdf.text('Institución',M+3,y+6);pdf.text('Tasa',M+92,y+6);pdf.text('Valor final',M+145,y+6);
+                y += 9;
+                bancos.forEach((r,i)=>{
+                    if(i%2===0){pdf.setFillColor(248,250,252);pdf.rect(M,y,CW,9,'F');}
+                    pdf.setTextColor(30,41,59);pdf.setFont('helvetica','normal');pdf.setFontSize(8.5);
+                    pdf.text(r[0],M+3,y+6);pdf.text(r[1],M+92,y+6);pdf.text(r[2],M+145,y+6);
+                    y += 9;
+                });
+
+                y += 8;
+                pdf.setFillColor(5,47,95);
+                pdf.roundedRect(M,y,CW,25,4,4,'F');
+                pdf.setTextColor(255,255,255);
+                pdf.setFont('helvetica','bold');
+                pdf.setFontSize(11);
+                pdf.text('Beneficio adicional con CIP',M+7,y+9);
+                pdf.setFontSize(14);
+                pdf.text(txt('ganancia-extra'),M+7,y+19);
+                pdf.setFontSize(9.5);
+                pdf.text(txt('comparativa-banco') || 'Comparativa calculada con las tasas mostradas',W-M-7,y+17,{align:'right'});
+
+                pie();
+                pdf.save(`Reporte_Ahorro_${selectedPlan.name.replace(/\s+/g,'_')}.pdf`);
+            } catch (error) {
+                console.error('Error al generar el PDF:', error);
+                alert('Ocurrió un error al generar el PDF. Revisa la consola del navegador para más detalles.');
+            } finally {
+                boton.disabled = false;
+                boton.innerHTML = textoOriginal;
+            }
+        }
+
     </script>
 </body>
 </html>
