@@ -24,7 +24,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -79,7 +79,7 @@
     }
 
     body {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Libre Baskerville', Georgia, serif;
         color: var(--gray-800);
         line-height: 1.6;
         background: var(--white);
@@ -88,7 +88,7 @@
     }
 
     h1, h2, h3, h4, h5, h6 {
-        font-family: 'Syne', sans-serif;
+        font-family: 'Cormorant Garamond', Georgia, serif;
         font-weight: 700;
     }
 
@@ -238,7 +238,7 @@
         font-size: 1.4rem;
         font-weight: 700;
         transition: var(--transition);
-        font-family: 'Syne', sans-serif;
+        font-family: 'Cormorant Garamond', Georgia, serif;
         letter-spacing: -0.02em;
         position: relative;
     }
@@ -489,7 +489,7 @@
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 800;
     margin-bottom: 20px;
-    font-family: 'Syne', sans-serif;
+    font-family: 'Cormorant Garamond', Georgia, serif;
     letter-spacing: -0.02em;
     text-transform: uppercase;
     position: relative;
@@ -1217,6 +1217,220 @@
 .brand-name{
   display:none;
 }
+  
+    /* ===== TIPOGRAFÍA Y MENÚ UNIFICADOS CIP ===== */
+
+    body,
+    p,
+    a,
+    span,
+    li,
+    button,
+    input,
+    textarea,
+    select,
+    label {
+        font-family: 'Libre Baskerville', Georgia, serif !important;
+    }
+
+    h1, h2, h3, h4, h5, h6,
+    .hero-content h1,
+    .services-section h1,
+    .service-header h2,
+    .footer-title,
+    .links-title {
+        font-family: 'Cormorant Garamond', Georgia, serif !important;
+        font-weight: 700 !important;
+    }
+
+    .nav-link,
+    .dropdown-toggle {
+        font-family: 'Libre Baskerville', Georgia, serif !important;
+        font-size: 1rem !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.5px !important;
+        line-height: 1.4 !important;
+    }
+
+    .dropdown-menu a {
+        font-family: 'Libre Baskerville', Georgia, serif !important;
+        font-size: 0.95rem !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.3px !important;
+        line-height: 1.4 !important;
+    }
+
+    .nav-list {
+        gap: 40px !important;
+    }
+
+    .services-section .subtitle,
+    .service-description,
+    .feature-list li,
+    .btn-details,
+    .terms-note,
+    .asesor-btn,
+    .footer-link,
+    .privacy-link,
+    .copyright {
+        font-family: 'Libre Baskerville', Georgia, serif !important;
+    }
+
+    /* Mantener Font Awesome sin romper iconos */
+    .fas,
+    .fa-solid {
+        font-family: "Font Awesome 6 Free" !important;
+        font-weight: 900 !important;
+    }
+
+    .fab,
+    .fa-brands {
+        font-family: "Font Awesome 6 Brands" !important;
+        font-weight: 400 !important;
+    }
+
+    @media (max-width: 768px) {
+        .nav-link,
+        .dropdown-toggle {
+            font-size: 1.1rem !important;
+        }
+    }
+
+  
+    /* ===== AJUSTE DE CONTENIDO - SELECCIÓN ===== */
+    .services-section {
+        max-width: 1380px !important;
+        margin: 70px auto 80px !important;
+        padding: 0 32px !important;
+    }
+
+    .services-section h1 {
+        font-size: clamp(2.6rem, 4vw, 3.7rem) !important;
+        line-height: 1.1 !important;
+        margin-bottom: 16px !important;
+    }
+
+    .services-section .subtitle {
+        font-size: 1.15rem !important;
+        margin-bottom: 50px !important;
+    }
+
+    .services-container {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 32px !important;
+        align-items: stretch !important;
+    }
+
+    .service-card {
+        min-width: 0 !important;
+        height: 100% !important;
+    }
+
+    .service-header {
+        min-height: 135px !important;
+        padding: 28px 24px !important;
+        gap: 18px !important;
+        align-items: center !important;
+    }
+
+    .service-icon {
+        width: 64px !important;
+        height: 64px !important;
+        min-width: 64px !important;
+        font-size: 1.9rem !important;
+    }
+
+    .service-header h2 {
+        font-size: 1.45rem !important;
+        line-height: 1.2 !important;
+        letter-spacing: 0.3px !important;
+        text-transform: none !important;
+        overflow-wrap: normal !important;
+        word-break: normal !important;
+    }
+
+    .service-content {
+        padding: 26px 28px 28px !important;
+    }
+
+    .service-description {
+        font-size: 1rem !important;
+        line-height: 1.55 !important;
+        margin-bottom: 20px !important;
+    }
+
+    .feature-list {
+        margin-bottom: 24px !important;
+    }
+
+    .feature-list li {
+        font-size: 0.95rem !important;
+        line-height: 1.45 !important;
+        padding: 10px 0 !important;
+        align-items: flex-start !important;
+    }
+
+    .feature-list li::before {
+        margin-top: 1px !important;
+    }
+
+    .btn-details {
+        font-size: 1rem !important;
+        padding: 14px 24px !important;
+    }
+
+    .terms-note {
+        font-size: 0.76rem !important;
+        line-height: 1.4 !important;
+    }
+
+    /* Tablet */
+    @media (max-width: 1100px) {
+        .services-container {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        }
+    }
+
+    /* Móvil */
+    @media (max-width: 768px) {
+        .services-section {
+            padding: 0 18px !important;
+            margin: 50px auto 60px !important;
+        }
+
+        .services-container {
+            grid-template-columns: 1fr !important;
+            gap: 24px !important;
+        }
+
+        .service-header {
+            min-height: auto !important;
+        }
+
+        .service-header h2 {
+            font-size: 1.35rem !important;
+            text-align: left !important;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .service-header {
+            flex-direction: row !important;
+            text-align: left !important;
+        }
+
+        .service-icon {
+            width: 56px !important;
+            height: 56px !important;
+            min-width: 56px !important;
+        }
+
+        .service-content {
+            padding: 22px !important;
+        }
+    }
+
   </style>
 </head>
 

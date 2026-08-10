@@ -24,7 +24,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -79,7 +79,7 @@
     }
 
     body {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Libre Baskerville', Georgia, serif;
         color: var(--gray-800);
         line-height: 1.6;
         background: var(--white);
@@ -88,7 +88,7 @@
     }
 
     h1, h2, h3, h4, h5, h6 {
-        font-family: 'Syne', sans-serif;
+        font-family: 'Libre Baskerville', Georgia, serif;
         font-weight: 700;
     }
 
@@ -253,7 +253,7 @@
         font-size: 1.4rem;
         font-weight: 700;
         transition: var(--transition);
-        font-family: 'Syne', sans-serif;
+        font-family: 'Libre Baskerville', Georgia, serif;
         letter-spacing: -0.02em;
         position: relative;
     }
@@ -759,7 +759,7 @@
         color: var(--secondary);
         line-height: 1;
         margin-bottom: 5px;
-        font-family: 'Syne', sans-serif;
+        font-family: 'Libre Baskerville', Georgia, serif;
         transition: var(--transition);
     }
 
@@ -1272,7 +1272,224 @@
 .brand-name{
   display:none;
 }
-</style>
+
+    /* ===== TIPOGRAFÍA ÚNICA NOSOTROS - CIP ===== */
+    html,
+    body,
+    body *,
+    h1, h2, h3, h4, h5, h6,
+    p, a, span, li,
+    button, input, textarea, select, label,
+    .brand-name,
+    .nav-link,
+    .dropdown-menu a,
+    .dropdown-toggle,
+    .hero-content h1,
+    .hero-subtitle,
+    .hero-cta,
+    .text-column h2,
+    .text-column p,
+    .highlight-item,
+    .stat-number,
+    .stat-label,
+    .ubicacion-section h2,
+    .ubicacion-section p,
+    .footer-title,
+    .footer-text,
+    .links-title,
+    .footer-link,
+    .privacy-link,
+    .copyright {
+        font-family: 'Libre Baskerville', Georgia, serif !important;
+    }
+
+    .hero-content h1,
+    .text-column h2,
+    .ubicacion-section h2,
+    .footer-title,
+    .links-title {
+        font-weight: 700 !important;
+    }
+
+    .hero-content h1 {
+        font-weight: 800 !important;
+        letter-spacing: 0.02em !important;
+    }
+
+    .nav-link,
+    .dropdown-menu a,
+    .dropdown-toggle,
+    .hero-cta,
+    .highlight-item,
+    .stat-label,
+    .footer-link,
+    .privacy-link {
+        font-weight: 600 !important;
+    }
+
+    .stat-number {
+        font-weight: 800 !important;
+        letter-spacing: -0.03em !important;
+    }
+
+    .nav-link,
+    .dropdown-menu a {
+        letter-spacing: 0.01em !important;
+    }
+
+
+    /* ===== TIPOGRAFÍA Y MENÚ IGUALES AL INDEX ===== */
+
+    /* Texto general */
+    body,
+    p,
+    a,
+    span,
+    li,
+    button,
+    input,
+    textarea,
+    select,
+    label {
+        font-family: 'Libre Baskerville', Georgia, serif !important;
+    }
+
+    /* Títulos */
+    h1, h2, h3, h4, h5, h6,
+    .hero-content h1,
+    .text-column h2,
+    .ubicacion-section h2,
+    .footer-title,
+    .links-title {
+        font-family: 'Cormorant Garamond', Georgia, serif !important;
+        font-weight: 700 !important;
+    }
+
+    /* Menú: mismo tamaño visual del index */
+    .nav-link,
+    .dropdown-menu a,
+    .dropdown-toggle {
+        font-family: 'Libre Baskerville', Georgia, serif !important;
+        font-size: 1.10rem !important;
+        font-weight: 600 !important;
+        letter-spacing: 0 !important;
+    }
+
+    .dropdown-menu a {
+        font-size: 1rem !important;
+    }
+
+    /* Hero */
+    .hero-content h1 {
+        font-size: clamp(3rem, 6vw, 5rem) !important;
+        font-weight: 700 !important;
+        letter-spacing: 0 !important;
+    }
+
+    .hero-subtitle {
+        font-family: 'Libre Baskerville', Georgia, serif !important;
+        font-weight: 400 !important;
+    }
+
+    .hero-cta {
+        font-family: 'Libre Baskerville', Georgia, serif !important;
+        font-weight: 700 !important;
+    }
+
+    /* Estadísticas y tarjetas */
+    .stat-number,
+    .stat-label,
+    .highlight-item,
+    .footer-link,
+    .privacy-link,
+    .copyright {
+        font-family: 'Libre Baskerville', Georgia, serif !important;
+    }
+
+    .stat-number {
+        font-weight: 700 !important;
+    }
+
+    /* IMPORTANTE: restaurar Font Awesome.
+       Antes el selector global estaba cambiando la fuente de los iconos,
+       por eso aparecían cuadritos. */
+    i.fa,
+    i.fas,
+    i.far,
+    i.fab,
+    .fa,
+    .fas,
+    .far,
+    .fab {
+        font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+        font-style: normal !important;
+    }
+
+    .fab {
+        font-family: "Font Awesome 6 Brands" !important;
+    }
+
+    .fas,
+    .fa-solid {
+        font-family: "Font Awesome 6 Free" !important;
+        font-weight: 900 !important;
+    }
+
+    /* Header alineado con el index */
+    .header {
+        padding: 20px 0;
+    }
+
+    .header.scrolled {
+        padding: 10px 0;
+    }
+
+    .header-container {
+        max-width: 1400px;
+        padding: 0 32px;
+    }
+
+    .nav-list {
+        gap: 40px;
+    }
+
+    @media (max-width: 768px) {
+        .nav-link {
+            font-size: 1.15rem !important;
+        }
+    }
+
+
+        /* ===== MENÚ UNIFICADO CIP ===== */
+        .nav-link,
+        .dropdown-toggle {
+            font-family: 'Libre Baskerville', Georgia, serif !important;
+            font-size: 1rem !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.5px !important;
+            line-height: 1.4 !important;
+        }
+
+        .dropdown-menu a {
+            font-family: 'Libre Baskerville', Georgia, serif !important;
+            font-size: 0.95rem !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.3px !important;
+            line-height: 1.4 !important;
+        }
+
+        .nav-list {
+            gap: 40px !important;
+        }
+
+        @media (max-width: 768px) {
+            .nav-link,
+            .dropdown-toggle {
+                font-size: 1.1rem !important;
+            }
+        }
+
+    </style>
 </head>
 <body>
 

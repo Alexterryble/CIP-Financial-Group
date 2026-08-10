@@ -24,7 +24,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -78,7 +78,7 @@
     }
 
     body {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Libre Baskerville', Georgia, serif;
         color: var(--gray-800);
         line-height: 1.6;
         background: var(--white);
@@ -86,7 +86,7 @@
     }
 
     h1, h2, h3, h4, h5, h6 {
-        font-family: 'Syne', sans-serif;
+        font-family: 'Cormorant Garamond', Georgia, serif;
         font-weight: 700;
     }
 
@@ -230,7 +230,7 @@
         font-size: 1.4rem;
         font-weight: 700;
         transition: var(--transition);
-        font-family: 'Syne', sans-serif;
+        font-family: 'Cormorant Garamond', Georgia, serif;
         letter-spacing: -0.02em;
         position: relative;
     }
@@ -1214,6 +1214,99 @@
 .brand-name{
   display:none;
 }
+  
+    /* ===== TIPOGRAFÍA Y MENÚ UNIFICADOS CIP ===== */
+
+    body,
+    p,
+    a,
+    span,
+    li,
+    button,
+    input,
+    textarea,
+    select,
+    label {
+        font-family: 'Libre Baskerville', Georgia, serif !important;
+    }
+
+    h1, h2, h3, h4, h5, h6,
+    .hero-text-box h2,
+    .ofrecemos-section h2,
+    .main-question,
+    .benefits-title,
+    .footer-title,
+    .links-title {
+        font-family: 'Cormorant Garamond', Georgia, serif !important;
+        font-weight: 700 !important;
+    }
+
+    /* Menú: exactamente el mismo tamaño que index/nosotros */
+    .nav-link,
+    .dropdown-toggle {
+        font-family: 'Libre Baskerville', Georgia, serif !important;
+        font-size: 1rem !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.5px !important;
+        line-height: 1.4 !important;
+    }
+
+    .dropdown-menu a {
+        font-family: 'Libre Baskerville', Georgia, serif !important;
+        font-size: 0.95rem !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.3px !important;
+        line-height: 1.4 !important;
+    }
+
+    .nav-list {
+        gap: 40px !important;
+    }
+
+    /* Botones y tarjetas */
+    .cta-button,
+    .card-cta,
+    .asesor-btn,
+    .card-description,
+    .benefits-list li,
+    .ofrecemos-section p,
+    .footer-link,
+    .privacy-link,
+    .copyright {
+        font-family: 'Libre Baskerville', Georgia, serif !important;
+    }
+
+    /* Restaurar Font Awesome para evitar cuadritos */
+    i.fa,
+    i.fas,
+    i.far,
+    i.fab,
+    .fa,
+    .fas,
+    .far,
+    .fab {
+        font-style: normal !important;
+    }
+
+    .fas,
+    .fa-solid {
+        font-family: "Font Awesome 6 Free" !important;
+        font-weight: 900 !important;
+    }
+
+    .fab,
+    .fa-brands {
+        font-family: "Font Awesome 6 Brands" !important;
+        font-weight: 400 !important;
+    }
+
+    @media (max-width: 768px) {
+        .nav-link,
+        .dropdown-toggle {
+            font-size: 1.1rem !important;
+        }
+    }
+
   </style>
 </head>
 

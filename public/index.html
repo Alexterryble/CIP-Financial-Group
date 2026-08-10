@@ -23,7 +23,8 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -79,7 +80,7 @@
         }
 
         body {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Libre Baskerville', Georgia, serif;
             color: var(--gray-800);
             line-height: 1.6;
             background: var(--white);
@@ -87,7 +88,7 @@
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Syne', sans-serif;
+            font-family: 'Cormorant Garamond', Georgia, serif;
             font-weight: 700;
         }
 
@@ -465,7 +466,7 @@
             font-weight: 700;
             color: var(--white);
             transition: var(--transition);
-            font-family: 'Syne', sans-serif;
+            font-family: 'Cinzel', 'Times New Roman', serif;
             letter-spacing: -0.02em;
             position: relative;
         }
@@ -1250,7 +1251,7 @@
             line-height: 1;
             margin-bottom: 20px;
             transition: var(--transition-bounce);
-            font-family: 'Syne', sans-serif;
+            font-family: 'Cinzel', 'Times New Roman', serif;
         }
 
         .service-card:hover .service-number {
@@ -1699,7 +1700,7 @@
             margin-bottom: 15px;
             display: inline-block;
             position: relative;
-            font-family: 'Syne', sans-serif;
+            font-family: 'Cinzel', 'Times New Roman', serif;
             background: linear-gradient(135deg, var(--white), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -2302,6 +2303,137 @@
 .brand-name{
   display:none;
 }
+    
+        /* ===== AJUSTE INTRO -> LOGO DEL MENÚ ===== */
+        #intro-overlay{
+            transition: opacity .75s ease, visibility .75s ease;
+            will-change: opacity;
+        }
+
+        /* El logo del header siempre conserva su espacio y no desaparece */
+        #logo-menu{
+            flex-shrink: 0;
+        }
+
+        .brand-logo{
+            opacity: 1 !important;
+            visibility: visible !important;
+            flex-shrink: 0;
+        }
+
+        /* Durante el vuelo quitamos el float del IMG para que no pelee
+           contra el transform del contenedor */
+        .intro-logo-wrapper.is-flying .intro-logo{
+            animation: none !important;
+        }
+
+        .intro-logo-wrapper.is-flying .intro-shine,
+        .intro-logo-wrapper.is-flying .intro-particles{
+            opacity: 0;
+            transition: opacity .25s ease;
+        }
+
+        @media (max-width: 768px){
+            .brand-logo{
+                height: 88px !important;
+            }
+
+            .header.scrolled .brand-logo{
+                height: 78px !important;
+            }
+        }
+
+    
+        /* ===== TIPOGRAFÍA CIP FINANCIAL GROUP ===== */
+        body,
+        p,
+        li,
+        a,
+        button,
+        input,
+        textarea,
+        select,
+        label {
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6,
+        .section-title,
+        .slide-text h1,
+        .service-card h4,
+        .benefit-card h3,
+        .stat-number,
+        .brand-name {
+            font-family: 'Cinzel', 'Times New Roman', serif;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-link,
+        .dropdown-menu a,
+        .btn,
+        .service-link {
+            font-family: 'Cinzel', 'Times New Roman', serif;
+            letter-spacing: 0.035em;
+        }
+
+        .section-subtitle,
+        .slide-text p,
+        .about-text p,
+        .mvv-card p,
+        .service-card p,
+        .benefit-card p,
+        .why-description p {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            letter-spacing: 0.005em;
+        }
+
+    
+        /* ===== AJUSTE FINAL MENÚ INDEX ===== */
+        .nav-link {
+            font-size: 1.10rem !important;
+            font-weight: 600 !important;
+        }
+
+        .dropdown-menu a {
+            font-size: 1rem !important;
+        }
+
+        @media (max-width: 768px) {
+            .nav-link {
+                font-size: 1.15rem !important;
+            }
+        }
+
+    
+        /* ===== MENÚ UNIFICADO CIP ===== */
+        .nav-link,
+        .dropdown-toggle {
+            font-family: 'Libre Baskerville', Georgia, serif !important;
+            font-size: 1rem !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.5px !important;
+            line-height: 1.4 !important;
+        }
+
+        .dropdown-menu a {
+            font-family: 'Libre Baskerville', Georgia, serif !important;
+            font-size: 0.95rem !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.3px !important;
+            line-height: 1.4 !important;
+        }
+
+        .nav-list {
+            gap: 40px !important;
+        }
+
+        @media (max-width: 768px) {
+            .nav-link,
+            .dropdown-toggle {
+                font-size: 1.1rem !important;
+            }
+        }
+
     </style>
 
 
@@ -2777,45 +2909,91 @@
             }
         });
 
-        // Intro Animation
+        // Intro Animation - transición limpia hacia el logo permanente del header
         window.addEventListener('load', function() {
-            if (!sessionStorage.getItem('introShown')) {
-                // Create particles
-                const particles = document.querySelectorAll('.particle');
-                particles.forEach((particle, index) => {
-                    particle.style.animationDelay = `${index * 0.2}s`;
-                });
+            const introOverlay = document.getElementById('intro-overlay');
+            const header = document.querySelector('.header');
+            const logoIntro = document.querySelector('.intro-logo-wrapper');
+            const targetLogo = document.querySelector('#logo-menu .brand-logo');
 
-                setTimeout(function() {
-                    const target = document.querySelector('#logo-menu');
-                    const logoIntro = document.querySelector('.intro-logo-wrapper');
-                    const introOverlay = document.getElementById('intro-overlay');
+            // El header nunca se elimina; solamente queda detrás del overlay.
+            if (header) {
+                header.style.opacity = '1';
+                header.style.visibility = 'visible';
+            }
 
-                    if (target && logoIntro) {
-                        const targetRect = target.getBoundingClientRect();
+            if (!introOverlay) return;
 
-                        logoIntro.style.transition = 'all 2s cubic-bezier(0.165, 0.84, 0.44, 1)';
-                        logoIntro.style.position = 'absolute';
-                        logoIntro.style.top = `${targetRect.top + window.scrollY + target.offsetHeight / 2}px`;
-                        logoIntro.style.left = `${targetRect.left + window.scrollX + target.offsetWidth / 2}px`;
-                        logoIntro.style.width = `${target.offsetWidth}px`;
-                        logoIntro.style.height = `${target.offsetHeight}px`;
-                        logoIntro.style.transform = 'translate(-50%, -50%)';
+            // Si ya se mostró en esta pestaña, entramos directo al sitio.
+            if (sessionStorage.getItem('introShown')) {
+                introOverlay.style.display = 'none';
+                return;
+            }
 
-                        setTimeout(function() {
+            // Partículas
+            document.querySelectorAll('.particle').forEach((particle, index) => {
+                particle.style.animationDelay = `${index * 0.2}s`;
+            });
+
+            // Esperamos a que termine la presentación principal.
+            setTimeout(function() {
+                if (!logoIntro || !targetLogo) {
+                    introOverlay.style.opacity = '0';
+                    setTimeout(() => {
+                        introOverlay.style.display = 'none';
+                        sessionStorage.setItem('introShown', 'true');
+                    }, 800);
+                    return;
+                }
+
+                // Rectángulos en coordenadas del viewport.
+                const introRect = logoIntro.getBoundingClientRect();
+                const targetRect = targetLogo.getBoundingClientRect();
+
+                // Fijamos el wrapper exactamente donde está antes de iniciar el vuelo.
+                logoIntro.classList.add('is-flying');
+                logoIntro.style.animation = 'none';
+                logoIntro.style.position = 'fixed';
+                logoIntro.style.margin = '0';
+                logoIntro.style.top = `${introRect.top}px`;
+                logoIntro.style.left = `${introRect.left}px`;
+                logoIntro.style.width = `${introRect.width}px`;
+                logoIntro.style.height = `${introRect.height}px`;
+                logoIntro.style.transform = 'none';
+                logoIntro.style.zIndex = '10001';
+
+                // Forzamos un frame para que el navegador registre el estado inicial.
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        logoIntro.style.transition =
+                            'top 1.35s cubic-bezier(.22,1,.36,1), ' +
+                            'left 1.35s cubic-bezier(.22,1,.36,1), ' +
+                            'width 1.35s cubic-bezier(.22,1,.36,1), ' +
+                            'height 1.35s cubic-bezier(.22,1,.36,1), ' +
+                            'opacity .25s ease';
+
+                        // Volamos exactamente a la imagen permanente del menú.
+                        logoIntro.style.top = `${targetRect.top}px`;
+                        logoIntro.style.left = `${targetRect.left}px`;
+                        logoIntro.style.width = `${targetRect.width}px`;
+                        logoIntro.style.height = `${targetRect.height}px`;
+
+                        // Cuando llega, empezamos a revelar el sitio.
+                        setTimeout(() => {
                             introOverlay.style.opacity = '0';
+
+                            // Crossfade: el logo permanente ya está debajo exactamente
+                            // en la misma posición, así que visualmente no se pierde.
+                            logoIntro.style.opacity = '0';
+
                             setTimeout(() => {
                                 introOverlay.style.display = 'none';
-                                document.querySelector('.header').style.opacity = '1';
                                 sessionStorage.setItem('introShown', 'true');
-                            }, 2000);
-                        }, 2000);
-                    }
-                }, 5000);
-            } else {
-                document.getElementById('intro-overlay').style.display = 'none';
-                document.querySelector('.header').style.opacity = '1';
-            }
+                            }, 800);
+                        }, 1350);
+                    });
+                });
+            }, 3200);
         });
 
         // Slider Functionality

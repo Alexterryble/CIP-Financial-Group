@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
 /* ESTILOS GENERALES CORREGIDOS */
 :root {
     --azul-oscuro: #052f5f;
@@ -23,7 +25,7 @@ html, body {
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Montserrat', Arial, sans-serif;
     background-color: var(--gris-claro);
     position: relative;
 }
@@ -90,7 +92,7 @@ body {
   font-size: 12px;
   font-weight: 600;
   color: rgb(0, 0, 0);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Montserrat', Arial, sans-serif;
   line-height: 1;
   margin-top: -6px;
   text-align: center;
@@ -3033,7 +3035,7 @@ body {
 
             
 .terms-note{
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 11px;      /* aproximado a 8pt en pantalla */
   line-height: 1.35;
   margin-top: .75rem;
@@ -3083,4 +3085,179 @@ body {
     flex-direction: column;
     text-align: center;
   }
+}
+
+/* =========================================================
+   TIPOGRAFÍA CIP FINANCIAL GROUP
+   Inspirada en el estilo clásico/elegante del logotipo
+   ========================================================= */
+
+/* Texto general */
+body,
+p,
+li,
+a,
+button,
+input,
+textarea,
+select,
+label {
+    font-family: 'Montserrat', Arial, sans-serif !important;
+}
+
+/* Títulos principales y encabezados */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.section-title,
+.custom_heading-container h2,
+.slider_detail-box h1,
+.service_content h4,
+.footer-title,
+.links-title,
+.stat-number,
+.stat-title {
+    font-family: 'Montserrat', Arial, sans-serif !important;
+    letter-spacing: 0.02em;
+}
+
+/* Navegación: elegante, pero limpia */
+.menu-item a,
+.nav-link,
+.dropdown-menu a {
+    font-family: 'Montserrat', Arial, sans-serif !important;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+}
+
+/* Subtítulos y textos descriptivos */
+.section-subtitle,
+.mvv-text,
+.detail-box p,
+.service_content p,
+.main-description,
+.footer-text {
+    font-family: 'Montserrat', Arial, sans-serif !important;
+    letter-spacing: 0.01em;
+}
+
+/* Título "Nuestros Servicios" y similares */
+.custom_heading-container h2,
+.section-title {
+    font-weight: 700;
+}
+
+/* Botones */
+.btn-1,
+.btn-2,
+.submit-btn,
+.service-link {
+    font-family: 'Montserrat', Arial, sans-serif !important;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+/* Formularios: mantenerlos legibles */
+.form-control,
+.newsletter-form input {
+    font-family: 'Montserrat', Arial, sans-serif !important;
+}
+
+/* Ajustes tipográficos en móvil */
+@media (max-width: 768px) {
+    .custom_heading-container h2,
+    .section-title,
+    .slider_detail-box h1 {
+        letter-spacing: 0.01em;
+    }
+
+    .menu-item a,
+    .nav-link {
+        letter-spacing: 0.02em;
+    }
+}
+
+
+/* =========================================================
+   TIPOGRAFÍA ÚNICA CIP FINANCIAL GROUP
+   Todo el sitio usa Montserrat
+   ========================================================= */
+html,
+body,
+body *,
+h1, h2, h3, h4, h5, h6,
+p, a, span, li,
+button, input, textarea, select, label,
+.menu-item a,
+.nav-link,
+.dropdown-menu a,
+.logo-text,
+.slider_detail-box h1,
+.slider_detail-box p,
+.custom_heading-container h2,
+.section-title,
+.section-subtitle,
+.detail-box p,
+.mvv-card h3,
+.mvv-text,
+.service-number,
+.service_content h4,
+.service_content p,
+.service-link,
+.btn-1,
+.btn-2,
+.stat-number,
+.stat-title,
+.main-description,
+.contact-form label,
+.form-control,
+.submit-btn,
+.footer-title,
+.footer-text,
+.links-title,
+.footer-link,
+.newsletter-title,
+.newsletter-form input,
+.newsletter-form button,
+.copyright,
+.terms-note {
+    font-family: 'Montserrat', Arial, sans-serif !important;
+}
+
+/* Jerarquía visual sin cambiar de familia */
+h1, h2, h3, h4, h5, h6,
+.slider_detail-box h1,
+.custom_heading-container h2,
+.section-title,
+.footer-title,
+.links-title {
+    font-weight: 700 !important;
+}
+
+.menu-item a,
+.nav-link,
+.dropdown-menu a,
+.btn-1,
+.btn-2,
+.service-link,
+.submit-btn,
+.stat-title,
+.footer-link {
+    font-weight: 600 !important;
+}
+
+.stat-number,
+.service-number {
+    font-weight: 800 !important;
+}
+
+/* Menú consistente en desktop y móvil */
+.menu-item a,
+.nav-link,
+.dropdown-menu a {
+    letter-spacing: 0.01em !important;
+    text-transform: none;
 }

@@ -25,7 +25,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -89,7 +89,7 @@
     }
 
     body {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Libre Baskerville', Georgia, serif;
         color: var(--gray-800);
         line-height: 1.6;
         background: var(--gray-100);
@@ -97,7 +97,7 @@
     }
 
     h1, h2, h3, h4, h5, h6 {
-        font-family: 'Syne', sans-serif;
+        font-family: 'Cormorant Garamond', Georgia, serif;
         font-weight: 700;
     }
 
@@ -219,7 +219,7 @@
         font-size: 1.4rem;
         font-weight: 700;
         transition: var(--transition);
-        font-family: 'Syne', sans-serif;
+        font-family: 'Cormorant Garamond', Georgia, serif;
         letter-spacing: -0.02em;
         position: relative;
     }
@@ -587,7 +587,7 @@
         font-weight: 800;
         color: var(--primary);
         margin-bottom: 15px;
-        font-family: 'Syne', sans-serif;
+        font-family: 'Cormorant Garamond', Georgia, serif;
     }
 
     .plan-amount {
@@ -1527,6 +1527,124 @@
 .brand-name{
   display:none;
 }
+  
+  /* ===== TIPOGRAFÍA Y MENÚ UNIFICADOS CIP ===== */
+
+  body,
+  p,
+  a,
+  span,
+  li,
+  button,
+  input,
+  textarea,
+  select,
+  label,
+  table,
+  th,
+  td {
+      font-family: 'Libre Baskerville', Georgia, serif !important;
+  }
+
+  h1, h2, h3, h4, h5, h6,
+  .hero-card h1,
+  .section-title,
+  .plan-name,
+  .bank-comparison-title h3,
+  .comparison-summary h4,
+  .action-section h3,
+  .footer-title,
+  .links-title {
+      font-family: 'Cormorant Garamond', Georgia, serif !important;
+      font-weight: 700 !important;
+  }
+
+  /* Menú exactamente igual al resto del sitio */
+  .nav-link,
+  .dropdown-toggle {
+      font-family: 'Libre Baskerville', Georgia, serif !important;
+      font-size: 1rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.5px !important;
+      line-height: 1.4 !important;
+  }
+
+  .dropdown-menu a {
+      font-family: 'Libre Baskerville', Georgia, serif !important;
+      font-size: 0.95rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.3px !important;
+      line-height: 1.4 !important;
+  }
+
+  .nav-list {
+      gap: 40px !important;
+  }
+
+  /* Contenido de calculadora */
+  .hero-card p,
+  .btn-primary,
+  .plan-details,
+  .plan-rate,
+  .result-card h3,
+  .result-card p,
+  .tab,
+  .summary-table,
+  .bank-name,
+  .bank-rate,
+  .bank-amount-label,
+  .bank-amount,
+  .comparison-amount,
+  .comparison-text,
+  .action-section p,
+  .btn,
+  .benefit,
+  .footer-link,
+  .privacy-link,
+  .copyright {
+      font-family: 'Libre Baskerville', Georgia, serif !important;
+  }
+
+  /* Números grandes mantienen peso fuerte pero misma familia */
+  .plan-amount,
+  .result-amount,
+  .comparison-amount,
+  .bank-amount {
+      font-family: 'Libre Baskerville', Georgia, serif !important;
+      font-weight: 700 !important;
+  }
+
+  /* Proteger Font Awesome */
+  .fas,
+  .fa-solid,
+  .far,
+  .fa-regular {
+      font-family: "Font Awesome 6 Free" !important;
+  }
+
+  .fas,
+  .fa-solid {
+      font-weight: 900 !important;
+  }
+
+  .far,
+  .fa-regular {
+      font-weight: 400 !important;
+  }
+
+  .fab,
+  .fa-brands {
+      font-family: "Font Awesome 6 Brands" !important;
+      font-weight: 400 !important;
+  }
+
+  @media (max-width: 768px) {
+      .nav-link,
+      .dropdown-toggle {
+          font-size: 1.1rem !important;
+      }
+  }
+
   </style>
 </head>
 <body>
@@ -1536,7 +1654,7 @@
         <div class="header-container">
             <a href="index.html" class="brand" id="logo-menu">
                 <img src="images/logo.png" alt="CIP Financial Group" class="brand-logo">
-                <span class="brand-name"></span></span>
+                <span class="brand-name"></span>
             </a>
 
             <nav class="nav">

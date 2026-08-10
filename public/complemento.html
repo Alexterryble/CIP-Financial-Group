@@ -23,8 +23,589 @@
 
   <!-- Estilos y scripts -->
 
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+/* ===== AJUSTE DE IMPRESIÓN / SIMULACIÓN CIP ===== */
+@media print {
+  @page {
+    size: letter landscape;
+    margin: 0.35cm 0.45cm 0.45cm 0.45cm;
+  }
+
+  html, body {
+    width: 100% !important;
+    background: #fff !important;
+  }
+
+  body {
+    font-size: 7.4pt !important;
+    line-height: 1.12 !important;
+    color: #0f172a !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body > * {
+    display: none !important;
+  }
+
+  .print-keep {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .print-keep * {
+    display: revert !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .simu-cip,
+  .simu-cip__wrap {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0.16cm !important;
+    background: #fff !important;
+    border-radius: 8px !important;
+  }
+
+  .simu-cip__wrap {
+    border: 1px solid #d9dee7 !important;
+  }
+
+  .simu-panel {
+    margin: 0 0 0.14cm !important;
+    padding: 0.12cm !important;
+    border: 1px solid #dfe5ef !important;
+    border-radius: 8px !important;
+  }
+
+  .simu-title,
+  .simu-subtitle,
+  .simu-cip__head h2 {
+    font-size: 7.8pt !important;
+    line-height: 1.1 !important;
+    margin: 0 0 0.08cm !important;
+    color: #0f172a !important;
+  }
+
+  .simu-cip__head p,
+  .cip-10y__text,
+  .contacto-box p {
+    font-size: 6.8pt !important;
+    line-height: 1.15 !important;
+    margin: 0.04cm 0 0.10cm !important;
+    color: #475569 !important;
+  }
+
+  .simu-panel-fields {
+    display: grid !important;
+    grid-template-columns: 1.15fr 1fr 1fr !important;
+    gap: 0.18cm !important;
+    align-items: stretch !important;
+  }
+
+  .simu-field {
+    padding: 0.08cm !important;
+    border: 1px solid #e3e8f2 !important;
+    border-radius: 8px !important;
+    background: #fafbff !important;
+    margin: 0 !important;
+  }
+
+  .simu-field--full {
+    grid-column: 1 / 4 !important;
+  }
+
+  .simu-field label {
+    font-size: 6.5pt !important;
+    margin-bottom: 0.03cm !important;
+  }
+
+  .simu-input {
+    padding: 0.04cm 0.08cm !important;
+    border: 1px solid #cfd7e6 !important;
+    border-radius: 7px !important;
+  }
+
+  .simu-input span,
+  .simu-input input {
+    font-size: 6.8pt !important;
+    font-weight: 700 !important;
+  }
+
+  .simu-field small {
+    font-size: 5.9pt !important;
+    margin-top: 0.03cm !important;
+    line-height: 1.1 !important;
+  }
+
+  .simu-cip__cards {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.18cm !important;
+    margin-top: 0.16cm !important;
+    align-items: stretch !important;
+  }
+
+  .simu-card {
+    border: 1px solid #dfe5ef !important;
+    border-radius: 8px !important;
+    padding: 0.16cm !important;
+    background: #fff !important;
+    min-height: 1.75cm !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .simu-card--accent {
+    background: linear-gradient(90deg, rgba(238,240,255,0.7) 0%, rgba(220,226,255,0.95) 100%) !important;
+    border-color: #c9d1eb !important;
+  }
+
+  .sc-label {
+    font-size: 6.2pt !important;
+    margin-bottom: 0.03cm !important;
+    color: #64748b !important;
+  }
+
+  .sc-value {
+    font-size: 9pt !important;
+    font-weight: 700 !important;
+    line-height: 1.05 !important;
+    color: #0f172a !important;
+  }
+
+  .tabla-wrap,
+  .simu-table-wrap {
+    width: 100% !important;
+    overflow: visible !important;
+    border-radius: 8px !important;
+    margin: 0.12cm 0 0 !important;
+    border: 1px solid #dfe5ef !important;
+    box-shadow: none !important;
+  }
+
+  table,
+  #tablaAportaciones,
+  #tablaIMSS {
+    width: 100% !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+    font-variant-numeric: tabular-nums;
+    font-family: 'Libre Baskerville', Georgia, serif !important;
+  }
+
+  #tablaAportaciones {
+    min-width: 100% !important;
+    font-size: 6.55pt !important;
+  }
+
+  #tablaIMSS {
+    min-width: 100% !important;
+    font-size: 6.45pt !important;
+  }
+
+  th, td {
+    padding: 0.07cm 0.08cm !important;
+    border: 0.3pt solid #d7dde8 !important;
+    line-height: 1.12 !important;
+    white-space: nowrap !important;
+  }
+
+  #tablaAportaciones thead th {
+    font-size: 6.8pt !important;
+    padding: 0.08cm !important;
+    background: #0f3f78 !important;
+    color: #fff !important;
+    text-align: center !important;
+  }
+
+  #tablaAportaciones tbody th,
+  #tablaIMSS tbody th {
+    font-size: 6.55pt !important;
+    font-weight: 700 !important;
+  }
+
+  #tablaAportaciones tbody td,
+  #tablaAportaciones tfoot td,
+  #tablaIMSS tbody td {
+    font-size: 6.45pt !important;
+    text-align: right !important;
+  }
+
+  #tablaAportaciones tfoot td {
+    font-weight: 700 !important;
+  }
+
+  #tablaIMSS thead th {
+    font-size: 6.8pt !important;
+    background: linear-gradient(135deg, #36c88f 0%, #b6f2da 95%) !important;
+    color: #052f5f !important;
+    text-align: center !important;
+  }
+
+  #tablaIMSS tbody tr#imssTotalRow th,
+  #tablaIMSS tbody tr#imssTotalRow td {
+    font-weight: 700 !important;
+  }
+
+  .cip-10y,
+  .cip-contacto-final,
+  .hero-inversion,
+  .beneficios-cip,
+  .footer,
+  .header,
+  .nav,
+  .nav-list,
+  .nav-toggle,
+  .hero-actions,
+  .print-button,
+  #btnImprimir,
+  button,
+  .btn-contacto,
+  .footer-social {
+    display: none !important;
+  }
+
+  .print-logo {
+    display: block !important;
+    position: static !important;
+    width: 3.2cm !important;
+    height: auto !important;
+    margin: 0 auto 0.10cm !important;
+  }
+}
+
+/* Opcional: en pantalla, deja el reporte un poco más limpio */
+@media screen {
+  .tabla-wrap,
+  .simu-table-wrap {
+    border-radius: 18px;
+  }
+}
+</style>
+
+
+<style>
+/* ===== IMPRESIÓN V2 - COMPLEMENTO CIP ===== */
+@media print {
+  /* Forzamos mejor aprovechamiento de hoja */
+  @page {
+    size: letter landscape;
+    margin: 0.18cm;
+  }
+
+  html, body {
+    width: 100% !important;
+    height: auto !important;
+    background: #fff !important;
+    overflow: visible !important;
+  }
+
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    zoom: 1.18 !important;
+    color: #0f172a !important;
+  }
+
+  /* Solo se imprime el bloque necesario */
+  body > * {
+    display: none !important;
+  }
+
+  .print-keep {
+    display: block !important;
+    width: 84.5% !important; /* compensa el zoom para que siga cabiendo */
+    max-width: none !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    transform: none !important;
+  }
+
+  .print-keep *,
+  .simu-cip__wrap *,
+  .simu-panel *,
+  .tabla-wrap *,
+  .simu-table-wrap * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Ocultamos elementos de pantalla */
+  .header,
+  .nav,
+  .nav-list,
+  .footer,
+  .hero-inversion,
+  .beneficios-cip,
+  .cip-10y,
+  .cip-contacto-final,
+  .print-button,
+  #btnImprimir,
+  .btn-contacto,
+  .footer-social {
+    display: none !important;
+  }
+
+  /* Encabezado limpio */
+  .simu-cip,
+  .simu-cip__wrap {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 auto !important;
+    padding: 0.10cm !important;
+    background: #fff !important;
+    border: 1px solid #d9dee7 !important;
+    border-radius: 10px !important;
+  }
+
+  /* Limpiar área del logo */
+  .print-logo {
+    display: block !important;
+    position: static !important;
+    width: 2.5cm !important;
+    height: auto !important;
+    margin: 0 auto 0.10cm !important;
+  }
+
+  .brand-name,
+  .logo-text,
+  .site-brand {
+    display: none !important;
+  }
+
+  .simu-cip__head,
+  .simu-panel:first-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .simu-panel {
+    margin: 0 0 0.09cm !important;
+    padding: 0.10cm !important;
+    border: 1px solid #dfe5ef !important;
+    border-radius: 9px !important;
+    background: #fff !important;
+  }
+
+  .simu-title,
+  .simu-subtitle,
+  .simu-cip__head h2 {
+    font-size: 8.1pt !important;
+    line-height: 1.08 !important;
+    margin: 0 0 0.05cm !important;
+    color: #0f172a !important;
+  }
+
+  .simu-cip__head p,
+  .cip-10y__text,
+  .contacto-box p {
+    font-size: 6.7pt !important;
+    line-height: 1.12 !important;
+    margin: 0.03cm 0 0.08cm !important;
+    color: #475569 !important;
+  }
+
+  /* Campos superiores */
+  .simu-panel-fields {
+    display: grid !important;
+    grid-template-columns: 1.15fr 1fr 1fr !important;
+    gap: 0.12cm !important;
+    align-items: stretch !important;
+  }
+
+  .simu-field {
+    padding: 0.06cm !important;
+    border: 1px solid #e3e8f2 !important;
+    border-radius: 7px !important;
+    background: #fafbff !important;
+    margin: 0 !important;
+  }
+
+  .simu-field--full {
+    grid-column: 1 / 4 !important;
+  }
+
+  .simu-field label {
+    font-size: 6.2pt !important;
+    margin-bottom: 0.02cm !important;
+  }
+
+  .simu-input {
+    padding: 0.03cm 0.06cm !important;
+    border: 1px solid #cfd7e6 !important;
+    border-radius: 6px !important;
+    min-height: auto !important;
+  }
+
+  .simu-input span,
+  .simu-input input {
+    font-size: 6.9pt !important;
+    font-weight: 700 !important;
+    line-height: 1.08 !important;
+  }
+
+  .simu-field small {
+    font-size: 5.6pt !important;
+    margin-top: 0.02cm !important;
+    line-height: 1.05 !important;
+    color: #6b7280 !important;
+  }
+
+  /* Tablas */
+  .tabla-wrap,
+  .simu-table-wrap {
+    width: 100% !important;
+    overflow: visible !important;
+    border-radius: 8px !important;
+    margin: 0.08cm 0 0 !important;
+    border: 1px solid #dfe5ef !important;
+  }
+
+  table,
+  #tablaAportaciones,
+  #tablaIMSS {
+    width: 100% !important;
+    min-width: 100% !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+    font-variant-numeric: tabular-nums;
+  }
+
+  #tablaAportaciones {
+    font-size: 6.7pt !important;
+  }
+
+  #tablaIMSS {
+    font-size: 6.55pt !important;
+  }
+
+  th, td {
+    padding: 0.05cm 0.06cm !important;
+    border: 0.3pt solid #d7dde8 !important;
+    line-height: 1.05 !important;
+    white-space: nowrap !important;
+  }
+
+  #tablaAportaciones thead th {
+    font-size: 6.9pt !important;
+    background: #0f3f78 !important;
+    color: #fff !important;
+    text-align: center !important;
+  }
+
+  #tablaIMSS thead th {
+    font-size: 6.9pt !important;
+    background: linear-gradient(135deg, #36c88f 0%, #b6f2da 95%) !important;
+    color: #052f5f !important;
+    text-align: center !important;
+  }
+
+  #tablaAportaciones tbody th,
+  #tablaIMSS tbody th,
+  #tablaAportaciones tfoot th {
+    font-size: 6.55pt !important;
+    font-weight: 700 !important;
+  }
+
+  #tablaAportaciones tbody td,
+  #tablaAportaciones tfoot td,
+  #tablaIMSS tbody td {
+    font-size: 6.45pt !important;
+    text-align: right !important;
+  }
+
+  #tablaAportaciones tfoot td,
+  #tablaIMSS tbody tr#imssTotalRow td,
+  #tablaIMSS tbody tr#imssTotalRow th {
+    font-weight: 700 !important;
+  }
+
+  /* Resumen inferior */
+  .simu-cip__cards {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.12cm !important;
+    margin-top: 0.10cm !important;
+    align-items: stretch !important;
+  }
+
+  .simu-card {
+    border: 1px solid #dfe5ef !important;
+    border-radius: 8px !important;
+    padding: 0.12cm !important;
+    background: #fff !important;
+    min-height: 1.35cm !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .simu-card--accent {
+    background: linear-gradient(90deg, rgba(238,240,255,0.7) 0%, rgba(220,226,255,0.95) 100%) !important;
+    border-color: #c9d1eb !important;
+  }
+
+  .sc-label {
+    font-size: 6.0pt !important;
+    margin-bottom: 0.02cm !important;
+    color: #64748b !important;
+    line-height: 1.05 !important;
+  }
+
+  .sc-value {
+    font-size: 8.7pt !important;
+    font-weight: 700 !important;
+    line-height: 1.05 !important;
+    color: #0f172a !important;
+  }
+}
+</style>
+
+
+<style>
+/* ===== AJUSTE EXTRA LOGO IMPRESIÓN ===== */
+@media print {
+  /* hacemos el logo más pequeño y evitamos que se encime */
+  .print-logo {
+    width: 1.85cm !important;
+    margin: 0 auto 0.04cm !important;
+  }
+
+  /* si existe un bloque de marca debajo, lo compactamos */
+  .brand-name,
+  .logo-text,
+  .site-brand,
+  .simu-logo-text {
+    display: none !important;
+  }
+
+  /* bajamos un poco el espacio superior para que no empuje el contenido */
+  .simu-cip,
+  .simu-cip__wrap {
+    padding-top: 0.06cm !important;
+  }
+
+  /* la primera caja sube un poco para quedar mejor alineada */
+  .simu-panel:first-child {
+    margin-top: 0 !important;
+  }
+}
+</style>
+
 </head>
 
 
@@ -92,7 +673,7 @@ html{
 }
 
 body{
-  font-family:'Inter',sans-serif;
+  font-family:'Libre Baskerville',Georgia,serif;
   color:var(--gray-800);
   line-height:1.6;
   background:var(--gray-100);
@@ -100,7 +681,7 @@ body{
 }
 
 h1,h2,h3,h4,h5,h6{
-  font-family:'Syne',sans-serif;
+  font-family:'Cormorant Garamond',Georgia,serif;
   font-weight:700;
 }
 
@@ -222,7 +803,7 @@ h1,h2,h3,h4,h5,h6{
   font-size:1.4rem;
   font-weight:700;
   transition:all 0.3s ease;
-  font-family:'Syne',sans-serif;
+  font-family:'Cormorant Garamond',Georgia,serif;
   letter-spacing:-0.02em;
   position:relative;
 }
@@ -1247,13 +1828,15 @@ h1,h2,h3,h4,h5,h6{
 
   .print-logo{
     display:block !important;
-    position:fixed !important;
-    top:0.5cm !important;
-    left:50% !important;
-    transform:translateX(-50%) !important;
-    width:4cm !important;
+    position:static !important;
+    top:auto !important;
+    left:auto !important;
+    transform:none !important;
+    width:1.8cm !important;
+    max-width:1.8cm !important;
     height:auto !important;
-    z-index:1000 !important;
+    margin:0 auto 0.10cm !important;
+    z-index:auto !important;
   }
 }
 
@@ -2525,13 +3108,15 @@ h1,h2,h3,h4,h5,h6{
 @media print {
   .print-logo {
     display: block !important;
-    position: fixed !important;
-    top: 0.5cm !important;              /* distancia desde el borde superior */
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    width: 4cm !important;              /* ajusta el tamaño del logo */
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 1.8cm !important;
+    max-width: 1.8cm !important;
     height: auto !important;
-    z-index: 1000 !important;
+    margin: 0 auto 0.10cm !important;
+    z-index: auto !important;
   }
 }
 
@@ -2601,7 +3186,7 @@ h1,h2,h3,h4,h5,h6{
         <div class="header-container">
             <a href="index.html" class="brand" id="logo-menu">
                 <img src="images/logo.png" alt="CIP Financial Group" class="brand-logo">
-                <span class="brand-name"></span></span>
+                <span class="brand-name"></span>
             </a>
 
             <nav class="nav">
@@ -2686,12 +3271,13 @@ h1,h2,h3,h4,h5,h6{
 </section>
 
 
-<img src="images/logo.png" alt="Logo de la empresa" class="print-logo">
-
 <!-- ===== SIMULADOR DE INVERSIÓN / COMPLEMENTO IMSS ===== -->
 <!-- ================== SIMULADOR / COMPLEMENTO CIP ================== -->
 <!-- ====== SIMULADOR / COMPLEMENTO CIP ====== -->
 <section class="simu-cip print-keep" id="simulador-cip">
+  <div class="print-logo-wrap">
+    <img src="images/logo.png" alt="Logo de la empresa" class="print-logo">
+  </div>
   <div class="simu-cip__head">
   <div class="simu-cip__wrap">
 
@@ -3624,7 +4210,139 @@ function imprimirSeccion() {
                 size: landscape;
                 margin: 0.5cm;
             }
-        </style>
+        
+/* ===== TIPOGRAFÍA Y MENÚ UNIFICADOS CIP ===== */
+
+body,
+p,
+a,
+span,
+li,
+button,
+input,
+textarea,
+select,
+label,
+table,
+th,
+td {
+    font-family: 'Libre Baskerville', Georgia, serif !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+.hero-inversion h1,
+.beneficios-cip h2,
+.beneficio h3,
+.simu-cip__head h2,
+.simu-title,
+.simu-subtitle,
+.cip-10y h2,
+.contacto-box h2,
+.footer-title,
+.links-title {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-weight: 700 !important;
+}
+
+/* Menú igual a index / nosotros / servicios */
+.nav-link,
+.dropdown-toggle {
+    font-family: 'Libre Baskerville', Georgia, serif !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+    line-height: 1.4 !important;
+}
+
+.dropdown-menu a {
+    font-family: 'Libre Baskerville', Georgia, serif !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px !important;
+    line-height: 1.4 !important;
+}
+
+.nav-list {
+    gap: 40px !important;
+}
+
+/* Simulador y contenido */
+.hero-inversion p,
+.hero-btn,
+.hero-btn-secondary,
+.beneficio p,
+.simu-cip__head p,
+.simu-field label,
+.simu-input input,
+.simu-field small,
+.sc-label,
+.sc-value,
+#tablaAportaciones,
+#tablaIMSS,
+.cip-10y__text,
+.year-step,
+.cip-10y__foot,
+.contacto-box p,
+.btn-contacto,
+.footer-link,
+.privacy-link,
+.copyright {
+    font-family: 'Libre Baskerville', Georgia, serif !important;
+}
+
+/* Números y resultados */
+.sc-value,
+.year-step .year,
+.simu-input span {
+    font-family: 'Libre Baskerville', Georgia, serif !important;
+    font-weight: 700 !important;
+}
+
+/* Proteger Font Awesome */
+.fas,
+.fa-solid,
+.far,
+.fa-regular {
+    font-family: "Font Awesome 6 Free" !important;
+}
+
+.fas,
+.fa-solid {
+    font-weight: 900 !important;
+}
+
+.far,
+.fa-regular {
+    font-weight: 400 !important;
+}
+
+.fab,
+.fa-brands {
+    font-family: "Font Awesome 6 Brands" !important;
+    font-weight: 400 !important;
+}
+
+/* Mantener impresión compacta */
+@media print {
+    body,
+    .print-keep,
+    .print-keep * {
+        font-family: 'Libre Baskerville', Georgia, serif !important;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Cormorant Garamond', Georgia, serif !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-link,
+    .dropdown-toggle {
+        font-size: 1.1rem !important;
+    }
+}
+
+</style>
     </head>
     <body>
         ${contenidoSimulador}
@@ -3636,7 +4354,74 @@ function imprimirSeccion() {
                 }, 100);
             };
         <\/script>
-    </body>
+    
+<style>
+/* ===== CORRECCIÓN FINAL LOGO IMPRESIÓN ===== */
+@media print {
+  .print-logo {
+    display: block !important;
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+
+    width: 1.45cm !important;
+    max-width: 1.45cm !important;
+    height: auto !important;
+
+    margin: 0 auto 0.10cm !important;
+    z-index: auto !important;
+  }
+
+  /* El contenido ya empieza debajo del logo */
+  .print-keep {
+    padding-top: 0 !important;
+  }
+
+  .simu-cip,
+  .simu-cip__wrap {
+    margin-top: 0 !important;
+  }
+
+  /* Evitamos cualquier texto de marca extra debajo del logo */
+  .brand-name,
+  .logo-text,
+  .site-brand,
+  .simu-logo-text {
+    display: none !important;
+  }
+}
+</style>
+
+
+<style>
+/* ===== AJUSTE LOGO CENTRADO EN LA HOJA ===== */
+.print-logo-wrap {
+  display: none;
+}
+
+@media print {
+  .print-logo-wrap {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0 0 0.12cm !important;
+  }
+
+  .print-logo {
+    display: inline-block !important;
+    position: static !important;
+    width: 1.55cm !important;
+    max-width: 1.55cm !important;
+    height: auto !important;
+    margin: 0 !important;
+  }
+}
+</style>
+
+</body>
     </html>
   `;
   
