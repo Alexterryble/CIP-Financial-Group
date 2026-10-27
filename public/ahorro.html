@@ -1852,7 +1852,43 @@
       }
   }
 
-  </style>
+  
+/* Distribución de los cuatro plazos en escritorio */
+@media (min-width: 769px) {
+    .plans-section .plans-grid, #detalles .detail-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: 20px !important;
+        align-items: stretch;
+    }
+    .plans-section .plan-card-modern, #detalles .detail-card {
+        min-width: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+        grid-column: auto !important;
+        box-sizing: border-box;
+    }
+    .plans-section .plan-body { padding: 26px 16px; }
+    .plans-section .plan-header { padding: 25px 10px; }
+    .plans-section .plan-header h3 { font-size: 1.5rem; }
+    .plans-section .plan-details-list li { flex-wrap: wrap; gap: 4px 8px; }
+    #detalles .detail-card { padding: 24px 16px; }
+    #detalles .plan-title-modern { font-size: 1.3rem; gap: 8px; }
+    #detalles .badge { flex-shrink: 0; }
+    #detalles .detail-item { gap: 8px; flex-wrap: wrap; }
+    #detalles .detail-item i { width: 20px; flex-shrink: 0; }
+    #detalles .detail-item > span { min-width: 0; overflow-wrap: anywhere; }
+    #detalles .amount-highlight { font-size: 1.1rem; }
+}
+@media (max-width: 768px) {
+    .plans-section .plans-grid, #detalles .detail-grid {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+    }
+    .plans-section .plan-card-modern, #detalles .detail-card { min-width: 0 !important; }
+}
+
+</style>
 </head>
 <body>
 
