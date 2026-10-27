@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>CIP Financial Group - Plan 40 | Inversión de Alto Rendimiento</title>
+  <title>CIP Financial Group - Plan 40 | Inversión de Plan 5 años</title>
   <meta name="description" content="Invierte con el Plan 40 de CIP Financial Group. Rendimientos de hasta 148% en 60 meses. Simula tu inversión y descubre tus ganancias.">
   <meta name="keywords" content="plan 40, inversión, rendimientos, CIP Financial Group, ahorro, plazo fijo, tasas preferenciales">
   <meta name="author" content="CIP Financial Group">
@@ -1090,7 +1090,8 @@
     .bank-return-row {
         display: flex;
         gap: 20px;
-        min-width: 300px;
+        min-width: 0;
+        flex-wrap: wrap;
     }
 
     .bank-return-row > div {
@@ -1957,39 +1958,12 @@
                 <!-- Plan Tradicional -->
                 <div class="plan-card-modern">
                     <div class="plan-header">
-                        <h3>TRADICIONAL</h3>
-                    </div>
-                    <div class="plan-body">
-                        <div class="plan-rate">
-                            <div class="rate-number">20%</div>
-                            <div class="rate-label">Tasa de Rendimiento</div>
-                        </div>
-                        <ul class="plan-details-list">
-                            <li>
-                                <span class="detail-label">Plazo fijo:</span>
-                                <span class="detail-value">12 Meses</span>
-                            </li>
-                            <li>
-                                <span class="detail-label">Monto mínimo:</span>
-                                <span class="detail-value">$10,000</span>
-                            </li>
-                            <li>
-                                <span class="detail-label">Monto máximo:</span>
-                                <span class="detail-value">$1,000,000</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Plan Moderado -->
-                <div class="plan-card-modern">
-                    <div class="plan-header">
-                        <h3>MODERADO</h3>
+                        <h3>PLAN 2 AÑOS</h3>
                     </div>
                     <div class="plan-body">
                         <div class="plan-rate">
                             <div class="rate-number">44%</div>
-                            <div class="rate-label">Tasa de Rendimiento</div>
+                            <div class="rate-label">Rendimiento total al plazo</div>
                         </div>
                         <ul class="plan-details-list">
                             <li>
@@ -2006,17 +1980,65 @@
                             </li>
                         </ul>
                     </div>
+                </div><div class="plan-card-modern">
+                    <div class="plan-header">
+                        <h3>PLAN 3 AÑOS</h3>
+                    </div>
+                    <div class="plan-body">
+                        <div class="plan-rate">
+                            <div class="rate-number">72%</div>
+                            <div class="rate-label">Rendimiento total al plazo</div>
+                        </div>
+                        <ul class="plan-details-list">
+                            <li>
+                                <span class="detail-label">Plazo fijo:</span>
+                                <span class="detail-value">36 Meses</span>
+                            </li>
+                            <li>
+                                <span class="detail-label">Monto mínimo:</span>
+                                <span class="detail-value">$10,000</span>
+                            </li>
+                            <li>
+                                <span class="detail-label">Monto máximo:</span>
+                                <span class="detail-value">$1,000,000</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div><div class="plan-card-modern">
+                    <div class="plan-header">
+                        <h3>PLAN 4 AÑOS</h3>
+                    </div>
+                    <div class="plan-body">
+                        <div class="plan-rate">
+                            <div class="rate-number">107%</div>
+                            <div class="rate-label">Rendimiento total al plazo</div>
+                        </div>
+                        <ul class="plan-details-list">
+                            <li>
+                                <span class="detail-label">Plazo fijo:</span>
+                                <span class="detail-value">48 Meses</span>
+                            </li>
+                            <li>
+                                <span class="detail-label">Monto mínimo:</span>
+                                <span class="detail-value">$10,000</span>
+                            </li>
+                            <li>
+                                <span class="detail-label">Monto máximo:</span>
+                                <span class="detail-value">$1,000,000</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 
-                <!-- Plan Alto Rendimiento -->
+                <!-- Plan Plan 5 años -->
                 <div class="plan-card-modern">
                     <div class="plan-header">
-                        <h3>ALTO RENDIMIENTO</h3>
+                        <h3>PLAN 5 AÑOS</h3>
                     </div>
                     <div class="plan-body">
                         <div class="plan-rate">
                             <div class="rate-number">148%</div>
-                            <div class="rate-label">Tasa de Rendimiento</div>
+                            <div class="rate-label">Rendimiento total al plazo</div>
                         </div>
                         <ul class="plan-details-list">
                             <li>
@@ -2087,33 +2109,7 @@
                 <!-- Tradicional -->
                 <div class="detail-card">
                     <div class="plan-title-modern">
-                        Tradicional
-                        <span class="badge">20%</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span><strong>Plazo:</strong> 12 meses</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-coins"></i>
-                        <span><strong>Ganancia:</strong></span>
-                        <span class="amount-highlight" id="ganancia-detalle-12">$0</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-piggy-bank"></i>
-                        <span><strong>Total:</strong></span>
-                        <span class="amount-highlight" id="total-detalle-12">$0</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-clock"></i>
-                        <span><strong>Retorno:</strong> <span id="fecha-retorno-12"></span></span>
-                    </div>
-                </div>
-
-                <!-- Moderado -->
-                <div class="detail-card">
-                    <div class="plan-title-modern">
-                        Moderado
+                        Plan 2 años
                         <span class="badge badge-success">44%</span>
                     </div>
                     <div class="detail-item">
@@ -2134,12 +2130,58 @@
                         <i class="fas fa-clock"></i>
                         <span><strong>Retorno:</strong> <span id="fecha-retorno-24"></span></span>
                     </div>
+                </div><div class="detail-card">
+                    <div class="plan-title-modern">
+                        Plan 3 años
+                        <span class="badge">72%</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span><strong>Plazo:</strong> 36 meses</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-coins"></i>
+                        <span><strong>Ganancia:</strong></span>
+                        <span class="amount-highlight" id="ganancia-detalle-36">$0</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-piggy-bank"></i>
+                        <span><strong>Total:</strong></span>
+                        <span class="amount-highlight" id="total-detalle-36">$0</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-clock"></i>
+                        <span><strong>Retorno:</strong> <span id="fecha-retorno-36"></span></span>
+                    </div>
+                </div><div class="detail-card">
+                    <div class="plan-title-modern">
+                        Plan 4 años
+                        <span class="badge">107%</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span><strong>Plazo:</strong> 48 meses</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-coins"></i>
+                        <span><strong>Ganancia:</strong></span>
+                        <span class="amount-highlight" id="ganancia-detalle-48">$0</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-piggy-bank"></i>
+                        <span><strong>Total:</strong></span>
+                        <span class="amount-highlight" id="total-detalle-48">$0</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-clock"></i>
+                        <span><strong>Retorno:</strong> <span id="fecha-retorno-48"></span></span>
+                    </div>
                 </div>
 
-                <!-- Alto Rendimiento -->
+                <!-- Plan 5 años -->
                 <div class="detail-card">
                     <div class="plan-title-modern">
-                        Alto Rendimiento
+                        Plan 5 años
                         <span class="badge badge-warning">148%</span>
                     </div>
                     <div class="detail-item">
@@ -2175,7 +2217,7 @@
                 <canvas id="growthChart"></canvas>
             </div>
             <div class="chart-info">
-                <i class="fas fa-chart-pie"></i> La gráfica muestra la proyección de crecimiento mes a mes de tu inversión inicial.
+                <i class="fas fa-chart-pie"></i> Proyección ilustrativa entre plazos. Los valores mensuales no representan pagos; los rendimientos se calculan al término de cada plazo.
             </div>
         </div>
     </div>
@@ -2192,8 +2234,8 @@
                         <div class="bank-rate">Tasa: 2.5% anual</div>
                     </div>
                     <div class="bank-return-row">
-                        <div><strong>12 meses</strong><div id="bbva-12-g" class="bank-gain">$0</div></div>
-                        <div><strong>24 meses</strong><div id="bbva-24-g" class="bank-gain">$0</div></div>
+                        
+                        <div><strong>24 meses</strong><div id="bbva-24-g" class="bank-gain">$0</div></div><div><strong>36 meses</strong><div id="bbva-36-g" class="bank-gain">$0</div></div><div><strong>48 meses</strong><div id="bbva-48-g" class="bank-gain">$0</div></div>
                         <div><strong>60 meses</strong><div id="bbva-60-g" class="bank-gain">$0</div></div>
                     </div>
                 </div>
@@ -2206,8 +2248,8 @@
                         <div class="bank-rate">Tasa: 1.8% anual</div>
                     </div>
                     <div class="bank-return-row">
-                        <div><strong>12 meses</strong><div id="santander-12-g" class="bank-gain">$0</div></div>
-                        <div><strong>24 meses</strong><div id="santander-24-g" class="bank-gain">$0</div></div>
+                        
+                        <div><strong>24 meses</strong><div id="santander-24-g" class="bank-gain">$0</div></div><div><strong>36 meses</strong><div id="santander-36-g" class="bank-gain">$0</div></div><div><strong>48 meses</strong><div id="santander-48-g" class="bank-gain">$0</div></div>
                         <div><strong>60 meses</strong><div id="santander-60-g" class="bank-gain">$0</div></div>
                     </div>
                 </div>
@@ -2220,8 +2262,8 @@
                         <div class="bank-rate">Tasa: 1.2% anual</div>
                     </div>
                     <div class="bank-return-row">
-                        <div><strong>12 meses</strong><div id="banamex-12-g" class="bank-gain">$0</div></div>
-                        <div><strong>24 meses</strong><div id="banamex-24-g" class="bank-gain">$0</div></div>
+                        
+                        <div><strong>24 meses</strong><div id="banamex-24-g" class="bank-gain">$0</div></div><div><strong>36 meses</strong><div id="banamex-36-g" class="bank-gain">$0</div></div><div><strong>48 meses</strong><div id="banamex-48-g" class="bank-gain">$0</div></div>
                         <div><strong>60 meses</strong><div id="banamex-60-g" class="bank-gain">$0</div></div>
                     </div>
                 </div>
@@ -2234,8 +2276,8 @@
                         <div class="bank-rate">Tasa: 4.5% anual</div>
                     </div>
                     <div class="bank-return-row">
-                        <div><strong>12 meses</strong><div id="mercadopago-12-g" class="bank-gain">$0</div></div>
-                        <div><strong>24 meses</strong><div id="mercadopago-24-g" class="bank-gain">$0</div></div>
+                        
+                        <div><strong>24 meses</strong><div id="mercadopago-24-g" class="bank-gain">$0</div></div><div><strong>36 meses</strong><div id="mercadopago-36-g" class="bank-gain">$0</div></div><div><strong>48 meses</strong><div id="mercadopago-48-g" class="bank-gain">$0</div></div>
                         <div><strong>60 meses</strong><div id="mercadopago-60-g" class="bank-gain">$0</div></div>
                     </div>
                 </div>
@@ -2248,8 +2290,8 @@
                         <div class="bank-rate">Tasa: 5.0% anual</div>
                     </div>
                     <div class="bank-return-row">
-                        <div><strong>12 meses</strong><div id="nu-12-g" class="bank-gain">$0</div></div>
-                        <div><strong>24 meses</strong><div id="nu-24-g" class="bank-gain">$0</div></div>
+                        
+                        <div><strong>24 meses</strong><div id="nu-24-g" class="bank-gain">$0</div></div><div><strong>36 meses</strong><div id="nu-36-g" class="bank-gain">$0</div></div><div><strong>48 meses</strong><div id="nu-48-g" class="bank-gain">$0</div></div>
                         <div><strong>60 meses</strong><div id="nu-60-g" class="bank-gain">$0</div></div>
                     </div>
                 </div>
@@ -2262,8 +2304,8 @@
                         <div class="bank-rate">Tasa: 5.3% anual</div>
                     </div>
                     <div class="bank-return-row">
-                        <div><strong>12 meses</strong><div id="gbm-12-g" class="bank-gain">$0</div></div>
-                        <div><strong>24 meses</strong><div id="gbm-24-g" class="bank-gain">$0</div></div>
+                        
+                        <div><strong>24 meses</strong><div id="gbm-24-g" class="bank-gain">$0</div></div><div><strong>36 meses</strong><div id="gbm-36-g" class="bank-gain">$0</div></div><div><strong>48 meses</strong><div id="gbm-48-g" class="bank-gain">$0</div></div>
                         <div><strong>60 meses</strong><div id="gbm-60-g" class="bank-gain">$0</div></div>
                     </div>
                 </div>
@@ -2274,9 +2316,9 @@
                 <div class="highlight-card">
                     <h1>Ganancias estimadas con CIP</h1>
                     <div class="cip-ganancias">
-                        <p><strong>Tradicional (12 meses):</strong> <span id="ganancia-cip-12">+$0</span></p>
-                        <p><strong>Moderado (24 meses):</strong> <span id="ganancia-cip-24">+$0</span></p>
-                        <p><strong>Alto Rendimiento (60 meses):</strong> <span id="ganancia-cip-60">+$0</span></p>
+                        
+                        <p><strong>Plan 2 años (24 meses):</strong> <span id="ganancia-cip-24">+$0</span></p><p><strong>Plan 3 años (36 meses):</strong> <span id="ganancia-cip-36">+$0</span></p><p><strong>Plan 4 años (48 meses):</strong> <span id="ganancia-cip-48">+$0</span></p>
+                        <p><strong>Plan 5 años (60 meses):</strong> <span id="ganancia-cip-60">+$0</span></p>
                     </div>
                 </div>
             </div>
@@ -2456,7 +2498,8 @@
 
         // Inicializar gráfica
         const ctx = document.getElementById('growthChart').getContext('2d');
-        let totalCIP12 = 0;
+        let totalCIP36 = 0;
+        let totalCIP48 = 0;
         let totalCIP24 = 0;
         let totalCIP60 = 0;
         
@@ -2469,9 +2512,10 @@
                     data: [],
                     borderColor: (context) => {
                         const index = context.dataIndex;
-                        if (index <= 12) return '#052f5f';
-                        if (index <= 24) return '#28a745';
-                        return '#ffc107';
+                        if (index <= 24) return '#052f5f';
+                        if (index <= 36) return '#28a745';
+                        if (index <= 48) return '#008080';
+                        return '#b38300';
                     },
                     backgroundColor: 'rgba(5, 47, 95, 0.1)',
                     fill: false,
@@ -2481,9 +2525,10 @@
                     segment: {
                         borderColor: (context) => {
                             const index = context.p0DataIndex;
-                            if (index <= 11) return '#052f5f';
-                            if (index <= 23) return '#28a745';
-                            return '#ffc107';
+                            if (index <= 23) return '#052f5f';
+                        if (index <= 35) return '#28a745';
+                        if (index <= 47) return '#008080';
+                        return '#b38300';
                         },
                     }
                 }]
@@ -2564,7 +2609,8 @@
             }
         });
 
-        const tasa12Meses = 0.20;
+        const tasa36MesesTotal = 0.72;
+        const tasa48MesesTotal = 1.07;
         const tasa24MesesTotal = 0.44;
         const tasa60MesesTotal = 1.48;
 
@@ -2587,70 +2633,34 @@
         }
 
         function calcularInversion() {
-            const montoInput = document.getElementById('monto');
-            let montoInicial = parseFloat(montoInput.value) || 0;
-
-            if (montoInicial >= 10000 && montoInicial <= 1000000) {
-                const labels = ['Inicio'];
-                const data = [montoInicial];
-                const inversionDetalle = montoInicial;
-
-                for (let i = 1; i <= 60; i++) {
-                    labels.push(`Mes ${i}`);
-                    let incremento = 0;
-
-                    if (i <= 12) {
-                        incremento = inversionDetalle * tasa12Meses * (i / 12);
-                    } else if (i <= 24) {
-                        incremento = inversionDetalle * tasa24MesesTotal * (i / 24);
-                    } else {
-                        incremento = inversionDetalle * tasa60MesesTotal * (i / 60);
-                    }
-
-                    data.push(inversionDetalle + incremento);
+            const monto = Number(document.getElementById('monto').value);
+            const valido = Number.isFinite(monto) && monto >= 10000 && monto <= 1000000;
+            const planes = [[24,0.44],[36,0.72],[48,1.07],[60,1.48]];
+            const hoy = new Date();
+            planes.forEach(([meses,tasa]) => {
+                const ganancia = valido ? monto * tasa : 0;
+                document.getElementById(`ganancia-detalle-${meses}`).textContent = formatCurrency(ganancia);
+                document.getElementById(`total-detalle-${meses}`).textContent = formatCurrency(valido ? monto + ganancia : 0);
+                document.getElementById(`ganancia-cip-${meses}`).textContent = '+' + formatCurrency(ganancia);
+                const fecha = new Date(hoy.getFullYear(), hoy.getMonth() + meses, 1);
+                const ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth()+1, 0).getDate();
+                fecha.setDate(Math.min(hoy.getDate(), ultimoDia));
+                document.getElementById(`fecha-retorno-${meses}`).textContent = valido ? fecha.toLocaleDateString('es-MX',{year:'numeric',month:'long',day:'numeric'}) : '';
+            });
+            const labels = [], data = [];
+            if (valido) {
+                const puntos = [[0,0], ...planes];
+                for(let mes=0; mes<=60; mes++) {
+                    const i = puntos.findIndex(p=>p[0]>=mes);
+                    const a = puntos[Math.max(0,i-1)], b = puntos[i];
+                    const tasa = i===0 ? 0 : a[1]+(b[1]-a[1])*(mes-a[0])/(b[0]-a[0]);
+                    labels.push(mes===0 ? 'Inicio' : `Mes ${mes}`);
+                    data.push(monto*(1+tasa));
                 }
-
-                growthChart.data.labels = labels;
-                growthChart.data.datasets[0].data = data;
-                growthChart.update();
-
-                // Guardar valores globales
-                totalCIP12 = inversionDetalle * (1 + tasa12Meses);
-                totalCIP24 = inversionDetalle * (1 + tasa24MesesTotal);
-                totalCIP60 = inversionDetalle * (1 + tasa60MesesTotal);
-
-                const ganancia12 = totalCIP12 - inversionDetalle;
-                const ganancia24 = totalCIP24 - inversionDetalle;
-                const ganancia60 = totalCIP60 - inversionDetalle;
-
-                document.getElementById('ganancia-cip-12').textContent = '+' + formatCurrency(ganancia12);
-                document.getElementById('ganancia-cip-24').textContent = '+' + formatCurrency(ganancia24);
-                document.getElementById('ganancia-cip-60').textContent = '+' + formatCurrency(ganancia60);
-
-                // Mostrar resultados
-                document.getElementById('ganancia-detalle-12').textContent = formatCurrency(ganancia12);
-                document.getElementById('total-detalle-12').textContent = formatCurrency(totalCIP12);
-
-                document.getElementById('ganancia-detalle-24').textContent = formatCurrency(ganancia24);
-                document.getElementById('total-detalle-24').textContent = formatCurrency(totalCIP24);
-
-                document.getElementById('ganancia-detalle-60').textContent = formatCurrency(ganancia60);
-                document.getElementById('total-detalle-60').textContent = formatCurrency(totalCIP60);
-
-                const hoy = new Date();
-                function formatDate(date) {
-                    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-                    return date.toLocaleDateString('es-MX', options);
-                }
-
-                document.getElementById('fecha-retorno-12').textContent = formatDate(new Date(hoy.getFullYear(), hoy.getMonth() + 12, hoy.getDate()));
-                document.getElementById('fecha-retorno-24').textContent = formatDate(new Date(hoy.getFullYear(), hoy.getMonth() + 24, hoy.getDate()));
-                document.getElementById('fecha-retorno-60').textContent = formatDate(new Date(hoy.getFullYear(), hoy.getMonth() + 60, hoy.getDate()));
-            } else {
-                growthChart.data.labels = [];
-                growthChart.data.datasets[0].data = [];
-                growthChart.update();
             }
+            growthChart.data.labels = labels;
+            growthChart.data.datasets[0].data = data;
+            growthChart.update();
         }
 
         function openTab(evt, tabName) {
@@ -2695,21 +2705,19 @@
         };
 
         // Plazos en meses
-        const plazos = [12, 24, 60];
+        const plazos = [24, 36, 48, 60];
 
         function calcularGanancias() {
             const montoInput = document.getElementById('monto');
             const monto = parseFloat(montoInput.value) || 0;
 
-            if (isNaN(monto) || monto <= 0) {
-                return;
-            }
+            const valido = Number.isFinite(monto) && monto >= 10000 && monto <= 1000000;
 
             for (const banco in tasas) {
                 const tasaAnual = tasas[banco];
                 plazos.forEach((meses) => {
                     const años = meses / 12;
-                    const ganancia = monto * tasaAnual * años;
+                    const ganancia = valido ? monto * tasaAnual * años : 0;
 
                     const idGanancia = `${banco}-${meses}-g`;
                     const el = document.getElementById(idGanancia);
@@ -2827,22 +2835,25 @@
                                     pointBorderWidth: 2,
                                     pointBackgroundColor: (context) => {
                                         const i = context.dataIndex;
-                                        if (i <= 12) return '#052f5f';
-                                        if (i <= 24) return '#28a745';
-                                        return '#ffc107';
+                                        if (i <= 24) return '#052f5f';
+                        if (i <= 36) return '#28a745';
+                        if (i <= 48) return '#008080';
+                        return '#b38300';
                                     },
                                     pointBorderColor: (context) => {
                                         const i = context.dataIndex;
-                                        if (i <= 12) return '#052f5f';
-                                        if (i <= 24) return '#28a745';
-                                        return '#ffc107';
+                                        if (i <= 24) return '#052f5f';
+                        if (i <= 36) return '#28a745';
+                        if (i <= 48) return '#008080';
+                        return '#b38300';
                                     },
                                     segment: {
                                         borderColor: (context) => {
                                             const i = context.p0DataIndex;
-                                            if (i <= 11) return '#052f5f';
-                                            if (i <= 23) return '#28a745';
-                                            return '#ffc107';
+                                            if (i <= 23) return '#052f5f';
+                        if (i <= 35) return '#28a745';
+                        if (i <= 47) return '#008080';
+                        return '#b38300';
                                         }
                                     }
                                 }]
@@ -2950,11 +2961,10 @@
                     }
                 }
 
-                const planes = [
-                    { nombre: 'Tradicional', tasa: '20%', plazo: '12 meses', ganancia: texto('ganancia-detalle-12'), total: texto('total-detalle-12'), retorno: texto('fecha-retorno-12') },
-                    { nombre: 'Moderado', tasa: '44%', plazo: '24 meses', ganancia: texto('ganancia-detalle-24'), total: texto('total-detalle-24'), retorno: texto('fecha-retorno-24') },
-                    { nombre: 'Alto Rendimiento', tasa: '148%', plazo: '60 meses', ganancia: texto('ganancia-detalle-60'), total: texto('total-detalle-60'), retorno: texto('fecha-retorno-60') }
-                ];
+                const planes = [[24,44],[36,72],[48,107],[60,148]].map(([m,t])=>({
+                    nombre: `Plan ${m/12} años`, tasa: `${t}%`, plazo: `${m} meses`,
+                    ganancia: texto(`ganancia-detalle-${m}`), total: texto(`total-detalle-${m}`), retorno: texto(`fecha-retorno-${m}`)
+                }));
 
                 // ===== PÁGINA 1: DETALLES + PROYECCIÓN =====
                 encabezado('Reporte de simulación · Plan 40');
@@ -3014,31 +3024,31 @@
                 pdf.setFont('helvetica', 'bold');
                 pdf.setFontSize(15);
                 pdf.setTextColor(5, 47, 95);
-                pdf.text('Proyección de tu Inversión', M, 169);
+                pdf.addPage();
+                encabezado('Proyección y resumen');
+                pdf.text('Proyección de tu Inversión', M, 40);
 
                 const chartImg = await capturarGraficaConFondoBlanco();
                 if (chartImg) {
                     pdf.setDrawColor(226, 232, 240);
-                    pdf.roundedRect(M, 174, CW, 66, 3, 3, 'S');
-                    pdf.addImage(chartImg, 'PNG', M + 2, 176, CW - 4, 62);
+                    pdf.roundedRect(M, 48, CW, 66, 3, 3, 'S');
+                    pdf.addImage(chartImg, 'PNG', M + 2, 50, CW - 4, 62);
                 } else {
                     pdf.setFont('helvetica', 'normal');
                     pdf.setFontSize(10);
                     pdf.setTextColor(71, 85, 105);
-                    pdf.text('No fue posible incrustar la gráfica, pero los resultados de la simulación sí se incluyen.', M, 182);
+                    pdf.text('No fue posible incrustar la gráfica, pero los resultados de la simulación sí se incluyen.', M, 60);
                 }
 
                 pdf.setFont('helvetica', 'bold');
                 pdf.setFontSize(12);
                 pdf.setTextColor(5, 47, 95);
-                pdf.text('Resumen', M, 249);
+                pdf.text('Resumen', M, 150);
+                pdf.setFont('helvetica','normal'); pdf.setFontSize(9);
+                pdf.text(pdf.splitTextToSize('Proyección ilustrativa entre plazos; los valores mensuales no representan pagos ni rendimientos contratados.', CW), M, 125);
 
-                const resumen = [
-                    ['Tradicional · 12 meses', texto('total-detalle-12')],
-                    ['Moderado · 24 meses', texto('total-detalle-24')],
-                    ['Alto Rendimiento · 60 meses', texto('total-detalle-60')]
-                ];
-                y = 257;
+                const resumen = planes.map(p=>[`${p.nombre} · ${p.plazo}`,p.total]);
+                y = 160;
                 resumen.forEach(([label, value]) => {
                     pdf.setFont('helvetica', 'normal');
                     pdf.setFontSize(9.8);
@@ -3074,10 +3084,8 @@
                 pdf.setFont('helvetica', 'bold');
                 pdf.setFontSize(8);
                 pdf.text('Institución', M + 3, y + 6.8);
-                pdf.text('Tasa', M + 57, y + 6.8);
-                pdf.text('12 meses', M + 80, y + 6.8);
-                pdf.text('24 meses', M + 117, y + 6.8);
-                pdf.text('60 meses', M + 154, y + 6.8);
+                pdf.text('Tasa', M + 42, y + 6.8);
+                [24,36,48,60].forEach((m,i)=>pdf.text(`${m/12} años`, M+86+i*32, y+6.8, {align:'right'}));
                 y += 10;
 
                 bancos.forEach((banco, index) => {
@@ -3089,29 +3097,26 @@
                     pdf.setFont('helvetica', 'normal');
                     pdf.setFontSize(8);
                     pdf.text(banco.nombre, M + 3, y + 7);
-                    pdf.text(banco.tasa, M + 57, y + 7);
-                    pdf.text(texto(`${banco.id}-12-g`), M + 80, y + 7);
-                    pdf.text(texto(`${banco.id}-24-g`), M + 117, y + 7);
-                    pdf.text(texto(`${banco.id}-60-g`), M + 154, y + 7);
+                    pdf.text(banco.tasa, M + 42, y + 7);
+                    pdf.setFontSize(7.2);
+                    [24,36,48,60].forEach((m,i)=>pdf.text(texto(`${banco.id}-${m}-g`), M+86+i*32, y+7, {align:'right'}));
                     y += 11;
                 });
 
                 y += 12;
                 pdf.setFillColor(5, 47, 95);
-                pdf.roundedRect(M, y, CW, 46, 4, 4, 'F');
+                pdf.roundedRect(M, y, CW, 66, 4, 4, 'F');
                 pdf.setTextColor(255, 255, 255);
                 pdf.setFont('helvetica', 'bold');
                 pdf.setFontSize(13);
                 pdf.text('Ganancias estimadas con CIP', M + 8, y + 12);
                 pdf.setFontSize(10);
-                pdf.text('Tradicional · 12 meses', M + 8, y + 24);
-                pdf.text(texto('ganancia-cip-12'), W - M - 8, y + 24, { align: 'right' });
-                pdf.text('Moderado · 24 meses', M + 8, y + 34);
-                pdf.text(texto('ganancia-cip-24'), W - M - 8, y + 34, { align: 'right' });
-                pdf.text('Alto Rendimiento · 60 meses', M + 8, y + 44);
-                pdf.text(texto('ganancia-cip-60'), W - M - 8, y + 44, { align: 'right' });
+                planes.forEach((p,i)=>{
+                    pdf.text(`${p.nombre} · ${p.plazo}`, M+8, y+24+i*11);
+                    pdf.text(p.ganancia, W-M-8, y+24+i*11, {align:'right'});
+                });
 
-                y += 60;
+                y += 80;
                 pdf.setFont('helvetica', 'normal');
                 pdf.setTextColor(100, 116, 139);
                 pdf.setFontSize(8.5);
